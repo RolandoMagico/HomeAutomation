@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FritzControl", "FritzControl\FritzControl.csproj", "{9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation", "HomeAutomation\HomeAutomation.csproj", "{6247B6E9-76BC-4104-83E6-57E97F64F69F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D} = {9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomationLib", "HomeAutomationLib\HomeAutomationLib.csproj", "{4BAA206E-C55A-4CF4-8F04-0F34445509F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DAE43D5-BC8D-4C6A-8969-4CE57FB1930D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6247B6E9-76BC-4104-83E6-57E97F64F69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6247B6E9-76BC-4104-83E6-57E97F64F69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6247B6E9-76BC-4104-83E6-57E97F64F69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6247B6E9-76BC-4104-83E6-57E97F64F69F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BAA206E-C55A-4CF4-8F04-0F34445509F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BAA206E-C55A-4CF4-8F04-0F34445509F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BAA206E-C55A-4CF4-8F04-0F34445509F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BAA206E-C55A-4CF4-8F04-0F34445509F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ED80082-8935-4CA1-9C7F-AC2438B7FC29}
+	EndGlobalSection
+EndGlobal

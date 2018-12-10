@@ -1,0 +1,4 @@
+Source/.vs
+Source/*/.vs
+Source/*/bin/Debug
+Source/*/obj
