@@ -23,9 +23,14 @@
 namespace FritzControl
 {
   using System;
+  using System.IO;
+  using System.Linq;
   using System.Net;
   using System.Net.Http;
+  using System.Text;
+  using System.Threading.Tasks;
   using System.Xml.Serialization;
+  using FritzControl.Tr064.ServiceHandling;
   using HomeAutomationLib;
   using Tr064;
 
@@ -68,16 +73,30 @@ namespace FritzControl
     }
 
     /// <summary>
+    /// Loads information about home automation from the device.
+    /// </summary>
+    public void LoadHomeAutomationInfo()
+    {
+      if (this.Description.Device.Services.FirstOrDefault(s => s.ServiceId.EndsWith("DE_Homeauto1")) is Service service)
+      {
+        Request request = new Request(service, service.Scpd.Actions.First());
+        if (this.LoadAndDeserializeXmlData<Response>(service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", new Envelope { Request = request }) is Response response)
+        {
+        }
+      }
+    }
+
+    /// <summary>
     /// Loads the services for the specific device.
     /// </summary>
     /// <param name="device">The device for which the services are loaded.</param>
     private void LoadDeviceServices(Device device)
     {
-      foreach (Service service in device.Services)
+      Parallel.ForEach(device.Services, service =>
       {
         Log.Debug($"Loading service description from {service.ScpdUrl}");
         service.Scpd = this.LoadAndDeserializeXmlData<ServiceControlProtocolDescription>(service.ScpdUrl, "urn:dslforum-org:service-1-0");
-      }
+      });
 
       device.Devices.ForEach(this.LoadDeviceServices);
     }
@@ -88,16 +107,39 @@ namespace FritzControl
     /// <typeparam name="T">The type of the deserialized object.</typeparam>
     /// <param name="requestUri">The URI which is used to retrieve the data.</param>
     /// <param name="defaultNamespace">The default namespace which is used for deserialization.</param>
+    /// <param name="request">The request data which should be sent. can be <c>null</c>.</param>
     /// <returns>The created instance of type <typeparamref name="T"/> or null if no valid response was received.</returns>
-    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace)
+    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace, Envelope request = null)
       where T : class
     {
       T result = null;
-      HttpClient httpClient = new HttpClient
+      HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") };
+      HttpResponseMessage response;
+      if (request != null)
       {
-        BaseAddress = new Uri($"http://{this.Hostname}:49000")
-      };
-      HttpResponseMessage response = httpClient.GetAsync(requestUri).Result;
+        HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, " /upnp/control/deviceinfo"); //requestUri);
+        httpRequestMessage.Version = HttpVersion.Version11;
+        //httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Service.ServiceType}#{request.Action.Name}");
+        httpRequestMessage.Headers.Add("SOAPACTION", $"urn:dslforum-org:service:DeviceInfo:1#GetSecurityPort");
+        XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+        ns.Add("s", defaultNamespace);
+        XmlSerializer serializer = new XmlSerializer(request.GetType());
+        using (MemoryStream memoryStream = new MemoryStream())
+        {
+          using (StreamWriter streamWriter = new StreamWriter(memoryStream, Encoding.UTF8))
+          {
+            serializer.Serialize(streamWriter, request, ns);
+            httpRequestMessage.Content = new StringContent(Encoding.UTF8.GetString(memoryStream.ToArray()), Encoding.UTF8, "text/xml");
+          }
+        }
+
+        response = httpClient.SendAsync(httpRequestMessage).Result;
+      }
+      else
+      {
+        response = httpClient.GetAsync(requestUri).Result;
+      }
+
       if (response.StatusCode == HttpStatusCode.OK)
       {
         XmlSerializer serializer = new XmlSerializer(typeof(T), defaultNamespace);

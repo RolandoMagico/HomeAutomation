@@ -1,4 +1,4 @@
-﻿// <copyright file="Program.cs" company="ContextQuickie">
+﻿// <copyright file="Response.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -20,30 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // </copyright>
-namespace HomeAutomation
+namespace FritzControl.Tr064.ServiceHandling
 {
-  using FritzControl;
-  using NLog;
-  using NLog.Common;
+  using System.Xml.Serialization;
 
   /// <summary>
-  /// Entry class of the application.
+  /// Class for creating a SOAP response.
   /// </summary>
-  public class Program
+  [XmlRoot("Envelope")]
+  public class Response
   {
-    /// <summary>
-    /// Entry method of the application.
-    /// </summary>
-    /// <param name="args">The program arguments.</param>
-    public static void Main(string[] args)
-    {
-#if DEBUG
-      InternalLogger.LogToConsole = true;
-#endif
-      FritzBox fritzBox = new FritzBox();
-      fritzBox.Connect();
-      fritzBox.LoadHomeAutomationInfo();
-      LogManager.Shutdown();
-    }
   }
 }

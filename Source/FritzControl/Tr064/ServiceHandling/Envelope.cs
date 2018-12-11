@@ -1,4 +1,4 @@
-﻿// <copyright file="Program.cs" company="ContextQuickie">
+﻿// <copyright file="Envelope.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -20,30 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // </copyright>
-namespace HomeAutomation
+namespace FritzControl.Tr064.ServiceHandling
 {
-  using FritzControl;
-  using NLog;
-  using NLog.Common;
+  using System.Xml.Serialization;
 
   /// <summary>
-  /// Entry class of the application.
+  /// Enveloper for SOAP serialization.
   /// </summary>
-  public class Program
+  [XmlType()]
+  [XmlRoot("Envelope", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
+  public class Envelope
   {
     /// <summary>
-    /// Entry method of the application.
+    /// Gets or sets the request in the envelope.
     /// </summary>
-    /// <param name="args">The program arguments.</param>
-    public static void Main(string[] args)
-    {
-#if DEBUG
-      InternalLogger.LogToConsole = true;
-#endif
-      FritzBox fritzBox = new FritzBox();
-      fritzBox.Connect();
-      fritzBox.LoadHomeAutomationInfo();
-      LogManager.Shutdown();
-    }
+    [XmlElement("Body")]
+    public Request Request { get; set; }
   }
 }
