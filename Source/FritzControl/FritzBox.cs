@@ -29,6 +29,7 @@ namespace FritzControl
   using System.Net.Http;
   using System.Text;
   using System.Threading.Tasks;
+  using System.Xml;
   using System.Xml.Serialization;
   using FritzControl.Tr064.ServiceHandling;
   using HomeAutomationLib;
@@ -117,20 +118,18 @@ namespace FritzControl
       HttpResponseMessage response;
       if (request != null)
       {
-        HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, " /upnp/control/deviceinfo"); //requestUri);
-        httpRequestMessage.Version = HttpVersion.Version11;
-        //httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Service.ServiceType}#{request.Action.Name}");
-        httpRequestMessage.Headers.Add("SOAPACTION", $"urn:dslforum-org:service:DeviceInfo:1#GetSecurityPort");
+        HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri);
+        //httpRequestMessage.Version = HttpVersion.Version11;
+        httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Request.Service.ServiceType}#{request.Request.Action.Name}");
+        //httpRequestMessage.Headers.Add("soapaction", $"\"urn:dslforum-org:service:DeviceInfo:1#GetSecurityPort\"");
+        //httpRequestMessage.Headers.Add("soapaction", $"urn:schemas-upnp-org:service:WANIPConnection:1#GetStatusInfo");
         XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
         ns.Add("s", defaultNamespace);
         XmlSerializer serializer = new XmlSerializer(request.GetType());
-        using (MemoryStream memoryStream = new MemoryStream())
+        using (StringWriter stringWriter = new StringWriter())
         {
-          using (StreamWriter streamWriter = new StreamWriter(memoryStream, Encoding.UTF8))
-          {
-            serializer.Serialize(streamWriter, request, ns);
-            httpRequestMessage.Content = new StringContent(Encoding.UTF8.GetString(memoryStream.ToArray()), Encoding.UTF8, "text/xml");
-          }
+          serializer.Serialize(stringWriter, request, ns);
+          httpRequestMessage.Content = new StringContent(stringWriter.ToString(), Encoding.UTF8, "text/xml");
         }
 
         response = httpClient.SendAsync(httpRequestMessage).Result;

@@ -22,12 +22,12 @@
 // </copyright>
 namespace FritzControl.Tr064.ServiceHandling
 {
+  using System.Xml.Schema;
   using System.Xml.Serialization;
 
   /// <summary>
   /// Enveloper for SOAP serialization.
   /// </summary>
-  [XmlType()]
   [XmlRoot("Envelope", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
   public class Envelope
   {
@@ -36,5 +36,11 @@ namespace FritzControl.Tr064.ServiceHandling
     /// </summary>
     [XmlElement("Body")]
     public Request Request { get; set; }
+
+    /// <summary>
+    /// Gets or sets the encoding style.
+    /// </summary>
+    [XmlAttribute("encodingStyle", Form = XmlSchemaForm.Qualified)]
+    public string EncodingStyle { get; set; } = "http://schemas.xmlsoap.org/soap/encoding/";
   }
 }

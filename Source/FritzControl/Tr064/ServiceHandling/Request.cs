@@ -73,15 +73,9 @@ namespace FritzControl.Tr064.ServiceHandling
     /// <inheritdoc/>
     public void WriteXml(XmlWriter writer)
     {
-      //writer.WriteStartElement("u", $"{this.Action.Name}", this.Service.ServiceType);
-      writer.WriteStartElement("u", $"GetSecurityPort", "urn:dslforumorg:service:DeviceInfo:1");
+      writer.WriteStartElement("u", $"{this.Action.Name}", this.Service.ServiceType);
+      //writer.WriteStartElement("u", $"GetSecurityPort", "urn:dslforumorg:service:DeviceInfo:1");
       writer.WriteEndElement();
     }
-
-    /// <summary>
-    /// Gets or sets the encoding style.
-    /// </summary>
-    // [XmlAttribute("encodingStyle")]
-    // public string EncodingStyle { get; set; } = "http://schemas.xmlsoap.org/soap/encoding/";
   }
 }
