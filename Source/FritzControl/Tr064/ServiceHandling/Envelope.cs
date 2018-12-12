@@ -28,14 +28,26 @@ namespace FritzControl.Tr064.ServiceHandling
   /// <summary>
   /// Enveloper for SOAP serialization.
   /// </summary>
-  [XmlRoot("Envelope", Namespace = "http://schemas.xmlsoap.org/soap/envelope/")]
+  [XmlRoot("Envelope", Namespace = DefaultNamespace)]
   public class Envelope
   {
+    /// <summary>
+    /// The default namespace for serialization.
+    /// </summary>
+    [XmlIgnore]
+    internal const string DefaultNamespace = "http://schemas.xmlsoap.org/soap/envelope/";
+
+    /// <summary>
+    /// Gets or sets the header of the envelope.
+    /// </summary>
+    [XmlElement("Header", Namespace = DefaultNamespace, Form = XmlSchemaForm.Qualified)]
+    public Header Header { get; set; }
+
     /// <summary>
     /// Gets or sets the request in the envelope.
     /// </summary>
     [XmlElement("Body")]
-    public Request Request { get; set; }
+    public EnvelopeBody Body { get; set; }
 
     /// <summary>
     /// Gets or sets the encoding style.

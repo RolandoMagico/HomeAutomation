@@ -1,4 +1,4 @@
-﻿// <copyright file="Action.cs" company="ContextQuickie">
+﻿// <copyright file="SoapAction.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -28,7 +28,7 @@ namespace FritzControl.Tr064
   /// <summary>
   /// This class respresents a action node in a <see cref="ServiceControlProtocolDescription"/> element.
   /// </summary>
-  public class Action : BasedNamedElement
+  public class SoapAction : BasedNamedElement
   {
     /// <summary>
     /// Gets or sets the arguments.

@@ -1,4 +1,4 @@
-﻿// <copyright file="Request.cs" company="ContextQuickie">
+﻿// <copyright file="Header.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // </copyright>
+
 namespace FritzControl.Tr064.ServiceHandling
 {
   using System.Xml;
@@ -27,40 +28,34 @@ namespace FritzControl.Tr064.ServiceHandling
   using System.Xml.Serialization;
 
   /// <summary>
-  /// Class for creating a SOAP request.
+  /// Header data for a SOAP request.
   /// </summary>
-  public class Request : IXmlSerializable
+  public class Header : IXmlSerializable
   {
     /// <summary>
-    /// Initializes a new instance of the <see cref="Request"/> class.
-    /// This default constructor should only be used by XML serialization.
+    /// Gets or sets the user ID.
     /// </summary>
-    public Request()
-    {
-    }
+    public string UserId { get; set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Request"/> class.
+    /// Gets or sets the nonce for authentification.
     /// </summary>
-    /// <param name="service">The service for this request.</param>
-    /// <param name="action">The action for this request.</param>
-    public Request(Service service, Action action)
-    {
-      this.Action = action;
-      this.Service = service;
-    }
+    public string Nonce { get; set; }
 
     /// <summary>
-    /// Gets or sets the service.
+    /// Gets or sets the token for authentification.
     /// </summary>
-    [XmlIgnore]
-    public Service Service { get; set; }
+    public string AuthToken { get; set; }
 
     /// <summary>
-    /// Gets or sets the action.
+    /// Gets or sets the realm for authentification.
     /// </summary>
-    [XmlIgnore]
-    public Action Action { get; set; }
+    public string Realm { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this header is for the initial challenge or not.
+    /// </summary>
+    public bool InitialChanllenge { get; set; }
 
     /// <inheritdoc/>
     public XmlSchema GetSchema() => null;
@@ -73,8 +68,36 @@ namespace FritzControl.Tr064.ServiceHandling
     /// <inheritdoc/>
     public void WriteXml(XmlWriter writer)
     {
-      writer.WriteStartElement("u", $"{this.Action.Name}", this.Service.ServiceType);
-      //writer.WriteStartElement("u", $"GetSecurityPort", "urn:dslforumorg:service:DeviceInfo:1");
+      if (this.InitialChanllenge)
+      {
+        writer.WriteStartElement("h", "InitChallenge", "http://soap-authentication.org/digest/2001/10/");
+      }
+      else
+      {
+        writer.WriteStartElement("h", "ClientAuth", "http://soap-authentication.org/digest/2001/10/");
+      }
+
+      writer.WriteAttributeString("mustunderstand", Envelope.DefaultNamespace, "1");
+      if (this.Nonce != null)
+      {
+        writer.WriteElementString(nameof(this.Nonce), this.Nonce);
+      }
+
+      if (this.AuthToken != null)
+      {
+        writer.WriteElementString("Auth", this.AuthToken);
+      }
+
+      if (this.UserId != null)
+      {
+        writer.WriteElementString(nameof(this.UserId), this.UserId);
+      }
+
+      if (this.Realm != null)
+      {
+        writer.WriteElementString(nameof(this.Realm), this.Realm);
+      }
+
       writer.WriteEndElement();
     }
   }

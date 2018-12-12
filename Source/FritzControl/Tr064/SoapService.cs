@@ -1,4 +1,4 @@
-﻿// <copyright file="Service.cs" company="ContextQuickie">
+﻿// <copyright file="SoapService.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -22,12 +22,13 @@
 // </copyright>
 namespace FritzControl.Tr064
 {
+  using System.Linq;
   using System.Xml.Serialization;
 
   /// <summary>
   /// This class respresents a service node in a <see cref="Device"/> element.
   /// </summary>
-  public class Service
+  public class SoapService
   {
     /// <summary>
     /// Gets or sets the service type.
@@ -67,5 +68,12 @@ namespace FritzControl.Tr064
 
     /// <inheritdoc/>
     public override string ToString() => this.ServiceId;
+
+    /// <summary>
+    /// Gets the <see cref="SoapAction"/> with the specific name.
+    /// </summary>
+    /// <param name="actionName">The name of the <see cref="SoapAction"/>.</param>
+    /// <returns>The <see cref="SoapAction"/> with the specific name or <c>null</c> if no <see cref="SoapAction"/> with the name is present.</returns>
+    public SoapAction GetAction(string actionName) => this.Scpd.Actions.FirstOrDefault(a => a.Name == actionName);
   }
 }

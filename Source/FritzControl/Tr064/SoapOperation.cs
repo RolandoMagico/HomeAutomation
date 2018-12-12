@@ -1,4 +1,4 @@
-﻿// <copyright file="Response.cs" company="ContextQuickie">
+﻿// <copyright file="SoapOperation.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -20,15 +20,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // </copyright>
-namespace FritzControl.Tr064.ServiceHandling
-{
-  using System.Xml.Serialization;
 
+namespace FritzControl.Tr064
+{
   /// <summary>
-  /// Class for creating a SOAP response.
+  /// Class for storing a <see cref="SoapService"/> and a <see cref="SoapAction"/>.
   /// </summary>
-  [XmlRoot("Envelope")]
-  public class Response
+  public class SoapOperation
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="SoapOperation"/> class.
+    /// </summary>
+    /// <param name="service">The service of the operation.</param>
+    /// <param name="action">The action of the operation.</param>
+    public SoapOperation(SoapService service, SoapAction action)
+    {
+      this.Service = service;
+      this.Action = action;
+    }
+
+    /// <summary>
+    /// Gets the service of this operation.
+    /// </summary>
+    public SoapService Service { get; }
+
+    /// <summary>
+    /// Gets the action of this operation.
+    /// </summary>
+    public SoapAction Action { get; }
   }
 }

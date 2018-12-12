@@ -29,7 +29,6 @@ namespace FritzControl
   using System.Net.Http;
   using System.Text;
   using System.Threading.Tasks;
-  using System.Xml;
   using System.Xml.Serialization;
   using FritzControl.Tr064.ServiceHandling;
   using HomeAutomationLib;
@@ -70,6 +69,7 @@ namespace FritzControl
       {
         this.Description = description;
         this.LoadDeviceServices(this.Description.Device);
+        this.Authenticate();
       }
     }
 
@@ -78,10 +78,25 @@ namespace FritzControl
     /// </summary>
     public void LoadHomeAutomationInfo()
     {
-      if (this.Description.Device.Services.FirstOrDefault(s => s.ServiceId.EndsWith("DE_Homeauto1")) is Service service)
+      if (this.Description.Device.Services.FirstOrDefault(s => s.ServiceId.EndsWith("DE_Homeauto1")) is SoapService service)
       {
-        Request request = new Request(service, service.Scpd.Actions.First());
-        if (this.LoadAndDeserializeXmlData<Response>(service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", new Envelope { Request = request }) is Response response)
+        EnvelopeBody request = new EnvelopeBody(service, service.Scpd.Actions.First());
+        if (this.LoadAndDeserializeXmlData<Envelope>(service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", new Envelope { Body = request }) is Envelope response)
+        {
+        }
+      }
+    }
+
+    /// <summary>
+    /// Performs authentification with the current <see cref="Username"/> and <see cref="Password"/>.
+    /// </summary>
+    private void Authenticate()
+    {
+      if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:DeviceInfo:1", "GetInfo") is SoapOperation operation)
+      {
+        Header initChallenge = new Header { UserId = this.Username, InitialChanllenge = true };
+        Envelope envelope = new Envelope { Header = initChallenge, Body = new EnvelopeBody(operation) };
+        if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", envelope) is Envelope response)
         {
         }
       }
@@ -108,27 +123,28 @@ namespace FritzControl
     /// <typeparam name="T">The type of the deserialized object.</typeparam>
     /// <param name="requestUri">The URI which is used to retrieve the data.</param>
     /// <param name="defaultNamespace">The default namespace which is used for deserialization.</param>
-    /// <param name="request">The request data which should be sent. can be <c>null</c>.</param>
+    /// <param name="envelope">The request data which should be sent. can be <c>null</c>.</param>
     /// <returns>The created instance of type <typeparamref name="T"/> or null if no valid response was received.</returns>
-    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace, Envelope request = null)
+    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace, Envelope envelope = null)
       where T : class
     {
       T result = null;
       HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") };
       HttpResponseMessage response;
-      if (request != null)
+      if (envelope != null)
       {
         HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri);
-        //httpRequestMessage.Version = HttpVersion.Version11;
-        httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Request.Service.ServiceType}#{request.Request.Action.Name}");
-        //httpRequestMessage.Headers.Add("soapaction", $"\"urn:dslforum-org:service:DeviceInfo:1#GetSecurityPort\"");
-        //httpRequestMessage.Headers.Add("soapaction", $"urn:schemas-upnp-org:service:WANIPConnection:1#GetStatusInfo");
+        if (envelope.Body != null)
+        {
+          httpRequestMessage.Headers.Add("SOAPACTION", $"{envelope.Body.Service.ServiceType}#{envelope.Body.Action.Name}");
+        }
+
         XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
         ns.Add("s", defaultNamespace);
-        XmlSerializer serializer = new XmlSerializer(request.GetType());
+        XmlSerializer serializer = new XmlSerializer(envelope.GetType());
         using (StringWriter stringWriter = new StringWriter())
         {
-          serializer.Serialize(stringWriter, request, ns);
+          serializer.Serialize(stringWriter, envelope, ns);
           httpRequestMessage.Content = new StringContent(stringWriter.ToString(), Encoding.UTF8, "text/xml");
         }
 

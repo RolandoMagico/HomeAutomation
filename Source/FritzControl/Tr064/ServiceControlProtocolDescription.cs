@@ -36,7 +36,7 @@ namespace FritzControl.Tr064
     /// </summary>
     [XmlArrayItem("action")]
     [XmlArray("actionList")]
-    public List<Action> Actions { get; set; } = new List<Action>();
+    public List<SoapAction> Actions { get; set; } = new List<SoapAction>();
 
     /// <summary>
     /// Gets or sets the actions.

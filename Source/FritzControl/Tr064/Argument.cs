@@ -25,7 +25,7 @@ namespace FritzControl.Tr064
   using System.Xml.Serialization;
 
   /// <summary>
-  /// This class respresents a argument node in a <see cref="Action"/> element.
+  /// This class respresents a argument node in a <see cref="SoapAction"/> element.
   /// </summary>
   public class Argument : BasedNamedElement
   {

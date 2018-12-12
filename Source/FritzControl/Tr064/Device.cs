@@ -23,6 +23,7 @@
 namespace FritzControl.Tr064
 {
   using System.Collections.Generic;
+  using System.Linq;
   using System.Xml.Serialization;
 
   /// <summary>
@@ -108,7 +109,7 @@ namespace FritzControl.Tr064
     /// </summary>
     [XmlArrayItem("service")]
     [XmlArray("serviceList")]
-    public List<Service> Services { get; set; } = new List<Service>();
+    public List<SoapService> Services { get; set; } = new List<SoapService>();
 
     /// <summary>
     /// Gets or sets the services.
@@ -116,5 +117,28 @@ namespace FritzControl.Tr064
     [XmlArrayItem("device")]
     [XmlArray("deviceList")]
     public List<Device> Devices { get; set; } = new List<Device>();
+
+    /// <summary>
+    /// Gets the service with the specific service ID.
+    /// </summary>
+    /// <param name="servicType">The service type.</param>
+    /// <returns>The service with the specific service ID or <c>null</c> if no service with the service ID is present.</returns>
+    public SoapService GetService(string servicType) => this.Services.FirstOrDefault(s => s.ServiceType == servicType);
+
+    /// <summary>
+    /// Gets the SOAP operation with the specific service ID and action name.
+    /// </summary>
+    /// <param name="servicType">The service type.</param>
+    /// <param name="actionName">The name of the <see cref="SoapAction"/>.</param>
+    /// <returns>The operation with the specific service ID and action name or <c>null</c> if no operation has been found.</returns>
+    public SoapOperation GetSoapOperation(string servicType, string actionName)
+    {
+      if (this.GetService(servicType) is SoapService service && service.GetAction(actionName) is SoapAction action)
+      {
+        return new SoapOperation(service, action);
+      }
+
+      return null;
+    }
   }
 }
