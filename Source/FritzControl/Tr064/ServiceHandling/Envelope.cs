@@ -22,14 +22,14 @@
 // </copyright>
 namespace FritzControl.Tr064.ServiceHandling
 {
-  using System.Xml.Schema;
+  using System.Xml;
+  using System.Xml.Linq;
   using System.Xml.Serialization;
 
   /// <summary>
   /// Enveloper for SOAP serialization.
   /// </summary>
-  [XmlRoot("Envelope", Namespace = DefaultNamespace)]
-  public class Envelope
+  public class Envelope : ISoapXmlElement
   {
     /// <summary>
     /// The default namespace for serialization.
@@ -38,21 +38,35 @@ namespace FritzControl.Tr064.ServiceHandling
     internal const string DefaultNamespace = "http://schemas.xmlsoap.org/soap/envelope/";
 
     /// <summary>
+    /// The default namespace prefix.
+    /// </summary>
+    internal const string DefaultNamespacePrefix = "s";
+
+    /// <summary>
     /// Gets or sets the header of the envelope.
     /// </summary>
-    [XmlElement("Header", Namespace = DefaultNamespace, Form = XmlSchemaForm.Qualified)]
     public Header Header { get; set; }
 
     /// <summary>
     /// Gets or sets the request in the envelope.
     /// </summary>
-    [XmlElement("Body")]
-    public EnvelopeBody Body { get; set; }
+    public Body Body { get; set; }
 
-    /// <summary>
-    /// Gets or sets the encoding style.
-    /// </summary>
-    [XmlAttribute("encodingStyle", Form = XmlSchemaForm.Qualified)]
-    public string EncodingStyle { get; set; } = "http://schemas.xmlsoap.org/soap/encoding/";
+    /// <inheritdoc/>
+    public void ReadXml(XElement element)
+    {
+    }
+
+    /// <inheritdoc/>
+    public void WriteXml(XmlWriter writer)
+    {
+      writer.WriteStartElement(DefaultNamespacePrefix, nameof(Envelope), DefaultNamespace);
+      writer.WriteAttributeString("encodingStyle", DefaultNamespace, "http://schemas.xmlsoap.org/soap/encoding/");
+
+      this.Header?.WriteXml(writer);
+      this.Body?.WriteXml(writer);
+
+      writer.WriteEndElement();
+    }
   }
 }

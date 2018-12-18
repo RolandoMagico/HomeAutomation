@@ -24,13 +24,12 @@
 namespace FritzControl.Tr064.ServiceHandling
 {
   using System.Xml;
-  using System.Xml.Schema;
-  using System.Xml.Serialization;
+  using System.Xml.Linq;
 
   /// <summary>
   /// Header data for a SOAP request.
   /// </summary>
-  public class Header : IXmlSerializable
+  public class Header : ISoapXmlElement
   {
     /// <summary>
     /// Gets or sets the user ID.
@@ -58,16 +57,14 @@ namespace FritzControl.Tr064.ServiceHandling
     public bool InitialChanllenge { get; set; }
 
     /// <inheritdoc/>
-    public XmlSchema GetSchema() => null;
-
-    /// <inheritdoc/>
-    public void ReadXml(XmlReader reader)
+    public void ReadXml(XElement element)
     {
     }
 
     /// <inheritdoc/>
     public void WriteXml(XmlWriter writer)
     {
+      writer.WriteStartElement(nameof(Header), Envelope.DefaultNamespace);
       if (this.InitialChanllenge)
       {
         writer.WriteStartElement("h", "InitChallenge", "http://soap-authentication.org/digest/2001/10/");
@@ -90,7 +87,7 @@ namespace FritzControl.Tr064.ServiceHandling
 
       if (this.UserId != null)
       {
-        writer.WriteElementString(nameof(this.UserId), this.UserId);
+        writer.WriteElementString("UserID", this.UserId);
       }
 
       if (this.Realm != null)
@@ -98,6 +95,7 @@ namespace FritzControl.Tr064.ServiceHandling
         writer.WriteElementString(nameof(this.Realm), this.Realm);
       }
 
+      writer.WriteEndElement();
       writer.WriteEndElement();
     }
   }

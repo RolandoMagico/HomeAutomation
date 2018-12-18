@@ -29,6 +29,8 @@ namespace FritzControl
   using System.Net.Http;
   using System.Text;
   using System.Threading.Tasks;
+  using System.Xml;
+  using System.Xml.Linq;
   using System.Xml.Serialization;
   using FritzControl.Tr064.ServiceHandling;
   using HomeAutomationLib;
@@ -47,7 +49,7 @@ namespace FritzControl
     /// <summary>
     /// Gets or sets the user name for the access.
     /// </summary>
-    public string Username { get; set; }
+    public string Username { get; set; } = "HomeAutomation";
 
     /// <summary>
     /// Gets or sets the password for the access.
@@ -80,7 +82,7 @@ namespace FritzControl
     {
       if (this.Description.Device.Services.FirstOrDefault(s => s.ServiceId.EndsWith("DE_Homeauto1")) is SoapService service)
       {
-        EnvelopeBody request = new EnvelopeBody(service, service.Scpd.Actions.First());
+        Body request = new Body(service, service.Scpd.Actions.First());
         if (this.LoadAndDeserializeXmlData<Envelope>(service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", new Envelope { Body = request }) is Envelope response)
         {
         }
@@ -95,7 +97,7 @@ namespace FritzControl
       if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:DeviceInfo:1", "GetInfo") is SoapOperation operation)
       {
         Header initChallenge = new Header { UserId = this.Username, InitialChanllenge = true };
-        Envelope envelope = new Envelope { Header = initChallenge, Body = new EnvelopeBody(operation) };
+        Envelope envelope = new Envelope { Header = initChallenge, Body = new Body(operation) };
         if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", envelope) is Envelope response)
         {
         }
@@ -123,45 +125,70 @@ namespace FritzControl
     /// <typeparam name="T">The type of the deserialized object.</typeparam>
     /// <param name="requestUri">The URI which is used to retrieve the data.</param>
     /// <param name="defaultNamespace">The default namespace which is used for deserialization.</param>
-    /// <param name="envelope">The request data which should be sent. can be <c>null</c>.</param>
     /// <returns>The created instance of type <typeparamref name="T"/> or null if no valid response was received.</returns>
-    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace, Envelope envelope = null)
+    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace)
       where T : class
     {
       T result = null;
-      HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") };
-      HttpResponseMessage response;
-      if (envelope != null)
+      using (HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") })
       {
-        HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri);
-        if (envelope.Body != null)
+        using (HttpResponseMessage response = httpClient.GetAsync(requestUri).Result)
         {
-          httpRequestMessage.Headers.Add("SOAPACTION", $"{envelope.Body.Service.ServiceType}#{envelope.Body.Action.Name}");
+          if (response.StatusCode == HttpStatusCode.OK)
+          {
+            XmlSerializer serializer = new XmlSerializer(typeof(T), defaultNamespace);
+            serializer.UnknownNode += (object sender, XmlNodeEventArgs e) => Log.Warn($@"Unknown XML {e.NodeType} ""{e.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
+            result = serializer.Deserialize(response.Content.ReadAsStreamAsync().Result) as T;
+          }
         }
-
-        XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
-        ns.Add("s", defaultNamespace);
-        XmlSerializer serializer = new XmlSerializer(envelope.GetType());
-        using (StringWriter stringWriter = new StringWriter())
-        {
-          serializer.Serialize(stringWriter, envelope, ns);
-          httpRequestMessage.Content = new StringContent(stringWriter.ToString(), Encoding.UTF8, "text/xml");
-        }
-
-        response = httpClient.SendAsync(httpRequestMessage).Result;
-      }
-      else
-      {
-        response = httpClient.GetAsync(requestUri).Result;
       }
 
-      if (response.StatusCode == HttpStatusCode.OK)
+      return result;
+    }
+
+    /// <summary>
+    /// Loads data from the specific URI and deserializes the received data into an object.
+    /// </summary>
+    /// <typeparam name="T">The type of the deserialized object.</typeparam>
+    /// <param name="requestUri">The URI which is used to retrieve the data.</param>
+    /// <param name="defaultNamespace">The default namespace which is used for deserialization.</param>
+    /// <param name="envelope">The request data which should be sent. can be <c>null</c>.</param>
+    /// <returns>The created instance of type <typeparamref name="T"/> or null if no valid response was received.</returns>
+    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace, Envelope envelope)
+      where T : class, ISoapXmlElement
+    {
+      T result = null;
+      using (HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") })
       {
-        XmlSerializer serializer = new XmlSerializer(typeof(T), defaultNamespace);
-        serializer.UnknownAttribute += (object sender, XmlAttributeEventArgs e) => Log.Warn($@"Unknown XML attribute ""{e.Attr.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
-        serializer.UnknownElement += (object sender, XmlElementEventArgs e) => Log.Warn($@"Unknown XML element ""{e.Element.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
-        serializer.UnknownNode += (object sender, XmlNodeEventArgs e) => Log.Warn($@"Unknown XML node ""{e.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
-        result = serializer.Deserialize(response.Content.ReadAsStreamAsync().Result) as T;
+        using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri))
+        {
+          if (envelope.Body != null)
+          {
+            httpRequestMessage.Headers.Add("SOAPACTION", $"{envelope.Body.Service.ServiceType}#{envelope.Body.Action.Name}");
+          }
+
+          using (MemoryStream memoryStream = new MemoryStream())
+          {
+            XmlWriterSettings xmlWriterSettings = new XmlWriterSettings { Encoding = new UTF8Encoding(false), Indent = true };
+            using (XmlWriter xmlWriter = XmlWriter.Create(memoryStream, xmlWriterSettings))
+            {
+              envelope.WriteXml(xmlWriter);
+            }
+
+            // Do display the content of the memory stream in the watch window, use: Encoding.UTF8.GetString(memoryStream.ToArray()), nq
+            httpRequestMessage.Content = new StringContent(Encoding.UTF8.GetString(memoryStream.ToArray()), Encoding.UTF8, "text/xml");
+          }
+
+          using (HttpResponseMessage response = httpClient.SendAsync(httpRequestMessage).Result)
+          {
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+              result = Activator.CreateInstance<T>();
+              XDocument xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
+              result.ReadXml(xmlDocument.Root);
+            }
+          }
+        }
       }
 
       return result;
