@@ -27,7 +27,7 @@ namespace FritzControl.Tr064.ServiceHandling
   /// <summary>
   /// Enveloper for SOAP serialization.
   /// </summary>
-  public class Envelope : ISoapXmlElement
+  public class Envelope : BaseSoapXmlElement
   {
     /// <summary>
     /// The default namespace prefix.
@@ -50,7 +50,7 @@ namespace FritzControl.Tr064.ServiceHandling
     internal static XNamespace DefaultNamespace { get; } = "http://schemas.xmlsoap.org/soap/envelope/";
 
     /// <inheritdoc/>
-    public void ReadXml(XContainer container)
+    protected override void ReadXmlInternal(XContainer container)
     {
       if (container.Element(DefaultNamespace + nameof(Envelope)) is XElement envelope)
       {
@@ -69,7 +69,7 @@ namespace FritzControl.Tr064.ServiceHandling
     }
 
     /// <inheritdoc/>
-    public void WriteXml(XContainer container)
+    protected override void WriteXmlInternal(XContainer container)
     {
       XElement envelope = new XElement(
         DefaultNamespace + nameof(Envelope),

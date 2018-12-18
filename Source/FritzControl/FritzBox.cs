@@ -23,9 +23,11 @@
 namespace FritzControl
 {
   using System;
+  using System.Collections.Generic;
   using System.Linq;
   using System.Net;
   using System.Net.Http;
+  using System.Security.Cryptography;
   using System.Text;
   using System.Threading.Tasks;
   using System.Xml.Linq;
@@ -47,7 +49,7 @@ namespace FritzControl
     /// <summary>
     /// Gets or sets the user name for the access.
     /// </summary>
-    public string Username { get; set; } = "HomeAutomation";
+    public string Username { get; set; } = "Homebridge";
 
     /// <summary>
     /// Gets or sets the password for the access.
@@ -70,6 +72,7 @@ namespace FritzControl
         this.Description = description;
         this.LoadDeviceServices(this.Description.Device);
         this.Authenticate();
+        this.LoadHomeAutomationInfo();
       }
     }
 
@@ -78,11 +81,19 @@ namespace FritzControl
     /// </summary>
     public void LoadHomeAutomationInfo()
     {
-      if (this.Description.Device.Services.FirstOrDefault(s => s.ServiceId.EndsWith("DE_Homeauto1")) is SoapService service)
+      List<string> actions = new List<string> { "GetInfo", "GetGenericDeviceInfos", "GetSpecificDeviceInfos" };
+      foreach (string action in actions)
       {
-        Body request = new Body(service, service.Scpd.Actions.First());
-        if (this.LoadAndDeserializeXmlData<Envelope>(service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", new Envelope { Body = request }) is Envelope response)
+        if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:X_AVM-DE_Homeauto:1", action) is SoapOperation operation)
         {
+          Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
+          Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
+          Envelope envelope = new Envelope { Header = clientAuthentification, Body = new Body(operation) };
+          if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, envelope) is Envelope response)
+          {
+            Log.Debug($"Result from {operation.Service.ServiceId}, {operation.Action.Name}:");
+            Log.Debug(response.XmlContainer.ToString());
+          }
         }
       }
     }
@@ -96,10 +107,30 @@ namespace FritzControl
       {
         Header initChallenge = new Header { UserId = this.Username, InitialChanllenge = true };
         Envelope envelope = new Envelope { Header = initChallenge, Body = new Body(operation) };
-        if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, "http://schemas.xmlsoap.org/soap/envelope/", envelope) is Envelope response)
+        if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, envelope) is Envelope response)
         {
+          Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
+          envelope = new Envelope { Header = clientAuthentification, Body = new Body(operation) };
+          if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, envelope) is Envelope response2)
+          {
+          }
         }
       }
+    }
+
+    /// <summary>
+    /// Calculates the token for the authentification.
+    /// </summary>
+    /// <returns>The calculated token.</returns>
+    private string CalcuateAuthToken()
+    {
+      MD5 md5 = MD5.Create();
+      byte[] hash1 = md5.ComputeHash(Encoding.ASCII.GetBytes($"{this.Username}:{Header.LastRealm}:{this.Password}"));
+      string hash1String = string.Concat(hash1.Select(value => value.ToString("x2")));
+
+      byte[] hash2 = md5.ComputeHash(Encoding.ASCII.GetBytes($"{hash1String}:{Header.LastNonce}"));
+      string hash2String = string.Concat(hash2.Select(value => value.ToString("x2")));
+      return hash2String;
     }
 
     /// <summary>
@@ -149,10 +180,9 @@ namespace FritzControl
     /// </summary>
     /// <typeparam name="T">The type of the deserialized object.</typeparam>
     /// <param name="requestUri">The URI which is used to retrieve the data.</param>
-    /// <param name="defaultNamespace">The default namespace which is used for deserialization.</param>
     /// <param name="envelope">The request data which should be sent. can be <c>null</c>.</param>
     /// <returns>The created instance of type <typeparamref name="T"/> or null if no valid response was received.</returns>
-    private T LoadAndDeserializeXmlData<T>(string requestUri, string defaultNamespace, Envelope envelope)
+    private T LoadAndDeserializeXmlData<T>(string requestUri, Envelope envelope)
       where T : class, ISoapXmlElement
     {
       T result = null;
@@ -167,8 +197,6 @@ namespace FritzControl
 
           XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
           envelope.WriteXml(xmlDocument);
-
-          // Do display the content of the memory stream in the watch window, use: Encoding.UTF8.GetString(memoryStream.ToArray()), nq
           httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
 
           using (HttpResponseMessage response = httpClient.SendAsync(httpRequestMessage).Result)

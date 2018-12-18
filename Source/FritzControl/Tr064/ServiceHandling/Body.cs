@@ -76,9 +76,19 @@ namespace FritzControl.Tr064.ServiceHandling
     [XmlIgnore]
     public SoapAction Action { get; set; }
 
+    /// <summary>
+    /// Gets or sets the fault.
+    /// </summary>
+    public Fault Fault { get; set; }
+
     /// <inheritdoc/>
     public void ReadXml(XContainer container)
     {
+      if (container.Element(Envelope.DefaultNamespace + nameof(this.Fault)) is XElement faultXml)
+      {
+        this.Fault = new Fault();
+        this.Fault.ReadXml(faultXml);
+      }
     }
 
     /// <inheritdoc/>
@@ -90,6 +100,8 @@ namespace FritzControl.Tr064.ServiceHandling
         defaultNamespace + this.Action.Name,
         new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, defaultNamespace)));
       container.Add(body);
+
+      this.Fault?.WriteXml(body);
     }
   }
 }

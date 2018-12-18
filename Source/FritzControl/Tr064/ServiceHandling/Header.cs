@@ -28,12 +28,22 @@ namespace FritzControl.Tr064.ServiceHandling
   /// <summary>
   /// Header data for a SOAP request.
   /// </summary>
-  public class Header : ISoapXmlElement
+  public class Header : BaseSoapXmlElement
   {
     /// <summary>
     /// The default namespace prefix.
     /// </summary>
     internal const string DefaultNamespacePrefix = "h";
+
+    /// <summary>
+    /// Gets or sets the last received realm.
+    /// </summary>
+    public static string LastRealm { get; set; }
+
+    /// <summary>
+    /// Gets or sets the last received nonce.
+    /// </summary>
+    public static string LastNonce { get; set; }
 
     /// <summary>
     /// Gets or sets the user ID.
@@ -61,45 +71,61 @@ namespace FritzControl.Tr064.ServiceHandling
     public bool InitialChanllenge { get; set; }
 
     /// <summary>
+    /// Gets or sets the status for authentification.
+    /// </summary>
+    public string Status { get; set; }
+
+    /// <summary>
     /// Gets the default namespace for this element.
     /// </summary>
     internal static XNamespace DefaultNamespace { get; } = "http://soap-authentication.org/digest/2001/10/";
 
     /// <inheritdoc/>
-    public void ReadXml(XContainer container)
+    protected override void ReadXmlInternal(XContainer container)
     {
+      XElement challengeXml = container.Element(DefaultNamespace + "Challenge");
+      if (challengeXml == null)
+      {
+        challengeXml = container.Element(DefaultNamespace + "NextChallenge");
+      }
+
+      if (challengeXml != null)
+      {
+        LastNonce = this.Nonce = this.GetChildElementValue(challengeXml, nameof(this.Nonce));
+        LastRealm = this.Realm = this.GetChildElementValue(challengeXml, nameof(this.Realm));
+        this.Status = this.GetChildElementValue(challengeXml, nameof(this.Status));
+        Log.Debug($"Received header: {challengeXml.Name.LocalName}:");
+        Log.Debug($"Nonce: {LastNonce}");
+        Log.Debug($"Realm: {LastRealm}");
+        Log.Debug($"Status: {this.Status}");
+      }
     }
 
     /// <inheritdoc/>
-    public void WriteXml(XContainer container)
+    protected override void WriteXmlInternal(XContainer container)
     {
       XElement header = new XElement(Envelope.DefaultNamespace + nameof(Header));
       string authType = this.InitialChanllenge ? "InitChallenge" : "ClientAuth";
       XElement authentification = new XElement(
         DefaultNamespace + authType,
         new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, DefaultNamespace),
-        new XAttribute(Envelope.DefaultNamespace + "mustunderstand", "1"));
+        new XAttribute(Envelope.DefaultNamespace + "mustUnderstand", "1"));
       header.Add(authentification);
 
-      if (this.Nonce != null)
+      if (this.InitialChanllenge)
       {
-        authentification.Add(new XElement(nameof(this.Nonce), this.Nonce));
+        this.SetChildElementValue(authentification, nameof(this.Nonce), this.Nonce);
+        this.SetChildElementValue(authentification, nameof(this.Realm), this.Realm);
+      }
+      else
+      {
+        this.SetChildElementValue(authentification, "Auth", this.AuthToken);
+        this.SetChildElementValue(authentification, nameof(this.Nonce), LastNonce);
+        this.SetChildElementValue(authentification, nameof(this.Realm), LastRealm);
       }
 
-      if (this.AuthToken != null)
-      {
-        authentification.Add(new XElement("Auth", this.AuthToken));
-      }
-
-      if (this.UserId != null)
-      {
-        authentification.Add(new XElement("UserID", this.UserId));
-      }
-
-      if (this.Realm != null)
-      {
-        authentification.Add(new XElement(nameof(this.Realm), this.Realm));
-      }
+      this.SetChildElementValue(authentification, nameof(this.Status), this.Status);
+      this.SetChildElementValue(authentification, "UserID", this.UserId);
 
       container.Add(header);
     }

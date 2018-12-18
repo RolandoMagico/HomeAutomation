@@ -133,9 +133,15 @@ namespace FritzControl.Tr064
     /// <returns>The operation with the specific service ID and action name or <c>null</c> if no operation has been found.</returns>
     public SoapOperation GetSoapOperation(string servicType, string actionName)
     {
-      if (this.GetService(servicType) is SoapService service && service.GetAction(actionName) is SoapAction action)
+      List<Device> allDevices = new List<Device>();
+      allDevices.Add(this);
+      allDevices.AddRange(this.Devices);
+      foreach (Device device in allDevices)
       {
-        return new SoapOperation(service, action);
+        if (device.GetService(servicType) is SoapService service && service.GetAction(actionName) is SoapAction action)
+        {
+          return new SoapOperation(service, action);
+        }
       }
 
       return null;
