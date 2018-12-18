@@ -23,13 +23,11 @@
 namespace FritzControl
 {
   using System;
-  using System.IO;
   using System.Linq;
   using System.Net;
   using System.Net.Http;
   using System.Text;
   using System.Threading.Tasks;
-  using System.Xml;
   using System.Xml.Linq;
   using System.Xml.Serialization;
   using FritzControl.Tr064.ServiceHandling;
@@ -167,25 +165,19 @@ namespace FritzControl
             httpRequestMessage.Headers.Add("SOAPACTION", $"{envelope.Body.Service.ServiceType}#{envelope.Body.Action.Name}");
           }
 
-          using (MemoryStream memoryStream = new MemoryStream())
-          {
-            XmlWriterSettings xmlWriterSettings = new XmlWriterSettings { Encoding = new UTF8Encoding(false), Indent = true };
-            using (XmlWriter xmlWriter = XmlWriter.Create(memoryStream, xmlWriterSettings))
-            {
-              envelope.WriteXml(xmlWriter);
-            }
+          XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+          envelope.WriteXml(xmlDocument);
 
-            // Do display the content of the memory stream in the watch window, use: Encoding.UTF8.GetString(memoryStream.ToArray()), nq
-            httpRequestMessage.Content = new StringContent(Encoding.UTF8.GetString(memoryStream.ToArray()), Encoding.UTF8, "text/xml");
-          }
+          // Do display the content of the memory stream in the watch window, use: Encoding.UTF8.GetString(memoryStream.ToArray()), nq
+          httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
 
           using (HttpResponseMessage response = httpClient.SendAsync(httpRequestMessage).Result)
           {
             if (response.StatusCode == HttpStatusCode.OK)
             {
               result = Activator.CreateInstance<T>();
-              XDocument xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
-              result.ReadXml(xmlDocument.Root);
+              xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
+              result.ReadXml(xmlDocument);
             }
           }
         }

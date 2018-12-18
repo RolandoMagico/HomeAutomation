@@ -22,7 +22,6 @@
 // </copyright>
 namespace FritzControl.Tr064.ServiceHandling
 {
-  using System.Xml;
   using System.Xml.Linq;
   using System.Xml.Serialization;
 
@@ -31,6 +30,11 @@ namespace FritzControl.Tr064.ServiceHandling
   /// </summary>
   public class Body : ISoapXmlElement
   {
+    /// <summary>
+    /// The default namespace prefix.
+    /// </summary>
+    internal const string DefaultNamespacePrefix = "u";
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Body"/> class.
     /// This default constructor should only be used by XML serialization.
@@ -73,17 +77,19 @@ namespace FritzControl.Tr064.ServiceHandling
     public SoapAction Action { get; set; }
 
     /// <inheritdoc/>
-    public void ReadXml(XElement element)
+    public void ReadXml(XContainer container)
     {
     }
 
     /// <inheritdoc/>
-    public void WriteXml(XmlWriter writer)
+    public void WriteXml(XContainer container)
     {
-      writer.WriteStartElement(nameof(Body), Envelope.DefaultNamespace);
-      writer.WriteStartElement("u", $"{this.Action.Name}", this.Service.ServiceType);
-      writer.WriteEndElement();
-      writer.WriteEndElement();
+      XNamespace defaultNamespace = this.Service.ServiceType;
+      XElement body = new XElement(Envelope.DefaultNamespace + nameof(Body));
+      body.Add(new XElement(
+        defaultNamespace + this.Action.Name,
+        new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, defaultNamespace)));
+      container.Add(body);
     }
   }
 }

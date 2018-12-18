@@ -23,7 +23,6 @@
 
 namespace FritzControl.Tr064.ServiceHandling
 {
-  using System.Xml;
   using System.Xml.Linq;
 
   /// <summary>
@@ -34,13 +33,13 @@ namespace FritzControl.Tr064.ServiceHandling
     /// <summary>
     /// Generates an object from its SOAP XML representation.
     /// </summary>
-    /// <param name="element">The <see cref="XElement"/> element from which the object is deserialized.</param>
-    void ReadXml(XElement element);
+    /// <param name="container">The <see cref="XElement"/> element from which the object is deserialized.</param>
+    void ReadXml(XContainer container);
 
     /// <summary>
     /// Converts an object into its SOAP XML representation.
     /// </summary>
-    /// <param name="writer">The <see cref="XmlReader"/> stream to which the object is serialized.</param>
-    void WriteXml(XmlWriter writer);
+    /// <param name="container">The <see cref="XContainer"/> to which the object is serialized.</param>
+    void WriteXml(XContainer container);
   }
 }

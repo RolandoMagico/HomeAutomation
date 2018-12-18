@@ -23,7 +23,6 @@
 
 namespace FritzControl.Tr064.ServiceHandling
 {
-  using System.Xml;
   using System.Xml.Linq;
 
   /// <summary>
@@ -31,6 +30,11 @@ namespace FritzControl.Tr064.ServiceHandling
   /// </summary>
   public class Header : ISoapXmlElement
   {
+    /// <summary>
+    /// The default namespace prefix.
+    /// </summary>
+    internal const string DefaultNamespacePrefix = "h";
+
     /// <summary>
     /// Gets or sets the user ID.
     /// </summary>
@@ -56,47 +60,48 @@ namespace FritzControl.Tr064.ServiceHandling
     /// </summary>
     public bool InitialChanllenge { get; set; }
 
+    /// <summary>
+    /// Gets the default namespace for this element.
+    /// </summary>
+    internal static XNamespace DefaultNamespace { get; } = "http://soap-authentication.org/digest/2001/10/";
+
     /// <inheritdoc/>
-    public void ReadXml(XElement element)
+    public void ReadXml(XContainer container)
     {
     }
 
     /// <inheritdoc/>
-    public void WriteXml(XmlWriter writer)
+    public void WriteXml(XContainer container)
     {
-      writer.WriteStartElement(nameof(Header), Envelope.DefaultNamespace);
-      if (this.InitialChanllenge)
-      {
-        writer.WriteStartElement("h", "InitChallenge", "http://soap-authentication.org/digest/2001/10/");
-      }
-      else
-      {
-        writer.WriteStartElement("h", "ClientAuth", "http://soap-authentication.org/digest/2001/10/");
-      }
+      XElement header = new XElement(Envelope.DefaultNamespace + nameof(Header));
+      string authType = this.InitialChanllenge ? "InitChallenge" : "ClientAuth";
+      XElement authentification = new XElement(
+        DefaultNamespace + authType,
+        new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, DefaultNamespace),
+        new XAttribute(Envelope.DefaultNamespace + "mustunderstand", "1"));
+      header.Add(authentification);
 
-      writer.WriteAttributeString("mustunderstand", Envelope.DefaultNamespace, "1");
       if (this.Nonce != null)
       {
-        writer.WriteElementString(nameof(this.Nonce), this.Nonce);
+        authentification.Add(new XElement(nameof(this.Nonce), this.Nonce));
       }
 
       if (this.AuthToken != null)
       {
-        writer.WriteElementString("Auth", this.AuthToken);
+        authentification.Add(new XElement("Auth", this.AuthToken));
       }
 
       if (this.UserId != null)
       {
-        writer.WriteElementString("UserID", this.UserId);
+        authentification.Add(new XElement("UserID", this.UserId));
       }
 
       if (this.Realm != null)
       {
-        writer.WriteElementString(nameof(this.Realm), this.Realm);
+        authentification.Add(new XElement(nameof(this.Realm), this.Realm));
       }
 
-      writer.WriteEndElement();
-      writer.WriteEndElement();
+      container.Add(header);
     }
   }
 }

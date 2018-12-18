@@ -22,21 +22,13 @@
 // </copyright>
 namespace FritzControl.Tr064.ServiceHandling
 {
-  using System.Xml;
   using System.Xml.Linq;
-  using System.Xml.Serialization;
 
   /// <summary>
   /// Enveloper for SOAP serialization.
   /// </summary>
   public class Envelope : ISoapXmlElement
   {
-    /// <summary>
-    /// The default namespace for serialization.
-    /// </summary>
-    [XmlIgnore]
-    internal const string DefaultNamespace = "http://schemas.xmlsoap.org/soap/envelope/";
-
     /// <summary>
     /// The default namespace prefix.
     /// </summary>
@@ -52,21 +44,41 @@ namespace FritzControl.Tr064.ServiceHandling
     /// </summary>
     public Body Body { get; set; }
 
+    /// <summary>
+    /// Gets the default namespace for this element.
+    /// </summary>
+    internal static XNamespace DefaultNamespace { get; } = "http://schemas.xmlsoap.org/soap/envelope/";
+
     /// <inheritdoc/>
-    public void ReadXml(XElement element)
+    public void ReadXml(XContainer container)
     {
+      if (container.Element(DefaultNamespace + nameof(Envelope)) is XElement envelope)
+      {
+        if (envelope.Element(DefaultNamespace + nameof(this.Header)) is XElement headerXml)
+        {
+          this.Header = new Header();
+          this.Header.ReadXml(headerXml);
+        }
+
+        if (envelope.Element(DefaultNamespace + nameof(this.Body)) is XElement bodyXml)
+        {
+          this.Body = new Body();
+          this.Body.ReadXml(bodyXml);
+        }
+      }
     }
 
     /// <inheritdoc/>
-    public void WriteXml(XmlWriter writer)
+    public void WriteXml(XContainer container)
     {
-      writer.WriteStartElement(DefaultNamespacePrefix, nameof(Envelope), DefaultNamespace);
-      writer.WriteAttributeString("encodingStyle", DefaultNamespace, "http://schemas.xmlsoap.org/soap/encoding/");
+      XElement envelope = new XElement(
+        DefaultNamespace + nameof(Envelope),
+        new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, DefaultNamespace),
+        new XAttribute(DefaultNamespace + "encodingStyle", "http://schemas.xmlsoap.org/soap/encoding/"));
+      container.Add(envelope);
 
-      this.Header?.WriteXml(writer);
-      this.Body?.WriteXml(writer);
-
-      writer.WriteEndElement();
+      this.Header?.WriteXml(envelope);
+      this.Body?.WriteXml(envelope);
     }
   }
 }
