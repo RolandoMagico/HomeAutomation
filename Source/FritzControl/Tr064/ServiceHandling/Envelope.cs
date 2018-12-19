@@ -27,7 +27,7 @@ namespace FritzControl.Tr064.ServiceHandling
   /// <summary>
   /// Enveloper for SOAP serialization.
   /// </summary>
-  public class Envelope : BaseSoapXmlElement
+  public abstract class Envelope : BaseSoapXmlElement
   {
     /// <summary>
     /// The default namespace prefix.
@@ -62,7 +62,7 @@ namespace FritzControl.Tr064.ServiceHandling
 
         if (envelope.Element(DefaultNamespace + nameof(this.Body)) is XElement bodyXml)
         {
-          this.Body = new Body();
+          this.Body = new Body(this);
           this.Body.ReadXml(bodyXml);
         }
       }

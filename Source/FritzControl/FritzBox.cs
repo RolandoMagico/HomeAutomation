@@ -24,6 +24,7 @@ namespace FritzControl
 {
   using System;
   using System.Collections.Generic;
+  using System.IO;
   using System.Linq;
   using System.Net;
   using System.Net.Http;
@@ -72,7 +73,6 @@ namespace FritzControl
         this.Description = description;
         this.LoadDeviceServices(this.Description.Device);
         this.Authenticate();
-        this.LoadHomeAutomationInfo();
       }
     }
 
@@ -81,18 +81,57 @@ namespace FritzControl
     /// </summary>
     public void LoadHomeAutomationInfo()
     {
-      List<string> actions = new List<string> { "GetInfo", "GetGenericDeviceInfos", "GetSpecificDeviceInfos" };
-      foreach (string action in actions)
+      if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:X_AVM-DE_Dect:1", "GetNumberOfDectEntries") is SoapOperation operation)
       {
-        if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:X_AVM-DE_Homeauto:1", action) is SoapOperation operation)
+        Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
+        Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
+        Request request = new Request { Header = clientAuthentification, Body = new Body(operation) };
+        if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, request) is Response response)
         {
-          Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
-          Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-          Envelope envelope = new Envelope { Header = clientAuthentification, Body = new Body(operation) };
-          if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, envelope) is Envelope response)
+          if (response.Body.Arguments.ContainsKey("NewNumberOfEntries") && response.Body.Arguments["NewNumberOfEntries"] is ushort numberOfEntries)
           {
-            Log.Debug($"Result from {operation.Service.ServiceId}, {operation.Action.Name}:");
-            Log.Debug(response.XmlContainer.ToString());
+            if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:X_AVM-DE_Dect:1", "GetGenericDectEntry") is SoapOperation getGenericDectEntry)
+            {
+              for (int i = 0; i < numberOfEntries; i++)
+              {
+                clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
+                request = new Request { Header = clientAuthentification, Body = new Body(getGenericDectEntry) };
+                request.Body.Arguments.Add("NewIndex", i);
+                if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, request) is Response getGenericDectEntryResponse)
+                {
+                  if ((getGenericDectEntryResponse.Body.Arguments.ContainsKey("NewName") && getGenericDectEntryResponse.Body.Arguments["NewName"] is string name) &&
+                      (getGenericDectEntryResponse.Body.Arguments.ContainsKey("NewModel") && getGenericDectEntryResponse.Body.Arguments["NewModel"] is string model))
+                  {
+                    Log.Info($"Found DECT device. Model: {model}, Name: {name}");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /// <summary>
+    /// Reads all possible date from the fritz box. Only for testing!!!
+    /// </summary>
+    public void ReadAll()
+    {
+      foreach (SoapService service in this.Description.Device.Services)
+      {
+        foreach (SoapAction action in service.Scpd.Actions.Where(action => action.Name.StartsWith("Get")))
+        {
+          if (action.Arguments.Any(argument => argument.Direction == Direction.In) == false)
+          {
+            SoapOperation operation = new SoapOperation(service, action);
+            Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
+            Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
+            Request envelope = new Request { Header = clientAuthentification, Body = new Body(operation) };
+            if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, envelope) is Envelope response)
+            {
+              Log.Debug($"Result from {operation.Service.ServiceId}, {operation.Action.Name}:");
+              Log.Debug(response.XmlContainer.ToString());
+            }
           }
         }
       }
@@ -106,12 +145,12 @@ namespace FritzControl
       if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:DeviceInfo:1", "GetInfo") is SoapOperation operation)
       {
         Header initChallenge = new Header { UserId = this.Username, InitialChanllenge = true };
-        Envelope envelope = new Envelope { Header = initChallenge, Body = new Body(operation) };
-        if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, envelope) is Envelope response)
+        Request envelope = new Request { Header = initChallenge, Body = new Body(operation) };
+        if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, envelope) is Envelope response)
         {
           Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-          envelope = new Envelope { Header = clientAuthentification, Body = new Body(operation) };
-          if (this.LoadAndDeserializeXmlData<Envelope>(operation.Service.ControlUrl, envelope) is Envelope response2)
+          envelope = new Request { Header = clientAuthentification, Body = new Body(operation) };
+          if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, envelope) is Envelope response2)
           {
           }
         }
@@ -178,34 +217,38 @@ namespace FritzControl
     /// <summary>
     /// Loads data from the specific URI and deserializes the received data into an object.
     /// </summary>
-    /// <typeparam name="T">The type of the deserialized object.</typeparam>
     /// <param name="requestUri">The URI which is used to retrieve the data.</param>
-    /// <param name="envelope">The request data which should be sent. can be <c>null</c>.</param>
-    /// <returns>The created instance of type <typeparamref name="T"/> or null if no valid response was received.</returns>
-    private T LoadAndDeserializeXmlData<T>(string requestUri, Envelope envelope)
-      where T : class, ISoapXmlElement
-    {
-      T result = null;
+    /// <param name="request">The request data which should be sent. can be <c>null</c>.</param>
+    /// <returns>The received response or null if no valid response was received.</returns>
+    private Response LoadAndDeserializeXmlData(string requestUri, Request request)
+     {
+      Response result = null;
       using (HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") })
       {
         using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri))
         {
-          if (envelope.Body != null)
+          if (request.Body != null)
           {
-            httpRequestMessage.Headers.Add("SOAPACTION", $"{envelope.Body.Service.ServiceType}#{envelope.Body.Action.Name}");
+            httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Body.Service.ServiceType}#{request.Body.Action.Name}");
           }
 
           XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-          envelope.WriteXml(xmlDocument);
+          request.WriteXml(xmlDocument);
           httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
 
           using (HttpResponseMessage response = httpClient.SendAsync(httpRequestMessage).Result)
           {
             if (response.StatusCode == HttpStatusCode.OK)
             {
-              result = Activator.CreateInstance<T>();
+              result = new Response { Request = request };
               xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
               result.ReadXml(xmlDocument);
+            }
+            else
+            {
+              Log.Debug($"Status code of response: {response.StatusCode}");
+              Log.Debug("Response content:");
+              Log.Debug(new StreamReader(response.Content.ReadAsStreamAsync().Result).ReadToEnd());
             }
           }
         }

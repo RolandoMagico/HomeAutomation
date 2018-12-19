@@ -22,6 +22,9 @@
 // </copyright>
 namespace FritzControl.Tr064.ServiceHandling
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
   using System.Xml.Linq;
   using System.Xml.Serialization;
 
@@ -37,10 +40,16 @@ namespace FritzControl.Tr064.ServiceHandling
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Body"/> class.
-    /// This default constructor should only be used by XML serialization.
     /// </summary>
-    public Body()
+    /// <param name="parent">The parent request or response of this body.</param>
+    public Body(Envelope parent)
     {
+      this.Parent = parent;
+      if (this.Parent is Response response)
+      {
+        this.Action = response.Request.Body.Action;
+        this.Service = response.Request.Body.Service;
+      }
     }
 
     /// <summary>
@@ -65,6 +74,11 @@ namespace FritzControl.Tr064.ServiceHandling
     }
 
     /// <summary>
+    /// Gets the arguments for the <see cref="Action"/>.
+    /// </summary>
+    public Dictionary<string, object> Arguments { get; private set; } = new Dictionary<string, object>();
+
+    /// <summary>
     /// Gets or sets the service.
     /// </summary>
     [XmlIgnore]
@@ -81,6 +95,11 @@ namespace FritzControl.Tr064.ServiceHandling
     /// </summary>
     public Fault Fault { get; set; }
 
+    /// <summary>
+    /// Gets the parent envelope of this instance.
+    /// </summary>
+    public Envelope Parent { get; }
+
     /// <inheritdoc/>
     public void ReadXml(XContainer container)
     {
@@ -89,6 +108,53 @@ namespace FritzControl.Tr064.ServiceHandling
         this.Fault = new Fault();
         this.Fault.ReadXml(faultXml);
       }
+
+      if (this.Parent is Response response)
+      {
+        XNamespace serviceNamespace = this.Service.ServiceType;
+        if (container.Element(serviceNamespace + this.Action.Name + "Response") is XElement serviceXml)
+        {
+          foreach (XElement element in serviceXml.Elements())
+          {
+            string argumentName = element.Name.LocalName;
+            if (this.Action.Arguments.FirstOrDefault(a => a.Name == argumentName) is Argument argument &&
+                this.Service.Scpd.StateVariables.FirstOrDefault(v => v.Name == argument.RelatedStateVariable) is ServiceStateVariable serviceStateVariable)
+            {
+              switch (serviceStateVariable.DataType)
+              {
+                case DataType.Boolean:
+                  int elementValueInt;
+                  bool elementValueBool;
+                  if (bool.TryParse(element.Value, out elementValueBool))
+                  {
+                    this.Arguments.Add(element.Name.LocalName, elementValueBool);
+                  }
+                  else if (int.TryParse(element.Value, out elementValueInt))
+                  {
+                    this.Arguments.Add(element.Name.LocalName, Convert.ToBoolean(elementValueInt));
+                  }
+                  else
+                  {
+                    throw new ArgumentOutOfRangeException(nameof(DataType), element.Value, $@"Cannot convert string ""{element.Value}"" to a boolean value");
+                  }
+
+                  break;
+                case DataType.String:
+                  this.Arguments.Add(element.Name.LocalName, element.Value);
+                  break;
+                case DataType.UnsignedInt2Bytes:
+                  this.Arguments.Add(element.Name.LocalName, ushort.Parse(element.Value));
+                  break;
+                case DataType.UnsignedInt4Bytes:
+                  this.Arguments.Add(element.Name.LocalName, uint.Parse(element.Value));
+                  break;
+                default:
+                  throw new ArgumentOutOfRangeException(nameof(DataType), serviceStateVariable.DataType, "Unsupported state variable type");
+              }
+            }
+          }
+        }
+      }
     }
 
     /// <inheritdoc/>
@@ -96,11 +162,24 @@ namespace FritzControl.Tr064.ServiceHandling
     {
       XNamespace defaultNamespace = this.Service.ServiceType;
       XElement body = new XElement(Envelope.DefaultNamespace + nameof(Body));
-      body.Add(new XElement(
+      XElement action = new XElement(
         defaultNamespace + this.Action.Name,
-        new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, defaultNamespace)));
-      container.Add(body);
+        new XAttribute(XNamespace.Xmlns + DefaultNamespacePrefix, defaultNamespace));
 
+      foreach (string argument in this.Action.Arguments.Where(a => a.Direction == Direction.In).Select(a => a.Name))
+      {
+        if (this.Arguments.ContainsKey(argument))
+        {
+          action.Add(new XElement(argument, this.Arguments[argument]));
+        }
+        else
+        {
+          throw new ArgumentException("Missing input argument", argument);
+        }
+      }
+
+      body.Add(action);
+      container.Add(body);
       this.Fault?.WriteXml(body);
     }
   }
