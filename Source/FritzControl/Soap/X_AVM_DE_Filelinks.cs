@@ -43,24 +43,24 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetGenericFilelinkEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetGenericFilelinkEntryResult) of the action.</returns>
-    public GetGenericFilelinkEntryResult GetGenericFilelinkEntry(ushort newIndex)
+    /// <returns>The result (X_AVM_DE_FilelinksGetGenericFilelinkEntryResult) of the action.</returns>
+    public X_AVM_DE_FilelinksGetGenericFilelinkEntryResult GetGenericFilelinkEntry(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetGenericFilelinkEntryResult>("GetGenericFilelinkEntry", arguments);
+      return this.SendRequest<X_AVM_DE_FilelinksGetGenericFilelinkEntryResult>("GetGenericFilelinkEntry", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetSpecificFilelinkEntry.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
-    /// <returns>The result (GetSpecificFilelinkEntryResult) of the action.</returns>
-    public GetSpecificFilelinkEntryResult GetSpecificFilelinkEntry(string newID)
+    /// <returns>The result (X_AVM_DE_FilelinksGetSpecificFilelinkEntryResult) of the action.</returns>
+    public X_AVM_DE_FilelinksGetSpecificFilelinkEntryResult GetSpecificFilelinkEntry(string newID)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewID", newID);
-      return this.SendRequest<GetSpecificFilelinkEntryResult>("GetSpecificFilelinkEntry", arguments);
+      return this.SendRequest<X_AVM_DE_FilelinksGetSpecificFilelinkEntryResult>("GetSpecificFilelinkEntry", arguments);
     }
 
     /// <summary>

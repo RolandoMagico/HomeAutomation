@@ -33,10 +33,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (WANDSLLinkConfigGetInfoResult) of the action.</returns>
+    public WANDSLLinkConfigGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<WANDSLLinkConfigGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action SetDSLLinkType.
     /// </summary>
-    /// <param name="newLinkType">The SOAP parameter NewLinkType.</param>
+    /// <param name="newLinkType">The SOAP parameter NewLinkType. Allowed values: EoA, PPPoA, PPPoE, Unconfigured.</param>
     public void SetDSLLinkType(string newLinkType)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
@@ -73,10 +73,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetDSLLinkInfo.
     /// </summary>
-    /// <returns>The result (GetDSLLinkInfoResult) of the action.</returns>
-    public GetDSLLinkInfoResult GetDSLLinkInfo()
+    /// <returns>The result (WANDSLLinkConfigGetDSLLinkInfoResult) of the action.</returns>
+    public WANDSLLinkConfigGetDSLLinkInfoResult GetDSLLinkInfo()
     {
-      return this.SendRequest<GetDSLLinkInfoResult>("GetDSLLinkInfo");
+      return this.SendRequest<WANDSLLinkConfigGetDSLLinkInfoResult>("GetDSLLinkInfo");
     }
 
     /// <summary>
@@ -102,7 +102,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action SetATMEncapsulation.
     /// </summary>
-    /// <param name="newATMEncapsulation">The SOAP parameter NewATMEncapsulation.</param>
+    /// <param name="newATMEncapsulation">The SOAP parameter NewATMEncapsulation. Allowed values: LLC, VCMUX.</param>
     public void SetATMEncapsulation(string newATMEncapsulation)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
@@ -122,10 +122,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetStatistics.
     /// </summary>
-    /// <returns>The result (GetStatisticsResult) of the action.</returns>
-    public GetStatisticsResult GetStatistics()
+    /// <returns>The result (WANDSLLinkConfigGetStatisticsResult) of the action.</returns>
+    public WANDSLLinkConfigGetStatisticsResult GetStatistics()
     {
-      return this.SendRequest<GetStatisticsResult>("GetStatistics");
+      return this.SendRequest<WANDSLLinkConfigGetStatisticsResult>("GetStatistics");
     }
   }
 }

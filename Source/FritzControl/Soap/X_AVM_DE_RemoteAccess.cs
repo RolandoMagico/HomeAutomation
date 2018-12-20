@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_AVM_DE_RemoteAccessGetInfoResult) of the action.</returns>
+    public X_AVM_DE_RemoteAccessGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_AVM_DE_RemoteAccessGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -71,10 +71,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetDDNSInfo.
     /// </summary>
-    /// <returns>The result (GetDDNSInfoResult) of the action.</returns>
-    public GetDDNSInfoResult GetDDNSInfo()
+    /// <returns>The result (X_AVM_DE_RemoteAccessGetDDNSInfoResult) of the action.</returns>
+    public X_AVM_DE_RemoteAccessGetDDNSInfoResult GetDDNSInfo()
     {
-      return this.SendRequest<GetDDNSInfoResult>("GetDDNSInfo");
+      return this.SendRequest<X_AVM_DE_RemoteAccessGetDDNSInfoResult>("GetDDNSInfo");
     }
 
     /// <summary>
@@ -94,7 +94,7 @@ namespace FritzControl.Soap
     /// <param name="newUpdateURL">The SOAP parameter NewUpdateURL.</param>
     /// <param name="newDomain">The SOAP parameter NewDomain.</param>
     /// <param name="newUsername">The SOAP parameter NewUsername.</param>
-    /// <param name="newMode">The SOAP parameter NewMode.</param>
+    /// <param name="newMode">The SOAP parameter NewMode. Allowed values: ddns_v4, ddns_v6, ddns_both, ddns_together.</param>
     /// <param name="newServerIPv4">The SOAP parameter NewServerIPv4.</param>
     /// <param name="newServerIPv6">The SOAP parameter NewServerIPv6.</param>
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>

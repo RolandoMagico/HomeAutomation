@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (TimeGetInfoResult) of the action.</returns>
+    public TimeGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<TimeGetInfoResult>("GetInfo");
     }
 
     /// <summary>

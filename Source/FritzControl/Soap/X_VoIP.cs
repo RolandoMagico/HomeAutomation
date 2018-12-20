@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfoEx.
     /// </summary>
-    /// <returns>The result (GetInfoExResult) of the action.</returns>
-    public GetInfoExResult GetInfoEx()
+    /// <returns>The result (X_VoIPGetInfoExResult) of the action.</returns>
+    public X_VoIPGetInfoExResult GetInfoEx()
     {
-      return this.SendRequest<GetInfoExResult>("GetInfoEx");
+      return this.SendRequest<X_VoIPGetInfoExResult>("GetInfoEx");
     }
 
     /// <summary>
@@ -66,12 +66,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action X_AVM-DE_GetVoIPAccount.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
-    /// <returns>The result (X_AVM_DE_GetVoIPAccountResult) of the action.</returns>
-    public X_AVM_DE_GetVoIPAccountResult X_AVM_DE_GetVoIPAccount(ushort newVoIPAccountIndex)
+    /// <returns>The result (X_VoIPX_AVM_DE_GetVoIPAccountResult) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetVoIPAccountResult X_AVM_DE_GetVoIPAccount(ushort newVoIPAccountIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewVoIPAccountIndex", newVoIPAccountIndex);
-      return this.SendRequest<X_AVM_DE_GetVoIPAccountResult>("X_AVM-DE_GetVoIPAccount", arguments);
+      return this.SendRequest<X_VoIPX_AVM_DE_GetVoIPAccountResult>("X_AVM-DE_GetVoIPAccount", arguments);
     }
 
     /// <summary>
@@ -88,17 +88,17 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_VoIPGetInfoResult) of the action.</returns>
+    public X_VoIPGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_VoIPGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newFaxT38Enable">The SOAP parameter NewFaxT38Enable.</param>
-    /// <param name="newVoiceCoding">The SOAP parameter NewVoiceCoding.</param>
+    /// <param name="newVoiceCoding">The SOAP parameter NewVoiceCoding. Allowed values: auto, fixed, compressed, autocompressed.</param>
     public void SetConfig(bool newFaxT38Enable, string newVoiceCoding)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
@@ -138,24 +138,24 @@ namespace FritzControl.Soap
     /// Wrapper for the action X_AVM-DE_GetClient.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
-    /// <returns>The result (X_AVM_DE_GetClientResult) of the action.</returns>
-    public X_AVM_DE_GetClientResult X_AVM_DE_GetClient(ushort newX_AVM_DE_ClientIndex)
+    /// <returns>The result (X_VoIPX_AVM_DE_GetClientResult) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetClientResult X_AVM_DE_GetClient(ushort newX_AVM_DE_ClientIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewX_AVM-DE_ClientIndex", newX_AVM_DE_ClientIndex);
-      return this.SendRequest<X_AVM_DE_GetClientResult>("X_AVM-DE_GetClient", arguments);
+      return this.SendRequest<X_VoIPX_AVM_DE_GetClientResult>("X_AVM-DE_GetClient", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetClient2.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
-    /// <returns>The result (X_AVM_DE_GetClient2Result) of the action.</returns>
-    public X_AVM_DE_GetClient2Result X_AVM_DE_GetClient2(ushort newX_AVM_DE_ClientIndex)
+    /// <returns>The result (X_VoIPX_AVM_DE_GetClient2Result) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetClient2Result X_AVM_DE_GetClient2(ushort newX_AVM_DE_ClientIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewX_AVM-DE_ClientIndex", newX_AVM_DE_ClientIndex);
-      return this.SendRequest<X_AVM_DE_GetClient2Result>("X_AVM-DE_GetClient2", arguments);
+      return this.SendRequest<X_VoIPX_AVM_DE_GetClient2Result>("X_AVM-DE_GetClient2", arguments);
     }
 
     /// <summary>
@@ -198,24 +198,24 @@ namespace FritzControl.Soap
     /// Wrapper for the action X_AVM-DE_GetClient3.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
-    /// <returns>The result (X_AVM_DE_GetClient3Result) of the action.</returns>
-    public X_AVM_DE_GetClient3Result X_AVM_DE_GetClient3(ushort newX_AVM_DE_ClientIndex)
+    /// <returns>The result (X_VoIPX_AVM_DE_GetClient3Result) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetClient3Result X_AVM_DE_GetClient3(ushort newX_AVM_DE_ClientIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewX_AVM-DE_ClientIndex", newX_AVM_DE_ClientIndex);
-      return this.SendRequest<X_AVM_DE_GetClient3Result>("X_AVM-DE_GetClient3", arguments);
+      return this.SendRequest<X_VoIPX_AVM_DE_GetClient3Result>("X_AVM-DE_GetClient3", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetClientByClientId.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientId">The SOAP parameter NewX_AVM-DE_ClientId.</param>
-    /// <returns>The result (X_AVM_DE_GetClientByClientIdResult) of the action.</returns>
-    public X_AVM_DE_GetClientByClientIdResult X_AVM_DE_GetClientByClientId(string newX_AVM_DE_ClientId)
+    /// <returns>The result (X_VoIPX_AVM_DE_GetClientByClientIdResult) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetClientByClientIdResult X_AVM_DE_GetClientByClientId(string newX_AVM_DE_ClientId)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewX_AVM-DE_ClientId", newX_AVM_DE_ClientId);
-      return this.SendRequest<X_AVM_DE_GetClientByClientIdResult>("X_AVM-DE_GetClientByClientId", arguments);
+      return this.SendRequest<X_VoIPX_AVM_DE_GetClientByClientIdResult>("X_AVM-DE_GetClientByClientId", arguments);
     }
 
     /// <summary>
@@ -379,10 +379,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetVoIPCommonCountryCode.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetVoIPCommonCountryCodeResult) of the action.</returns>
-    public X_AVM_DE_GetVoIPCommonCountryCodeResult X_AVM_DE_GetVoIPCommonCountryCode()
+    /// <returns>The result (X_VoIPX_AVM_DE_GetVoIPCommonCountryCodeResult) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetVoIPCommonCountryCodeResult X_AVM_DE_GetVoIPCommonCountryCode()
     {
-      return this.SendRequest<X_AVM_DE_GetVoIPCommonCountryCodeResult>("X_AVM-DE_GetVoIPCommonCountryCode");
+      return this.SendRequest<X_VoIPX_AVM_DE_GetVoIPCommonCountryCodeResult>("X_AVM-DE_GetVoIPCommonCountryCode");
     }
 
     /// <summary>
@@ -446,10 +446,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetVoIPCommonAreaCode.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetVoIPCommonAreaCodeResult) of the action.</returns>
-    public X_AVM_DE_GetVoIPCommonAreaCodeResult X_AVM_DE_GetVoIPCommonAreaCode()
+    /// <returns>The result (X_VoIPX_AVM_DE_GetVoIPCommonAreaCodeResult) of the action.</returns>
+    public X_VoIPX_AVM_DE_GetVoIPCommonAreaCodeResult X_AVM_DE_GetVoIPCommonAreaCode()
     {
-      return this.SendRequest<X_AVM_DE_GetVoIPCommonAreaCodeResult>("X_AVM-DE_GetVoIPCommonAreaCode");
+      return this.SendRequest<X_VoIPX_AVM_DE_GetVoIPCommonAreaCodeResult>("X_AVM-DE_GetVoIPCommonAreaCode");
     }
 
     /// <summary>

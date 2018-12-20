@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_AVM_DE_OnTelGetInfoResult) of the action.</returns>
+    public X_AVM_DE_OnTelGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_AVM_DE_OnTelGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -75,12 +75,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetInfoByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetInfoByIndexResult) of the action.</returns>
-    public GetInfoByIndexResult GetInfoByIndex(ushort newIndex)
+    /// <returns>The result (X_AVM_DE_OnTelGetInfoByIndexResult) of the action.</returns>
+    public X_AVM_DE_OnTelGetInfoByIndexResult GetInfoByIndex(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetInfoByIndexResult>("GetInfoByIndex", arguments);
+      return this.SendRequest<X_AVM_DE_OnTelGetInfoByIndexResult>("GetInfoByIndex", arguments);
     }
 
     /// <summary>
@@ -161,12 +161,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetPhonebook.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
-    /// <returns>The result (GetPhonebookResult) of the action.</returns>
-    public GetPhonebookResult GetPhonebook(ushort newPhonebookID)
+    /// <returns>The result (X_AVM_DE_OnTelGetPhonebookResult) of the action.</returns>
+    public X_AVM_DE_OnTelGetPhonebookResult GetPhonebook(ushort newPhonebookID)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewPhonebookID", newPhonebookID);
-      return this.SendRequest<GetPhonebookResult>("GetPhonebook", arguments);
+      return this.SendRequest<X_AVM_DE_OnTelGetPhonebookResult>("GetPhonebook", arguments);
     }
 
     /// <summary>
@@ -291,12 +291,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetDECTHandsetInfo.
     /// </summary>
     /// <param name="newDectID">The SOAP parameter NewDectID.</param>
-    /// <returns>The result (GetDECTHandsetInfoResult) of the action.</returns>
-    public GetDECTHandsetInfoResult GetDECTHandsetInfo(ushort newDectID)
+    /// <returns>The result (X_AVM_DE_OnTelGetDECTHandsetInfoResult) of the action.</returns>
+    public X_AVM_DE_OnTelGetDECTHandsetInfoResult GetDECTHandsetInfo(ushort newDectID)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewDectID", newDectID);
-      return this.SendRequest<GetDECTHandsetInfoResult>("GetDECTHandsetInfo", arguments);
+      return this.SendRequest<X_AVM_DE_OnTelGetDECTHandsetInfoResult>("GetDECTHandsetInfo", arguments);
     }
 
     /// <summary>
@@ -325,12 +325,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetDeflection.
     /// </summary>
     /// <param name="newDeflectionId">The SOAP parameter NewDeflectionId.</param>
-    /// <returns>The result (GetDeflectionResult) of the action.</returns>
-    public GetDeflectionResult GetDeflection(ushort newDeflectionId)
+    /// <returns>The result (X_AVM_DE_OnTelGetDeflectionResult) of the action.</returns>
+    public X_AVM_DE_OnTelGetDeflectionResult GetDeflection(ushort newDeflectionId)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewDeflectionId", newDeflectionId);
-      return this.SendRequest<GetDeflectionResult>("GetDeflection", arguments);
+      return this.SendRequest<X_AVM_DE_OnTelGetDeflectionResult>("GetDeflection", arguments);
     }
 
     /// <summary>

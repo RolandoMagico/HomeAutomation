@@ -51,10 +51,21 @@ namespace HomeAutomation
       ushort numberOfDectEntries = dect.GetNumberOfDectEntries();
       for (ushort i = 0; i < numberOfDectEntries; i++)
       {
-        GetGenericDectEntryResult genericResult = dect.GetGenericDectEntry(i);
+        var genericResult = dect.GetGenericDectEntry(i);
         Log.Info($"DECT device index {i}");
         Log.Info($"Model: {genericResult.NewModel}");
         Log.Info($"Model: {genericResult.NewName}");
+      }
+
+      for (ushort i = 0; i < numberOfDectEntries; i++)
+      {
+        var genericResult = dect.GetGenericDectEntry(i);
+        if (genericResult.NewName == "Wohnzimmer")
+        {
+          X_AVM_DE_Homeauto homeAuto = new X_AVM_DE_Homeauto { FritzBox = fritzBox };
+          var result = homeAuto.GetGenericDeviceInfos(i);
+          homeAuto.SetSwitch(result.NewAIN, "ON");
+        }
       }
 
       LogManager.Shutdown();

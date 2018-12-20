@@ -33,28 +33,28 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (LANConfigSecurityGetInfoResult) of the action.</returns>
+    public LANConfigSecurityGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<LANConfigSecurityGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetCurrentUser.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetCurrentUserResult) of the action.</returns>
-    public X_AVM_DE_GetCurrentUserResult X_AVM_DE_GetCurrentUser()
+    /// <returns>The result (LANConfigSecurityX_AVM_DE_GetCurrentUserResult) of the action.</returns>
+    public LANConfigSecurityX_AVM_DE_GetCurrentUserResult X_AVM_DE_GetCurrentUser()
     {
-      return this.SendRequest<X_AVM_DE_GetCurrentUserResult>("X_AVM-DE_GetCurrentUser");
+      return this.SendRequest<LANConfigSecurityX_AVM_DE_GetCurrentUserResult>("X_AVM-DE_GetCurrentUser");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetAnonymousLogin.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetAnonymousLoginResult) of the action.</returns>
-    public X_AVM_DE_GetAnonymousLoginResult X_AVM_DE_GetAnonymousLogin()
+    /// <returns>The result (LANConfigSecurityX_AVM_DE_GetAnonymousLoginResult) of the action.</returns>
+    public LANConfigSecurityX_AVM_DE_GetAnonymousLoginResult X_AVM_DE_GetAnonymousLogin()
     {
-      return this.SendRequest<X_AVM_DE_GetAnonymousLoginResult>("X_AVM-DE_GetAnonymousLogin");
+      return this.SendRequest<LANConfigSecurityX_AVM_DE_GetAnonymousLoginResult>("X_AVM-DE_GetAnonymousLogin");
     }
 
     /// <summary>

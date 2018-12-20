@@ -34,12 +34,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo(ushort newIndex)
+    /// <returns>The result (X_AVM_DE_TAMGetInfoResult) of the action.</returns>
+    public X_AVM_DE_TAMGetInfoResult GetInfo(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetInfoResult>("GetInfo", arguments);
+      return this.SendRequest<X_AVM_DE_TAMGetInfoResult>("GetInfo", arguments);
     }
 
     /// <summary>

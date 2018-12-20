@@ -33,10 +33,10 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Wrapper for the action GetCommonLinkProperties.
     /// </summary>
-    /// <returns>The result (GetCommonLinkPropertiesResult) of the action.</returns>
-    public GetCommonLinkPropertiesResult GetCommonLinkProperties()
+    /// <returns>The result (WANCommonInterfaceConfigGetCommonLinkPropertiesResult) of the action.</returns>
+    public WANCommonInterfaceConfigGetCommonLinkPropertiesResult GetCommonLinkProperties()
     {
-      return this.SendRequest<GetCommonLinkPropertiesResult>("GetCommonLinkProperties");
+      return this.SendRequest<WANCommonInterfaceConfigGetCommonLinkPropertiesResult>("GetCommonLinkProperties");
     }
 
     /// <summary>
@@ -90,12 +90,12 @@ namespace FritzControl.Soap.WANDevice
     /// Wrapper for the action X_AVM-DE_GetOnlineMonitor.
     /// </summary>
     /// <param name="newSyncGroupIndex">The SOAP parameter NewSyncGroupIndex.</param>
-    /// <returns>The result (X_AVM_DE_GetOnlineMonitorResult) of the action.</returns>
-    public X_AVM_DE_GetOnlineMonitorResult X_AVM_DE_GetOnlineMonitor(uint newSyncGroupIndex)
+    /// <returns>The result (WANCommonInterfaceConfigX_AVM_DE_GetOnlineMonitorResult) of the action.</returns>
+    public WANCommonInterfaceConfigX_AVM_DE_GetOnlineMonitorResult X_AVM_DE_GetOnlineMonitor(uint newSyncGroupIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewSyncGroupIndex", newSyncGroupIndex);
-      return this.SendRequest<X_AVM_DE_GetOnlineMonitorResult>("X_AVM-DE_GetOnlineMonitor", arguments);
+      return this.SendRequest<WANCommonInterfaceConfigX_AVM_DE_GetOnlineMonitorResult>("X_AVM-DE_GetOnlineMonitor", arguments);
     }
   }
 }

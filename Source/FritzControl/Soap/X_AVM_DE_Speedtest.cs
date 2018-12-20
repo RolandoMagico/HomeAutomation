@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_AVM_DE_SpeedtestGetInfoResult) of the action.</returns>
+    public X_AVM_DE_SpeedtestGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_AVM_DE_SpeedtestGetInfoResult>("GetInfo");
     }
 
     /// <summary>

@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_AVM_DE_MyFritzGetInfoResult) of the action.</returns>
+    public X_AVM_DE_MyFritzGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_AVM_DE_MyFritzGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -52,12 +52,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetServiceByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetServiceByIndexResult) of the action.</returns>
-    public GetServiceByIndexResult GetServiceByIndex(uint newIndex)
+    /// <returns>The result (X_AVM_DE_MyFritzGetServiceByIndexResult) of the action.</returns>
+    public X_AVM_DE_MyFritzGetServiceByIndexResult GetServiceByIndex(uint newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetServiceByIndexResult>("GetServiceByIndex", arguments);
+      return this.SendRequest<X_AVM_DE_MyFritzGetServiceByIndexResult>("GetServiceByIndex", arguments);
     }
 
     /// <summary>

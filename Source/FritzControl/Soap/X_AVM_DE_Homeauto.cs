@@ -43,31 +43,31 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetGenericDeviceInfos.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetGenericDeviceInfosResult) of the action.</returns>
-    public GetGenericDeviceInfosResult GetGenericDeviceInfos(ushort newIndex)
+    /// <returns>The result (X_AVM_DE_HomeautoGetGenericDeviceInfosResult) of the action.</returns>
+    public X_AVM_DE_HomeautoGetGenericDeviceInfosResult GetGenericDeviceInfos(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetGenericDeviceInfosResult>("GetGenericDeviceInfos", arguments);
+      return this.SendRequest<X_AVM_DE_HomeautoGetGenericDeviceInfosResult>("GetGenericDeviceInfos", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetSpecificDeviceInfos.
     /// </summary>
     /// <param name="newAIN">The SOAP parameter NewAIN.</param>
-    /// <returns>The result (GetSpecificDeviceInfosResult) of the action.</returns>
-    public GetSpecificDeviceInfosResult GetSpecificDeviceInfos(string newAIN)
+    /// <returns>The result (X_AVM_DE_HomeautoGetSpecificDeviceInfosResult) of the action.</returns>
+    public X_AVM_DE_HomeautoGetSpecificDeviceInfosResult GetSpecificDeviceInfos(string newAIN)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewAIN", newAIN);
-      return this.SendRequest<GetSpecificDeviceInfosResult>("GetSpecificDeviceInfos", arguments);
+      return this.SendRequest<X_AVM_DE_HomeautoGetSpecificDeviceInfosResult>("GetSpecificDeviceInfos", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action SetSwitch.
     /// </summary>
     /// <param name="newAIN">The SOAP parameter NewAIN.</param>
-    /// <param name="newSwitchState">The SOAP parameter NewSwitchState.</param>
+    /// <param name="newSwitchState">The SOAP parameter NewSwitchState. Allowed values: OFF, ON, TOGGLE, UNDEFINED.</param>
     public void SetSwitch(string newAIN, string newSwitchState)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();

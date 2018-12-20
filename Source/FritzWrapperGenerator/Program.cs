@@ -124,8 +124,16 @@ namespace FritzWrapperGenerator
             foreach (Argument argument in inArguments)
             {
               string parameterName = this.ConvertArgumentNameToParameterName(argument.Name);
-              writer.WriteLine($@"    /// <param name=""{parameterName}"">The SOAP parameter {argument.Name}.</param>");
               ServiceStateVariable serviceStateVariable = soapService.Scpd.StateVariables.First(sv => sv.Name == argument.RelatedStateVariable);
+              if (serviceStateVariable.AllowedValues.Any())
+              {
+                writer.WriteLine($@"    /// <param name=""{parameterName}"">The SOAP parameter {argument.Name}. Allowed values: {string.Join(", ", serviceStateVariable.AllowedValues)}.</param>");
+              }
+              else
+              {
+                writer.WriteLine($@"    /// <param name=""{parameterName}"">The SOAP parameter {argument.Name}.</param>");
+              }
+
               parameters.Add($"{dataTypeMapping[serviceStateVariable.DataType]} {parameterName}");
             }
 
@@ -146,7 +154,7 @@ namespace FritzWrapperGenerator
             }
             else if (outArguments.Count() > 1)
             {
-              returnType = this.GenerateResultType(actionName, targetDirectory, targetNamespace, outArguments, soapService.Scpd.StateVariables);
+              returnType = this.GenerateResultType(typeName, actionName, targetDirectory, targetNamespace, outArguments, soapService.Scpd.StateVariables);
               writer.WriteLine($"    /// <returns>The result ({returnType}) of the action.</returns>");
             }
 
@@ -195,17 +203,18 @@ namespace FritzWrapperGenerator
     /// <summary>
     /// Generate a class for retrieving the result of a SOAP opeartion.
     /// </summary>
+    /// <param name="serviceTypeName">The name of the class which implements the corresponding service.</param>
     /// <param name="actionName">The action for which a result type will be generated.</param>
     /// <param name="targetDirectory">The directory to which the wrapper will be generated.</param>
     /// <param name="targetNamespace">The namespace to which the wrapper will be generated.</param>
     /// <param name="elements">The elements of the type.</param>
     /// <param name="stateVariables">The state variables for this type.</param>
     /// <returns>The name of the generated type.</returns>
-    private string GenerateResultType(string actionName, string targetDirectory, string targetNamespace, IEnumerable<Argument> elements, List<ServiceStateVariable> stateVariables)
+    private string GenerateResultType(string serviceTypeName, string actionName, string targetDirectory, string targetNamespace, IEnumerable<Argument> elements, List<ServiceStateVariable> stateVariables)
     {
-      string typeName = actionName + "Result";
+      string typeName = serviceTypeName + actionName + "Result";
       string filename = Path.Combine(targetDirectory, typeName + ".cs");
-      this.GenerateFileHeader(filename, targetNamespace, typeName, $"Result type for {actionName}.");
+      this.GenerateFileHeader(filename, targetNamespace, typeName, $"Result type for {actionName} in service {serviceTypeName}.");
       using (StreamWriter writer = new StreamWriter(filename, true))
       {
         foreach (Argument element in elements)

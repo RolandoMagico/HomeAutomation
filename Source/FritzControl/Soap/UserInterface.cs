@@ -33,10 +33,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (UserInterfaceGetInfoResult) of the action.</returns>
+    public UserInterfaceGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<UserInterfaceGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -53,19 +53,19 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action X_AVM-DE_DoUpdate.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_DoUpdateResult) of the action.</returns>
-    public X_AVM_DE_DoUpdateResult X_AVM_DE_DoUpdate()
+    /// <returns>The result (UserInterfaceX_AVM_DE_DoUpdateResult) of the action.</returns>
+    public UserInterfaceX_AVM_DE_DoUpdateResult X_AVM_DE_DoUpdate()
     {
-      return this.SendRequest<X_AVM_DE_DoUpdateResult>("X_AVM-DE_DoUpdate");
+      return this.SendRequest<UserInterfaceX_AVM_DE_DoUpdateResult>("X_AVM-DE_DoUpdate");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_DoPrepareCGI.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_DoPrepareCGIResult) of the action.</returns>
-    public X_AVM_DE_DoPrepareCGIResult X_AVM_DE_DoPrepareCGI()
+    /// <returns>The result (UserInterfaceX_AVM_DE_DoPrepareCGIResult) of the action.</returns>
+    public UserInterfaceX_AVM_DE_DoPrepareCGIResult X_AVM_DE_DoPrepareCGI()
     {
-      return this.SendRequest<X_AVM_DE_DoPrepareCGIResult>("X_AVM-DE_DoPrepareCGI");
+      return this.SendRequest<UserInterfaceX_AVM_DE_DoPrepareCGIResult>("X_AVM-DE_DoPrepareCGI");
     }
 
     /// <summary>
@@ -84,10 +84,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetInternationalConfig.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetInternationalConfigResult) of the action.</returns>
-    public X_AVM_DE_GetInternationalConfigResult X_AVM_DE_GetInternationalConfig()
+    /// <returns>The result (UserInterfaceX_AVM_DE_GetInternationalConfigResult) of the action.</returns>
+    public UserInterfaceX_AVM_DE_GetInternationalConfigResult X_AVM_DE_GetInternationalConfig()
     {
-      return this.SendRequest<X_AVM_DE_GetInternationalConfigResult>("X_AVM-DE_GetInternationalConfig");
+      return this.SendRequest<UserInterfaceX_AVM_DE_GetInternationalConfigResult>("X_AVM-DE_GetInternationalConfig");
     }
 
     /// <summary>
@@ -108,16 +108,16 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetInfo.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetInfoResult) of the action.</returns>
-    public X_AVM_DE_GetInfoResult X_AVM_DE_GetInfo()
+    /// <returns>The result (UserInterfaceX_AVM_DE_GetInfoResult) of the action.</returns>
+    public UserInterfaceX_AVM_DE_GetInfoResult X_AVM_DE_GetInfo()
     {
-      return this.SendRequest<X_AVM_DE_GetInfoResult>("X_AVM-DE_GetInfo");
+      return this.SendRequest<UserInterfaceX_AVM_DE_GetInfoResult>("X_AVM-DE_GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_SetConfig.
     /// </summary>
-    /// <param name="newX_AVM_DE_AutoUpdateMode">The SOAP parameter NewX_AVM-DE_AutoUpdateMode.</param>
+    /// <param name="newX_AVM_DE_AutoUpdateMode">The SOAP parameter NewX_AVM-DE_AutoUpdateMode. Allowed values: off, all, important, check.</param>
     public void X_AVM_DE_SetConfig(string newX_AVM_DE_AutoUpdateMode)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();

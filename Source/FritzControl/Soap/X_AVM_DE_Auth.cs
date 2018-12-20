@@ -52,12 +52,12 @@ namespace FritzControl.Soap
     /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newAction">The SOAP parameter NewAction.</param>
-    /// <returns>The result (SetConfigResult) of the action.</returns>
-    public SetConfigResult SetConfig(string newAction)
+    /// <returns>The result (X_AVM_DE_AuthSetConfigResult) of the action.</returns>
+    public X_AVM_DE_AuthSetConfigResult SetConfig(string newAction)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewAction", newAction);
-      return this.SendRequest<SetConfigResult>("SetConfig", arguments);
+      return this.SendRequest<X_AVM_DE_AuthSetConfigResult>("SetConfig", arguments);
     }
   }
 }

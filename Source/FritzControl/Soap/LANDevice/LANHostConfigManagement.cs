@@ -33,10 +33,10 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (LANHostConfigManagementGetInfoResult) of the action.</returns>
+    public LANHostConfigManagementGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<LANHostConfigManagementGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -70,10 +70,10 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetAddressRange.
     /// </summary>
-    /// <returns>The result (GetAddressRangeResult) of the action.</returns>
-    public GetAddressRangeResult GetAddressRange()
+    /// <returns>The result (LANHostConfigManagementGetAddressRangeResult) of the action.</returns>
+    public LANHostConfigManagementGetAddressRangeResult GetAddressRange()
     {
-      return this.SendRequest<GetAddressRangeResult>("GetAddressRange");
+      return this.SendRequest<LANHostConfigManagementGetAddressRangeResult>("GetAddressRange");
     }
 
     /// <summary>

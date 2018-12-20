@@ -43,24 +43,24 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetGenericDeviceEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetGenericDeviceEntryResult) of the action.</returns>
-    public GetGenericDeviceEntryResult GetGenericDeviceEntry(ushort newIndex)
+    /// <returns>The result (X_AVM_DE_HomeplugGetGenericDeviceEntryResult) of the action.</returns>
+    public X_AVM_DE_HomeplugGetGenericDeviceEntryResult GetGenericDeviceEntry(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetGenericDeviceEntryResult>("GetGenericDeviceEntry", arguments);
+      return this.SendRequest<X_AVM_DE_HomeplugGetGenericDeviceEntryResult>("GetGenericDeviceEntry", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetSpecificDeviceEntry.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
-    /// <returns>The result (GetSpecificDeviceEntryResult) of the action.</returns>
-    public GetSpecificDeviceEntryResult GetSpecificDeviceEntry(string newMACAddress)
+    /// <returns>The result (X_AVM_DE_HomeplugGetSpecificDeviceEntryResult) of the action.</returns>
+    public X_AVM_DE_HomeplugGetSpecificDeviceEntryResult GetSpecificDeviceEntry(string newMACAddress)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewMACAddress", newMACAddress);
-      return this.SendRequest<GetSpecificDeviceEntryResult>("GetSpecificDeviceEntry", arguments);
+      return this.SendRequest<X_AVM_DE_HomeplugGetSpecificDeviceEntryResult>("GetSpecificDeviceEntry", arguments);
     }
 
     /// <summary>

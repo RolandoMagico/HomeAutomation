@@ -139,6 +139,9 @@ namespace FritzControl.Tr064.ServiceHandling
                   }
 
                   break;
+                case DataType.SignedInt4Bytes:
+                  this.Arguments.Add(element.Name.LocalName, int.Parse(element.Value));
+                  break;
                 case DataType.String:
                   this.Arguments.Add(element.Name.LocalName, element.Value);
                   break;

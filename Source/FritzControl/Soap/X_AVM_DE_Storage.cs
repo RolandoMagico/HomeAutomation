@@ -33,19 +33,19 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_AVM_DE_StorageGetInfoResult) of the action.</returns>
+    public X_AVM_DE_StorageGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_AVM_DE_StorageGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action RequestFTPServerWAN.
     /// </summary>
-    /// <returns>The result (RequestFTPServerWANResult) of the action.</returns>
-    public RequestFTPServerWANResult RequestFTPServerWAN()
+    /// <returns>The result (X_AVM_DE_StorageRequestFTPServerWANResult) of the action.</returns>
+    public X_AVM_DE_StorageRequestFTPServerWANResult RequestFTPServerWAN()
     {
-      return this.SendRequest<RequestFTPServerWANResult>("RequestFTPServerWAN");
+      return this.SendRequest<X_AVM_DE_StorageRequestFTPServerWANResult>("RequestFTPServerWAN");
     }
 
     /// <summary>
@@ -86,10 +86,10 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetUserInfo.
     /// </summary>
-    /// <returns>The result (GetUserInfoResult) of the action.</returns>
-    public GetUserInfoResult GetUserInfo()
+    /// <returns>The result (X_AVM_DE_StorageGetUserInfoResult) of the action.</returns>
+    public X_AVM_DE_StorageGetUserInfoResult GetUserInfo()
     {
-      return this.SendRequest<GetUserInfoResult>("GetUserInfo");
+      return this.SendRequest<X_AVM_DE_StorageGetUserInfoResult>("GetUserInfo");
     }
 
     /// <summary>

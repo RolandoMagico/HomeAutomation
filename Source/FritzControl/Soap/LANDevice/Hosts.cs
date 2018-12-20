@@ -43,24 +43,24 @@ namespace FritzControl.Soap.LANDevice
     /// Wrapper for the action GetSpecificHostEntry.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
-    /// <returns>The result (GetSpecificHostEntryResult) of the action.</returns>
-    public GetSpecificHostEntryResult GetSpecificHostEntry(string newMACAddress)
+    /// <returns>The result (HostsGetSpecificHostEntryResult) of the action.</returns>
+    public HostsGetSpecificHostEntryResult GetSpecificHostEntry(string newMACAddress)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewMACAddress", newMACAddress);
-      return this.SendRequest<GetSpecificHostEntryResult>("GetSpecificHostEntry", arguments);
+      return this.SendRequest<HostsGetSpecificHostEntryResult>("GetSpecificHostEntry", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetGenericHostEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetGenericHostEntryResult) of the action.</returns>
-    public GetGenericHostEntryResult GetGenericHostEntry(ushort newIndex)
+    /// <returns>The result (HostsGetGenericHostEntryResult) of the action.</returns>
+    public HostsGetGenericHostEntryResult GetGenericHostEntry(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetGenericHostEntryResult>("GetGenericHostEntry", arguments);
+      return this.SendRequest<HostsGetGenericHostEntryResult>("GetGenericHostEntry", arguments);
     }
 
     /// <summary>
@@ -125,12 +125,12 @@ namespace FritzControl.Soap.LANDevice
     /// Wrapper for the action X_AVM-DE_GetSpecificHostEntryByIP.
     /// </summary>
     /// <param name="newIPAddress">The SOAP parameter NewIPAddress.</param>
-    /// <returns>The result (X_AVM_DE_GetSpecificHostEntryByIPResult) of the action.</returns>
-    public X_AVM_DE_GetSpecificHostEntryByIPResult X_AVM_DE_GetSpecificHostEntryByIP(string newIPAddress)
+    /// <returns>The result (HostsX_AVM_DE_GetSpecificHostEntryByIPResult) of the action.</returns>
+    public HostsX_AVM_DE_GetSpecificHostEntryByIPResult X_AVM_DE_GetSpecificHostEntryByIP(string newIPAddress)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIPAddress", newIPAddress);
-      return this.SendRequest<X_AVM_DE_GetSpecificHostEntryByIPResult>("X_AVM-DE_GetSpecificHostEntryByIP", arguments);
+      return this.SendRequest<HostsX_AVM_DE_GetSpecificHostEntryByIPResult>("X_AVM-DE_GetSpecificHostEntryByIP", arguments);
     }
 
     /// <summary>

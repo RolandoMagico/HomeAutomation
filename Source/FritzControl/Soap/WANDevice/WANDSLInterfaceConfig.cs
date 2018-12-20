@@ -33,28 +33,28 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (WANDSLInterfaceConfigGetInfoResult) of the action.</returns>
+    public WANDSLInterfaceConfigGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<WANDSLInterfaceConfigGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action GetStatisticsTotal.
     /// </summary>
-    /// <returns>The result (GetStatisticsTotalResult) of the action.</returns>
-    public GetStatisticsTotalResult GetStatisticsTotal()
+    /// <returns>The result (WANDSLInterfaceConfigGetStatisticsTotalResult) of the action.</returns>
+    public WANDSLInterfaceConfigGetStatisticsTotalResult GetStatisticsTotal()
     {
-      return this.SendRequest<GetStatisticsTotalResult>("GetStatisticsTotal");
+      return this.SendRequest<WANDSLInterfaceConfigGetStatisticsTotalResult>("GetStatisticsTotal");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetDSLDiagnoseInfo.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetDSLDiagnoseInfoResult) of the action.</returns>
-    public X_AVM_DE_GetDSLDiagnoseInfoResult X_AVM_DE_GetDSLDiagnoseInfo()
+    /// <returns>The result (WANDSLInterfaceConfigX_AVM_DE_GetDSLDiagnoseInfoResult) of the action.</returns>
+    public WANDSLInterfaceConfigX_AVM_DE_GetDSLDiagnoseInfoResult X_AVM_DE_GetDSLDiagnoseInfo()
     {
-      return this.SendRequest<X_AVM_DE_GetDSLDiagnoseInfoResult>("X_AVM-DE_GetDSLDiagnoseInfo");
+      return this.SendRequest<WANDSLInterfaceConfigX_AVM_DE_GetDSLDiagnoseInfoResult>("X_AVM-DE_GetDSLDiagnoseInfo");
     }
   }
 }

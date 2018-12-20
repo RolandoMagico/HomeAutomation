@@ -43,24 +43,24 @@ namespace FritzControl.Soap
     /// Wrapper for the action GetGenericDectEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    /// <returns>The result (GetGenericDectEntryResult) of the action.</returns>
-    public GetGenericDectEntryResult GetGenericDectEntry(ushort newIndex)
+    /// <returns>The result (X_AVM_DE_DectGetGenericDectEntryResult) of the action.</returns>
+    public X_AVM_DE_DectGetGenericDectEntryResult GetGenericDectEntry(ushort newIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewIndex", newIndex);
-      return this.SendRequest<GetGenericDectEntryResult>("GetGenericDectEntry", arguments);
+      return this.SendRequest<X_AVM_DE_DectGetGenericDectEntryResult>("GetGenericDectEntry", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetSpecificDectEntry.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
-    /// <returns>The result (GetSpecificDectEntryResult) of the action.</returns>
-    public GetSpecificDectEntryResult GetSpecificDectEntry(string newID)
+    /// <returns>The result (X_AVM_DE_DectGetSpecificDectEntryResult) of the action.</returns>
+    public X_AVM_DE_DectGetSpecificDectEntryResult GetSpecificDectEntry(string newID)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewID", newID);
-      return this.SendRequest<GetSpecificDectEntryResult>("GetSpecificDectEntry", arguments);
+      return this.SendRequest<X_AVM_DE_DectGetSpecificDectEntryResult>("GetSpecificDectEntry", arguments);
     }
 
     /// <summary>

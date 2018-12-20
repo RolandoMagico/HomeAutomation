@@ -44,19 +44,19 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (LANEthernetInterfaceConfigGetInfoResult) of the action.</returns>
+    public LANEthernetInterfaceConfigGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<LANEthernetInterfaceConfigGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action GetStatistics.
     /// </summary>
-    /// <returns>The result (GetStatisticsResult) of the action.</returns>
-    public GetStatisticsResult GetStatistics()
+    /// <returns>The result (LANEthernetInterfaceConfigGetStatisticsResult) of the action.</returns>
+    public LANEthernetInterfaceConfigGetStatisticsResult GetStatistics()
     {
-      return this.SendRequest<GetStatisticsResult>("GetStatistics");
+      return this.SendRequest<LANEthernetInterfaceConfigGetStatisticsResult>("GetStatistics");
     }
   }
 }

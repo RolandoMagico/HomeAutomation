@@ -108,27 +108,27 @@ namespace FritzControl.Soap
     /// <param name="newDestSubnetMask">The SOAP parameter NewDestSubnetMask.</param>
     /// <param name="newSourceIPAddress">The SOAP parameter NewSourceIPAddress.</param>
     /// <param name="newSourceSubnetMask">The SOAP parameter NewSourceSubnetMask.</param>
-    /// <returns>The result (GetSpecificForwardingEntryResult) of the action.</returns>
-    public GetSpecificForwardingEntryResult GetSpecificForwardingEntry(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask)
+    /// <returns>The result (Layer3ForwardingGetSpecificForwardingEntryResult) of the action.</returns>
+    public Layer3ForwardingGetSpecificForwardingEntryResult GetSpecificForwardingEntry(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewDestIPAddress", newDestIPAddress);
       arguments.Add("NewDestSubnetMask", newDestSubnetMask);
       arguments.Add("NewSourceIPAddress", newSourceIPAddress);
       arguments.Add("NewSourceSubnetMask", newSourceSubnetMask);
-      return this.SendRequest<GetSpecificForwardingEntryResult>("GetSpecificForwardingEntry", arguments);
+      return this.SendRequest<Layer3ForwardingGetSpecificForwardingEntryResult>("GetSpecificForwardingEntry", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetGenericForwardingEntry.
     /// </summary>
     /// <param name="newForwardingIndex">The SOAP parameter NewForwardingIndex.</param>
-    /// <returns>The result (GetGenericForwardingEntryResult) of the action.</returns>
-    public GetGenericForwardingEntryResult GetGenericForwardingEntry(ushort newForwardingIndex)
+    /// <returns>The result (Layer3ForwardingGetGenericForwardingEntryResult) of the action.</returns>
+    public Layer3ForwardingGetGenericForwardingEntryResult GetGenericForwardingEntry(ushort newForwardingIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewForwardingIndex", newForwardingIndex);
-      return this.SendRequest<GetGenericForwardingEntryResult>("GetGenericForwardingEntry", arguments);
+      return this.SendRequest<Layer3ForwardingGetGenericForwardingEntryResult>("GetGenericForwardingEntry", arguments);
     }
 
     /// <summary>

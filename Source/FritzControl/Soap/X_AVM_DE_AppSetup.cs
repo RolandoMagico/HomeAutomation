@@ -33,19 +33,19 @@ namespace FritzControl.Soap
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (X_AVM_DE_AppSetupGetInfoResult) of the action.</returns>
+    public X_AVM_DE_AppSetupGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<X_AVM_DE_AppSetupGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action GetConfig.
     /// </summary>
-    /// <returns>The result (GetConfigResult) of the action.</returns>
-    public GetConfigResult GetConfig()
+    /// <returns>The result (X_AVM_DE_AppSetupGetConfigResult) of the action.</returns>
+    public X_AVM_DE_AppSetupGetConfigResult GetConfig()
     {
-      return this.SendRequest<GetConfigResult>("GetConfig");
+      return this.SendRequest<X_AVM_DE_AppSetupGetConfigResult>("GetConfig");
     }
 
     /// <summary>
@@ -68,10 +68,10 @@ namespace FritzControl.Soap
     /// <param name="newAppDeviceMAC">The SOAP parameter NewAppDeviceMAC.</param>
     /// <param name="newAppUsername">The SOAP parameter NewAppUsername.</param>
     /// <param name="newAppPassword">The SOAP parameter NewAppPassword.</param>
-    /// <param name="newAppRight">The SOAP parameter NewAppRight.</param>
-    /// <param name="newNasRight">The SOAP parameter NewNasRight.</param>
-    /// <param name="newPhoneRight">The SOAP parameter NewPhoneRight.</param>
-    /// <param name="newHomeautoRight">The SOAP parameter NewHomeautoRight.</param>
+    /// <param name="newAppRight">The SOAP parameter NewAppRight. Allowed values: NO, RO, RW, UNDEFINED.</param>
+    /// <param name="newNasRight">The SOAP parameter NewNasRight. Allowed values: NO, RO, RW, UNDEFINED.</param>
+    /// <param name="newPhoneRight">The SOAP parameter NewPhoneRight. Allowed values: NO, RO, RW, UNDEFINED.</param>
+    /// <param name="newHomeautoRight">The SOAP parameter NewHomeautoRight. Allowed values: NO, RO, RW, UNDEFINED.</param>
     /// <param name="newAppInternetRights">The SOAP parameter NewAppInternetRights.</param>
     public void RegisterApp(string newAppId, string newAppDisplayName, string newAppDeviceMAC, string newAppUsername, string newAppPassword, string newAppRight, string newNasRight, string newPhoneRight, string newHomeautoRight, bool newAppInternetRights)
     {
@@ -131,7 +131,7 @@ namespace FritzControl.Soap
     /// Wrapper for the action SetAppMessageFilter.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
-    /// <param name="newType">The SOAP parameter NewType.</param>
+    /// <param name="newType">The SOAP parameter NewType. Allowed values: aha_ident, tel_local_number.</param>
     /// <param name="newFilter">The SOAP parameter NewFilter.</param>
     public void SetAppMessageFilter(string newAppId, string newType, string newFilter)
     {
@@ -149,15 +149,15 @@ namespace FritzControl.Soap
     /// <param name="newCryptAlgos">The SOAP parameter NewCryptAlgos.</param>
     /// <param name="newAppAVMAddress">The SOAP parameter NewAppAVMAddress.</param>
     /// <param name="newAppAVMPasswordHash">The SOAP parameter NewAppAVMPasswordHash.</param>
-    /// <returns>The result (SetAppMessageReceiverResult) of the action.</returns>
-    public SetAppMessageReceiverResult SetAppMessageReceiver(string newAppId, string newCryptAlgos, string newAppAVMAddress, string newAppAVMPasswordHash)
+    /// <returns>The result (X_AVM_DE_AppSetupSetAppMessageReceiverResult) of the action.</returns>
+    public X_AVM_DE_AppSetupSetAppMessageReceiverResult SetAppMessageReceiver(string newAppId, string newCryptAlgos, string newAppAVMAddress, string newAppAVMPasswordHash)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewAppId", newAppId);
       arguments.Add("NewCryptAlgos", newCryptAlgos);
       arguments.Add("NewAppAVMAddress", newAppAVMAddress);
       arguments.Add("NewAppAVMPasswordHash", newAppAVMPasswordHash);
-      return this.SendRequest<SetAppMessageReceiverResult>("SetAppMessageReceiver", arguments);
+      return this.SendRequest<X_AVM_DE_AppSetupSetAppMessageReceiverResult>("SetAppMessageReceiver", arguments);
     }
 
     /// <summary>

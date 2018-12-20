@@ -33,25 +33,25 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (WANIPConnectionGetInfoResult) of the action.</returns>
+    public WANIPConnectionGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<WANIPConnectionGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action GetConnectionTypeInfo.
     /// </summary>
-    /// <returns>The result (GetConnectionTypeInfoResult) of the action.</returns>
-    public GetConnectionTypeInfoResult GetConnectionTypeInfo()
+    /// <returns>The result (WANIPConnectionGetConnectionTypeInfoResult) of the action.</returns>
+    public WANIPConnectionGetConnectionTypeInfoResult GetConnectionTypeInfo()
     {
-      return this.SendRequest<GetConnectionTypeInfoResult>("GetConnectionTypeInfo");
+      return this.SendRequest<WANIPConnectionGetConnectionTypeInfoResult>("GetConnectionTypeInfo");
     }
 
     /// <summary>
     /// Wrapper for the action SetConnectionType.
     /// </summary>
-    /// <param name="newConnectionType">The SOAP parameter NewConnectionType.</param>
+    /// <param name="newConnectionType">The SOAP parameter NewConnectionType. Allowed values: Unconfigured, IP_Routed, IP_Bridged.</param>
     public void SetConnectionType(string newConnectionType)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
@@ -62,19 +62,19 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetStatusInfo.
     /// </summary>
-    /// <returns>The result (GetStatusInfoResult) of the action.</returns>
-    public GetStatusInfoResult GetStatusInfo()
+    /// <returns>The result (WANIPConnectionGetStatusInfoResult) of the action.</returns>
+    public WANIPConnectionGetStatusInfoResult GetStatusInfo()
     {
-      return this.SendRequest<GetStatusInfoResult>("GetStatusInfo");
+      return this.SendRequest<WANIPConnectionGetStatusInfoResult>("GetStatusInfo");
     }
 
     /// <summary>
     /// Wrapper for the action GetNATRSIPStatus.
     /// </summary>
-    /// <returns>The result (GetNATRSIPStatusResult) of the action.</returns>
-    public GetNATRSIPStatusResult GetNATRSIPStatus()
+    /// <returns>The result (WANIPConnectionGetNATRSIPStatusResult) of the action.</returns>
+    public WANIPConnectionGetNATRSIPStatusResult GetNATRSIPStatus()
     {
-      return this.SendRequest<GetNATRSIPStatusResult>("GetNATRSIPStatus");
+      return this.SendRequest<WANIPConnectionGetNATRSIPStatusResult>("GetNATRSIPStatus");
     }
 
     /// <summary>
@@ -108,12 +108,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// Wrapper for the action GetGenericPortMappingEntry.
     /// </summary>
     /// <param name="newPortMappingIndex">The SOAP parameter NewPortMappingIndex.</param>
-    /// <returns>The result (GetGenericPortMappingEntryResult) of the action.</returns>
-    public GetGenericPortMappingEntryResult GetGenericPortMappingEntry(ushort newPortMappingIndex)
+    /// <returns>The result (WANIPConnectionGetGenericPortMappingEntryResult) of the action.</returns>
+    public WANIPConnectionGetGenericPortMappingEntryResult GetGenericPortMappingEntry(ushort newPortMappingIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewPortMappingIndex", newPortMappingIndex);
-      return this.SendRequest<GetGenericPortMappingEntryResult>("GetGenericPortMappingEntry", arguments);
+      return this.SendRequest<WANIPConnectionGetGenericPortMappingEntryResult>("GetGenericPortMappingEntry", arguments);
     }
 
     /// <summary>
@@ -121,15 +121,15 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
-    /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
-    /// <returns>The result (GetSpecificPortMappingEntryResult) of the action.</returns>
-    public GetSpecificPortMappingEntryResult GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
+    /// <param name="newProtocol">The SOAP parameter NewProtocol. Allowed values: TCP, UDP.</param>
+    /// <returns>The result (WANIPConnectionGetSpecificPortMappingEntryResult) of the action.</returns>
+    public WANIPConnectionGetSpecificPortMappingEntryResult GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewRemoteHost", newRemoteHost);
       arguments.Add("NewExternalPort", newExternalPort);
       arguments.Add("NewProtocol", newProtocol);
-      return this.SendRequest<GetSpecificPortMappingEntryResult>("GetSpecificPortMappingEntry", arguments);
+      return this.SendRequest<WANIPConnectionGetSpecificPortMappingEntryResult>("GetSpecificPortMappingEntry", arguments);
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
-    /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
+    /// <param name="newProtocol">The SOAP parameter NewProtocol. Allowed values: TCP, UDP.</param>
     /// <param name="newInternalPort">The SOAP parameter NewInternalPort.</param>
     /// <param name="newInternalClient">The SOAP parameter NewInternalClient.</param>
     /// <param name="newEnabled">The SOAP parameter NewEnabled.</param>
@@ -162,7 +162,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
-    /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
+    /// <param name="newProtocol">The SOAP parameter NewProtocol. Allowed values: TCP, UDP.</param>
     public void DeletePortMapping(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();

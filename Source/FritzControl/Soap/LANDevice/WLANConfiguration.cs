@@ -44,10 +44,10 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (WLANConfigurationGetInfoResult) of the action.</returns>
+    public WLANConfigurationGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<WLANConfigurationGetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -97,10 +97,10 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetSecurityKeys.
     /// </summary>
-    /// <returns>The result (GetSecurityKeysResult) of the action.</returns>
-    public GetSecurityKeysResult GetSecurityKeys()
+    /// <returns>The result (WLANConfigurationGetSecurityKeysResult) of the action.</returns>
+    public WLANConfigurationGetSecurityKeysResult GetSecurityKeys()
     {
-      return this.SendRequest<GetSecurityKeysResult>("GetSecurityKeys");
+      return this.SendRequest<WLANConfigurationGetSecurityKeysResult>("GetSecurityKeys");
     }
 
     /// <summary>
@@ -139,28 +139,28 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetBasBeaconSecurityProperties.
     /// </summary>
-    /// <returns>The result (GetBasBeaconSecurityPropertiesResult) of the action.</returns>
-    public GetBasBeaconSecurityPropertiesResult GetBasBeaconSecurityProperties()
+    /// <returns>The result (WLANConfigurationGetBasBeaconSecurityPropertiesResult) of the action.</returns>
+    public WLANConfigurationGetBasBeaconSecurityPropertiesResult GetBasBeaconSecurityProperties()
     {
-      return this.SendRequest<GetBasBeaconSecurityPropertiesResult>("GetBasBeaconSecurityProperties");
+      return this.SendRequest<WLANConfigurationGetBasBeaconSecurityPropertiesResult>("GetBasBeaconSecurityProperties");
     }
 
     /// <summary>
     /// Wrapper for the action GetStatistics.
     /// </summary>
-    /// <returns>The result (GetStatisticsResult) of the action.</returns>
-    public GetStatisticsResult GetStatistics()
+    /// <returns>The result (WLANConfigurationGetStatisticsResult) of the action.</returns>
+    public WLANConfigurationGetStatisticsResult GetStatistics()
     {
-      return this.SendRequest<GetStatisticsResult>("GetStatistics");
+      return this.SendRequest<WLANConfigurationGetStatisticsResult>("GetStatistics");
     }
 
     /// <summary>
     /// Wrapper for the action GetPacketStatistics.
     /// </summary>
-    /// <returns>The result (GetPacketStatisticsResult) of the action.</returns>
-    public GetPacketStatisticsResult GetPacketStatistics()
+    /// <returns>The result (WLANConfigurationGetPacketStatisticsResult) of the action.</returns>
+    public WLANConfigurationGetPacketStatisticsResult GetPacketStatistics()
     {
-      return this.SendRequest<GetPacketStatisticsResult>("GetPacketStatistics");
+      return this.SendRequest<WLANConfigurationGetPacketStatisticsResult>("GetPacketStatistics");
     }
 
     /// <summary>
@@ -215,10 +215,10 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action GetChannelInfo.
     /// </summary>
-    /// <returns>The result (GetChannelInfoResult) of the action.</returns>
-    public GetChannelInfoResult GetChannelInfo()
+    /// <returns>The result (WLANConfigurationGetChannelInfoResult) of the action.</returns>
+    public WLANConfigurationGetChannelInfoResult GetChannelInfo()
     {
-      return this.SendRequest<GetChannelInfoResult>("GetChannelInfo");
+      return this.SendRequest<WLANConfigurationGetChannelInfoResult>("GetChannelInfo");
     }
 
     /// <summary>
@@ -265,36 +265,36 @@ namespace FritzControl.Soap.LANDevice
     /// Wrapper for the action GetGenericAssociatedDeviceInfo.
     /// </summary>
     /// <param name="newAssociatedDeviceIndex">The SOAP parameter NewAssociatedDeviceIndex.</param>
-    /// <returns>The result (GetGenericAssociatedDeviceInfoResult) of the action.</returns>
-    public GetGenericAssociatedDeviceInfoResult GetGenericAssociatedDeviceInfo(ushort newAssociatedDeviceIndex)
+    /// <returns>The result (WLANConfigurationGetGenericAssociatedDeviceInfoResult) of the action.</returns>
+    public WLANConfigurationGetGenericAssociatedDeviceInfoResult GetGenericAssociatedDeviceInfo(ushort newAssociatedDeviceIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewAssociatedDeviceIndex", newAssociatedDeviceIndex);
-      return this.SendRequest<GetGenericAssociatedDeviceInfoResult>("GetGenericAssociatedDeviceInfo", arguments);
+      return this.SendRequest<WLANConfigurationGetGenericAssociatedDeviceInfoResult>("GetGenericAssociatedDeviceInfo", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action GetSpecificAssociatedDeviceInfo.
     /// </summary>
     /// <param name="newAssociatedDeviceMACAddress">The SOAP parameter NewAssociatedDeviceMACAddress.</param>
-    /// <returns>The result (GetSpecificAssociatedDeviceInfoResult) of the action.</returns>
-    public GetSpecificAssociatedDeviceInfoResult GetSpecificAssociatedDeviceInfo(string newAssociatedDeviceMACAddress)
+    /// <returns>The result (WLANConfigurationGetSpecificAssociatedDeviceInfoResult) of the action.</returns>
+    public WLANConfigurationGetSpecificAssociatedDeviceInfoResult GetSpecificAssociatedDeviceInfo(string newAssociatedDeviceMACAddress)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewAssociatedDeviceMACAddress", newAssociatedDeviceMACAddress);
-      return this.SendRequest<GetSpecificAssociatedDeviceInfoResult>("GetSpecificAssociatedDeviceInfo", arguments);
+      return this.SendRequest<WLANConfigurationGetSpecificAssociatedDeviceInfoResult>("GetSpecificAssociatedDeviceInfo", arguments);
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetSpecificAssociatedDeviceInfoByIp.
     /// </summary>
     /// <param name="newAssociatedDeviceIPAddress">The SOAP parameter NewAssociatedDeviceIPAddress.</param>
-    /// <returns>The result (X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult) of the action.</returns>
-    public X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult X_AVM_DE_GetSpecificAssociatedDeviceInfoByIp(string newAssociatedDeviceIPAddress)
+    /// <returns>The result (WLANConfigurationX_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult) of the action.</returns>
+    public WLANConfigurationX_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult X_AVM_DE_GetSpecificAssociatedDeviceInfoByIp(string newAssociatedDeviceIPAddress)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewAssociatedDeviceIPAddress", newAssociatedDeviceIPAddress);
-      return this.SendRequest<X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult>("X_AVM-DE_GetSpecificAssociatedDeviceInfoByIp", arguments);
+      return this.SendRequest<WLANConfigurationX_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult>("X_AVM-DE_GetSpecificAssociatedDeviceInfoByIp", arguments);
     }
 
     /// <summary>
@@ -331,19 +331,19 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetNightControl.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetNightControlResult) of the action.</returns>
-    public X_AVM_DE_GetNightControlResult X_AVM_DE_GetNightControl()
+    /// <returns>The result (WLANConfigurationX_AVM_DE_GetNightControlResult) of the action.</returns>
+    public WLANConfigurationX_AVM_DE_GetNightControlResult X_AVM_DE_GetNightControl()
     {
-      return this.SendRequest<X_AVM_DE_GetNightControlResult>("X_AVM-DE_GetNightControl");
+      return this.SendRequest<WLANConfigurationX_AVM_DE_GetNightControlResult>("X_AVM-DE_GetNightControl");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetWLANHybridMode.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetWLANHybridModeResult) of the action.</returns>
-    public X_AVM_DE_GetWLANHybridModeResult X_AVM_DE_GetWLANHybridMode()
+    /// <returns>The result (WLANConfigurationX_AVM_DE_GetWLANHybridModeResult) of the action.</returns>
+    public WLANConfigurationX_AVM_DE_GetWLANHybridModeResult X_AVM_DE_GetWLANHybridMode()
     {
-      return this.SendRequest<X_AVM_DE_GetWLANHybridModeResult>("X_AVM-DE_GetWLANHybridMode");
+      return this.SendRequest<WLANConfigurationX_AVM_DE_GetWLANHybridModeResult>("X_AVM-DE_GetWLANHybridMode");
     }
 
     /// <summary>
@@ -376,19 +376,19 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetWLANExtInfo.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetWLANExtInfoResult) of the action.</returns>
-    public X_AVM_DE_GetWLANExtInfoResult X_AVM_DE_GetWLANExtInfo()
+    /// <returns>The result (WLANConfigurationX_AVM_DE_GetWLANExtInfoResult) of the action.</returns>
+    public WLANConfigurationX_AVM_DE_GetWLANExtInfoResult X_AVM_DE_GetWLANExtInfo()
     {
-      return this.SendRequest<X_AVM_DE_GetWLANExtInfoResult>("X_AVM-DE_GetWLANExtInfo");
+      return this.SendRequest<WLANConfigurationX_AVM_DE_GetWLANExtInfoResult>("X_AVM-DE_GetWLANExtInfo");
     }
 
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetWPSInfo.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetWPSInfoResult) of the action.</returns>
-    public X_AVM_DE_GetWPSInfoResult X_AVM_DE_GetWPSInfo()
+    /// <returns>The result (WLANConfigurationX_AVM_DE_GetWPSInfoResult) of the action.</returns>
+    public WLANConfigurationX_AVM_DE_GetWPSInfoResult X_AVM_DE_GetWPSInfo()
     {
-      return this.SendRequest<X_AVM_DE_GetWPSInfoResult>("X_AVM-DE_GetWPSInfo");
+      return this.SendRequest<WLANConfigurationX_AVM_DE_GetWPSInfoResult>("X_AVM-DE_GetWPSInfo");
     }
 
     /// <summary>
@@ -396,13 +396,13 @@ namespace FritzControl.Soap.LANDevice
     /// </summary>
     /// <param name="newX_AVM_DE_WPSMode">The SOAP parameter NewX_AVM-DE_WPSMode.</param>
     /// <param name="newX_AVM_DE_WPSClientPIN">The SOAP parameter NewX_AVM-DE_WPSClientPIN.</param>
-    /// <returns>The result (X_AVM_DE_SetWPSConfigResult) of the action.</returns>
-    public X_AVM_DE_SetWPSConfigResult X_AVM_DE_SetWPSConfig(string newX_AVM_DE_WPSMode, string newX_AVM_DE_WPSClientPIN)
+    /// <returns>The result (WLANConfigurationX_AVM_DE_SetWPSConfigResult) of the action.</returns>
+    public WLANConfigurationX_AVM_DE_SetWPSConfigResult X_AVM_DE_SetWPSConfig(string newX_AVM_DE_WPSMode, string newX_AVM_DE_WPSClientPIN)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewX_AVM-DE_WPSMode", newX_AVM_DE_WPSMode);
       arguments.Add("NewX_AVM-DE_WPSClientPIN", newX_AVM_DE_WPSClientPIN);
-      return this.SendRequest<X_AVM_DE_SetWPSConfigResult>("X_AVM-DE_SetWPSConfig", arguments);
+      return this.SendRequest<WLANConfigurationX_AVM_DE_SetWPSConfigResult>("X_AVM-DE_SetWPSConfig", arguments);
     }
 
     /// <summary>

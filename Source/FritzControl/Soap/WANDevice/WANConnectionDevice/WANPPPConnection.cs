@@ -33,25 +33,25 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
-    /// <returns>The result (GetInfoResult) of the action.</returns>
-    public GetInfoResult GetInfo()
+    /// <returns>The result (WANPPPConnectionGetInfoResult) of the action.</returns>
+    public WANPPPConnectionGetInfoResult GetInfo()
     {
-      return this.SendRequest<GetInfoResult>("GetInfo");
+      return this.SendRequest<WANPPPConnectionGetInfoResult>("GetInfo");
     }
 
     /// <summary>
     /// Wrapper for the action GetConnectionTypeInfo.
     /// </summary>
-    /// <returns>The result (GetConnectionTypeInfoResult) of the action.</returns>
-    public GetConnectionTypeInfoResult GetConnectionTypeInfo()
+    /// <returns>The result (WANPPPConnectionGetConnectionTypeInfoResult) of the action.</returns>
+    public WANPPPConnectionGetConnectionTypeInfoResult GetConnectionTypeInfo()
     {
-      return this.SendRequest<GetConnectionTypeInfoResult>("GetConnectionTypeInfo");
+      return this.SendRequest<WANPPPConnectionGetConnectionTypeInfoResult>("GetConnectionTypeInfo");
     }
 
     /// <summary>
     /// Wrapper for the action SetConnectionType.
     /// </summary>
-    /// <param name="newConnectionType">The SOAP parameter NewConnectionType.</param>
+    /// <param name="newConnectionType">The SOAP parameter NewConnectionType. Allowed values: Unconfigured, IP_Routed, IP_Bridged.</param>
     public void SetConnectionType(string newConnectionType)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
@@ -62,10 +62,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetStatusInfo.
     /// </summary>
-    /// <returns>The result (GetStatusInfoResult) of the action.</returns>
-    public GetStatusInfoResult GetStatusInfo()
+    /// <returns>The result (WANPPPConnectionGetStatusInfoResult) of the action.</returns>
+    public WANPPPConnectionGetStatusInfoResult GetStatusInfo()
     {
-      return this.SendRequest<GetStatusInfoResult>("GetStatusInfo");
+      return this.SendRequest<WANPPPConnectionGetStatusInfoResult>("GetStatusInfo");
     }
 
     /// <summary>
@@ -102,10 +102,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetNATRSIPStatus.
     /// </summary>
-    /// <returns>The result (GetNATRSIPStatusResult) of the action.</returns>
-    public GetNATRSIPStatusResult GetNATRSIPStatus()
+    /// <returns>The result (WANPPPConnectionGetNATRSIPStatusResult) of the action.</returns>
+    public WANPPPConnectionGetNATRSIPStatusResult GetNATRSIPStatus()
     {
-      return this.SendRequest<GetNATRSIPStatusResult>("GetNATRSIPStatus");
+      return this.SendRequest<WANPPPConnectionGetNATRSIPStatusResult>("GetNATRSIPStatus");
     }
 
     /// <summary>
@@ -139,12 +139,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// Wrapper for the action GetGenericPortMappingEntry.
     /// </summary>
     /// <param name="newPortMappingIndex">The SOAP parameter NewPortMappingIndex.</param>
-    /// <returns>The result (GetGenericPortMappingEntryResult) of the action.</returns>
-    public GetGenericPortMappingEntryResult GetGenericPortMappingEntry(ushort newPortMappingIndex)
+    /// <returns>The result (WANPPPConnectionGetGenericPortMappingEntryResult) of the action.</returns>
+    public WANPPPConnectionGetGenericPortMappingEntryResult GetGenericPortMappingEntry(ushort newPortMappingIndex)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewPortMappingIndex", newPortMappingIndex);
-      return this.SendRequest<GetGenericPortMappingEntryResult>("GetGenericPortMappingEntry", arguments);
+      return this.SendRequest<WANPPPConnectionGetGenericPortMappingEntryResult>("GetGenericPortMappingEntry", arguments);
     }
 
     /// <summary>
@@ -152,15 +152,15 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
-    /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
-    /// <returns>The result (GetSpecificPortMappingEntryResult) of the action.</returns>
-    public GetSpecificPortMappingEntryResult GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
+    /// <param name="newProtocol">The SOAP parameter NewProtocol. Allowed values: TCP, UDP.</param>
+    /// <returns>The result (WANPPPConnectionGetSpecificPortMappingEntryResult) of the action.</returns>
+    public WANPPPConnectionGetSpecificPortMappingEntryResult GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
       arguments.Add("NewRemoteHost", newRemoteHost);
       arguments.Add("NewExternalPort", newExternalPort);
       arguments.Add("NewProtocol", newProtocol);
-      return this.SendRequest<GetSpecificPortMappingEntryResult>("GetSpecificPortMappingEntry", arguments);
+      return this.SendRequest<WANPPPConnectionGetSpecificPortMappingEntryResult>("GetSpecificPortMappingEntry", arguments);
     }
 
     /// <summary>
@@ -168,7 +168,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
-    /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
+    /// <param name="newProtocol">The SOAP parameter NewProtocol. Allowed values: TCP, UDP.</param>
     /// <param name="newInternalPort">The SOAP parameter NewInternalPort.</param>
     /// <param name="newInternalClient">The SOAP parameter NewInternalClient.</param>
     /// <param name="newEnabled">The SOAP parameter NewEnabled.</param>
@@ -193,7 +193,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
-    /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
+    /// <param name="newProtocol">The SOAP parameter NewProtocol. Allowed values: TCP, UDP.</param>
     public void DeletePortMapping(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
       System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
@@ -224,10 +224,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action GetLinkLayerMaxBitRates.
     /// </summary>
-    /// <returns>The result (GetLinkLayerMaxBitRatesResult) of the action.</returns>
-    public GetLinkLayerMaxBitRatesResult GetLinkLayerMaxBitRates()
+    /// <returns>The result (WANPPPConnectionGetLinkLayerMaxBitRatesResult) of the action.</returns>
+    public WANPPPConnectionGetLinkLayerMaxBitRatesResult GetLinkLayerMaxBitRates()
     {
-      return this.SendRequest<GetLinkLayerMaxBitRatesResult>("GetLinkLayerMaxBitRates");
+      return this.SendRequest<WANPPPConnectionGetLinkLayerMaxBitRatesResult>("GetLinkLayerMaxBitRates");
     }
 
     /// <summary>
@@ -264,10 +264,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Wrapper for the action X_AVM-DE_GetAutoDisconnectTimeSpan.
     /// </summary>
-    /// <returns>The result (X_AVM_DE_GetAutoDisconnectTimeSpanResult) of the action.</returns>
-    public X_AVM_DE_GetAutoDisconnectTimeSpanResult X_AVM_DE_GetAutoDisconnectTimeSpan()
+    /// <returns>The result (WANPPPConnectionX_AVM_DE_GetAutoDisconnectTimeSpanResult) of the action.</returns>
+    public WANPPPConnectionX_AVM_DE_GetAutoDisconnectTimeSpanResult X_AVM_DE_GetAutoDisconnectTimeSpan()
     {
-      return this.SendRequest<X_AVM_DE_GetAutoDisconnectTimeSpanResult>("X_AVM-DE_GetAutoDisconnectTimeSpan");
+      return this.SendRequest<WANPPPConnectionX_AVM_DE_GetAutoDisconnectTimeSpanResult>("X_AVM-DE_GetAutoDisconnectTimeSpan");
     }
 
     /// <summary>
