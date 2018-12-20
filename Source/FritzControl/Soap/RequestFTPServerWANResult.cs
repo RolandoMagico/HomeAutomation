@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class RequestFTPServerWANResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewFTPWANPort
+    /// Gets or sets the SOAP argument NewFTPWANPort.
     /// </summary>
     public ushort NewFTPWANPort { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewFTPWANLifetime
+    /// Gets or sets the SOAP argument NewFTPWANLifetime.
     /// </summary>
     public uint NewFTPWANLifetime { get; set; }
   }

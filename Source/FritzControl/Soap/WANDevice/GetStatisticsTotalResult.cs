@@ -28,77 +28,77 @@ namespace FritzControl.Soap.WANDevice
   public class GetStatisticsTotalResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewReceiveBlocks
+    /// Gets or sets the SOAP argument NewReceiveBlocks.
     /// </summary>
     public uint NewReceiveBlocks { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTransmitBlocks
+    /// Gets or sets the SOAP argument NewTransmitBlocks.
     /// </summary>
     public uint NewTransmitBlocks { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewCellDelin
+    /// Gets or sets the SOAP argument NewCellDelin.
     /// </summary>
     public uint NewCellDelin { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLinkRetrain
+    /// Gets or sets the SOAP argument NewLinkRetrain.
     /// </summary>
     public uint NewLinkRetrain { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInitErrors
+    /// Gets or sets the SOAP argument NewInitErrors.
     /// </summary>
     public uint NewInitErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInitTimeouts
+    /// Gets or sets the SOAP argument NewInitTimeouts.
     /// </summary>
     public uint NewInitTimeouts { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLossOfFraming
+    /// Gets or sets the SOAP argument NewLossOfFraming.
     /// </summary>
     public uint NewLossOfFraming { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewErroredSecs
+    /// Gets or sets the SOAP argument NewErroredSecs.
     /// </summary>
     public uint NewErroredSecs { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSeverelyErroredSecs
+    /// Gets or sets the SOAP argument NewSeverelyErroredSecs.
     /// </summary>
     public uint NewSeverelyErroredSecs { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewFECErrors
+    /// Gets or sets the SOAP argument NewFECErrors.
     /// </summary>
     public uint NewFECErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATUCFECErrors
+    /// Gets or sets the SOAP argument NewATUCFECErrors.
     /// </summary>
     public uint NewATUCFECErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHECErrors
+    /// Gets or sets the SOAP argument NewHECErrors.
     /// </summary>
     public uint NewHECErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATUCHECErrors
+    /// Gets or sets the SOAP argument NewATUCHECErrors.
     /// </summary>
     public uint NewATUCHECErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewCRCErrors
+    /// Gets or sets the SOAP argument NewCRCErrors.
     /// </summary>
     public uint NewCRCErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATUCCRCErrors
+    /// Gets or sets the SOAP argument NewATUCCRCErrors.
     /// </summary>
     public uint NewATUCCRCErrors { get; set; }
   }

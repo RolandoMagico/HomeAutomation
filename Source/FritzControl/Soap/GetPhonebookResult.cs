@@ -28,17 +28,17 @@ namespace FritzControl.Soap
   public class GetPhonebookResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhonebookName
+    /// Gets or sets the SOAP argument NewPhonebookName.
     /// </summary>
     public string NewPhonebookName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhonebookExtraID
+    /// Gets or sets the SOAP argument NewPhonebookExtraID.
     /// </summary>
     public string NewPhonebookExtraID { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhonebookURL
+    /// Gets or sets the SOAP argument NewPhonebookURL.
     /// </summary>
     public string NewPhonebookURL { get; set; }
   }

@@ -28,82 +28,82 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewConnectionStatus
+    /// Gets or sets the SOAP argument NewConnectionStatus.
     /// </summary>
     public string NewConnectionStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPossibleConnectionTypes
+    /// Gets or sets the SOAP argument NewPossibleConnectionTypes.
     /// </summary>
     public string NewPossibleConnectionTypes { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewConnectionType
+    /// Gets or sets the SOAP argument NewConnectionType.
     /// </summary>
     public string NewConnectionType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewName
+    /// Gets or sets the SOAP argument NewName.
     /// </summary>
     public string NewName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUptime
+    /// Gets or sets the SOAP argument NewUptime.
     /// </summary>
     public uint NewUptime { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLastConnectionError
+    /// Gets or sets the SOAP argument NewLastConnectionError.
     /// </summary>
     public string NewLastConnectionError { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewRSIPAvailable
+    /// Gets or sets a value indicating whether the SOAP argument NewRSIPAvailable is set or not.
     /// </summary>
     public bool NewRSIPAvailable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewNATEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewNATEnabled is set or not.
     /// </summary>
     public bool NewNATEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewExternalIPAddress
+    /// Gets or sets the SOAP argument NewExternalIPAddress.
     /// </summary>
     public string NewExternalIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDNSServers
+    /// Gets or sets the SOAP argument NewDNSServers.
     /// </summary>
     public string NewDNSServers { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMACAddress
+    /// Gets or sets the SOAP argument NewMACAddress.
     /// </summary>
     public string NewMACAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewConnectionTrigger
+    /// Gets or sets the SOAP argument NewConnectionTrigger.
     /// </summary>
     public string NewConnectionTrigger { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewRouteProtocolRx
+    /// Gets or sets the SOAP argument NewRouteProtocolRx.
     /// </summary>
     public string NewRouteProtocolRx { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDNSEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewDNSEnabled is set or not.
     /// </summary>
     public bool NewDNSEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDNSOverrideAllowed
+    /// Gets or sets a value indicating whether the SOAP argument NewDNSOverrideAllowed is set or not.
     /// </summary>
     public bool NewDNSOverrideAllowed { get; set; }
   }

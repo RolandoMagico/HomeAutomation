@@ -28,57 +28,57 @@ namespace FritzControl.Soap.LANDevice
   public class X_AVM_DE_GetSpecificHostEntryByIPResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewMACAddress
+    /// Gets or sets the SOAP argument NewMACAddress.
     /// </summary>
     public string NewMACAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewActive
+    /// Gets or sets a value indicating whether the SOAP argument NewActive is set or not.
     /// </summary>
     public bool NewActive { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHostName
+    /// Gets or sets the SOAP argument NewHostName.
     /// </summary>
     public string NewHostName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInterfaceType
+    /// Gets or sets the SOAP argument NewInterfaceType.
     /// </summary>
     public string NewInterfaceType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_Port
+    /// Gets or sets the SOAP argument NewX_AVM-DE_Port.
     /// </summary>
     public uint NewX_AVM_DE_Port { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_Speed
+    /// Gets or sets the SOAP argument NewX_AVM-DE_Speed.
     /// </summary>
     public uint NewX_AVM_DE_Speed { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateAvailable
+    /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_UpdateAvailable is set or not.
     /// </summary>
     public bool NewX_AVM_DE_UpdateAvailable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateSuccessful
+    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateSuccessful.
     /// </summary>
     public string NewX_AVM_DE_UpdateSuccessful { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_InfoURL
+    /// Gets or sets the SOAP argument NewX_AVM-DE_InfoURL.
     /// </summary>
     public string NewX_AVM_DE_InfoURL { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_Model
+    /// Gets or sets the SOAP argument NewX_AVM-DE_Model.
     /// </summary>
     public string NewX_AVM_DE_Model { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_URL
+    /// Gets or sets the SOAP argument NewX_AVM-DE_URL.
     /// </summary>
     public string NewX_AVM_DE_URL { get; set; }
   }

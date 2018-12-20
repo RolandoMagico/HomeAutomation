@@ -28,17 +28,17 @@ namespace FritzControl.Soap
   public class GetUserInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUsername
+    /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
     public string NewUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_NetworkAccessReadOnly
+    /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_NetworkAccessReadOnly is set or not.
     /// </summary>
     public bool NewX_AVM_DE_NetworkAccessReadOnly { get; set; }
   }

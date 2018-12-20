@@ -28,32 +28,32 @@ namespace FritzControl.Soap
   public class GetSpecificDectEntryResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewActive
+    /// Gets or sets a value indicating whether the SOAP argument NewActive is set or not.
     /// </summary>
     public bool NewActive { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewName
+    /// Gets or sets the SOAP argument NewName.
     /// </summary>
     public string NewName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewModel
+    /// Gets or sets the SOAP argument NewModel.
     /// </summary>
     public string NewModel { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpdateAvailable
+    /// Gets or sets a value indicating whether the SOAP argument NewUpdateAvailable is set or not.
     /// </summary>
     public bool NewUpdateAvailable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpdateSuccessful
+    /// Gets or sets the SOAP argument NewUpdateSuccessful.
     /// </summary>
     public string NewUpdateSuccessful { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpdateInfo
+    /// Gets or sets the SOAP argument NewUpdateInfo.
     /// </summary>
     public string NewUpdateInfo { get; set; }
   }

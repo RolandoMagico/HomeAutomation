@@ -25,7 +25,7 @@ namespace FritzControl.Soap.LANDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:LANHostConfigManagement:1.
   /// </summary>
-  public class LANHostConfigManagement
+  public class LANHostConfigManagement : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

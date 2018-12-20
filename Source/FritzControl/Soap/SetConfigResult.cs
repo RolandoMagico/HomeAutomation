@@ -28,17 +28,17 @@ namespace FritzControl.Soap
   public class SetConfigResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewState
+    /// Gets or sets the SOAP argument NewState.
     /// </summary>
     public string NewState { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewToken
+    /// Gets or sets the SOAP argument NewToken.
     /// </summary>
     public string NewToken { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMethods
+    /// Gets or sets the SOAP argument NewMethods.
     /// </summary>
     public string NewMethods { get; set; }
   }

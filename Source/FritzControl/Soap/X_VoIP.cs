@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:X_VoIP:1.
   /// </summary>
-  public class X_VoIP
+  public class X_VoIP : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfoEx.

@@ -28,22 +28,22 @@ namespace FritzControl.Soap.LANDevice
   public class GetStatisticsResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewBytesSent
+    /// Gets or sets the SOAP argument NewBytesSent.
     /// </summary>
     public uint NewBytesSent { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewBytesReceived
+    /// Gets or sets the SOAP argument NewBytesReceived.
     /// </summary>
     public uint NewBytesReceived { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPacketsSent
+    /// Gets or sets the SOAP argument NewPacketsSent.
     /// </summary>
     public uint NewPacketsSent { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPacketsReceived
+    /// Gets or sets the SOAP argument NewPacketsReceived.
     /// </summary>
     public uint NewPacketsReceived { get; set; }
   }

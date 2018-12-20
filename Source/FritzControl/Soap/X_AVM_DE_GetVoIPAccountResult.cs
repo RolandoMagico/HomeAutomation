@@ -28,32 +28,32 @@ namespace FritzControl.Soap
   public class X_AVM_DE_GetVoIPAccountResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPRegistrar
+    /// Gets or sets the SOAP argument NewVoIPRegistrar.
     /// </summary>
     public string NewVoIPRegistrar { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPNumber
+    /// Gets or sets the SOAP argument NewVoIPNumber.
     /// </summary>
     public string NewVoIPNumber { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPUsername
+    /// Gets or sets the SOAP argument NewVoIPUsername.
     /// </summary>
     public string NewVoIPUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPPassword
+    /// Gets or sets the SOAP argument NewVoIPPassword.
     /// </summary>
     public string NewVoIPPassword { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPOutboundProxy
+    /// Gets or sets the SOAP argument NewVoIPOutboundProxy.
     /// </summary>
     public string NewVoIPOutboundProxy { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPSTUNServer
+    /// Gets or sets the SOAP argument NewVoIPSTUNServer.
     /// </summary>
     public string NewVoIPSTUNServer { get; set; }
   }

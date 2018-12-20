@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_AppSetup:1.
   /// </summary>
-  public class X_AVM_DE_AppSetup
+  public class X_AVM_DE_AppSetup : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class GetDECTHandsetInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewHandsetName
+    /// Gets or sets the SOAP argument NewHandsetName.
     /// </summary>
     public string NewHandsetName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhonebookID
+    /// Gets or sets the SOAP argument NewPhonebookID.
     /// </summary>
     public ushort NewPhonebookID { get; set; }
   }

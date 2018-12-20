@@ -28,22 +28,22 @@ namespace FritzControl.Soap.LANDevice
   public class GetSpecificAssociatedDeviceInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewAssociatedDeviceIPAddress
+    /// Gets or sets the SOAP argument NewAssociatedDeviceIPAddress.
     /// </summary>
     public string NewAssociatedDeviceIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAssociatedDeviceAuthState
+    /// Gets or sets a value indicating whether the SOAP argument NewAssociatedDeviceAuthState is set or not.
     /// </summary>
     public bool NewAssociatedDeviceAuthState { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_Speed
+    /// Gets or sets the SOAP argument NewX_AVM-DE_Speed.
     /// </summary>
     public ushort NewX_AVM_DE_Speed { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_SignalStrength
+    /// Gets or sets the SOAP argument NewX_AVM-DE_SignalStrength.
     /// </summary>
     public byte NewX_AVM_DE_SignalStrength { get; set; }
   }

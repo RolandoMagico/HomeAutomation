@@ -28,12 +28,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetDSLLinkInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewLinkType
+    /// Gets or sets the SOAP argument NewLinkType.
     /// </summary>
     public string NewLinkType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLinkStatus
+    /// Gets or sets the SOAP argument NewLinkStatus.
     /// </summary>
     public string NewLinkStatus { get; set; }
   }

@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:Layer3Forwarding:1.
   /// </summary>
-  public class Layer3Forwarding
+  public class Layer3Forwarding : BaseService
   {
     /// <summary>
     /// Wrapper for the action SetDefaultConnectionService.

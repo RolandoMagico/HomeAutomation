@@ -28,32 +28,32 @@ namespace FritzControl.Soap
   public class GetSpecificForwardingEntryResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewGatewayIPAddress
+    /// Gets or sets the SOAP argument NewGatewayIPAddress.
     /// </summary>
     public string NewGatewayIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatus
+    /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
     public string NewStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewType
+    /// Gets or sets the SOAP argument NewType.
     /// </summary>
     public string NewType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInterface
+    /// Gets or sets the SOAP argument NewInterface.
     /// </summary>
     public string NewInterface { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewForwardingMetric
+    /// Gets or sets the SOAP argument NewForwardingMetric.
     /// </summary>
     public int NewForwardingMetric { get; set; }
   }

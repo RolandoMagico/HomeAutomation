@@ -28,12 +28,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetNATRSIPStatusResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewRSIPAvailable
+    /// Gets or sets a value indicating whether the SOAP argument NewRSIPAvailable is set or not.
     /// </summary>
     public bool NewRSIPAvailable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewNATEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewNATEnabled is set or not.
     /// </summary>
     public bool NewNATEnabled { get; set; }
   }

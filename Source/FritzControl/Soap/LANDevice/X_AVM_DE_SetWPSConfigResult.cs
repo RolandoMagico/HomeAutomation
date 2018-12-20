@@ -28,12 +28,12 @@ namespace FritzControl.Soap.LANDevice
   public class X_AVM_DE_SetWPSConfigResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_WPSAPPIN
+    /// Gets or sets the SOAP argument NewX_AVM-DE_WPSAPPIN.
     /// </summary>
     public string NewX_AVM_DE_WPSAPPIN { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_WPSStatus
+    /// Gets or sets the SOAP argument NewX_AVM-DE_WPSStatus.
     /// </summary>
     public string NewX_AVM_DE_WPSStatus { get; set; }
   }

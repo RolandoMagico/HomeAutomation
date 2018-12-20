@@ -28,37 +28,37 @@ namespace FritzControl.Soap
   public class GetDeflectionResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewType
+    /// Gets or sets the SOAP argument NewType.
     /// </summary>
     public string NewType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewNumber
+    /// Gets or sets the SOAP argument NewNumber.
     /// </summary>
     public string NewNumber { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDeflectionToNumber
+    /// Gets or sets the SOAP argument NewDeflectionToNumber.
     /// </summary>
     public string NewDeflectionToNumber { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMode
+    /// Gets or sets the SOAP argument NewMode.
     /// </summary>
     public string NewMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewOutgoing
+    /// Gets or sets the SOAP argument NewOutgoing.
     /// </summary>
     public string NewOutgoing { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhonebookID
+    /// Gets or sets the SOAP argument NewPhonebookID.
     /// </summary>
     public ushort NewPhonebookID { get; set; }
   }

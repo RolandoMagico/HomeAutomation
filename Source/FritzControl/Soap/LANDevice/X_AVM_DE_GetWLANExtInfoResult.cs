@@ -28,47 +28,47 @@ namespace FritzControl.Soap.LANDevice
   public class X_AVM_DE_GetWLANExtInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_APEnabled
+    /// Gets or sets the SOAP argument NewX_AVM-DE_APEnabled.
     /// </summary>
     public string NewX_AVM_DE_APEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_APType
+    /// Gets or sets the SOAP argument NewX_AVM-DE_APType.
     /// </summary>
     public string NewX_AVM_DE_APType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_TimeoutActive
+    /// Gets or sets the SOAP argument NewX_AVM-DE_TimeoutActive.
     /// </summary>
     public string NewX_AVM_DE_TimeoutActive { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_Timeout
+    /// Gets or sets the SOAP argument NewX_AVM-DE_Timeout.
     /// </summary>
     public string NewX_AVM_DE_Timeout { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_TimeRemain
+    /// Gets or sets the SOAP argument NewX_AVM-DE_TimeRemain.
     /// </summary>
     public string NewX_AVM_DE_TimeRemain { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_NoForcedOff
+    /// Gets or sets the SOAP argument NewX_AVM-DE_NoForcedOff.
     /// </summary>
     public string NewX_AVM_DE_NoForcedOff { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_UserIsolation
+    /// Gets or sets the SOAP argument NewX_AVM-DE_UserIsolation.
     /// </summary>
     public string NewX_AVM_DE_UserIsolation { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_EncryptionMode
+    /// Gets or sets the SOAP argument NewX_AVM-DE_EncryptionMode.
     /// </summary>
     public string NewX_AVM_DE_EncryptionMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_LastChangedStamp
+    /// Gets or sets the SOAP argument NewX_AVM-DE_LastChangedStamp.
     /// </summary>
     public uint NewX_AVM_DE_LastChangedStamp { get; set; }
   }

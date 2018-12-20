@@ -28,37 +28,37 @@ namespace FritzControl.Soap.LANDevice
   public class GetGenericHostEntryResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewIPAddress
+    /// Gets or sets the SOAP argument NewIPAddress.
     /// </summary>
     public string NewIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAddressSource
+    /// Gets or sets the SOAP argument NewAddressSource.
     /// </summary>
     public string NewAddressSource { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLeaseTimeRemaining
+    /// Gets or sets the SOAP argument NewLeaseTimeRemaining.
     /// </summary>
     public int NewLeaseTimeRemaining { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMACAddress
+    /// Gets or sets the SOAP argument NewMACAddress.
     /// </summary>
     public string NewMACAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInterfaceType
+    /// Gets or sets the SOAP argument NewInterfaceType.
     /// </summary>
     public string NewInterfaceType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewActive
+    /// Gets or sets a value indicating whether the SOAP argument NewActive is set or not.
     /// </summary>
     public bool NewActive { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHostName
+    /// Gets or sets the SOAP argument NewHostName.
     /// </summary>
     public string NewHostName { get; set; }
   }

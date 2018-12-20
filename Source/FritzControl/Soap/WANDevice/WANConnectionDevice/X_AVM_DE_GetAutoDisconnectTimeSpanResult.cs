@@ -28,12 +28,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class X_AVM_DE_GetAutoDisconnectTimeSpanResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_DisconnectPreventionEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_DisconnectPreventionEnable is set or not.
     /// </summary>
     public bool NewX_AVM_DE_DisconnectPreventionEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_DisconnectPreventionHour
+    /// Gets or sets the SOAP argument NewX_AVM-DE_DisconnectPreventionHour.
     /// </summary>
     public ushort NewX_AVM_DE_DisconnectPreventionHour { get; set; }
   }

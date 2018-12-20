@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class X_AVM_DE_GetCurrentUserResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentUsername
+    /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentUsername.
     /// </summary>
     public string NewX_AVM_DE_CurrentUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentUserRights
+    /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentUserRights.
     /// </summary>
     public string NewX_AVM_DE_CurrentUserRights { get; set; }
   }

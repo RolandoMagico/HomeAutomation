@@ -28,52 +28,52 @@ namespace FritzControl.Soap.LANDevice
   public class GetInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewDHCPServerConfigurable
+    /// Gets or sets a value indicating whether the SOAP argument NewDHCPServerConfigurable is set or not.
     /// </summary>
     public bool NewDHCPServerConfigurable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDHCPRelay
+    /// Gets or sets a value indicating whether the SOAP argument NewDHCPRelay is set or not.
     /// </summary>
     public bool NewDHCPRelay { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinAddress
+    /// Gets or sets the SOAP argument NewMinAddress.
     /// </summary>
     public string NewMinAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxAddress
+    /// Gets or sets the SOAP argument NewMaxAddress.
     /// </summary>
     public string NewMaxAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewReservedAddresses
+    /// Gets or sets the SOAP argument NewReservedAddresses.
     /// </summary>
     public string NewReservedAddresses { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDHCPServerEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewDHCPServerEnable is set or not.
     /// </summary>
     public bool NewDHCPServerEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDNSServers
+    /// Gets or sets the SOAP argument NewDNSServers.
     /// </summary>
     public string NewDNSServers { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDomainName
+    /// Gets or sets the SOAP argument NewDomainName.
     /// </summary>
     public string NewDomainName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewIPRouters
+    /// Gets or sets the SOAP argument NewIPRouters.
     /// </summary>
     public string NewIPRouters { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSubnetMask
+    /// Gets or sets the SOAP argument NewSubnetMask.
     /// </summary>
     public string NewSubnetMask { get; set; }
   }

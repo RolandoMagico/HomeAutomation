@@ -28,12 +28,12 @@ namespace FritzControl.Soap.LANDevice
   public class GetAddressRangeResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinAddress
+    /// Gets or sets the SOAP argument NewMinAddress.
     /// </summary>
     public string NewMinAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxAddress
+    /// Gets or sets the SOAP argument NewMaxAddress.
     /// </summary>
     public string NewMaxAddress { get; set; }
   }

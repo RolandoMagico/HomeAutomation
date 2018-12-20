@@ -25,7 +25,7 @@ namespace FritzControl.Soap.LANDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:Hosts:1.
   /// </summary>
-  public class Hosts
+  public class Hosts : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetHostNumberOfEntries.

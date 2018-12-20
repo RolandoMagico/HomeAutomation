@@ -28,12 +28,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetLinkLayerMaxBitRatesResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpstreamMaxBitRate
+    /// Gets or sets the SOAP argument NewUpstreamMaxBitRate.
     /// </summary>
     public uint NewUpstreamMaxBitRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDownstreamMaxBitRate
+    /// Gets or sets the SOAP argument NewDownstreamMaxBitRate.
     /// </summary>
     public uint NewDownstreamMaxBitRate { get; set; }
   }

@@ -28,107 +28,107 @@ namespace FritzControl.Soap
   public class GetInfoExResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPNumberMinChars
+    /// Gets or sets the SOAP argument NewVoIPNumberMinChars.
     /// </summary>
     public ushort NewVoIPNumberMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPNumberMaxChars
+    /// Gets or sets the SOAP argument NewVoIPNumberMaxChars.
     /// </summary>
     public ushort NewVoIPNumberMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPNumberAllowedChars
+    /// Gets or sets the SOAP argument NewVoIPNumberAllowedChars.
     /// </summary>
     public string NewVoIPNumberAllowedChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPUsernameMinChars
+    /// Gets or sets the SOAP argument NewVoIPUsernameMinChars.
     /// </summary>
     public ushort NewVoIPUsernameMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPUsernameMaxChars
+    /// Gets or sets the SOAP argument NewVoIPUsernameMaxChars.
     /// </summary>
     public ushort NewVoIPUsernameMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPUsernameAllowedChars
+    /// Gets or sets the SOAP argument NewVoIPUsernameAllowedChars.
     /// </summary>
     public string NewVoIPUsernameAllowedChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPPasswordMinChars
+    /// Gets or sets the SOAP argument NewVoIPPasswordMinChars.
     /// </summary>
     public ushort NewVoIPPasswordMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPPasswordMaxChars
+    /// Gets or sets the SOAP argument NewVoIPPasswordMaxChars.
     /// </summary>
     public ushort NewVoIPPasswordMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPPasswordAllowedChars
+    /// Gets or sets the SOAP argument NewVoIPPasswordAllowedChars.
     /// </summary>
     public string NewVoIPPasswordAllowedChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPRegistrarMinChars
+    /// Gets or sets the SOAP argument NewVoIPRegistrarMinChars.
     /// </summary>
     public ushort NewVoIPRegistrarMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPRegistrarMaxChars
+    /// Gets or sets the SOAP argument NewVoIPRegistrarMaxChars.
     /// </summary>
     public ushort NewVoIPRegistrarMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPRegistrarAllowedChars
+    /// Gets or sets the SOAP argument NewVoIPRegistrarAllowedChars.
     /// </summary>
     public string NewVoIPRegistrarAllowedChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPSTUNServerMinChars
+    /// Gets or sets the SOAP argument NewVoIPSTUNServerMinChars.
     /// </summary>
     public ushort NewVoIPSTUNServerMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPSTUNServerMaxChars
+    /// Gets or sets the SOAP argument NewVoIPSTUNServerMaxChars.
     /// </summary>
     public ushort NewVoIPSTUNServerMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewVoIPSTUNServerAllowedChars
+    /// Gets or sets the SOAP argument NewVoIPSTUNServerAllowedChars.
     /// </summary>
     public string NewVoIPSTUNServerAllowedChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsernameMinChars
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsernameMinChars.
     /// </summary>
     public ushort NewX_AVM_DE_ClientUsernameMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsernameMaxChars
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsernameMaxChars.
     /// </summary>
     public ushort NewX_AVM_DE_ClientUsernameMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsernameAllowedChars
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsernameAllowedChars.
     /// </summary>
     public string NewX_AVM_DE_ClientUsernameAllowedChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientPasswordMinChars
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientPasswordMinChars.
     /// </summary>
     public ushort NewX_AVM_DE_ClientPasswordMinChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientPasswordMaxChars
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientPasswordMaxChars.
     /// </summary>
     public ushort NewX_AVM_DE_ClientPasswordMaxChars { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientPasswordAllowedChars
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientPasswordAllowedChars.
     /// </summary>
     public string NewX_AVM_DE_ClientPasswordAllowedChars { get; set; }
   }

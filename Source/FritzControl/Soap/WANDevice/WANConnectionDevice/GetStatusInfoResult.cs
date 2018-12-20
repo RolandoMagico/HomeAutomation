@@ -28,17 +28,17 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetStatusInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewConnectionStatus
+    /// Gets or sets the SOAP argument NewConnectionStatus.
     /// </summary>
     public string NewConnectionStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLastConnectionError
+    /// Gets or sets the SOAP argument NewLastConnectionError.
     /// </summary>
     public string NewLastConnectionError { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUptime
+    /// Gets or sets the SOAP argument NewUptime.
     /// </summary>
     public uint NewUptime { get; set; }
   }

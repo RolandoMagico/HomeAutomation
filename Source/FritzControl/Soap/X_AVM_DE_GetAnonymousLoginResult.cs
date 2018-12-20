@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class X_AVM_DE_GetAnonymousLoginResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_AnonymousLoginEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_AnonymousLoginEnabled is set or not.
     /// </summary>
     public bool NewX_AVM_DE_AnonymousLoginEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ButtonLoginEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_ButtonLoginEnabled is set or not.
     /// </summary>
     public bool NewX_AVM_DE_ButtonLoginEnabled { get; set; }
   }

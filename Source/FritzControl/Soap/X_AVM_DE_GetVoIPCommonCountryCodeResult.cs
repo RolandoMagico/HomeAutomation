@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class X_AVM_DE_GetVoIPCommonCountryCodeResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_LKZ
+    /// Gets or sets the SOAP argument NewX_AVM-DE_LKZ.
     /// </summary>
     public string NewX_AVM_DE_LKZ { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_LKZPrefix
+    /// Gets or sets the SOAP argument NewX_AVM-DE_LKZPrefix.
     /// </summary>
     public string NewX_AVM_DE_LKZPrefix { get; set; }
   }

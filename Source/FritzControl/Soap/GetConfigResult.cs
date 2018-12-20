@@ -28,42 +28,42 @@ namespace FritzControl.Soap
   public class GetConfigResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewConfigRight
+    /// Gets or sets the SOAP argument NewConfigRight.
     /// </summary>
     public string NewConfigRight { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAppRight
+    /// Gets or sets the SOAP argument NewAppRight.
     /// </summary>
     public string NewAppRight { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewNasRight
+    /// Gets or sets the SOAP argument NewNasRight.
     /// </summary>
     public string NewNasRight { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhoneRight
+    /// Gets or sets the SOAP argument NewPhoneRight.
     /// </summary>
     public string NewPhoneRight { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDialRight
+    /// Gets or sets the SOAP argument NewDialRight.
     /// </summary>
     public string NewDialRight { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHomeautoRight
+    /// Gets or sets the SOAP argument NewHomeautoRight.
     /// </summary>
     public string NewHomeautoRight { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInternetRights
+    /// Gets or sets a value indicating whether the SOAP argument NewInternetRights is set or not.
     /// </summary>
     public bool NewInternetRights { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAccessFromInternet
+    /// Gets or sets a value indicating whether the SOAP argument NewAccessFromInternet is set or not.
     /// </summary>
     public bool NewAccessFromInternet { get; set; }
   }

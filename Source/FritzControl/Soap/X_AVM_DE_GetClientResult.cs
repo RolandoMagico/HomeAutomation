@@ -28,27 +28,27 @@ namespace FritzControl.Soap
   public class X_AVM_DE_GetClientResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsername
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsername.
     /// </summary>
     public string NewX_AVM_DE_ClientUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientRegistrar
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientRegistrar.
     /// </summary>
     public string NewX_AVM_DE_ClientRegistrar { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientRegistrarPort
+    /// Gets or sets the SOAP argument NewX_AVM-DE_ClientRegistrarPort.
     /// </summary>
     public ushort NewX_AVM_DE_ClientRegistrarPort { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_PhoneName
+    /// Gets or sets the SOAP argument NewX_AVM-DE_PhoneName.
     /// </summary>
     public string NewX_AVM_DE_PhoneName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_OutGoingNumber
+    /// Gets or sets the SOAP argument NewX_AVM-DE_OutGoingNumber.
     /// </summary>
     public string NewX_AVM_DE_OutGoingNumber { get; set; }
   }

@@ -28,12 +28,12 @@ namespace FritzControl.Soap.LANDevice
   public class X_AVM_DE_GetNightControlResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewNightControl
+    /// Gets or sets the SOAP argument NewNightControl.
     /// </summary>
     public string NewNightControl { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewNightTimeControlNoForcedOff
+    /// Gets or sets a value indicating whether the SOAP argument NewNightTimeControlNoForcedOff is set or not.
     /// </summary>
     public bool NewNightTimeControlNoForcedOff { get; set; }
   }

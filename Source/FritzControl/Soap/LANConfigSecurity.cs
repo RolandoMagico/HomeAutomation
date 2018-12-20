@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:LANConfigSecurity:1.
   /// </summary>
-  public class LANConfigSecurity
+  public class LANConfigSecurity : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

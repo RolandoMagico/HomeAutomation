@@ -28,47 +28,47 @@ namespace FritzControl.Soap.LANDevice
   public class X_AVM_DE_GetWLANHybridModeResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewBeaconType
+    /// Gets or sets the SOAP argument NewBeaconType.
     /// </summary>
     public string NewBeaconType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewKeyPassphrase
+    /// Gets or sets the SOAP argument NewKeyPassphrase.
     /// </summary>
     public string NewKeyPassphrase { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSSID
+    /// Gets or sets the SOAP argument NewSSID.
     /// </summary>
     public string NewSSID { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewBSSID
+    /// Gets or sets the SOAP argument NewBSSID.
     /// </summary>
     public string NewBSSID { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTrafficMode
+    /// Gets or sets the SOAP argument NewTrafficMode.
     /// </summary>
     public string NewTrafficMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewManualSpeed
+    /// Gets or sets a value indicating whether the SOAP argument NewManualSpeed is set or not.
     /// </summary>
     public bool NewManualSpeed { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxSpeedDS
+    /// Gets or sets the SOAP argument NewMaxSpeedDS.
     /// </summary>
     public uint NewMaxSpeedDS { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxSpeedUS
+    /// Gets or sets the SOAP argument NewMaxSpeedUS.
     /// </summary>
     public uint NewMaxSpeedUS { get; set; }
   }

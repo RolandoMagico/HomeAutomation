@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:ManagementServer:1.
   /// </summary>
-  public class ManagementServer
+  public class ManagementServer : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

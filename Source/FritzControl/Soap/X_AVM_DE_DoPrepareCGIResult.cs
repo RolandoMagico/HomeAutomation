@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class X_AVM_DE_DoPrepareCGIResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_CGI
+    /// Gets or sets the SOAP argument NewX_AVM-DE_CGI.
     /// </summary>
     public string NewX_AVM_DE_CGI { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_SessionID
+    /// Gets or sets the SOAP argument NewX_AVM-DE_SessionID.
     /// </summary>
     public string NewX_AVM_DE_SessionID { get; set; }
   }

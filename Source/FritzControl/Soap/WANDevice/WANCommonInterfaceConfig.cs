@@ -25,7 +25,7 @@ namespace FritzControl.Soap.WANDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:WANCommonInterfaceConfig:1.
   /// </summary>
-  public class WANCommonInterfaceConfig
+  public class WANCommonInterfaceConfig : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetCommonLinkProperties.

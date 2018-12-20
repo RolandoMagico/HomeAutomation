@@ -25,7 +25,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:WANDSLLinkConfig:1.
   /// </summary>
-  public class WANDSLLinkConfig
+  public class WANDSLLinkConfig : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

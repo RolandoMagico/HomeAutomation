@@ -28,72 +28,72 @@ namespace FritzControl.Soap
   public class GetServiceByIndexResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewEnabled is set or not.
     /// </summary>
     public bool NewEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewName
+    /// Gets or sets the SOAP argument NewName.
     /// </summary>
     public string NewName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewScheme
+    /// Gets or sets the SOAP argument NewScheme.
     /// </summary>
     public string NewScheme { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPort
+    /// Gets or sets the SOAP argument NewPort.
     /// </summary>
     public uint NewPort { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewURLPath
+    /// Gets or sets the SOAP argument NewURLPath.
     /// </summary>
     public string NewURLPath { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewType
+    /// Gets or sets the SOAP argument NewType.
     /// </summary>
     public string NewType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewIPv4ForwardingWarning
+    /// Gets or sets the SOAP argument NewIPv4ForwardingWarning.
     /// </summary>
     public byte NewIPv4ForwardingWarning { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewIPv4Addresses
+    /// Gets or sets the SOAP argument NewIPv4Addresses.
     /// </summary>
     public string NewIPv4Addresses { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewIPv6Addresses
+    /// Gets or sets the SOAP argument NewIPv6Addresses.
     /// </summary>
     public string NewIPv6Addresses { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewIPv6InterfaceIDs
+    /// Gets or sets the SOAP argument NewIPv6InterfaceIDs.
     /// </summary>
     public string NewIPv6InterfaceIDs { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMACAddress
+    /// Gets or sets the SOAP argument NewMACAddress.
     /// </summary>
     public string NewMACAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHostName
+    /// Gets or sets the SOAP argument NewHostName.
     /// </summary>
     public string NewHostName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDynDnsLabel
+    /// Gets or sets the SOAP argument NewDynDnsLabel.
     /// </summary>
     public string NewDynDnsLabel { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatus
+    /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
     public uint NewStatus { get; set; }
   }

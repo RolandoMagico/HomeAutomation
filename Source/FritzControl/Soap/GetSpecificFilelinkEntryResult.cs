@@ -28,47 +28,47 @@ namespace FritzControl.Soap
   public class GetSpecificFilelinkEntryResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewValid
+    /// Gets or sets a value indicating whether the SOAP argument NewValid is set or not.
     /// </summary>
     public bool NewValid { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPath
+    /// Gets or sets the SOAP argument NewPath.
     /// </summary>
     public string NewPath { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewIsDirectory
+    /// Gets or sets a value indicating whether the SOAP argument NewIsDirectory is set or not.
     /// </summary>
     public bool NewIsDirectory { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUrl
+    /// Gets or sets the SOAP argument NewUrl.
     /// </summary>
     public string NewUrl { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUsername
+    /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
     public string NewUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAccessCountLimit
+    /// Gets or sets the SOAP argument NewAccessCountLimit.
     /// </summary>
     public ushort NewAccessCountLimit { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAccessCount
+    /// Gets or sets the SOAP argument NewAccessCount.
     /// </summary>
     public ushort NewAccessCount { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewExpire
+    /// Gets or sets the SOAP argument NewExpire.
     /// </summary>
     public ushort NewExpire { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewExpireDate
+    /// Gets or sets the SOAP argument NewExpireDate.
     /// </summary>
     public System.DateTime NewExpireDate { get; set; }
   }

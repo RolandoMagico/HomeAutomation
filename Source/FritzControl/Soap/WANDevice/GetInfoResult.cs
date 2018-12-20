@@ -28,77 +28,77 @@ namespace FritzControl.Soap.WANDevice
   public class GetInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatus
+    /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
     public string NewStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDataPath
+    /// Gets or sets the SOAP argument NewDataPath.
     /// </summary>
     public string NewDataPath { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpstreamCurrRate
+    /// Gets or sets the SOAP argument NewUpstreamCurrRate.
     /// </summary>
     public int NewUpstreamCurrRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDownstreamCurrRate
+    /// Gets or sets the SOAP argument NewDownstreamCurrRate.
     /// </summary>
     public uint NewDownstreamCurrRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpstreamMaxRate
+    /// Gets or sets the SOAP argument NewUpstreamMaxRate.
     /// </summary>
     public uint NewUpstreamMaxRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDownstreamMaxRate
+    /// Gets or sets the SOAP argument NewDownstreamMaxRate.
     /// </summary>
     public uint NewDownstreamMaxRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpstreamNoiseMargin
+    /// Gets or sets the SOAP argument NewUpstreamNoiseMargin.
     /// </summary>
     public uint NewUpstreamNoiseMargin { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDownstreamNoiseMargin
+    /// Gets or sets the SOAP argument NewDownstreamNoiseMargin.
     /// </summary>
     public uint NewDownstreamNoiseMargin { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpstreamAttenuation
+    /// Gets or sets the SOAP argument NewUpstreamAttenuation.
     /// </summary>
     public uint NewUpstreamAttenuation { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDownstreamAttenuation
+    /// Gets or sets the SOAP argument NewDownstreamAttenuation.
     /// </summary>
     public uint NewDownstreamAttenuation { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATURVendor
+    /// Gets or sets the SOAP argument NewATURVendor.
     /// </summary>
     public string NewATURVendor { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATURCountry
+    /// Gets or sets the SOAP argument NewATURCountry.
     /// </summary>
     public string NewATURCountry { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpstreamPower
+    /// Gets or sets the SOAP argument NewUpstreamPower.
     /// </summary>
     public ushort NewUpstreamPower { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDownstreamPower
+    /// Gets or sets the SOAP argument NewDownstreamPower.
     /// </summary>
     public ushort NewDownstreamPower { get; set; }
   }

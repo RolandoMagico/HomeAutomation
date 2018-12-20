@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:UserInterface:1.
   /// </summary>
-  public class UserInterface
+  public class UserInterface : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

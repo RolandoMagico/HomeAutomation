@@ -28,12 +28,12 @@ namespace FritzControl.Soap.LANDevice
   public class GetBasBeaconSecurityPropertiesResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewBasicEncryptionModes
+    /// Gets or sets the SOAP argument NewBasicEncryptionModes.
     /// </summary>
     public string NewBasicEncryptionModes { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewBasicAuthenticationMode
+    /// Gets or sets the SOAP argument NewBasicAuthenticationMode.
     /// </summary>
     public string NewBasicAuthenticationMode { get; set; }
   }

@@ -25,7 +25,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:WANEthernetLinkConfig:1.
   /// </summary>
-  public class WANEthernetLinkConfig
+  public class WANEthernetLinkConfig : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetEthernetLinkStatus.

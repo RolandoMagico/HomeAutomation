@@ -28,6 +28,7 @@ namespace FritzWrapperGenerator
   using System.Linq;
   using System.Reflection;
   using FritzControl;
+  using FritzControl.Soap;
   using FritzControl.Tr064;
 
   /// <summary>
@@ -106,7 +107,7 @@ namespace FritzWrapperGenerator
         string typeName = soapService.ServiceType.Substring(start, end - start + 1);
         typeName = typeName.Replace("-", "_");
         string filename = Path.Combine(targetDirectory, typeName + ".cs");
-        this.GenerateFileHeader(filename, targetNamespace, typeName, $"Wrapper for the service {soapService.ServiceType}.");
+        this.GenerateFileHeader(filename, targetNamespace, typeName, $"Wrapper for the service {soapService.ServiceType}.", nameof(BaseService));
         using (StreamWriter writer = new StreamWriter(filename, true))
         {
           foreach (SoapAction action in soapService.Scpd.Actions)
@@ -192,7 +193,15 @@ namespace FritzWrapperGenerator
         {
           ServiceStateVariable serviceStateVariable = stateVariables.First(sv => sv.Name == element.RelatedStateVariable);
           writer.WriteLine($"    /// <summary>");
-          writer.WriteLine($"    /// Gets or sets the SOAP argument {element.Name}");
+          if (serviceStateVariable.DataType == DataType.Boolean)
+          {
+            writer.WriteLine($"    /// Gets or sets a value indicating whether the SOAP argument {element.Name} is set or not.");
+          }
+          else
+          {
+            writer.WriteLine($"    /// Gets or sets the SOAP argument {element.Name}.");
+          }
+
           writer.WriteLine($"    /// </summary>");
           writer.WriteLine($"    public {dataTypeMapping[serviceStateVariable.DataType]} {element.Name.Replace("-", "_")} {{ get; set; }}");
           if (element != elements.Last())
@@ -213,7 +222,8 @@ namespace FritzWrapperGenerator
     /// <param name="targetNamespace">The namespace to which the wrapper will be generated.</param>
     /// <param name="typeName">The name of the type in this file.</param>
     /// <param name="typeDescription">The XML description for the type.</param>
-    private void GenerateFileHeader(string filename, string targetNamespace, string typeName, string typeDescription)
+    /// <param name="baseClass">The base class from which the generated class will inherit.</param>
+    private void GenerateFileHeader(string filename, string targetNamespace, string typeName, string typeDescription, string baseClass = null)
     {
       using (StreamWriter writer = new StreamWriter(filename))
       {
@@ -223,7 +233,15 @@ namespace FritzWrapperGenerator
         writer.WriteLine($"  /// <summary>");
         writer.WriteLine($"  /// {typeDescription}");
         writer.WriteLine($"  /// </summary>");
-        writer.WriteLine($"  public class {typeName}");
+        if (baseClass != null)
+        {
+          writer.WriteLine($"  public class {typeName} : {baseClass}");
+        }
+        else
+        {
+          writer.WriteLine($"  public class {typeName}");
+        }
+
         writer.WriteLine($"  {{");
       }
     }

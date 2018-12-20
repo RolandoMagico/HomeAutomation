@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class SetAppMessageReceiverResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument EncryptionSecret
+    /// Gets or sets the SOAP argument EncryptionSecret.
     /// </summary>
     public string EncryptionSecret { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument BoxSenderId
+    /// Gets or sets the SOAP argument BoxSenderId.
     /// </summary>
     public string BoxSenderId { get; set; }
   }

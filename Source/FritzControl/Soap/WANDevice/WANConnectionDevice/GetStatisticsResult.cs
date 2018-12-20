@@ -28,22 +28,22 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetStatisticsResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewATMTransmittedBlocks
+    /// Gets or sets the SOAP argument NewATMTransmittedBlocks.
     /// </summary>
     public uint NewATMTransmittedBlocks { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATMReceivedBlocks
+    /// Gets or sets the SOAP argument NewATMReceivedBlocks.
     /// </summary>
     public uint NewATMReceivedBlocks { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAAL5CRCErrors
+    /// Gets or sets the SOAP argument NewAAL5CRCErrors.
     /// </summary>
     public uint NewAAL5CRCErrors { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewATMCRCErrors
+    /// Gets or sets the SOAP argument NewATMCRCErrors.
     /// </summary>
     public uint NewATMCRCErrors { get; set; }
   }

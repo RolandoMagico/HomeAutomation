@@ -25,7 +25,7 @@ namespace FritzControl.Soap.LANDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:LANEthernetInterfaceConfig:1.
   /// </summary>
-  public class LANEthernetInterfaceConfig
+  public class LANEthernetInterfaceConfig : BaseService
   {
     /// <summary>
     /// Wrapper for the action SetEnable.

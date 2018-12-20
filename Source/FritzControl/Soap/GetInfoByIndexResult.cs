@@ -28,37 +28,37 @@ namespace FritzControl.Soap
   public class GetInfoByIndexResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatus
+    /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
     public string NewStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLastConnect
+    /// Gets or sets the SOAP argument NewLastConnect.
     /// </summary>
     public string NewLastConnect { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUrl
+    /// Gets or sets the SOAP argument NewUrl.
     /// </summary>
     public string NewUrl { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewServiceId
+    /// Gets or sets the SOAP argument NewServiceId.
     /// </summary>
     public string NewServiceId { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUsername
+    /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
     public string NewUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewName
+    /// Gets or sets the SOAP argument NewName.
     /// </summary>
     public string NewName { get; set; }
   }

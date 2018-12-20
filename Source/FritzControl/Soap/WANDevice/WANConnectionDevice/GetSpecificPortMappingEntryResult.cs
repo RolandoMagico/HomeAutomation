@@ -28,27 +28,27 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetSpecificPortMappingEntryResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewInternalPort
+    /// Gets or sets the SOAP argument NewInternalPort.
     /// </summary>
     public ushort NewInternalPort { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInternalClient
+    /// Gets or sets the SOAP argument NewInternalClient.
     /// </summary>
     public string NewInternalClient { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewEnabled is set or not.
     /// </summary>
     public bool NewEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPortMappingDescription
+    /// Gets or sets the SOAP argument NewPortMappingDescription.
     /// </summary>
     public string NewPortMappingDescription { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLeaseDuration
+    /// Gets or sets the SOAP argument NewLeaseDuration.
     /// </summary>
     public uint NewLeaseDuration { get; set; }
   }

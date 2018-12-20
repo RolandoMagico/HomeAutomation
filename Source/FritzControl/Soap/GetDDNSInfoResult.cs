@@ -28,52 +28,52 @@ namespace FritzControl.Soap
   public class GetDDNSInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnabled
+    /// Gets or sets a value indicating whether the SOAP argument NewEnabled is set or not.
     /// </summary>
     public bool NewEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewProviderName
+    /// Gets or sets the SOAP argument NewProviderName.
     /// </summary>
     public string NewProviderName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpdateURL
+    /// Gets or sets the SOAP argument NewUpdateURL.
     /// </summary>
     public string NewUpdateURL { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDomain
+    /// Gets or sets the SOAP argument NewDomain.
     /// </summary>
     public string NewDomain { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatusIPv4
+    /// Gets or sets the SOAP argument NewStatusIPv4.
     /// </summary>
     public string NewStatusIPv4 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatusIPv6
+    /// Gets or sets the SOAP argument NewStatusIPv6.
     /// </summary>
     public string NewStatusIPv6 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewUsername
+    /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
     public string NewUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMode
+    /// Gets or sets the SOAP argument NewMode.
     /// </summary>
     public string NewMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewServerIPv4
+    /// Gets or sets the SOAP argument NewServerIPv4.
     /// </summary>
     public string NewServerIPv4 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewServerIPv6
+    /// Gets or sets the SOAP argument NewServerIPv6.
     /// </summary>
     public string NewServerIPv6 { get; set; }
   }

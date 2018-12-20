@@ -28,22 +28,22 @@ namespace FritzControl.Soap.WANDevice
   public class GetCommonLinkPropertiesResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewWANAccessType
+    /// Gets or sets the SOAP argument NewWANAccessType.
     /// </summary>
     public string NewWANAccessType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLayer1UpstreamMaxBitRate
+    /// Gets or sets the SOAP argument NewLayer1UpstreamMaxBitRate.
     /// </summary>
     public uint NewLayer1UpstreamMaxBitRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewLayer1DownstreamMaxBitRate
+    /// Gets or sets the SOAP argument NewLayer1DownstreamMaxBitRate.
     /// </summary>
     public uint NewLayer1DownstreamMaxBitRate { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPhysicalLinkStatus
+    /// Gets or sets the SOAP argument NewPhysicalLinkStatus.
     /// </summary>
     public string NewPhysicalLinkStatus { get; set; }
   }

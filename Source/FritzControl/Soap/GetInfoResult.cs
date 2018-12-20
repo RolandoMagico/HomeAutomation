@@ -28,142 +28,142 @@ namespace FritzControl.Soap
   public class GetInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsAppId
+    /// Gets or sets the SOAP argument NewMinCharsAppId.
     /// </summary>
     public ushort NewMinCharsAppId { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsAppId
+    /// Gets or sets the SOAP argument NewMaxCharsAppId.
     /// </summary>
     public ushort NewMaxCharsAppId { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsAppId
+    /// Gets or sets the SOAP argument NewAllowedCharsAppId.
     /// </summary>
     public string NewAllowedCharsAppId { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsAppDisplayName
+    /// Gets or sets the SOAP argument NewMinCharsAppDisplayName.
     /// </summary>
     public ushort NewMinCharsAppDisplayName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsAppDisplayName
+    /// Gets or sets the SOAP argument NewMaxCharsAppDisplayName.
     /// </summary>
     public ushort NewMaxCharsAppDisplayName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsAppUsername
+    /// Gets or sets the SOAP argument NewMinCharsAppUsername.
     /// </summary>
     public ushort NewMinCharsAppUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsAppUsername
+    /// Gets or sets the SOAP argument NewMaxCharsAppUsername.
     /// </summary>
     public ushort NewMaxCharsAppUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsAppUsername
+    /// Gets or sets the SOAP argument NewAllowedCharsAppUsername.
     /// </summary>
     public string NewAllowedCharsAppUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsAppPassword
+    /// Gets or sets the SOAP argument NewMinCharsAppPassword.
     /// </summary>
     public ushort NewMinCharsAppPassword { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsAppPassword
+    /// Gets or sets the SOAP argument NewMaxCharsAppPassword.
     /// </summary>
     public ushort NewMaxCharsAppPassword { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsAppPassword
+    /// Gets or sets the SOAP argument NewAllowedCharsAppPassword.
     /// </summary>
     public string NewAllowedCharsAppPassword { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsIPSecIdentifier
+    /// Gets or sets the SOAP argument NewMinCharsIPSecIdentifier.
     /// </summary>
     public ushort NewMinCharsIPSecIdentifier { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsIPSecIdentifier
+    /// Gets or sets the SOAP argument NewMaxCharsIPSecIdentifier.
     /// </summary>
     public ushort NewMaxCharsIPSecIdentifier { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsIPSecIdentifier
+    /// Gets or sets the SOAP argument NewAllowedCharsIPSecIdentifier.
     /// </summary>
     public string NewAllowedCharsIPSecIdentifier { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsCryptAlgos
+    /// Gets or sets the SOAP argument NewAllowedCharsCryptAlgos.
     /// </summary>
     public string NewAllowedCharsCryptAlgos { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsAppAVMAddress
+    /// Gets or sets the SOAP argument NewAllowedCharsAppAVMAddress.
     /// </summary>
     public string NewAllowedCharsAppAVMAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsFilter
+    /// Gets or sets the SOAP argument NewMinCharsFilter.
     /// </summary>
     public ushort NewMinCharsFilter { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsFilter
+    /// Gets or sets the SOAP argument NewMaxCharsFilter.
     /// </summary>
     public ushort NewMaxCharsFilter { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsFilter
+    /// Gets or sets the SOAP argument NewAllowedCharsFilter.
     /// </summary>
     public string NewAllowedCharsFilter { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsIPSecPreSharedKey
+    /// Gets or sets the SOAP argument NewMinCharsIPSecPreSharedKey.
     /// </summary>
     public ushort NewMinCharsIPSecPreSharedKey { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsIPSecPreSharedKey
+    /// Gets or sets the SOAP argument NewMaxCharsIPSecPreSharedKey.
     /// </summary>
     public ushort NewMaxCharsIPSecPreSharedKey { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsIPSecPreSharedKey
+    /// Gets or sets the SOAP argument NewAllowedCharsIPSecPreSharedKey.
     /// </summary>
     public string NewAllowedCharsIPSecPreSharedKey { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsIPSecXauthUsername
+    /// Gets or sets the SOAP argument NewMinCharsIPSecXauthUsername.
     /// </summary>
     public ushort NewMinCharsIPSecXauthUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsIPSecXauthUsername
+    /// Gets or sets the SOAP argument NewMaxCharsIPSecXauthUsername.
     /// </summary>
     public ushort NewMaxCharsIPSecXauthUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsIPSecXauthUsername
+    /// Gets or sets the SOAP argument NewAllowedCharsIPSecXauthUsername.
     /// </summary>
     public string NewAllowedCharsIPSecXauthUsername { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMinCharsIPSecXauthPassword
+    /// Gets or sets the SOAP argument NewMinCharsIPSecXauthPassword.
     /// </summary>
     public ushort NewMinCharsIPSecXauthPassword { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMaxCharsIPSecXauthPassword
+    /// Gets or sets the SOAP argument NewMaxCharsIPSecXauthPassword.
     /// </summary>
     public ushort NewMaxCharsIPSecXauthPassword { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewAllowedCharsIPSecXauthPassword
+    /// Gets or sets the SOAP argument NewAllowedCharsIPSecXauthPassword.
     /// </summary>
     public string NewAllowedCharsIPSecXauthPassword { get; set; }
   }

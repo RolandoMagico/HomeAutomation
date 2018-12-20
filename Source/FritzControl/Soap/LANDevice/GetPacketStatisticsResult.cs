@@ -28,12 +28,12 @@ namespace FritzControl.Soap.LANDevice
   public class GetPacketStatisticsResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewTotalPacketsSent
+    /// Gets or sets the SOAP argument NewTotalPacketsSent.
     /// </summary>
     public uint NewTotalPacketsSent { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTotalPacketsReceived
+    /// Gets or sets the SOAP argument NewTotalPacketsReceived.
     /// </summary>
     public uint NewTotalPacketsReceived { get; set; }
   }

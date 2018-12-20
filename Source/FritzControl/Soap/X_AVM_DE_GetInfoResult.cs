@@ -28,32 +28,32 @@ namespace FritzControl.Soap
   public class X_AVM_DE_GetInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_AutoUpdateMode
+    /// Gets or sets the SOAP argument NewX_AVM-DE_AutoUpdateMode.
     /// </summary>
     public string NewX_AVM_DE_AutoUpdateMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateTime
+    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateTime.
     /// </summary>
     public System.DateTime NewX_AVM_DE_UpdateTime { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_LastFwVersion
+    /// Gets or sets the SOAP argument NewX_AVM-DE_LastFwVersion.
     /// </summary>
     public string NewX_AVM_DE_LastFwVersion { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_LastInfoUrl
+    /// Gets or sets the SOAP argument NewX_AVM-DE_LastInfoUrl.
     /// </summary>
     public string NewX_AVM_DE_LastInfoUrl { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentFwVersion
+    /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentFwVersion.
     /// </summary>
     public string NewX_AVM_DE_CurrentFwVersion { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateSuccessful
+    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateSuccessful.
     /// </summary>
     public string NewX_AVM_DE_UpdateSuccessful { get; set; }
   }

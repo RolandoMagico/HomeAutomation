@@ -28,32 +28,32 @@ namespace FritzControl.Soap.LANDevice
   public class GetSecurityKeysResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewWEPKey0
+    /// Gets or sets the SOAP argument NewWEPKey0.
     /// </summary>
     public string NewWEPKey0 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewWEPKey1
+    /// Gets or sets the SOAP argument NewWEPKey1.
     /// </summary>
     public string NewWEPKey1 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewWEPKey2
+    /// Gets or sets the SOAP argument NewWEPKey2.
     /// </summary>
     public string NewWEPKey2 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewWEPKey3
+    /// Gets or sets the SOAP argument NewWEPKey3.
     /// </summary>
     public string NewWEPKey3 { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPreSharedKey
+    /// Gets or sets the SOAP argument NewPreSharedKey.
     /// </summary>
     public string NewPreSharedKey { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewKeyPassphrase
+    /// Gets or sets the SOAP argument NewKeyPassphrase.
     /// </summary>
     public string NewKeyPassphrase { get; set; }
   }

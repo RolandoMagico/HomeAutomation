@@ -25,7 +25,7 @@ namespace FritzControl.Soap.LANDevice
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:WLANConfiguration:3.
   /// </summary>
-  public class WLANConfiguration
+  public class WLANConfiguration : BaseService
   {
     /// <summary>
     /// Wrapper for the action SetEnable.

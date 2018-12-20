@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Filelinks:1.
   /// </summary>
-  public class X_AVM_DE_Filelinks
+  public class X_AVM_DE_Filelinks : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetNumberOfFilelinkEntries.

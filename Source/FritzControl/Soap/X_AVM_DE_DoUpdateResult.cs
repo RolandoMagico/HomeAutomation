@@ -28,12 +28,12 @@ namespace FritzControl.Soap
   public class X_AVM_DE_DoUpdateResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewUpgradeAvailable
+    /// Gets or sets a value indicating whether the SOAP argument NewUpgradeAvailable is set or not.
     /// </summary>
     public bool NewUpgradeAvailable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateState
+    /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateState.
     /// </summary>
     public string NewX_AVM_DE_UpdateState { get; set; }
   }

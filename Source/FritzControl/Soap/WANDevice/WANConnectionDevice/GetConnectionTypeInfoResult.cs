@@ -28,12 +28,12 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   public class GetConnectionTypeInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewConnectionType
+    /// Gets or sets the SOAP argument NewConnectionType.
     /// </summary>
     public string NewConnectionType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPossibleConnectionTypes
+    /// Gets or sets the SOAP argument NewPossibleConnectionTypes.
     /// </summary>
     public string NewPossibleConnectionTypes { get; set; }
   }

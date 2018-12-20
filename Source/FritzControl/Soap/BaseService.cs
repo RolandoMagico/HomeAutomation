@@ -1,4 +1,4 @@
-// <copyright file="X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult.cs" company="ContextQuickie">
+﻿// <copyright file="BaseService.cs" company="ContextQuickie">
 // MIT License
 //
 // Copyright (c) 2018
@@ -20,31 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 // </copyright>
-namespace FritzControl.Soap.LANDevice
+namespace FritzControl.Soap
 {
   /// <summary>
-  /// Result type for X_AVM_DE_GetSpecificAssociatedDeviceInfoByIp.
+  /// Base class for all services.
   /// </summary>
-  public class X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult
+  public abstract class BaseService
   {
-    /// <summary>
-    /// Gets or sets the SOAP argument NewAssociatedDeviceMACAddress.
-    /// </summary>
-    public string NewAssociatedDeviceMACAddress { get; set; }
-
-    /// <summary>
-    /// Gets or sets a value indicating whether the SOAP argument NewAssociatedDeviceAuthState is set or not.
-    /// </summary>
-    public bool NewAssociatedDeviceAuthState { get; set; }
-
-    /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_Speed.
-    /// </summary>
-    public ushort NewX_AVM_DE_Speed { get; set; }
-
-    /// <summary>
-    /// Gets or sets the SOAP argument NewX_AVM-DE_SignalStrength.
-    /// </summary>
-    public byte NewX_AVM_DE_SignalStrength { get; set; }
   }
 }

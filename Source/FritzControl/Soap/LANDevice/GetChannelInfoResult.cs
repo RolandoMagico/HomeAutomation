@@ -28,12 +28,12 @@ namespace FritzControl.Soap.LANDevice
   public class GetChannelInfoResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewChannel
+    /// Gets or sets the SOAP argument NewChannel.
     /// </summary>
     public byte NewChannel { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPossibleChannels
+    /// Gets or sets the SOAP argument NewPossibleChannels.
     /// </summary>
     public string NewPossibleChannels { get; set; }
   }

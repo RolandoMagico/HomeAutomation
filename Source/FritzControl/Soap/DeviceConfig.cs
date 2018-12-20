@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:DeviceConfig:1.
   /// </summary>
-  public class DeviceConfig
+  public class DeviceConfig : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetPersistentData.

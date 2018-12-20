@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:DeviceInfo:1.
   /// </summary>
-  public class DeviceInfo
+  public class DeviceInfo : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

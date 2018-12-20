@@ -28,147 +28,147 @@ namespace FritzControl.Soap
   public class GetSpecificDeviceInfosResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewDeviceId
+    /// Gets or sets the SOAP argument NewDeviceId.
     /// </summary>
     public ushort NewDeviceId { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewFunctionBitMask
+    /// Gets or sets the SOAP argument NewFunctionBitMask.
     /// </summary>
     public ushort NewFunctionBitMask { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewFirmwareVersion
+    /// Gets or sets the SOAP argument NewFirmwareVersion.
     /// </summary>
     public string NewFirmwareVersion { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewManufacturer
+    /// Gets or sets the SOAP argument NewManufacturer.
     /// </summary>
     public string NewManufacturer { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewProductName
+    /// Gets or sets the SOAP argument NewProductName.
     /// </summary>
     public string NewProductName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDeviceName
+    /// Gets or sets the SOAP argument NewDeviceName.
     /// </summary>
     public string NewDeviceName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewPresent
+    /// Gets or sets the SOAP argument NewPresent.
     /// </summary>
     public string NewPresent { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMultimeterIsEnabled
+    /// Gets or sets the SOAP argument NewMultimeterIsEnabled.
     /// </summary>
     public string NewMultimeterIsEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMultimeterIsValid
+    /// Gets or sets the SOAP argument NewMultimeterIsValid.
     /// </summary>
     public string NewMultimeterIsValid { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMultimeterPower
+    /// Gets or sets the SOAP argument NewMultimeterPower.
     /// </summary>
     public uint NewMultimeterPower { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewMultimeterEnergy
+    /// Gets or sets the SOAP argument NewMultimeterEnergy.
     /// </summary>
     public uint NewMultimeterEnergy { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTemperatureIsEnabled
+    /// Gets or sets the SOAP argument NewTemperatureIsEnabled.
     /// </summary>
     public string NewTemperatureIsEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTemperatureIsValid
+    /// Gets or sets the SOAP argument NewTemperatureIsValid.
     /// </summary>
     public string NewTemperatureIsValid { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTemperatureCelsius
+    /// Gets or sets the SOAP argument NewTemperatureCelsius.
     /// </summary>
     public int NewTemperatureCelsius { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewTemperatureOffset
+    /// Gets or sets the SOAP argument NewTemperatureOffset.
     /// </summary>
     public int NewTemperatureOffset { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSwitchIsEnabled
+    /// Gets or sets the SOAP argument NewSwitchIsEnabled.
     /// </summary>
     public string NewSwitchIsEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSwitchIsValid
+    /// Gets or sets the SOAP argument NewSwitchIsValid.
     /// </summary>
     public string NewSwitchIsValid { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSwitchState
+    /// Gets or sets the SOAP argument NewSwitchState.
     /// </summary>
     public string NewSwitchState { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSwitchMode
+    /// Gets or sets the SOAP argument NewSwitchMode.
     /// </summary>
     public string NewSwitchMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSwitchLock
+    /// Gets or sets a value indicating whether the SOAP argument NewSwitchLock is set or not.
     /// </summary>
     public bool NewSwitchLock { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrIsEnabled
+    /// Gets or sets the SOAP argument NewHkrIsEnabled.
     /// </summary>
     public string NewHkrIsEnabled { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrIsValid
+    /// Gets or sets the SOAP argument NewHkrIsValid.
     /// </summary>
     public string NewHkrIsValid { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrIsTemperature
+    /// Gets or sets the SOAP argument NewHkrIsTemperature.
     /// </summary>
     public int NewHkrIsTemperature { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrSetVentilStatus
+    /// Gets or sets the SOAP argument NewHkrSetVentilStatus.
     /// </summary>
     public string NewHkrSetVentilStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrSetTemperature
+    /// Gets or sets the SOAP argument NewHkrSetTemperature.
     /// </summary>
     public int NewHkrSetTemperature { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrReduceVentilStatus
+    /// Gets or sets the SOAP argument NewHkrReduceVentilStatus.
     /// </summary>
     public string NewHkrReduceVentilStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrReduceTemperature
+    /// Gets or sets the SOAP argument NewHkrReduceTemperature.
     /// </summary>
     public int NewHkrReduceTemperature { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrComfortVentilStatus
+    /// Gets or sets the SOAP argument NewHkrComfortVentilStatus.
     /// </summary>
     public string NewHkrComfortVentilStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewHkrComfortTemperature
+    /// Gets or sets the SOAP argument NewHkrComfortTemperature.
     /// </summary>
     public int NewHkrComfortTemperature { get; set; }
   }

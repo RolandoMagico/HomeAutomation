@@ -28,62 +28,62 @@ namespace FritzControl.Soap.WANDevice
   public class X_AVM_DE_GetOnlineMonitorResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewTotalNumberSyncGroups
+    /// Gets or sets the SOAP argument NewTotalNumberSyncGroups.
     /// </summary>
     public uint NewTotalNumberSyncGroups { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSyncGroupName
+    /// Gets or sets the SOAP argument NewSyncGroupName.
     /// </summary>
     public string NewSyncGroupName { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSyncGroupMode
+    /// Gets or sets the SOAP argument NewSyncGroupMode.
     /// </summary>
     public string NewSyncGroupMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newmax_ds
+    /// Gets or sets the SOAP argument Newmax_ds.
     /// </summary>
     public uint Newmax_ds { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newmax_us
+    /// Gets or sets the SOAP argument Newmax_us.
     /// </summary>
     public uint Newmax_us { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newds_current_bps
+    /// Gets or sets the SOAP argument Newds_current_bps.
     /// </summary>
     public string Newds_current_bps { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newmc_current_bps
+    /// Gets or sets the SOAP argument Newmc_current_bps.
     /// </summary>
     public string Newmc_current_bps { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newus_current_bps
+    /// Gets or sets the SOAP argument Newus_current_bps.
     /// </summary>
     public string Newus_current_bps { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newprio_realtime_bps
+    /// Gets or sets the SOAP argument Newprio_realtime_bps.
     /// </summary>
     public string Newprio_realtime_bps { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newprio_high_bps
+    /// Gets or sets the SOAP argument Newprio_high_bps.
     /// </summary>
     public string Newprio_high_bps { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newprio_default_bps
+    /// Gets or sets the SOAP argument Newprio_default_bps.
     /// </summary>
     public string Newprio_default_bps { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument Newprio_low_bps
+    /// Gets or sets the SOAP argument Newprio_low_bps.
     /// </summary>
     public string Newprio_low_bps { get; set; }
   }

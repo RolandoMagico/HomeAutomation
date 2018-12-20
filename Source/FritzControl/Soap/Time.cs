@@ -25,7 +25,7 @@ namespace FritzControl.Soap
   /// <summary>
   /// Wrapper for the service urn:dslforum-org:service:Time:1.
   /// </summary>
-  public class Time
+  public class Time : BaseService
   {
     /// <summary>
     /// Wrapper for the action GetInfo.

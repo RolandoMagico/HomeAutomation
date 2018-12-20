@@ -28,52 +28,52 @@ namespace FritzControl.Soap
   public class GetGenericForwardingEntryResult
   {
     /// <summary>
-    /// Gets or sets the SOAP argument NewEnable
+    /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
     public bool NewEnable { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewStatus
+    /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
     public string NewStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewType
+    /// Gets or sets the SOAP argument NewType.
     /// </summary>
     public string NewType { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDestIPAddress
+    /// Gets or sets the SOAP argument NewDestIPAddress.
     /// </summary>
     public string NewDestIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewDestSubnetMask
+    /// Gets or sets the SOAP argument NewDestSubnetMask.
     /// </summary>
     public string NewDestSubnetMask { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSourceIPAddress
+    /// Gets or sets the SOAP argument NewSourceIPAddress.
     /// </summary>
     public string NewSourceIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewSourceSubnetMask
+    /// Gets or sets the SOAP argument NewSourceSubnetMask.
     /// </summary>
     public string NewSourceSubnetMask { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewGatewayIPAddress
+    /// Gets or sets the SOAP argument NewGatewayIPAddress.
     /// </summary>
     public string NewGatewayIPAddress { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewInterface
+    /// Gets or sets the SOAP argument NewInterface.
     /// </summary>
     public string NewInterface { get; set; }
 
     /// <summary>
-    /// Gets or sets the SOAP argument NewForwardingMetric
+    /// Gets or sets the SOAP argument NewForwardingMetric.
     /// </summary>
     public int NewForwardingMetric { get; set; }
   }
