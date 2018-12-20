@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_OnTel:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_OnTel:1.
   /// </summary>
   public class X_AVM_DE_OnTel
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetEnable
+    /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
@@ -43,7 +45,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfig
+    /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     /// <param name="newUrl">The SOAP parameter NewUrl.</param>
@@ -56,15 +58,17 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetInfoByIndex
+    /// Wrapper for the action GetInfoByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetInfoByIndex(ushort newIndex)
+    /// <returns>The result (GetInfoByIndexResult) of the action.</returns>
+    public GetInfoByIndexResult GetInfoByIndex(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetEnableByIndex
+    /// Wrapper for the action SetEnableByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
@@ -73,7 +77,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfigByIndex
+    /// Wrapper for the action SetConfigByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
@@ -87,7 +91,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeleteByIndex
+    /// Wrapper for the action DeleteByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     public void DeleteByIndex(ushort newIndex)
@@ -95,36 +99,44 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetNumberOfEntries
+    /// Wrapper for the action GetNumberOfEntries.
     /// </summary>
-    public void GetNumberOfEntries()
+    /// <returns>The result (NewOnTelNumberOfEntries) of the action.</returns>
+    public ushort GetNumberOfEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetCallList
+    /// Wrapper for the action GetCallList.
     /// </summary>
-    public void GetCallList()
+    /// <returns>The result (NewCallListURL) of the action.</returns>
+    public string GetCallList()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetPhonebookList
+    /// Wrapper for the action GetPhonebookList.
     /// </summary>
-    public void GetPhonebookList()
+    /// <returns>The result (NewPhonebookList) of the action.</returns>
+    public string GetPhonebookList()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetPhonebook
+    /// Wrapper for the action GetPhonebook.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
-    public void GetPhonebook(ushort newPhonebookID)
+    /// <returns>The result (GetPhonebookResult) of the action.</returns>
+    public GetPhonebookResult GetPhonebook(ushort newPhonebookID)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action AddPhonebook
+    /// Wrapper for the action AddPhonebook.
     /// </summary>
     /// <param name="newPhonebookExtraID">The SOAP parameter NewPhonebookExtraID.</param>
     /// <param name="newPhonebookName">The SOAP parameter NewPhonebookName.</param>
@@ -133,7 +145,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeletePhonebook
+    /// Wrapper for the action DeletePhonebook.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookExtraID">The SOAP parameter NewPhonebookExtraID.</param>
@@ -142,25 +154,29 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetPhonebookEntry
+    /// Wrapper for the action GetPhonebookEntry.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookEntryID">The SOAP parameter NewPhonebookEntryID.</param>
-    public void GetPhonebookEntry(ushort newPhonebookID, uint newPhonebookEntryID)
+    /// <returns>The result (NewPhonebookEntryData) of the action.</returns>
+    public string GetPhonebookEntry(ushort newPhonebookID, uint newPhonebookEntryID)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetPhonebookEntryUID
+    /// Wrapper for the action GetPhonebookEntryUID.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookEntryUniqueID">The SOAP parameter NewPhonebookEntryUniqueID.</param>
-    public void GetPhonebookEntryUID(ushort newPhonebookID, uint newPhonebookEntryUniqueID)
+    /// <returns>The result (NewPhonebookEntryData) of the action.</returns>
+    public string GetPhonebookEntryUID(ushort newPhonebookID, uint newPhonebookEntryUniqueID)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetPhonebookEntry
+    /// Wrapper for the action SetPhonebookEntry.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookEntryID">The SOAP parameter NewPhonebookEntryID.</param>
@@ -170,16 +186,18 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetPhonebookEntryUID
+    /// Wrapper for the action SetPhonebookEntryUID.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookEntryData">The SOAP parameter NewPhonebookEntryData.</param>
-    public void SetPhonebookEntryUID(ushort newPhonebookID, string newPhonebookEntryData)
+    /// <returns>The result (NewPhonebookEntryUniqueID) of the action.</returns>
+    public uint SetPhonebookEntryUID(ushort newPhonebookID, string newPhonebookEntryData)
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action DeletePhonebookEntry
+    /// Wrapper for the action DeletePhonebookEntry.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookEntryID">The SOAP parameter NewPhonebookEntryID.</param>
@@ -188,7 +206,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeletePhonebookEntryUID
+    /// Wrapper for the action DeletePhonebookEntryUID.
     /// </summary>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     /// <param name="newPhonebookEntryUniqueID">The SOAP parameter NewPhonebookEntryUniqueID.</param>
@@ -197,22 +215,26 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetDECTHandsetList
+    /// Wrapper for the action GetDECTHandsetList.
     /// </summary>
-    public void GetDECTHandsetList()
+    /// <returns>The result (NewDectIDList) of the action.</returns>
+    public string GetDECTHandsetList()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetDECTHandsetInfo
+    /// Wrapper for the action GetDECTHandsetInfo.
     /// </summary>
     /// <param name="newDectID">The SOAP parameter NewDectID.</param>
-    public void GetDECTHandsetInfo(ushort newDectID)
+    /// <returns>The result (GetDECTHandsetInfoResult) of the action.</returns>
+    public GetDECTHandsetInfoResult GetDECTHandsetInfo(ushort newDectID)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDECTHandsetPhonebook
+    /// Wrapper for the action SetDECTHandsetPhonebook.
     /// </summary>
     /// <param name="newDectID">The SOAP parameter NewDectID.</param>
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
@@ -221,29 +243,35 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetNumberOfDeflections
+    /// Wrapper for the action GetNumberOfDeflections.
     /// </summary>
-    public void GetNumberOfDeflections()
+    /// <returns>The result (NewNumberOfDeflections) of the action.</returns>
+    public ushort GetNumberOfDeflections()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetDeflection
+    /// Wrapper for the action GetDeflection.
     /// </summary>
     /// <param name="newDeflectionId">The SOAP parameter NewDeflectionId.</param>
-    public void GetDeflection(ushort newDeflectionId)
+    /// <returns>The result (GetDeflectionResult) of the action.</returns>
+    public GetDeflectionResult GetDeflection(ushort newDeflectionId)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetDeflections
+    /// Wrapper for the action GetDeflections.
     /// </summary>
-    public void GetDeflections()
+    /// <returns>The result (NewDeflectionList) of the action.</returns>
+    public string GetDeflections()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDeflectionEnable
+    /// Wrapper for the action SetDeflectionEnable.
     /// </summary>
     /// <param name="newDeflectionId">The SOAP parameter NewDeflectionId.</param>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>

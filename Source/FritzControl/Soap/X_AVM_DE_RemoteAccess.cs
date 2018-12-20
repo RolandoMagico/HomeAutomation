@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_RemoteAccess:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_RemoteAccess:1.
   /// </summary>
   public class X_AVM_DE_RemoteAccess
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfig
+    /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newEnabled">The SOAP parameter NewEnabled.</param>
     /// <param name="newPort">The SOAP parameter NewPort.</param>
@@ -46,29 +48,35 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetEnable
+    /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newEnabled">The SOAP parameter NewEnabled.</param>
-    public void SetEnable(bool newEnabled)
+    /// <returns>The result (NewPort) of the action.</returns>
+    public string SetEnable(bool newEnabled)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetDDNSInfo
+    /// Wrapper for the action GetDDNSInfo.
     /// </summary>
-    public void GetDDNSInfo()
+    /// <returns>The result (GetDDNSInfoResult) of the action.</returns>
+    public GetDDNSInfoResult GetDDNSInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetDDNSProviders
+    /// Wrapper for the action GetDDNSProviders.
     /// </summary>
-    public void GetDDNSProviders()
+    /// <returns>The result (NewProviderList) of the action.</returns>
+    public string GetDDNSProviders()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDDNSConfig
+    /// Wrapper for the action SetDDNSConfig.
     /// </summary>
     /// <param name="newEnabled">The SOAP parameter NewEnabled.</param>
     /// <param name="newProviderName">The SOAP parameter NewProviderName.</param>

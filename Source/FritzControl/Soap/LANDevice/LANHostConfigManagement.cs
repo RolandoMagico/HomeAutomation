@@ -23,19 +23,21 @@
 namespace FritzControl.Soap.LANDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:LANHostConfigManagement:1
+  /// Wrapper for the service urn:dslforum-org:service:LANHostConfigManagement:1.
   /// </summary>
   public class LANHostConfigManagement
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDHCPServerEnable
+    /// Wrapper for the action SetDHCPServerEnable.
     /// </summary>
     /// <param name="newDHCPServerEnable">The SOAP parameter NewDHCPServerEnable.</param>
     public void SetDHCPServerEnable(bool newDHCPServerEnable)
@@ -43,7 +45,7 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action SetIPInterface
+    /// Wrapper for the action SetIPInterface.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     /// <param name="newIPAddress">The SOAP parameter NewIPAddress.</param>
@@ -54,14 +56,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetAddressRange
+    /// Wrapper for the action GetAddressRange.
     /// </summary>
-    public void GetAddressRange()
+    /// <returns>The result (GetAddressRangeResult) of the action.</returns>
+    public GetAddressRangeResult GetAddressRange()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetAddressRange
+    /// Wrapper for the action SetAddressRange.
     /// </summary>
     /// <param name="newMinAddress">The SOAP parameter NewMinAddress.</param>
     /// <param name="newMaxAddress">The SOAP parameter NewMaxAddress.</param>
@@ -70,14 +74,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetIPRoutersList
+    /// Wrapper for the action GetIPRoutersList.
     /// </summary>
-    public void GetIPRoutersList()
+    /// <returns>The result (NewIPRouters) of the action.</returns>
+    public string GetIPRoutersList()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetIPRouter
+    /// Wrapper for the action SetIPRouter.
     /// </summary>
     /// <param name="newIPRouters">The SOAP parameter NewIPRouters.</param>
     public void SetIPRouter(string newIPRouters)
@@ -85,14 +91,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetSubnetMask
+    /// Wrapper for the action GetSubnetMask.
     /// </summary>
-    public void GetSubnetMask()
+    /// <returns>The result (NewSubnetMask) of the action.</returns>
+    public string GetSubnetMask()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetSubnetMask
+    /// Wrapper for the action SetSubnetMask.
     /// </summary>
     /// <param name="newSubnetMask">The SOAP parameter NewSubnetMask.</param>
     public void SetSubnetMask(string newSubnetMask)
@@ -100,17 +108,21 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetDNSServers
+    /// Wrapper for the action GetDNSServers.
     /// </summary>
-    public void GetDNSServers()
+    /// <returns>The result (NewDNSServers) of the action.</returns>
+    public string GetDNSServers()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetIPInterfaceNumberOfEntries
+    /// Wrapper for the action GetIPInterfaceNumberOfEntries.
     /// </summary>
-    public void GetIPInterfaceNumberOfEntries()
+    /// <returns>The result (NewIPInterfaceNumberOfEntries) of the action.</returns>
+    public ushort GetIPInterfaceNumberOfEntries()
     {
+      return 0;
     }
   }
 }

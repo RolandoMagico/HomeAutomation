@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:ManagementServer:1
+  /// Wrapper for the service urn:dslforum-org:service:ManagementServer:1.
   /// </summary>
   public class ManagementServer
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetManagementServerURL
+    /// Wrapper for the action SetManagementServerURL.
     /// </summary>
     /// <param name="newURL">The SOAP parameter NewURL.</param>
     public void SetManagementServerURL(string newURL)
@@ -43,7 +45,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetManagementServerUsername
+    /// Wrapper for the action SetManagementServerUsername.
     /// </summary>
     /// <param name="newUsername">The SOAP parameter NewUsername.</param>
     public void SetManagementServerUsername(string newUsername)
@@ -51,7 +53,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetManagementServerPassword
+    /// Wrapper for the action SetManagementServerPassword.
     /// </summary>
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetManagementServerPassword(string newPassword)
@@ -59,7 +61,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetPeriodicInform
+    /// Wrapper for the action SetPeriodicInform.
     /// </summary>
     /// <param name="newPeriodicInformEnable">The SOAP parameter NewPeriodicInformEnable.</param>
     /// <param name="newPeriodicInformInterval">The SOAP parameter NewPeriodicInformInterval.</param>
@@ -69,7 +71,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetConnectionRequestAuthentication
+    /// Wrapper for the action SetConnectionRequestAuthentication.
     /// </summary>
     /// <param name="newConnectionRequestUsername">The SOAP parameter NewConnectionRequestUsername.</param>
     /// <param name="newConnectionRequestPassword">The SOAP parameter NewConnectionRequestPassword.</param>
@@ -78,7 +80,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetUpgradeManagement
+    /// Wrapper for the action SetUpgradeManagement.
     /// </summary>
     /// <param name="newUpgradesManaged">The SOAP parameter NewUpgradesManaged.</param>
     public void SetUpgradeManagement(bool newUpgradesManaged)
@@ -86,7 +88,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_SetTR069Enable
+    /// Wrapper for the action X_SetTR069Enable.
     /// </summary>
     /// <param name="newTR069Enabled">The SOAP parameter NewTR069Enabled.</param>
     public void X_SetTR069Enable(bool newTR069Enabled)
@@ -94,14 +96,16 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetTR069FirmwareDownloadEnabled
+    /// Wrapper for the action X_AVM-DE_GetTR069FirmwareDownloadEnabled.
     /// </summary>
-    public void X_AVM_DE_GetTR069FirmwareDownloadEnabled()
+    /// <returns>The result (NewTR069FirmwareDownloadEnabled) of the action.</returns>
+    public bool X_AVM_DE_GetTR069FirmwareDownloadEnabled()
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetTR069FirmwareDownloadEnabled
+    /// Wrapper for the action X_AVM-DE_SetTR069FirmwareDownloadEnabled.
     /// </summary>
     /// <param name="newTR069FirmwareDownloadEnabled">The SOAP parameter NewTR069FirmwareDownloadEnabled.</param>
     public void X_AVM_DE_SetTR069FirmwareDownloadEnabled(bool newTR069FirmwareDownloadEnabled)

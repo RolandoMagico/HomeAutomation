@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:DeviceInfo:1
+  /// Wrapper for the service urn:dslforum-org:service:DeviceInfo:1.
   /// </summary>
   public class DeviceInfo
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetProvisioningCode
+    /// Wrapper for the action SetProvisioningCode.
     /// </summary>
     /// <param name="newProvisioningCode">The SOAP parameter NewProvisioningCode.</param>
     public void SetProvisioningCode(string newProvisioningCode)
@@ -43,17 +45,21 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetDeviceLog
+    /// Wrapper for the action GetDeviceLog.
     /// </summary>
-    public void GetDeviceLog()
+    /// <returns>The result (NewDeviceLog) of the action.</returns>
+    public string GetDeviceLog()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSecurityPort
+    /// Wrapper for the action GetSecurityPort.
     /// </summary>
-    public void GetSecurityPort()
+    /// <returns>The result (NewSecurityPort) of the action.</returns>
+    public ushort GetSecurityPort()
     {
+      return 0;
     }
   }
 }

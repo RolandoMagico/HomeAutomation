@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:DeviceConfig:1
+  /// Wrapper for the service urn:dslforum-org:service:DeviceConfig:1.
   /// </summary>
   public class DeviceConfig
   {
     /// <summary>
-    /// Wrapper for the action GetPersistentData
+    /// Wrapper for the action GetPersistentData.
     /// </summary>
-    public void GetPersistentData()
+    /// <returns>The result (NewPersistentData) of the action.</returns>
+    public string GetPersistentData()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetPersistentData
+    /// Wrapper for the action SetPersistentData.
     /// </summary>
     /// <param name="newPersistentData">The SOAP parameter NewPersistentData.</param>
     public void SetPersistentData(string newPersistentData)
@@ -43,7 +45,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action ConfigurationStarted
+    /// Wrapper for the action ConfigurationStarted.
     /// </summary>
     /// <param name="newSessionID">The SOAP parameter NewSessionID.</param>
     public void ConfigurationStarted(string newSessionID)
@@ -51,43 +53,49 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action ConfigurationFinished
+    /// Wrapper for the action ConfigurationFinished.
     /// </summary>
-    public void ConfigurationFinished()
+    /// <returns>The result (NewStatus) of the action.</returns>
+    public string ConfigurationFinished()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action FactoryReset
+    /// Wrapper for the action FactoryReset.
     /// </summary>
     public void FactoryReset()
     {
     }
 
     /// <summary>
-    /// Wrapper for the action Reboot
+    /// Wrapper for the action Reboot.
     /// </summary>
     public void Reboot()
     {
     }
 
     /// <summary>
-    /// Wrapper for the action X_GenerateUUID
+    /// Wrapper for the action X_GenerateUUID.
     /// </summary>
-    public void X_GenerateUUID()
+    /// <returns>The result (NewUUID) of the action.</returns>
+    public System.Guid X_GenerateUUID()
     {
+      return System.Guid.Empty;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetConfigFile
+    /// Wrapper for the action X_AVM-DE_GetConfigFile.
     /// </summary>
     /// <param name="newX_AVM_DE_Password">The SOAP parameter NewX_AVM-DE_Password.</param>
-    public void X_AVM_DE_GetConfigFile(string newX_AVM_DE_Password)
+    /// <returns>The result (NewX_AVM-DE_ConfigFileUrl) of the action.</returns>
+    public string X_AVM_DE_GetConfigFile(string newX_AVM_DE_Password)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetConfigFile
+    /// Wrapper for the action X_AVM-DE_SetConfigFile.
     /// </summary>
     /// <param name="newX_AVM_DE_Password">The SOAP parameter NewX_AVM-DE_Password.</param>
     /// <param name="newX_AVM_DE_ConfigFileUrl">The SOAP parameter NewX_AVM-DE_ConfigFileUrl.</param>
@@ -96,10 +104,12 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_CreateUrlSID
+    /// Wrapper for the action X_AVM-DE_CreateUrlSID.
     /// </summary>
-    public void X_AVM_DE_CreateUrlSID()
+    /// <returns>The result (NewX_AVM-DE_UrlSID) of the action.</returns>
+    public string X_AVM_DE_CreateUrlSID()
     {
+      return null;
     }
   }
 }

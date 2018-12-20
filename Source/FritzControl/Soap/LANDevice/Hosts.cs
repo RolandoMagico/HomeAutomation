@@ -23,42 +23,50 @@
 namespace FritzControl.Soap.LANDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:Hosts:1
+  /// Wrapper for the service urn:dslforum-org:service:Hosts:1.
   /// </summary>
   public class Hosts
   {
     /// <summary>
-    /// Wrapper for the action GetHostNumberOfEntries
+    /// Wrapper for the action GetHostNumberOfEntries.
     /// </summary>
-    public void GetHostNumberOfEntries()
+    /// <returns>The result (NewHostNumberOfEntries) of the action.</returns>
+    public ushort GetHostNumberOfEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificHostEntry
+    /// Wrapper for the action GetSpecificHostEntry.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
-    public void GetSpecificHostEntry(string newMACAddress)
+    /// <returns>The result (GetSpecificHostEntryResult) of the action.</returns>
+    public GetSpecificHostEntryResult GetSpecificHostEntry(string newMACAddress)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericHostEntry
+    /// Wrapper for the action GetGenericHostEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetGenericHostEntry(ushort newIndex)
+    /// <returns>The result (GetGenericHostEntryResult) of the action.</returns>
+    public GetGenericHostEntryResult GetGenericHostEntry(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetChangeCounter
+    /// Wrapper for the action X_AVM-DE_GetChangeCounter.
     /// </summary>
-    public void X_AVM_DE_GetChangeCounter()
+    /// <returns>The result (NewX_AVM-DE_ChangeCounter) of the action.</returns>
+    public uint X_AVM_DE_GetChangeCounter()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetHostNameByMACAddress
+    /// Wrapper for the action X_AVM-DE_SetHostNameByMACAddress.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
     /// <param name="newHostName">The SOAP parameter NewHostName.</param>
@@ -67,15 +75,17 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetAutoWakeOnLANByMACAddress
+    /// Wrapper for the action X_AVM-DE_GetAutoWakeOnLANByMACAddress.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
-    public void X_AVM_DE_GetAutoWakeOnLANByMACAddress(string newMACAddress)
+    /// <returns>The result (NewAutoWOLEnabled) of the action.</returns>
+    public bool X_AVM_DE_GetAutoWakeOnLANByMACAddress(string newMACAddress)
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetAutoWakeOnLANByMACAddress
+    /// Wrapper for the action X_AVM-DE_SetAutoWakeOnLANByMACAddress.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
     /// <param name="newAutoWOLEnabled">The SOAP parameter NewAutoWOLEnabled.</param>
@@ -84,7 +94,7 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_WakeOnLANByMACAddress
+    /// Wrapper for the action X_AVM-DE_WakeOnLANByMACAddress.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
     public void X_AVM_DE_WakeOnLANByMACAddress(string newMACAddress)
@@ -92,22 +102,24 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetSpecificHostEntryByIP
+    /// Wrapper for the action X_AVM-DE_GetSpecificHostEntryByIP.
     /// </summary>
     /// <param name="newIPAddress">The SOAP parameter NewIPAddress.</param>
-    public void X_AVM_DE_GetSpecificHostEntryByIP(string newIPAddress)
+    /// <returns>The result (X_AVM_DE_GetSpecificHostEntryByIPResult) of the action.</returns>
+    public X_AVM_DE_GetSpecificHostEntryByIPResult X_AVM_DE_GetSpecificHostEntryByIP(string newIPAddress)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_HostsCheckUpdate
+    /// Wrapper for the action X_AVM-DE_HostsCheckUpdate.
     /// </summary>
     public void X_AVM_DE_HostsCheckUpdate()
     {
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_HostDoUpdate
+    /// Wrapper for the action X_AVM-DE_HostDoUpdate.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
     public void X_AVM_DE_HostDoUpdate(string newMACAddress)
@@ -115,17 +127,21 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetHostListPath
+    /// Wrapper for the action X_AVM-DE_GetHostListPath.
     /// </summary>
-    public void X_AVM_DE_GetHostListPath()
+    /// <returns>The result (NewX_AVM-DE_HostListPath) of the action.</returns>
+    public string X_AVM_DE_GetHostListPath()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetMeshListPath
+    /// Wrapper for the action X_AVM-DE_GetMeshListPath.
     /// </summary>
-    public void X_AVM_DE_GetMeshListPath()
+    /// <returns>The result (NewX_AVM-DE_MeshListPath) of the action.</returns>
+    public string X_AVM_DE_GetMeshListPath()
     {
+      return null;
     }
   }
 }

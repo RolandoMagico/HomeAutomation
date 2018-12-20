@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:UserInterface:1
+  /// Wrapper for the service urn:dslforum-org:service:UserInterface:1.
   /// </summary>
   public class UserInterface
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_CheckUpdate
+    /// Wrapper for the action X_AVM-DE_CheckUpdate.
     /// </summary>
     /// <param name="newX_AVM_DE_LaborVersion">The SOAP parameter NewX_AVM-DE_LaborVersion.</param>
     public void X_AVM_DE_CheckUpdate(string newX_AVM_DE_LaborVersion)
@@ -43,21 +45,25 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DoUpdate
+    /// Wrapper for the action X_AVM-DE_DoUpdate.
     /// </summary>
-    public void X_AVM_DE_DoUpdate()
+    /// <returns>The result (X_AVM_DE_DoUpdateResult) of the action.</returns>
+    public X_AVM_DE_DoUpdateResult X_AVM_DE_DoUpdate()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DoPrepareCGI
+    /// Wrapper for the action X_AVM-DE_DoPrepareCGI.
     /// </summary>
-    public void X_AVM_DE_DoPrepareCGI()
+    /// <returns>The result (X_AVM_DE_DoPrepareCGIResult) of the action.</returns>
+    public X_AVM_DE_DoPrepareCGIResult X_AVM_DE_DoPrepareCGI()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DoManualUpdate
+    /// Wrapper for the action X_AVM-DE_DoManualUpdate.
     /// </summary>
     /// <param name="newX_AVM_DE_AllowDowngrade">The SOAP parameter NewX_AVM-DE_AllowDowngrade.</param>
     /// <param name="newX_AVM_DE_DownloadURL">The SOAP parameter NewX_AVM-DE_DownloadURL.</param>
@@ -66,14 +72,16 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetInternationalConfig
+    /// Wrapper for the action X_AVM-DE_GetInternationalConfig.
     /// </summary>
-    public void X_AVM_DE_GetInternationalConfig()
+    /// <returns>The result (X_AVM_DE_GetInternationalConfigResult) of the action.</returns>
+    public X_AVM_DE_GetInternationalConfigResult X_AVM_DE_GetInternationalConfig()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetInternationalConfig
+    /// Wrapper for the action X_AVM-DE_SetInternationalConfig.
     /// </summary>
     /// <param name="newX_AVM_DE_Language">The SOAP parameter NewX_AVM-DE_Language.</param>
     /// <param name="newX_AVM_DE_Country">The SOAP parameter NewX_AVM-DE_Country.</param>
@@ -83,14 +91,16 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetInfo
+    /// Wrapper for the action X_AVM-DE_GetInfo.
     /// </summary>
-    public void X_AVM_DE_GetInfo()
+    /// <returns>The result (X_AVM_DE_GetInfoResult) of the action.</returns>
+    public X_AVM_DE_GetInfoResult X_AVM_DE_GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetConfig
+    /// Wrapper for the action X_AVM-DE_SetConfig.
     /// </summary>
     /// <param name="newX_AVM_DE_AutoUpdateMode">The SOAP parameter NewX_AVM-DE_AutoUpdateMode.</param>
     public void X_AVM_DE_SetConfig(string newX_AVM_DE_AutoUpdateMode)

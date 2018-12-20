@@ -23,35 +23,41 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Dect:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Dect:1.
   /// </summary>
   public class X_AVM_DE_Dect
   {
     /// <summary>
-    /// Wrapper for the action GetNumberOfDectEntries
+    /// Wrapper for the action GetNumberOfDectEntries.
     /// </summary>
-    public void GetNumberOfDectEntries()
+    /// <returns>The result (NewNumberOfEntries) of the action.</returns>
+    public ushort GetNumberOfDectEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericDectEntry
+    /// Wrapper for the action GetGenericDectEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetGenericDectEntry(ushort newIndex)
+    /// <returns>The result (GetGenericDectEntryResult) of the action.</returns>
+    public GetGenericDectEntryResult GetGenericDectEntry(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificDectEntry
+    /// Wrapper for the action GetSpecificDectEntry.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
-    public void GetSpecificDectEntry(string newID)
+    /// <returns>The result (GetSpecificDectEntryResult) of the action.</returns>
+    public GetSpecificDectEntryResult GetSpecificDectEntry(string newID)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action DectDoUpdate
+    /// Wrapper for the action DectDoUpdate.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
     public void DectDoUpdate(string newID)
@@ -59,10 +65,12 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetDectListPath
+    /// Wrapper for the action GetDectListPath.
     /// </summary>
-    public void GetDectListPath()
+    /// <returns>The result (NewDectListPath) of the action.</returns>
+    public string GetDectListPath()
     {
+      return null;
     }
   }
 }

@@ -23,29 +23,35 @@
 namespace FritzControl.Soap.WANDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:WANDSLInterfaceConfig:1
+  /// Wrapper for the service urn:dslforum-org:service:WANDSLInterfaceConfig:1.
   /// </summary>
   public class WANDSLInterfaceConfig
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetStatisticsTotal
+    /// Wrapper for the action GetStatisticsTotal.
     /// </summary>
-    public void GetStatisticsTotal()
+    /// <returns>The result (GetStatisticsTotalResult) of the action.</returns>
+    public GetStatisticsTotalResult GetStatisticsTotal()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetDSLDiagnoseInfo
+    /// Wrapper for the action X_AVM-DE_GetDSLDiagnoseInfo.
     /// </summary>
-    public void X_AVM_DE_GetDSLDiagnoseInfo()
+    /// <returns>The result (X_AVM_DE_GetDSLDiagnoseInfoResult) of the action.</returns>
+    public X_AVM_DE_GetDSLDiagnoseInfoResult X_AVM_DE_GetDSLDiagnoseInfo()
     {
+      return null;
     }
   }
 }

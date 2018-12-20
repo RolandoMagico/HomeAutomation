@@ -51,7 +51,23 @@ namespace FritzWrapperGenerator
       { DataType.SignedInt4Bytes, "int" },
       { DataType.UnsignedInt1Byte, "byte" },
       { DataType.UnsignedInt2Bytes, "ushort" },
-      { DataType.UnsignedInt4Bytes, "uint" }
+      { DataType.UnsignedInt4Bytes, "uint" },
+      { DataType.UUID, typeof(Guid).FullName }
+    };
+
+    /// <summary>
+    /// Dictionary to map from SOAP data tyes default return values.
+    /// Ony required temporary until the implementation of the function is done.
+    /// </summary>
+    private static Dictionary<DataType, string> returnValueMapping = new Dictionary<DataType, string>
+    {
+      { DataType.Boolean, "false" },
+      { DataType.DateTime, typeof(DateTime).FullName },
+      { DataType.SignedInt4Bytes, "0" },
+      { DataType.UnsignedInt1Byte, "0" },
+      { DataType.UnsignedInt2Bytes, "0" },
+      { DataType.UnsignedInt4Bytes, "0" },
+      { DataType.UUID, "System.Guid.Empty" }
     };
 
     /// <summary>
@@ -87,23 +103,16 @@ namespace FritzWrapperGenerator
       {
         int end = soapService.ServiceType.LastIndexOf(":") - 1;
         int start = soapService.ServiceType.LastIndexOf(":", end) + 1;
-        string className = soapService.ServiceType.Substring(start, end - start + 1);
-        className = className.Replace("-", "_");
-        using (StreamWriter writer = new StreamWriter(Path.Combine(targetDirectory, className + ".cs")))
+        string typeName = soapService.ServiceType.Substring(start, end - start + 1);
+        typeName = typeName.Replace("-", "_");
+        string filename = Path.Combine(targetDirectory, typeName + ".cs");
+        this.GenerateFileHeader(filename, targetNamespace, typeName, $"Wrapper for the service {soapService.ServiceType}.");
+        using (StreamWriter writer = new StreamWriter(filename, true))
         {
-          writer.WriteLine(string.Format(fileHeader, className));
-          writer.WriteLine($"namespace {targetNamespace}");
-          writer.WriteLine($"{{");
-          writer.WriteLine($"  /// <summary>");
-          writer.WriteLine($"  /// Wrapper for the service {soapService.ServiceType}");
-          writer.WriteLine($"  /// </summary>");
-          writer.WriteLine($"  public class {className}");
-          writer.WriteLine($"  {{");
-
           foreach (SoapAction action in soapService.Scpd.Actions)
           {
             writer.WriteLine($"    /// <summary>");
-            writer.WriteLine($"    /// Wrapper for the action {action.Name}");
+            writer.WriteLine($"    /// Wrapper for the action {action.Name}.");
             writer.WriteLine($"    /// </summary>");
             List<string> arguments = new List<string>();
             foreach (Argument argument in action.Arguments.Where(a => a.Direction == Direction.In))
@@ -115,18 +124,43 @@ namespace FritzWrapperGenerator
               arguments.Add($"{dataTypeMapping[serviceStateVariable.DataType]} {argumentName}");
             }
 
-            writer.WriteLine($"    public void {action.Name.Replace("-", "_")}({string.Join(", ", arguments)})");
+            string actionName = action.Name.Replace("-", "_");
+            string returnType = "void";
+            string defaultReturnValue = "null";
+            var outArguments = action.Arguments.Where(a => a.Direction == Direction.Out);
+            if (outArguments.Count() == 1)
+            {
+              Argument argument = outArguments.First();
+              ServiceStateVariable serviceStateVariable = soapService.Scpd.StateVariables.First(sv => sv.Name == argument.RelatedStateVariable);
+              returnType = dataTypeMapping[serviceStateVariable.DataType];
+              writer.WriteLine($"    /// <returns>The result ({argument.Name}) of the action.</returns>");
+              if (returnValueMapping.ContainsKey(serviceStateVariable.DataType))
+              {
+                defaultReturnValue = returnValueMapping[serviceStateVariable.DataType];
+              }
+            }
+            else if (outArguments.Count() > 1)
+            {
+              returnType = this.GenerateResultType(actionName, targetDirectory, targetNamespace, outArguments, soapService.Scpd.StateVariables);
+              writer.WriteLine($"    /// <returns>The result ({returnType}) of the action.</returns>");
+            }
+
+            writer.WriteLine($"    public {returnType} {actionName}({string.Join(", ", arguments)})");
             writer.WriteLine($"    {{");
+            if (outArguments.Any())
+            {
+              writer.WriteLine($"      return {defaultReturnValue};");
+            }
+
             writer.WriteLine($"    }}");
             if (action != soapService.Scpd.Actions.Last())
             {
               writer.WriteLine();
             }
           }
-
-          writer.WriteLine($"  }}");
-          writer.WriteLine($"}}");
         }
+
+        this.GenerateFileFooter(filename);
       }
 
       foreach (Device d in device.Devices)
@@ -135,6 +169,75 @@ namespace FritzWrapperGenerator
         int start = d.DeviceType.LastIndexOf(":", end) + 1;
         string directoryName = d.DeviceType.Substring(start, end - start + 1);
         this.GenerateServiceWrapper(Path.Combine(targetDirectory, directoryName), targetNamespace + "." + directoryName, d);
+      }
+    }
+
+    /// <summary>
+    /// Generate a class for retrieving the result of a SOAP opeartion.
+    /// </summary>
+    /// <param name="actionName">The action for which a result type will be generated.</param>
+    /// <param name="targetDirectory">The directory to which the wrapper will be generated.</param>
+    /// <param name="targetNamespace">The namespace to which the wrapper will be generated.</param>
+    /// <param name="elements">The elements of the type.</param>
+    /// <param name="stateVariables">The state variables for this type.</param>
+    /// <returns>The name of the generated type.</returns>
+    private string GenerateResultType(string actionName, string targetDirectory, string targetNamespace, IEnumerable<Argument> elements, List<ServiceStateVariable> stateVariables)
+    {
+      string typeName = actionName + "Result";
+      string filename = Path.Combine(targetDirectory, typeName + ".cs");
+      this.GenerateFileHeader(filename, targetNamespace, typeName, $"Result type for {actionName}.");
+      using (StreamWriter writer = new StreamWriter(filename, true))
+      {
+        foreach (Argument element in elements)
+        {
+          ServiceStateVariable serviceStateVariable = stateVariables.First(sv => sv.Name == element.RelatedStateVariable);
+          writer.WriteLine($"    /// <summary>");
+          writer.WriteLine($"    /// Gets or sets the SOAP argument {element.Name}");
+          writer.WriteLine($"    /// </summary>");
+          writer.WriteLine($"    public {dataTypeMapping[serviceStateVariable.DataType]} {element.Name.Replace("-", "_")} {{ get; set; }}");
+          if (element != elements.Last())
+          {
+            writer.WriteLine();
+          }
+        }
+      }
+
+      this.GenerateFileFooter(filename);
+      return typeName;
+    }
+
+    /// <summary>
+    /// Generates a file header.
+    /// </summary>
+    /// <param name="filename">The file to which the content will be generated.</param>
+    /// <param name="targetNamespace">The namespace to which the wrapper will be generated.</param>
+    /// <param name="typeName">The name of the type in this file.</param>
+    /// <param name="typeDescription">The XML description for the type.</param>
+    private void GenerateFileHeader(string filename, string targetNamespace, string typeName, string typeDescription)
+    {
+      using (StreamWriter writer = new StreamWriter(filename))
+      {
+        writer.WriteLine(string.Format(fileHeader, typeName));
+        writer.WriteLine($"namespace {targetNamespace}");
+        writer.WriteLine($"{{");
+        writer.WriteLine($"  /// <summary>");
+        writer.WriteLine($"  /// {typeDescription}");
+        writer.WriteLine($"  /// </summary>");
+        writer.WriteLine($"  public class {typeName}");
+        writer.WriteLine($"  {{");
+      }
+    }
+
+    /// <summary>
+    /// Generates a file footer.
+    /// </summary>
+    /// <param name="filename">The file to which the content will be generated.</param>
+    private void GenerateFileFooter(string filename)
+    {
+      using (StreamWriter writer = new StreamWriter(filename, true))
+      {
+        writer.WriteLine($"  }}");
+        writer.WriteLine($"}}");
       }
     }
   }

@@ -23,26 +23,30 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Storage:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Storage:1.
   /// </summary>
   public class X_AVM_DE_Storage
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action RequestFTPServerWAN
+    /// Wrapper for the action RequestFTPServerWAN.
     /// </summary>
-    public void RequestFTPServerWAN()
+    /// <returns>The result (RequestFTPServerWANResult) of the action.</returns>
+    public RequestFTPServerWANResult RequestFTPServerWAN()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetFTPServer
+    /// Wrapper for the action SetFTPServer.
     /// </summary>
     /// <param name="newFTPEnable">The SOAP parameter NewFTPEnable.</param>
     public void SetFTPServer(bool newFTPEnable)
@@ -50,7 +54,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetFTPServerWAN
+    /// Wrapper for the action SetFTPServerWAN.
     /// </summary>
     /// <param name="newFTPWANEnable">The SOAP parameter NewFTPWANEnable.</param>
     /// <param name="newFTPWANSSLOnly">The SOAP parameter NewFTPWANSSLOnly.</param>
@@ -59,7 +63,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetSMBServer
+    /// Wrapper for the action SetSMBServer.
     /// </summary>
     /// <param name="newSMBEnable">The SOAP parameter NewSMBEnable.</param>
     public void SetSMBServer(bool newSMBEnable)
@@ -67,14 +71,16 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetUserInfo
+    /// Wrapper for the action GetUserInfo.
     /// </summary>
-    public void GetUserInfo()
+    /// <returns>The result (GetUserInfoResult) of the action.</returns>
+    public GetUserInfoResult GetUserInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetUserConfig
+    /// Wrapper for the action SetUserConfig.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>

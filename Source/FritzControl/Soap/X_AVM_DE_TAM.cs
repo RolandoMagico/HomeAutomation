@@ -23,20 +23,22 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_TAM:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_TAM:1.
   /// </summary>
   public class X_AVM_DE_TAM
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetInfo(ushort newIndex)
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetEnable
+    /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
@@ -45,15 +47,17 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetMessageList
+    /// Wrapper for the action GetMessageList.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetMessageList(ushort newIndex)
+    /// <returns>The result (NewURL) of the action.</returns>
+    public string GetMessageList(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action MarkMessage
+    /// Wrapper for the action MarkMessage.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     /// <param name="newMessageIndex">The SOAP parameter NewMessageIndex.</param>
@@ -63,7 +67,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeleteMessage
+    /// Wrapper for the action DeleteMessage.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     /// <param name="newMessageIndex">The SOAP parameter NewMessageIndex.</param>
@@ -72,10 +76,12 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetList
+    /// Wrapper for the action GetList.
     /// </summary>
-    public void GetList()
+    /// <returns>The result (NewTAMList) of the action.</returns>
+    public string GetList()
     {
+      return null;
     }
   }
 }

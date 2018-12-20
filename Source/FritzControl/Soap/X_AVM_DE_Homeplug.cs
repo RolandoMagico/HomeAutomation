@@ -23,35 +23,41 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Homeplug:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Homeplug:1.
   /// </summary>
   public class X_AVM_DE_Homeplug
   {
     /// <summary>
-    /// Wrapper for the action GetNumberOfDeviceEntries
+    /// Wrapper for the action GetNumberOfDeviceEntries.
     /// </summary>
-    public void GetNumberOfDeviceEntries()
+    /// <returns>The result (NewNumberOfEntries) of the action.</returns>
+    public ushort GetNumberOfDeviceEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericDeviceEntry
+    /// Wrapper for the action GetGenericDeviceEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetGenericDeviceEntry(ushort newIndex)
+    /// <returns>The result (GetGenericDeviceEntryResult) of the action.</returns>
+    public GetGenericDeviceEntryResult GetGenericDeviceEntry(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificDeviceEntry
+    /// Wrapper for the action GetSpecificDeviceEntry.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
-    public void GetSpecificDeviceEntry(string newMACAddress)
+    /// <returns>The result (GetSpecificDeviceEntryResult) of the action.</returns>
+    public GetSpecificDeviceEntryResult GetSpecificDeviceEntry(string newMACAddress)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action DeviceDoUpdate
+    /// Wrapper for the action DeviceDoUpdate.
     /// </summary>
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
     public void DeviceDoUpdate(string newMACAddress)

@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_WebDAVClient:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_WebDAVClient:1.
   /// </summary>
   public class X_AVM_DE_WebDAVClient
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfig
+    /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     /// <param name="newHostURL">The SOAP parameter NewHostURL.</param>

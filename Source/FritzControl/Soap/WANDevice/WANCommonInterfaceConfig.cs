@@ -23,47 +23,57 @@
 namespace FritzControl.Soap.WANDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:WANCommonInterfaceConfig:1
+  /// Wrapper for the service urn:dslforum-org:service:WANCommonInterfaceConfig:1.
   /// </summary>
   public class WANCommonInterfaceConfig
   {
     /// <summary>
-    /// Wrapper for the action GetCommonLinkProperties
+    /// Wrapper for the action GetCommonLinkProperties.
     /// </summary>
-    public void GetCommonLinkProperties()
+    /// <returns>The result (GetCommonLinkPropertiesResult) of the action.</returns>
+    public GetCommonLinkPropertiesResult GetCommonLinkProperties()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetTotalBytesSent
+    /// Wrapper for the action GetTotalBytesSent.
     /// </summary>
-    public void GetTotalBytesSent()
+    /// <returns>The result (NewTotalBytesSent) of the action.</returns>
+    public uint GetTotalBytesSent()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetTotalBytesReceived
+    /// Wrapper for the action GetTotalBytesReceived.
     /// </summary>
-    public void GetTotalBytesReceived()
+    /// <returns>The result (NewTotalBytesReceived) of the action.</returns>
+    public uint GetTotalBytesReceived()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetTotalPacketsSent
+    /// Wrapper for the action GetTotalPacketsSent.
     /// </summary>
-    public void GetTotalPacketsSent()
+    /// <returns>The result (NewTotalPacketsSent) of the action.</returns>
+    public uint GetTotalPacketsSent()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetTotalPacketsReceived
+    /// Wrapper for the action GetTotalPacketsReceived.
     /// </summary>
-    public void GetTotalPacketsReceived()
+    /// <returns>The result (NewTotalPacketsReceived) of the action.</returns>
+    public uint GetTotalPacketsReceived()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetWANAccessType
+    /// Wrapper for the action X_AVM-DE_SetWANAccessType.
     /// </summary>
     /// <param name="newAccessType">The SOAP parameter NewAccessType.</param>
     public void X_AVM_DE_SetWANAccessType(string newAccessType)
@@ -71,11 +81,13 @@ namespace FritzControl.Soap.WANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetOnlineMonitor
+    /// Wrapper for the action X_AVM-DE_GetOnlineMonitor.
     /// </summary>
     /// <param name="newSyncGroupIndex">The SOAP parameter NewSyncGroupIndex.</param>
-    public void X_AVM_DE_GetOnlineMonitor(uint newSyncGroupIndex)
+    /// <returns>The result (X_AVM_DE_GetOnlineMonitorResult) of the action.</returns>
+    public X_AVM_DE_GetOnlineMonitorResult X_AVM_DE_GetOnlineMonitor(uint newSyncGroupIndex)
     {
+      return null;
     }
   }
 }

@@ -23,19 +23,21 @@
 namespace FritzControl.Soap.WANDevice.WANConnectionDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:WANDSLLinkConfig:1
+  /// Wrapper for the service urn:dslforum-org:service:WANDSLLinkConfig:1.
   /// </summary>
   public class WANDSLLinkConfig
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetEnable
+    /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
@@ -43,14 +45,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetAutoConfig
+    /// Wrapper for the action GetAutoConfig.
     /// </summary>
-    public void GetAutoConfig()
+    /// <returns>The result (NewAutoConfig) of the action.</returns>
+    public bool GetAutoConfig()
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDSLLinkType
+    /// Wrapper for the action SetDSLLinkType.
     /// </summary>
     /// <param name="newLinkType">The SOAP parameter NewLinkType.</param>
     public void SetDSLLinkType(string newLinkType)
@@ -58,14 +62,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetDSLLinkInfo
+    /// Wrapper for the action GetDSLLinkInfo.
     /// </summary>
-    public void GetDSLLinkInfo()
+    /// <returns>The result (GetDSLLinkInfoResult) of the action.</returns>
+    public GetDSLLinkInfoResult GetDSLLinkInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDestinationAddress
+    /// Wrapper for the action SetDestinationAddress.
     /// </summary>
     /// <param name="newDestinationAddress">The SOAP parameter NewDestinationAddress.</param>
     public void SetDestinationAddress(string newDestinationAddress)
@@ -73,14 +79,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetDestinationAddress
+    /// Wrapper for the action GetDestinationAddress.
     /// </summary>
-    public void GetDestinationAddress()
+    /// <returns>The result (NewDestinationAddress) of the action.</returns>
+    public string GetDestinationAddress()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetATMEncapsulation
+    /// Wrapper for the action SetATMEncapsulation.
     /// </summary>
     /// <param name="newATMEncapsulation">The SOAP parameter NewATMEncapsulation.</param>
     public void SetATMEncapsulation(string newATMEncapsulation)
@@ -88,17 +96,21 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetATMEncapsulation
+    /// Wrapper for the action GetATMEncapsulation.
     /// </summary>
-    public void GetATMEncapsulation()
+    /// <returns>The result (NewATMEncapsulation) of the action.</returns>
+    public string GetATMEncapsulation()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetStatistics
+    /// Wrapper for the action GetStatistics.
     /// </summary>
-    public void GetStatistics()
+    /// <returns>The result (GetStatisticsResult) of the action.</returns>
+    public GetStatisticsResult GetStatistics()
     {
+      return null;
     }
   }
 }

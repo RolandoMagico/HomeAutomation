@@ -23,15 +23,17 @@
 namespace FritzControl.Soap.WANDevice.WANConnectionDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:WANEthernetLinkConfig:1
+  /// Wrapper for the service urn:dslforum-org:service:WANEthernetLinkConfig:1.
   /// </summary>
   public class WANEthernetLinkConfig
   {
     /// <summary>
-    /// Wrapper for the action GetEthernetLinkStatus
+    /// Wrapper for the action GetEthernetLinkStatus.
     /// </summary>
-    public void GetEthernetLinkStatus()
+    /// <returns>The result (NewEthernetLinkStatus) of the action.</returns>
+    public string GetEthernetLinkStatus()
     {
+      return null;
     }
   }
 }

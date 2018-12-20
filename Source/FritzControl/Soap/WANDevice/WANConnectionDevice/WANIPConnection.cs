@@ -23,26 +23,30 @@
 namespace FritzControl.Soap.WANDevice.WANConnectionDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:WANIPConnection:1
+  /// Wrapper for the service urn:dslforum-org:service:WANIPConnection:1.
   /// </summary>
   public class WANIPConnection
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetConnectionTypeInfo
+    /// Wrapper for the action GetConnectionTypeInfo.
     /// </summary>
-    public void GetConnectionTypeInfo()
+    /// <returns>The result (GetConnectionTypeInfoResult) of the action.</returns>
+    public GetConnectionTypeInfoResult GetConnectionTypeInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConnectionType
+    /// Wrapper for the action SetConnectionType.
     /// </summary>
     /// <param name="newConnectionType">The SOAP parameter NewConnectionType.</param>
     public void SetConnectionType(string newConnectionType)
@@ -50,21 +54,25 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetStatusInfo
+    /// Wrapper for the action GetStatusInfo.
     /// </summary>
-    public void GetStatusInfo()
+    /// <returns>The result (GetStatusInfoResult) of the action.</returns>
+    public GetStatusInfoResult GetStatusInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetNATRSIPStatus
+    /// Wrapper for the action GetNATRSIPStatus.
     /// </summary>
-    public void GetNATRSIPStatus()
+    /// <returns>The result (GetNATRSIPStatusResult) of the action.</returns>
+    public GetNATRSIPStatusResult GetNATRSIPStatus()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConnectionTrigger
+    /// Wrapper for the action SetConnectionTrigger.
     /// </summary>
     /// <param name="newConnectionTrigger">The SOAP parameter NewConnectionTrigger.</param>
     public void SetConnectionTrigger(string newConnectionTrigger)
@@ -72,39 +80,43 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action ForceTermination
+    /// Wrapper for the action ForceTermination.
     /// </summary>
     public void ForceTermination()
     {
     }
 
     /// <summary>
-    /// Wrapper for the action RequestConnection
+    /// Wrapper for the action RequestConnection.
     /// </summary>
     public void RequestConnection()
     {
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericPortMappingEntry
+    /// Wrapper for the action GetGenericPortMappingEntry.
     /// </summary>
     /// <param name="newPortMappingIndex">The SOAP parameter NewPortMappingIndex.</param>
-    public void GetGenericPortMappingEntry(ushort newPortMappingIndex)
+    /// <returns>The result (GetGenericPortMappingEntryResult) of the action.</returns>
+    public GetGenericPortMappingEntryResult GetGenericPortMappingEntry(ushort newPortMappingIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificPortMappingEntry
+    /// Wrapper for the action GetSpecificPortMappingEntry.
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
     /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
-    public void GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
+    /// <returns>The result (GetSpecificPortMappingEntryResult) of the action.</returns>
+    public GetSpecificPortMappingEntryResult GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action AddPortMapping
+    /// Wrapper for the action AddPortMapping.
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
@@ -119,7 +131,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action DeletePortMapping
+    /// Wrapper for the action DeletePortMapping.
     /// </summary>
     /// <param name="newRemoteHost">The SOAP parameter NewRemoteHost.</param>
     /// <param name="newExternalPort">The SOAP parameter NewExternalPort.</param>
@@ -129,28 +141,34 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetExternalIPAddress
+    /// Wrapper for the action GetExternalIPAddress.
     /// </summary>
-    public void GetExternalIPAddress()
+    /// <returns>The result (NewExternalIPAddress) of the action.</returns>
+    public string GetExternalIPAddress()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_GetDNSServers
+    /// Wrapper for the action X_GetDNSServers.
     /// </summary>
-    public void X_GetDNSServers()
+    /// <returns>The result (NewDNSServers) of the action.</returns>
+    public string X_GetDNSServers()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetPortMappingNumberOfEntries
+    /// Wrapper for the action GetPortMappingNumberOfEntries.
     /// </summary>
-    public void GetPortMappingNumberOfEntries()
+    /// <returns>The result (NewPortMappingNumberOfEntries) of the action.</returns>
+    public ushort GetPortMappingNumberOfEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action SetRouteProtocolRx
+    /// Wrapper for the action SetRouteProtocolRx.
     /// </summary>
     /// <param name="newRouteProtocolRx">The SOAP parameter NewRouteProtocolRx.</param>
     public void SetRouteProtocolRx(string newRouteProtocolRx)
@@ -158,7 +176,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     }
 
     /// <summary>
-    /// Wrapper for the action SetIdleDisconnectTime
+    /// Wrapper for the action SetIdleDisconnectTime.
     /// </summary>
     /// <param name="newIdleDisconnectTime">The SOAP parameter NewIdleDisconnectTime.</param>
     public void SetIdleDisconnectTime(uint newIdleDisconnectTime)

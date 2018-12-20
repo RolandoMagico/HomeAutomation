@@ -23,30 +23,36 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Auth:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Auth:1.
   /// </summary>
   public class X_AVM_DE_Auth
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (NewEnabled) of the action.</returns>
+    public bool GetInfo()
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action GetState
+    /// Wrapper for the action GetState.
     /// </summary>
-    public void GetState()
+    /// <returns>The result (NewState) of the action.</returns>
+    public string GetState()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfig
+    /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newAction">The SOAP parameter NewAction.</param>
-    public void SetConfig(string newAction)
+    /// <returns>The result (SetConfigResult) of the action.</returns>
+    public SetConfigResult SetConfig(string newAction)
     {
+      return null;
     }
   }
 }

@@ -23,12 +23,12 @@
 namespace FritzControl.Soap.LANDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:LANEthernetInterfaceConfig:1
+  /// Wrapper for the service urn:dslforum-org:service:LANEthernetInterfaceConfig:1.
   /// </summary>
   public class LANEthernetInterfaceConfig
   {
     /// <summary>
-    /// Wrapper for the action SetEnable
+    /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
@@ -36,17 +36,21 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetStatistics
+    /// Wrapper for the action GetStatistics.
     /// </summary>
-    public void GetStatistics()
+    /// <returns>The result (GetStatisticsResult) of the action.</returns>
+    public GetStatisticsResult GetStatistics()
     {
+      return null;
     }
   }
 }

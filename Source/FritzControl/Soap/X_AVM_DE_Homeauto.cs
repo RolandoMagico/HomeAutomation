@@ -23,35 +23,41 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Homeauto:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Homeauto:1.
   /// </summary>
   public class X_AVM_DE_Homeauto
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (NewAllowedCharsAIN) of the action.</returns>
+    public string GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericDeviceInfos
+    /// Wrapper for the action GetGenericDeviceInfos.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetGenericDeviceInfos(ushort newIndex)
+    /// <returns>The result (GetGenericDeviceInfosResult) of the action.</returns>
+    public GetGenericDeviceInfosResult GetGenericDeviceInfos(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificDeviceInfos
+    /// Wrapper for the action GetSpecificDeviceInfos.
     /// </summary>
     /// <param name="newAIN">The SOAP parameter NewAIN.</param>
-    public void GetSpecificDeviceInfos(string newAIN)
+    /// <returns>The result (GetSpecificDeviceInfosResult) of the action.</returns>
+    public GetSpecificDeviceInfosResult GetSpecificDeviceInfos(string newAIN)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetSwitch
+    /// Wrapper for the action SetSwitch.
     /// </summary>
     /// <param name="newAIN">The SOAP parameter NewAIN.</param>
     /// <param name="newSwitchState">The SOAP parameter NewSwitchState.</param>

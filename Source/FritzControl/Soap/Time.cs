@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:Time:1
+  /// Wrapper for the service urn:dslforum-org:service:Time:1.
   /// </summary>
   public class Time
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetNTPServers
+    /// Wrapper for the action SetNTPServers.
     /// </summary>
     /// <param name="newNTPServer1">The SOAP parameter NewNTPServer1.</param>
     /// <param name="newNTPServer2">The SOAP parameter NewNTPServer2.</param>

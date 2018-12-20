@@ -23,45 +23,53 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Filelinks:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_Filelinks:1.
   /// </summary>
   public class X_AVM_DE_Filelinks
   {
     /// <summary>
-    /// Wrapper for the action GetNumberOfFilelinkEntries
+    /// Wrapper for the action GetNumberOfFilelinkEntries.
     /// </summary>
-    public void GetNumberOfFilelinkEntries()
+    /// <returns>The result (NewNumberOfEntries) of the action.</returns>
+    public ushort GetNumberOfFilelinkEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericFilelinkEntry
+    /// Wrapper for the action GetGenericFilelinkEntry.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetGenericFilelinkEntry(ushort newIndex)
+    /// <returns>The result (GetGenericFilelinkEntryResult) of the action.</returns>
+    public GetGenericFilelinkEntryResult GetGenericFilelinkEntry(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificFilelinkEntry
+    /// Wrapper for the action GetSpecificFilelinkEntry.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
-    public void GetSpecificFilelinkEntry(string newID)
+    /// <returns>The result (GetSpecificFilelinkEntryResult) of the action.</returns>
+    public GetSpecificFilelinkEntryResult GetSpecificFilelinkEntry(string newID)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action NewFilelinkEntry
+    /// Wrapper for the action NewFilelinkEntry.
     /// </summary>
     /// <param name="newPath">The SOAP parameter NewPath.</param>
     /// <param name="newAccessCountLimit">The SOAP parameter NewAccessCountLimit.</param>
     /// <param name="newExpire">The SOAP parameter NewExpire.</param>
-    public void NewFilelinkEntry(string newPath, ushort newAccessCountLimit, ushort newExpire)
+    /// <returns>The result (NewID) of the action.</returns>
+    public string NewFilelinkEntry(string newPath, ushort newAccessCountLimit, ushort newExpire)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetFilelinkEntry
+    /// Wrapper for the action SetFilelinkEntry.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
     /// <param name="newAccessCountLimit">The SOAP parameter NewAccessCountLimit.</param>
@@ -71,7 +79,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeleteFilelinkEntry
+    /// Wrapper for the action DeleteFilelinkEntry.
     /// </summary>
     /// <param name="newID">The SOAP parameter NewID.</param>
     public void DeleteFilelinkEntry(string newID)
@@ -79,10 +87,12 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetFilelinkListPath
+    /// Wrapper for the action GetFilelinkListPath.
     /// </summary>
-    public void GetFilelinkListPath()
+    /// <returns>The result (NewFilelinkListPath) of the action.</returns>
+    public string GetFilelinkListPath()
     {
+      return null;
     }
   }
 }

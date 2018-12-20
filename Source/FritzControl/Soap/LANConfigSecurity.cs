@@ -23,33 +23,39 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:LANConfigSecurity:1
+  /// Wrapper for the service urn:dslforum-org:service:LANConfigSecurity:1.
   /// </summary>
   public class LANConfigSecurity
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetCurrentUser
+    /// Wrapper for the action X_AVM-DE_GetCurrentUser.
     /// </summary>
-    public void X_AVM_DE_GetCurrentUser()
+    /// <returns>The result (X_AVM_DE_GetCurrentUserResult) of the action.</returns>
+    public X_AVM_DE_GetCurrentUserResult X_AVM_DE_GetCurrentUser()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetAnonymousLogin
+    /// Wrapper for the action X_AVM-DE_GetAnonymousLogin.
     /// </summary>
-    public void X_AVM_DE_GetAnonymousLogin()
+    /// <returns>The result (X_AVM_DE_GetAnonymousLoginResult) of the action.</returns>
+    public X_AVM_DE_GetAnonymousLoginResult X_AVM_DE_GetAnonymousLogin()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfigPassword
+    /// Wrapper for the action SetConfigPassword.
     /// </summary>
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetConfigPassword(string newPassword)

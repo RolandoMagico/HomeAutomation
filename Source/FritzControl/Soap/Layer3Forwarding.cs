@@ -23,12 +23,12 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:Layer3Forwarding:1
+  /// Wrapper for the service urn:dslforum-org:service:Layer3Forwarding:1.
   /// </summary>
   public class Layer3Forwarding
   {
     /// <summary>
-    /// Wrapper for the action SetDefaultConnectionService
+    /// Wrapper for the action SetDefaultConnectionService.
     /// </summary>
     /// <param name="newDefaultConnectionService">The SOAP parameter NewDefaultConnectionService.</param>
     public void SetDefaultConnectionService(string newDefaultConnectionService)
@@ -36,21 +36,25 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetDefaultConnectionService
+    /// Wrapper for the action GetDefaultConnectionService.
     /// </summary>
-    public void GetDefaultConnectionService()
+    /// <returns>The result (NewDefaultConnectionService) of the action.</returns>
+    public string GetDefaultConnectionService()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetForwardNumberOfEntries
+    /// Wrapper for the action GetForwardNumberOfEntries.
     /// </summary>
-    public void GetForwardNumberOfEntries()
+    /// <returns>The result (NewForwardNumberOfEntries) of the action.</returns>
+    public ushort GetForwardNumberOfEntries()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action AddForwardingEntry
+    /// Wrapper for the action AddForwardingEntry.
     /// </summary>
     /// <param name="newType">The SOAP parameter NewType.</param>
     /// <param name="newDestIPAddress">The SOAP parameter NewDestIPAddress.</param>
@@ -65,7 +69,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeleteForwardingEntry
+    /// Wrapper for the action DeleteForwardingEntry.
     /// </summary>
     /// <param name="newDestIPAddress">The SOAP parameter NewDestIPAddress.</param>
     /// <param name="newDestSubnetMask">The SOAP parameter NewDestSubnetMask.</param>
@@ -76,26 +80,30 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificForwardingEntry
+    /// Wrapper for the action GetSpecificForwardingEntry.
     /// </summary>
     /// <param name="newDestIPAddress">The SOAP parameter NewDestIPAddress.</param>
     /// <param name="newDestSubnetMask">The SOAP parameter NewDestSubnetMask.</param>
     /// <param name="newSourceIPAddress">The SOAP parameter NewSourceIPAddress.</param>
     /// <param name="newSourceSubnetMask">The SOAP parameter NewSourceSubnetMask.</param>
-    public void GetSpecificForwardingEntry(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask)
+    /// <returns>The result (GetSpecificForwardingEntryResult) of the action.</returns>
+    public GetSpecificForwardingEntryResult GetSpecificForwardingEntry(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericForwardingEntry
+    /// Wrapper for the action GetGenericForwardingEntry.
     /// </summary>
     /// <param name="newForwardingIndex">The SOAP parameter NewForwardingIndex.</param>
-    public void GetGenericForwardingEntry(ushort newForwardingIndex)
+    /// <returns>The result (GetGenericForwardingEntryResult) of the action.</returns>
+    public GetGenericForwardingEntryResult GetGenericForwardingEntry(ushort newForwardingIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetForwardingEntryEnable
+    /// Wrapper for the action SetForwardingEntryEnable.
     /// </summary>
     /// <param name="newDestIPAddress">The SOAP parameter NewDestIPAddress.</param>
     /// <param name="newDestSubnetMask">The SOAP parameter NewDestSubnetMask.</param>

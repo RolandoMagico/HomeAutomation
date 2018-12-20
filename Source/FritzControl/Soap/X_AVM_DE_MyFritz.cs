@@ -23,34 +23,40 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_MyFritz:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_MyFritz:1.
   /// </summary>
   public class X_AVM_DE_MyFritz
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetNumberOfServices
+    /// Wrapper for the action GetNumberOfServices.
     /// </summary>
-    public void GetNumberOfServices()
+    /// <returns>The result (NewNumberOfServices) of the action.</returns>
+    public uint GetNumberOfServices()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetServiceByIndex
+    /// Wrapper for the action GetServiceByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void GetServiceByIndex(uint newIndex)
+    /// <returns>The result (GetServiceByIndexResult) of the action.</returns>
+    public GetServiceByIndexResult GetServiceByIndex(uint newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetServiceByIndex
+    /// Wrapper for the action SetServiceByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     /// <param name="newEnabled">The SOAP parameter NewEnabled.</param>
@@ -69,7 +75,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action DeleteServiceByIndex
+    /// Wrapper for the action DeleteServiceByIndex.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     public void DeleteServiceByIndex(uint newIndex)

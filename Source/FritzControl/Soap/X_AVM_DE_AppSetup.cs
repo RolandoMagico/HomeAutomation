@@ -23,34 +23,40 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_AppSetup:1
+  /// Wrapper for the service urn:dslforum-org:service:X_AVM-DE_AppSetup:1.
   /// </summary>
   public class X_AVM_DE_AppSetup
   {
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetConfig
+    /// Wrapper for the action GetConfig.
     /// </summary>
-    public void GetConfig()
+    /// <returns>The result (GetConfigResult) of the action.</returns>
+    public GetConfigResult GetConfig()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetAppMessageFilter
+    /// Wrapper for the action GetAppMessageFilter.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
-    public void GetAppMessageFilter(string newAppId)
+    /// <returns>The result (NewFilterList) of the action.</returns>
+    public string GetAppMessageFilter(string newAppId)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action RegisterApp
+    /// Wrapper for the action RegisterApp.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
     /// <param name="newAppDisplayName">The SOAP parameter NewAppDisplayName.</param>
@@ -67,7 +73,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetAppVPN
+    /// Wrapper for the action SetAppVPN.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
     /// <param name="newIPSecIdentifier">The SOAP parameter NewIPSecIdentifier.</param>
@@ -79,7 +85,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetAppVPNwithPFS
+    /// Wrapper for the action SetAppVPNwithPFS.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
     /// <param name="newIPSecIdentifier">The SOAP parameter NewIPSecIdentifier.</param>
@@ -91,7 +97,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetAppMessageFilter
+    /// Wrapper for the action SetAppMessageFilter.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
     /// <param name="newType">The SOAP parameter NewType.</param>
@@ -101,18 +107,20 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action SetAppMessageReceiver
+    /// Wrapper for the action SetAppMessageReceiver.
     /// </summary>
     /// <param name="newAppId">The SOAP parameter NewAppId.</param>
     /// <param name="newCryptAlgos">The SOAP parameter NewCryptAlgos.</param>
     /// <param name="newAppAVMAddress">The SOAP parameter NewAppAVMAddress.</param>
     /// <param name="newAppAVMPasswordHash">The SOAP parameter NewAppAVMPasswordHash.</param>
-    public void SetAppMessageReceiver(string newAppId, string newCryptAlgos, string newAppAVMAddress, string newAppAVMPasswordHash)
+    /// <returns>The result (SetAppMessageReceiverResult) of the action.</returns>
+    public SetAppMessageReceiverResult SetAppMessageReceiver(string newAppId, string newCryptAlgos, string newAppAVMAddress, string newAppAVMPasswordHash)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action ResetEvent
+    /// Wrapper for the action ResetEvent.
     /// </summary>
     /// <param name="newEventId">The SOAP parameter NewEventId.</param>
     public void ResetEvent(uint newEventId)

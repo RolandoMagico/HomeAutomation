@@ -23,19 +23,21 @@
 namespace FritzControl.Soap
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:X_VoIP:1
+  /// Wrapper for the service urn:dslforum-org:service:X_VoIP:1.
   /// </summary>
   public class X_VoIP
   {
     /// <summary>
-    /// Wrapper for the action GetInfoEx
+    /// Wrapper for the action GetInfoEx.
     /// </summary>
-    public void GetInfoEx()
+    /// <returns>The result (GetInfoExResult) of the action.</returns>
+    public GetInfoExResult GetInfoEx()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_AddVoIPAccount
+    /// Wrapper for the action X_AVM-DE_AddVoIPAccount.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
     /// <param name="newVoIPRegistrar">The SOAP parameter NewVoIPRegistrar.</param>
@@ -49,15 +51,17 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetVoIPAccount
+    /// Wrapper for the action X_AVM-DE_GetVoIPAccount.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
-    public void X_AVM_DE_GetVoIPAccount(ushort newVoIPAccountIndex)
+    /// <returns>The result (X_AVM_DE_GetVoIPAccountResult) of the action.</returns>
+    public X_AVM_DE_GetVoIPAccountResult X_AVM_DE_GetVoIPAccount(ushort newVoIPAccountIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DelVoIPAccount
+    /// Wrapper for the action X_AVM-DE_DelVoIPAccount.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
     public void X_AVM_DE_DelVoIPAccount(ushort newVoIPAccountIndex)
@@ -65,14 +69,16 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfig
+    /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newFaxT38Enable">The SOAP parameter NewFaxT38Enable.</param>
     /// <param name="newVoiceCoding">The SOAP parameter NewVoiceCoding.</param>
@@ -81,44 +87,54 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetMaxVoIPNumbers
+    /// Wrapper for the action GetMaxVoIPNumbers.
     /// </summary>
-    public void GetMaxVoIPNumbers()
+    /// <returns>The result (NewMaxVoIPNumbers) of the action.</returns>
+    public ushort GetMaxVoIPNumbers()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetExistingVoIPNumbers
+    /// Wrapper for the action GetExistingVoIPNumbers.
     /// </summary>
-    public void GetExistingVoIPNumbers()
+    /// <returns>The result (NewExistingVoIPNumbers) of the action.</returns>
+    public ushort GetExistingVoIPNumbers()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetNumberOfClients
+    /// Wrapper for the action X_AVM-DE_GetNumberOfClients.
     /// </summary>
-    public void X_AVM_DE_GetNumberOfClients()
+    /// <returns>The result (NewX_AVM-DE_NumberOfClients) of the action.</returns>
+    public ushort X_AVM_DE_GetNumberOfClients()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetClient
-    /// </summary>
-    /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
-    public void X_AVM_DE_GetClient(ushort newX_AVM_DE_ClientIndex)
-    {
-    }
-
-    /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetClient2
+    /// Wrapper for the action X_AVM-DE_GetClient.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
-    public void X_AVM_DE_GetClient2(ushort newX_AVM_DE_ClientIndex)
+    /// <returns>The result (X_AVM_DE_GetClientResult) of the action.</returns>
+    public X_AVM_DE_GetClientResult X_AVM_DE_GetClient(ushort newX_AVM_DE_ClientIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetClient
+    /// Wrapper for the action X_AVM-DE_GetClient2.
+    /// </summary>
+    /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
+    /// <returns>The result (X_AVM_DE_GetClient2Result) of the action.</returns>
+    public X_AVM_DE_GetClient2Result X_AVM_DE_GetClient2(ushort newX_AVM_DE_ClientIndex)
+    {
+      return null;
+    }
+
+    /// <summary>
+    /// Wrapper for the action X_AVM-DE_SetClient.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
     /// <param name="newX_AVM_DE_ClientPassword">The SOAP parameter NewX_AVM-DE_ClientPassword.</param>
@@ -129,7 +145,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetClient2
+    /// Wrapper for the action X_AVM-DE_SetClient2.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
     /// <param name="newX_AVM_DE_ClientPassword">The SOAP parameter NewX_AVM-DE_ClientPassword.</param>
@@ -141,23 +157,27 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetClient3
+    /// Wrapper for the action X_AVM-DE_GetClient3.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
-    public void X_AVM_DE_GetClient3(ushort newX_AVM_DE_ClientIndex)
+    /// <returns>The result (X_AVM_DE_GetClient3Result) of the action.</returns>
+    public X_AVM_DE_GetClient3Result X_AVM_DE_GetClient3(ushort newX_AVM_DE_ClientIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetClientByClientId
+    /// Wrapper for the action X_AVM-DE_GetClientByClientId.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientId">The SOAP parameter NewX_AVM-DE_ClientId.</param>
-    public void X_AVM_DE_GetClientByClientId(string newX_AVM_DE_ClientId)
+    /// <returns>The result (X_AVM_DE_GetClientByClientIdResult) of the action.</returns>
+    public X_AVM_DE_GetClientByClientIdResult X_AVM_DE_GetClientByClientId(string newX_AVM_DE_ClientId)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetClient3
+    /// Wrapper for the action X_AVM-DE_SetClient3.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
     /// <param name="newX_AVM_DE_ClientPassword">The SOAP parameter NewX_AVM-DE_ClientPassword.</param>
@@ -171,7 +191,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetClient4
+    /// Wrapper for the action X_AVM-DE_SetClient4.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
     /// <param name="newX_AVM_DE_ClientPassword">The SOAP parameter NewX_AVM-DE_ClientPassword.</param>
@@ -180,33 +200,41 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_ClientId">The SOAP parameter NewX_AVM-DE_ClientId.</param>
     /// <param name="newX_AVM_DE_OutGoingNumber">The SOAP parameter NewX_AVM-DE_OutGoingNumber.</param>
     /// <param name="newX_AVM_DE_InComingNumbers">The SOAP parameter NewX_AVM-DE_InComingNumbers.</param>
-    public void X_AVM_DE_SetClient4(ushort newX_AVM_DE_ClientIndex, string newX_AVM_DE_ClientPassword, string newX_AVM_DE_ClientUsername, string newX_AVM_DE_PhoneName, string newX_AVM_DE_ClientId, string newX_AVM_DE_OutGoingNumber, string newX_AVM_DE_InComingNumbers)
+    /// <returns>The result (NewX_AVM-DE_InternalNumber) of the action.</returns>
+    public string X_AVM_DE_SetClient4(ushort newX_AVM_DE_ClientIndex, string newX_AVM_DE_ClientPassword, string newX_AVM_DE_ClientUsername, string newX_AVM_DE_PhoneName, string newX_AVM_DE_ClientId, string newX_AVM_DE_OutGoingNumber, string newX_AVM_DE_InComingNumbers)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetClients
+    /// Wrapper for the action X_AVM-DE_GetClients.
     /// </summary>
-    public void X_AVM_DE_GetClients()
+    /// <returns>The result (NewX_AVM-DE_ClientList) of the action.</returns>
+    public string X_AVM_DE_GetClients()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetNumberOfNumbers
+    /// Wrapper for the action X_AVM-DE_GetNumberOfNumbers.
     /// </summary>
-    public void X_AVM_DE_GetNumberOfNumbers()
+    /// <returns>The result (NewNumberOfNumbers) of the action.</returns>
+    public uint X_AVM_DE_GetNumberOfNumbers()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetNumbers
+    /// Wrapper for the action X_AVM-DE_GetNumbers.
     /// </summary>
-    public void X_AVM_DE_GetNumbers()
+    /// <returns>The result (NewNumberList) of the action.</returns>
+    public string X_AVM_DE_GetNumbers()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DeleteClient
+    /// Wrapper for the action X_AVM-DE_DeleteClient.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
     public void X_AVM_DE_DeleteClient(ushort newX_AVM_DE_ClientIndex)
@@ -214,14 +242,16 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DialGetConfig
+    /// Wrapper for the action X_AVM-DE_DialGetConfig.
     /// </summary>
-    public void X_AVM_DE_DialGetConfig()
+    /// <returns>The result (NewX_AVM-DE_PhoneName) of the action.</returns>
+    public string X_AVM_DE_DialGetConfig()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DialSetConfig
+    /// Wrapper for the action X_AVM-DE_DialSetConfig.
     /// </summary>
     /// <param name="newX_AVM_DE_PhoneName">The SOAP parameter NewX_AVM-DE_PhoneName.</param>
     public void X_AVM_DE_DialSetConfig(string newX_AVM_DE_PhoneName)
@@ -229,7 +259,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DialNumber
+    /// Wrapper for the action X_AVM-DE_DialNumber.
     /// </summary>
     /// <param name="newX_AVM_DE_PhoneNumber">The SOAP parameter NewX_AVM-DE_PhoneNumber.</param>
     public void X_AVM_DE_DialNumber(string newX_AVM_DE_PhoneNumber)
@@ -237,22 +267,24 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_DialHangup
+    /// Wrapper for the action X_AVM-DE_DialHangup.
     /// </summary>
     public void X_AVM_DE_DialHangup()
     {
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetPhonePort
+    /// Wrapper for the action X_AVM-DE_GetPhonePort.
     /// </summary>
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
-    public void X_AVM_DE_GetPhonePort(ushort newIndex)
+    /// <returns>The result (NewX_AVM-DE_PhoneName) of the action.</returns>
+    public string X_AVM_DE_GetPhonePort(ushort newIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetDelayedCallNotification
+    /// Wrapper for the action X_AVM-DE_SetDelayedCallNotification.
     /// </summary>
     /// <param name="newX_AVM_DE_ClientIndex">The SOAP parameter NewX_AVM-DE_ClientIndex.</param>
     /// <param name="newX_AVM_DE_DelayedCallNotification">The SOAP parameter NewX_AVM-DE_DelayedCallNotification.</param>
@@ -261,21 +293,25 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetVoIPCommonCountryCode
+    /// Wrapper for the action GetVoIPCommonCountryCode.
     /// </summary>
-    public void GetVoIPCommonCountryCode()
+    /// <returns>The result (NewVoIPCountryCode) of the action.</returns>
+    public string GetVoIPCommonCountryCode()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetVoIPCommonCountryCode
+    /// Wrapper for the action X_AVM-DE_GetVoIPCommonCountryCode.
     /// </summary>
-    public void X_AVM_DE_GetVoIPCommonCountryCode()
+    /// <returns>The result (X_AVM_DE_GetVoIPCommonCountryCodeResult) of the action.</returns>
+    public X_AVM_DE_GetVoIPCommonCountryCodeResult X_AVM_DE_GetVoIPCommonCountryCode()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetVoIPCommonCountryCode
+    /// Wrapper for the action SetVoIPCommonCountryCode.
     /// </summary>
     /// <param name="newVoIPCountryCode">The SOAP parameter NewVoIPCountryCode.</param>
     public void SetVoIPCommonCountryCode(string newVoIPCountryCode)
@@ -283,7 +319,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetVoIPCommonCountryCode
+    /// Wrapper for the action X_AVM-DE_SetVoIPCommonCountryCode.
     /// </summary>
     /// <param name="newX_AVM_DE_LKZ">The SOAP parameter NewX_AVM-DE_LKZ.</param>
     /// <param name="newX_AVM_DE_LKZPrefix">The SOAP parameter NewX_AVM-DE_LKZPrefix.</param>
@@ -292,15 +328,17 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetVoIPEnableCountryCode
+    /// Wrapper for the action GetVoIPEnableCountryCode.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
-    public void GetVoIPEnableCountryCode(ushort newVoIPAccountIndex)
+    /// <returns>The result (NewVoIPEnableCountryCode) of the action.</returns>
+    public bool GetVoIPEnableCountryCode(ushort newVoIPAccountIndex)
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action SetVoIPEnableCountryCode
+    /// Wrapper for the action SetVoIPEnableCountryCode.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
     /// <param name="newVoIPEnableCountryCode">The SOAP parameter NewVoIPEnableCountryCode.</param>
@@ -309,21 +347,25 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetVoIPCommonAreaCode
+    /// Wrapper for the action GetVoIPCommonAreaCode.
     /// </summary>
-    public void GetVoIPCommonAreaCode()
+    /// <returns>The result (NewVoIPAreaCode) of the action.</returns>
+    public string GetVoIPCommonAreaCode()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetVoIPCommonAreaCode
+    /// Wrapper for the action X_AVM-DE_GetVoIPCommonAreaCode.
     /// </summary>
-    public void X_AVM_DE_GetVoIPCommonAreaCode()
+    /// <returns>The result (X_AVM_DE_GetVoIPCommonAreaCodeResult) of the action.</returns>
+    public X_AVM_DE_GetVoIPCommonAreaCodeResult X_AVM_DE_GetVoIPCommonAreaCode()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetVoIPCommonAreaCode
+    /// Wrapper for the action SetVoIPCommonAreaCode.
     /// </summary>
     /// <param name="newVoIPAreaCode">The SOAP parameter NewVoIPAreaCode.</param>
     public void SetVoIPCommonAreaCode(string newVoIPAreaCode)
@@ -331,7 +373,7 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetVoIPCommonAreaCode
+    /// Wrapper for the action X_AVM-DE_SetVoIPCommonAreaCode.
     /// </summary>
     /// <param name="newX_AVM_DE_OKZ">The SOAP parameter NewX_AVM-DE_OKZ.</param>
     /// <param name="newX_AVM_DE_OKZPrefix">The SOAP parameter NewX_AVM-DE_OKZPrefix.</param>
@@ -340,15 +382,17 @@ namespace FritzControl.Soap
     }
 
     /// <summary>
-    /// Wrapper for the action GetVoIPEnableAreaCode
+    /// Wrapper for the action GetVoIPEnableAreaCode.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
-    public void GetVoIPEnableAreaCode(ushort newVoIPAccountIndex)
+    /// <returns>The result (NewVoIPEnableAreaCode) of the action.</returns>
+    public bool GetVoIPEnableAreaCode(ushort newVoIPAccountIndex)
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action SetVoIPEnableAreaCode
+    /// Wrapper for the action SetVoIPEnableAreaCode.
     /// </summary>
     /// <param name="newVoIPAccountIndex">The SOAP parameter NewVoIPAccountIndex.</param>
     /// <param name="newVoIPEnableAreaCode">The SOAP parameter NewVoIPEnableAreaCode.</param>

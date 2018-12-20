@@ -23,12 +23,12 @@
 namespace FritzControl.Soap.LANDevice
 {
   /// <summary>
-  /// Wrapper for the service urn:dslforum-org:service:WLANConfiguration:3
+  /// Wrapper for the service urn:dslforum-org:service:WLANConfiguration:3.
   /// </summary>
   public class WLANConfiguration
   {
     /// <summary>
-    /// Wrapper for the action SetEnable
+    /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
@@ -36,14 +36,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetInfo
+    /// Wrapper for the action GetInfo.
     /// </summary>
-    public void GetInfo()
+    /// <returns>The result (GetInfoResult) of the action.</returns>
+    public GetInfoResult GetInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetConfig
+    /// Wrapper for the action SetConfig.
     /// </summary>
     /// <param name="newMaxBitRate">The SOAP parameter NewMaxBitRate.</param>
     /// <param name="newChannel">The SOAP parameter NewChannel.</param>
@@ -57,7 +59,7 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action SetSecurityKeys
+    /// Wrapper for the action SetSecurityKeys.
     /// </summary>
     /// <param name="newWEPKey0">The SOAP parameter NewWEPKey0.</param>
     /// <param name="newWEPKey1">The SOAP parameter NewWEPKey1.</param>
@@ -70,14 +72,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetSecurityKeys
+    /// Wrapper for the action GetSecurityKeys.
     /// </summary>
-    public void GetSecurityKeys()
+    /// <returns>The result (GetSecurityKeysResult) of the action.</returns>
+    public GetSecurityKeysResult GetSecurityKeys()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetDefaultWEPKeyIndex
+    /// Wrapper for the action SetDefaultWEPKeyIndex.
     /// </summary>
     /// <param name="newDefaultWEPKeyIndex">The SOAP parameter NewDefaultWEPKeyIndex.</param>
     public void SetDefaultWEPKeyIndex(byte newDefaultWEPKeyIndex)
@@ -85,14 +89,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetDefaultWEPKeyIndex
+    /// Wrapper for the action GetDefaultWEPKeyIndex.
     /// </summary>
-    public void GetDefaultWEPKeyIndex()
+    /// <returns>The result (NewDefaultWEPKeyIndex) of the action.</returns>
+    public byte GetDefaultWEPKeyIndex()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action SetBasBeaconSecurityProperties
+    /// Wrapper for the action SetBasBeaconSecurityProperties.
     /// </summary>
     /// <param name="newBasicEncryptionModes">The SOAP parameter NewBasicEncryptionModes.</param>
     /// <param name="newBasicAuthenticationMode">The SOAP parameter NewBasicAuthenticationMode.</param>
@@ -101,42 +107,52 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetBasBeaconSecurityProperties
+    /// Wrapper for the action GetBasBeaconSecurityProperties.
     /// </summary>
-    public void GetBasBeaconSecurityProperties()
+    /// <returns>The result (GetBasBeaconSecurityPropertiesResult) of the action.</returns>
+    public GetBasBeaconSecurityPropertiesResult GetBasBeaconSecurityProperties()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetStatistics
+    /// Wrapper for the action GetStatistics.
     /// </summary>
-    public void GetStatistics()
+    /// <returns>The result (GetStatisticsResult) of the action.</returns>
+    public GetStatisticsResult GetStatistics()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetPacketStatistics
+    /// Wrapper for the action GetPacketStatistics.
     /// </summary>
-    public void GetPacketStatistics()
+    /// <returns>The result (GetPacketStatisticsResult) of the action.</returns>
+    public GetPacketStatisticsResult GetPacketStatistics()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetBSSID
+    /// Wrapper for the action GetBSSID.
     /// </summary>
-    public void GetBSSID()
+    /// <returns>The result (NewBSSID) of the action.</returns>
+    public string GetBSSID()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSSID
+    /// Wrapper for the action GetSSID.
     /// </summary>
-    public void GetSSID()
+    /// <returns>The result (NewSSID) of the action.</returns>
+    public string GetSSID()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetSSID
+    /// Wrapper for the action SetSSID.
     /// </summary>
     /// <param name="newSSID">The SOAP parameter NewSSID.</param>
     public void SetSSID(string newSSID)
@@ -144,14 +160,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetBeaconType
+    /// Wrapper for the action GetBeaconType.
     /// </summary>
-    public void GetBeaconType()
+    /// <returns>The result (NewBeaconType) of the action.</returns>
+    public string GetBeaconType()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetBeaconType
+    /// Wrapper for the action SetBeaconType.
     /// </summary>
     /// <param name="newBeaconType">The SOAP parameter NewBeaconType.</param>
     public void SetBeaconType(string newBeaconType)
@@ -159,14 +177,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetChannelInfo
+    /// Wrapper for the action GetChannelInfo.
     /// </summary>
-    public void GetChannelInfo()
+    /// <returns>The result (GetChannelInfoResult) of the action.</returns>
+    public GetChannelInfoResult GetChannelInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action SetChannel
+    /// Wrapper for the action SetChannel.
     /// </summary>
     /// <param name="newChannel">The SOAP parameter NewChannel.</param>
     public void SetChannel(byte newChannel)
@@ -174,14 +194,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetBeaconAdvertisement
+    /// Wrapper for the action GetBeaconAdvertisement.
     /// </summary>
-    public void GetBeaconAdvertisement()
+    /// <returns>The result (NewBeaconAdvertisementEnabled) of the action.</returns>
+    public bool GetBeaconAdvertisement()
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action SetBeaconAdvertisement
+    /// Wrapper for the action SetBeaconAdvertisement.
     /// </summary>
     /// <param name="newBeaconAdvertisementEnabled">The SOAP parameter NewBeaconAdvertisementEnabled.</param>
     public void SetBeaconAdvertisement(bool newBeaconAdvertisementEnabled)
@@ -189,38 +211,46 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action GetTotalAssociations
+    /// Wrapper for the action GetTotalAssociations.
     /// </summary>
-    public void GetTotalAssociations()
+    /// <returns>The result (NewTotalAssociations) of the action.</returns>
+    public ushort GetTotalAssociations()
     {
+      return 0;
     }
 
     /// <summary>
-    /// Wrapper for the action GetGenericAssociatedDeviceInfo
+    /// Wrapper for the action GetGenericAssociatedDeviceInfo.
     /// </summary>
     /// <param name="newAssociatedDeviceIndex">The SOAP parameter NewAssociatedDeviceIndex.</param>
-    public void GetGenericAssociatedDeviceInfo(ushort newAssociatedDeviceIndex)
+    /// <returns>The result (GetGenericAssociatedDeviceInfoResult) of the action.</returns>
+    public GetGenericAssociatedDeviceInfoResult GetGenericAssociatedDeviceInfo(ushort newAssociatedDeviceIndex)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action GetSpecificAssociatedDeviceInfo
+    /// Wrapper for the action GetSpecificAssociatedDeviceInfo.
     /// </summary>
     /// <param name="newAssociatedDeviceMACAddress">The SOAP parameter NewAssociatedDeviceMACAddress.</param>
-    public void GetSpecificAssociatedDeviceInfo(string newAssociatedDeviceMACAddress)
+    /// <returns>The result (GetSpecificAssociatedDeviceInfoResult) of the action.</returns>
+    public GetSpecificAssociatedDeviceInfoResult GetSpecificAssociatedDeviceInfo(string newAssociatedDeviceMACAddress)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetSpecificAssociatedDeviceInfoByIp
+    /// Wrapper for the action X_AVM-DE_GetSpecificAssociatedDeviceInfoByIp.
     /// </summary>
     /// <param name="newAssociatedDeviceIPAddress">The SOAP parameter NewAssociatedDeviceIPAddress.</param>
-    public void X_AVM_DE_GetSpecificAssociatedDeviceInfoByIp(string newAssociatedDeviceIPAddress)
+    /// <returns>The result (X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult) of the action.</returns>
+    public X_AVM_DE_GetSpecificAssociatedDeviceInfoByIpResult X_AVM_DE_GetSpecificAssociatedDeviceInfoByIp(string newAssociatedDeviceIPAddress)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetStickSurfEnable
+    /// Wrapper for the action X_AVM-DE_SetStickSurfEnable.
     /// </summary>
     /// <param name="newStickSurfEnable">The SOAP parameter NewStickSurfEnable.</param>
     public void X_AVM_DE_SetStickSurfEnable(bool newStickSurfEnable)
@@ -228,14 +258,16 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetIPTVOptimized
+    /// Wrapper for the action X_AVM-DE_GetIPTVOptimized.
     /// </summary>
-    public void X_AVM_DE_GetIPTVOptimized()
+    /// <returns>The result (NewX_AVM-DE_IPTVoptimize) of the action.</returns>
+    public bool X_AVM_DE_GetIPTVOptimized()
     {
+      return false;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetIPTVOptimized
+    /// Wrapper for the action X_AVM-DE_SetIPTVOptimized.
     /// </summary>
     /// <param name="newX_AVM_DE_IPTVoptimize">The SOAP parameter NewX_AVM-DE_IPTVoptimize.</param>
     public void X_AVM_DE_SetIPTVOptimized(bool newX_AVM_DE_IPTVoptimize)
@@ -243,21 +275,25 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetNightControl
+    /// Wrapper for the action X_AVM-DE_GetNightControl.
     /// </summary>
-    public void X_AVM_DE_GetNightControl()
+    /// <returns>The result (X_AVM_DE_GetNightControlResult) of the action.</returns>
+    public X_AVM_DE_GetNightControlResult X_AVM_DE_GetNightControl()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetWLANHybridMode
+    /// Wrapper for the action X_AVM-DE_GetWLANHybridMode.
     /// </summary>
-    public void X_AVM_DE_GetWLANHybridMode()
+    /// <returns>The result (X_AVM_DE_GetWLANHybridModeResult) of the action.</returns>
+    public X_AVM_DE_GetWLANHybridModeResult X_AVM_DE_GetWLANHybridMode()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetWLANHybridMode
+    /// Wrapper for the action X_AVM-DE_SetWLANHybridMode.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     /// <param name="newBeaconType">The SOAP parameter NewBeaconType.</param>
@@ -273,30 +309,36 @@ namespace FritzControl.Soap.LANDevice
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetWLANExtInfo
+    /// Wrapper for the action X_AVM-DE_GetWLANExtInfo.
     /// </summary>
-    public void X_AVM_DE_GetWLANExtInfo()
+    /// <returns>The result (X_AVM_DE_GetWLANExtInfoResult) of the action.</returns>
+    public X_AVM_DE_GetWLANExtInfoResult X_AVM_DE_GetWLANExtInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_GetWPSInfo
+    /// Wrapper for the action X_AVM-DE_GetWPSInfo.
     /// </summary>
-    public void X_AVM_DE_GetWPSInfo()
+    /// <returns>The result (X_AVM_DE_GetWPSInfoResult) of the action.</returns>
+    public X_AVM_DE_GetWPSInfoResult X_AVM_DE_GetWPSInfo()
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetWPSConfig
+    /// Wrapper for the action X_AVM-DE_SetWPSConfig.
     /// </summary>
     /// <param name="newX_AVM_DE_WPSMode">The SOAP parameter NewX_AVM-DE_WPSMode.</param>
     /// <param name="newX_AVM_DE_WPSClientPIN">The SOAP parameter NewX_AVM-DE_WPSClientPIN.</param>
-    public void X_AVM_DE_SetWPSConfig(string newX_AVM_DE_WPSMode, string newX_AVM_DE_WPSClientPIN)
+    /// <returns>The result (X_AVM_DE_SetWPSConfigResult) of the action.</returns>
+    public X_AVM_DE_SetWPSConfigResult X_AVM_DE_SetWPSConfig(string newX_AVM_DE_WPSMode, string newX_AVM_DE_WPSClientPIN)
     {
+      return null;
     }
 
     /// <summary>
-    /// Wrapper for the action X_AVM-DE_SetWLANGlobalEnable
+    /// Wrapper for the action X_AVM-DE_SetWLANGlobalEnable.
     /// </summary>
     /// <param name="newX_AVM_DE_WLANGlobalEnable">The SOAP parameter NewX_AVM-DE_WLANGlobalEnable.</param>
     public void X_AVM_DE_SetWLANGlobalEnable(bool newX_AVM_DE_WLANGlobalEnable)
