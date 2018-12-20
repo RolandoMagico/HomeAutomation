@@ -54,7 +54,7 @@ namespace FritzControl
     /// <summary>
     /// Gets or sets the password for the access.
     /// </summary>
-    public string Password { get; set; }
+    public string Password { get; set; } = "Homebridge1951";
 
     /// <summary>
     /// Gets or sets the description retrived from the device.
