@@ -23,7 +23,6 @@
 namespace FritzControl
 {
   using System;
-  using System.Collections.Generic;
   using System.IO;
   using System.Linq;
   using System.Net;
@@ -63,10 +62,16 @@ namespace FritzControl
     public Description Description { get; set; }
 
     /// <summary>
+    /// Gets or sets the HTTP client which is used for the communication with the fritz box.
+    /// </summary>
+    private HttpClient HttpClient { get; set; }
+
+    /// <summary>
     /// Connects to the Fritz Box.
     /// </summary>
     public void Connect()
     {
+      this.HttpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") };
       Log.Debug($"Loading TR-064 description from {this.Hostname}");
       if (this.LoadAndDeserializeXmlData<Description>("/tr64desc.xml", "urn:dslforum-org:device-1-0") is Description description)
       {
@@ -86,7 +91,7 @@ namespace FritzControl
         Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
         Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
         Request request = new Request { Header = clientAuthentification, Body = new Body(operation) };
-        if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, request) is Response response)
+        if (this.SendSoapRequest(request) is Response response)
         {
           if (response.Body.Arguments.ContainsKey("NewNumberOfEntries") && response.Body.Arguments["NewNumberOfEntries"] is ushort numberOfEntries)
           {
@@ -97,7 +102,7 @@ namespace FritzControl
                 clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
                 request = new Request { Header = clientAuthentification, Body = new Body(getGenericDectEntry) };
                 request.Body.Arguments.Add("NewIndex", i);
-                if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, request) is Response getGenericDectEntryResponse)
+                if (this.SendSoapRequest(request) is Response getGenericDectEntryResponse)
                 {
                   if ((getGenericDectEntryResponse.Body.Arguments.ContainsKey("NewName") && getGenericDectEntryResponse.Body.Arguments["NewName"] is string name) &&
                       (getGenericDectEntryResponse.Body.Arguments.ContainsKey("NewModel") && getGenericDectEntryResponse.Body.Arguments["NewModel"] is string model))
@@ -126,8 +131,8 @@ namespace FritzControl
             SoapOperation operation = new SoapOperation(service, action);
             Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
             Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-            Request envelope = new Request { Header = clientAuthentification, Body = new Body(operation) };
-            if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, envelope) is Envelope response)
+            Request request = new Request { Header = clientAuthentification, Body = new Body(operation) };
+            if (this.SendSoapRequest(request) is Response response)
             {
               Log.Debug($"Result from {operation.Service.ServiceId}, {operation.Action.Name}:");
               Log.Debug(response.XmlContainer.ToString());
@@ -145,12 +150,12 @@ namespace FritzControl
       if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:DeviceInfo:1", "GetInfo") is SoapOperation operation)
       {
         Header initChallenge = new Header { UserId = this.Username, InitialChanllenge = true };
-        Request envelope = new Request { Header = initChallenge, Body = new Body(operation) };
-        if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, envelope) is Envelope response)
+        Request request = new Request { Header = initChallenge, Body = new Body(operation) };
+        if (this.SendSoapRequest(request) is Response response)
         {
           Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-          envelope = new Request { Header = clientAuthentification, Body = new Body(operation) };
-          if (this.LoadAndDeserializeXmlData(operation.Service.ControlUrl, envelope) is Envelope response2)
+          request = new Request { Header = clientAuthentification, Body = new Body(operation) };
+          if (this.SendSoapRequest(request) is Response response2)
           {
           }
         }
@@ -198,16 +203,13 @@ namespace FritzControl
       where T : class
     {
       T result = null;
-      using (HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") })
+      using (HttpResponseMessage response = this.HttpClient.GetAsync(requestUri).Result)
       {
-        using (HttpResponseMessage response = httpClient.GetAsync(requestUri).Result)
+        if (response.StatusCode == HttpStatusCode.OK)
         {
-          if (response.StatusCode == HttpStatusCode.OK)
-          {
-            XmlSerializer serializer = new XmlSerializer(typeof(T), defaultNamespace);
-            serializer.UnknownNode += (object sender, XmlNodeEventArgs e) => Log.Warn($@"Unknown XML {e.NodeType} ""{e.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
-            result = serializer.Deserialize(response.Content.ReadAsStreamAsync().Result) as T;
-          }
+          XmlSerializer serializer = new XmlSerializer(typeof(T), defaultNamespace);
+          serializer.UnknownNode += (object sender, XmlNodeEventArgs e) => Log.Warn($@"Unknown XML {e.NodeType} ""{e.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
+          result = serializer.Deserialize(response.Content.ReadAsStreamAsync().Result) as T;
         }
       }
 
@@ -215,41 +217,37 @@ namespace FritzControl
     }
 
     /// <summary>
-    /// Loads data from the specific URI and deserializes the received data into an object.
+    /// Sends the SOAP request to the fritz box.
     /// </summary>
-    /// <param name="requestUri">The URI which is used to retrieve the data.</param>
-    /// <param name="request">The request data which should be sent. can be <c>null</c>.</param>
+    /// <param name="request">The request data which should be sent.</param>
     /// <returns>The received response or null if no valid response was received.</returns>
-    private Response LoadAndDeserializeXmlData(string requestUri, Request request)
-     {
+    private Response SendSoapRequest(Request request)
+    {
       Response result = null;
-      using (HttpClient httpClient = new HttpClient { BaseAddress = new Uri($"http://{this.Hostname}:49000") })
+      using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, request.Body.Service.ControlUrl))
       {
-        using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri))
+        if (request.Body != null)
         {
-          if (request.Body != null)
+          httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Body.Service.ServiceType}#{request.Body.Action.Name}");
+        }
+
+        XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+        request.WriteXml(xmlDocument);
+        httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
+
+        using (HttpResponseMessage response = this.HttpClient.SendAsync(httpRequestMessage).Result)
+        {
+          if (response.StatusCode == HttpStatusCode.OK)
           {
-            httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Body.Service.ServiceType}#{request.Body.Action.Name}");
+            result = new Response { Request = request };
+            xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
+            result.ReadXml(xmlDocument);
           }
-
-          XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-          request.WriteXml(xmlDocument);
-          httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
-
-          using (HttpResponseMessage response = httpClient.SendAsync(httpRequestMessage).Result)
+          else
           {
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-              result = new Response { Request = request };
-              xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
-              result.ReadXml(xmlDocument);
-            }
-            else
-            {
-              Log.Debug($"Status code of response: {response.StatusCode}");
-              Log.Debug("Response content:");
-              Log.Debug(new StreamReader(response.Content.ReadAsStreamAsync().Result).ReadToEnd());
-            }
+            Log.Error($"Status code of response: {response.StatusCode}");
+            Log.Error("Response content:");
+            Log.Error(new StreamReader(response.Content.ReadAsStreamAsync().Result).ReadToEnd());
           }
         }
       }
