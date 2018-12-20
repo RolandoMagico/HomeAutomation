@@ -27,13 +27,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   /// </summary>
   public class WANDSLLinkConfig : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:WANDSLLinkConfig:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetEnable", arguments);
     }
 
     /// <summary>
@@ -50,7 +56,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewAutoConfig) of the action.</returns>
     public bool GetAutoConfig()
     {
-      return false;
+      return this.SendRequest<bool>("GetAutoConfig");
     }
 
     /// <summary>
@@ -59,6 +65,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newLinkType">The SOAP parameter NewLinkType.</param>
     public void SetDSLLinkType(string newLinkType)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewLinkType", newLinkType);
+      this.SendRequest("SetDSLLinkType", arguments);
     }
 
     /// <summary>
@@ -67,7 +76,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetDSLLinkInfoResult) of the action.</returns>
     public GetDSLLinkInfoResult GetDSLLinkInfo()
     {
-      return null;
+      return this.SendRequest<GetDSLLinkInfoResult>("GetDSLLinkInfo");
     }
 
     /// <summary>
@@ -76,6 +85,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newDestinationAddress">The SOAP parameter NewDestinationAddress.</param>
     public void SetDestinationAddress(string newDestinationAddress)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDestinationAddress", newDestinationAddress);
+      this.SendRequest("SetDestinationAddress", arguments);
     }
 
     /// <summary>
@@ -84,7 +96,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewDestinationAddress) of the action.</returns>
     public string GetDestinationAddress()
     {
-      return null;
+      return this.SendRequest<string>("GetDestinationAddress");
     }
 
     /// <summary>
@@ -93,6 +105,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newATMEncapsulation">The SOAP parameter NewATMEncapsulation.</param>
     public void SetATMEncapsulation(string newATMEncapsulation)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewATMEncapsulation", newATMEncapsulation);
+      this.SendRequest("SetATMEncapsulation", arguments);
     }
 
     /// <summary>
@@ -101,7 +116,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewATMEncapsulation) of the action.</returns>
     public string GetATMEncapsulation()
     {
-      return null;
+      return this.SendRequest<string>("GetATMEncapsulation");
     }
 
     /// <summary>
@@ -110,7 +125,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetStatisticsResult) of the action.</returns>
     public GetStatisticsResult GetStatistics()
     {
-      return null;
+      return this.SendRequest<GetStatisticsResult>("GetStatistics");
     }
   }
 }

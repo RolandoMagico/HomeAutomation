@@ -27,6 +27,9 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_TAM : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_TAM:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
@@ -34,7 +37,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetInfoResult>("GetInfo", arguments);
     }
 
     /// <summary>
@@ -44,6 +49,10 @@ namespace FritzControl.Soap
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(ushort newIndex, bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetEnable", arguments);
     }
 
     /// <summary>
@@ -53,7 +62,9 @@ namespace FritzControl.Soap
     /// <returns>The result (NewURL) of the action.</returns>
     public string GetMessageList(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<string>("GetMessageList", arguments);
     }
 
     /// <summary>
@@ -64,6 +75,11 @@ namespace FritzControl.Soap
     /// <param name="newMarkedAsRead">The SOAP parameter NewMarkedAsRead.</param>
     public void MarkMessage(ushort newIndex, ushort newMessageIndex, bool newMarkedAsRead)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      arguments.Add("NewMessageIndex", newMessageIndex);
+      arguments.Add("NewMarkedAsRead", newMarkedAsRead);
+      this.SendRequest("MarkMessage", arguments);
     }
 
     /// <summary>
@@ -73,6 +89,10 @@ namespace FritzControl.Soap
     /// <param name="newMessageIndex">The SOAP parameter NewMessageIndex.</param>
     public void DeleteMessage(ushort newIndex, ushort newMessageIndex)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      arguments.Add("NewMessageIndex", newMessageIndex);
+      this.SendRequest("DeleteMessage", arguments);
     }
 
     /// <summary>
@@ -81,7 +101,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewTAMList) of the action.</returns>
     public string GetList()
     {
-      return null;
+      return this.SendRequest<string>("GetList");
     }
   }
 }

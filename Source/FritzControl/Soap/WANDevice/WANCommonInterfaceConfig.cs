@@ -27,13 +27,16 @@ namespace FritzControl.Soap.WANDevice
   /// </summary>
   public class WANCommonInterfaceConfig : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:WANCommonInterfaceConfig:1";
+
     /// <summary>
     /// Wrapper for the action GetCommonLinkProperties.
     /// </summary>
     /// <returns>The result (GetCommonLinkPropertiesResult) of the action.</returns>
     public GetCommonLinkPropertiesResult GetCommonLinkProperties()
     {
-      return null;
+      return this.SendRequest<GetCommonLinkPropertiesResult>("GetCommonLinkProperties");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (NewTotalBytesSent) of the action.</returns>
     public uint GetTotalBytesSent()
     {
-      return 0;
+      return this.SendRequest<uint>("GetTotalBytesSent");
     }
 
     /// <summary>
@@ -51,7 +54,7 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (NewTotalBytesReceived) of the action.</returns>
     public uint GetTotalBytesReceived()
     {
-      return 0;
+      return this.SendRequest<uint>("GetTotalBytesReceived");
     }
 
     /// <summary>
@@ -60,7 +63,7 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (NewTotalPacketsSent) of the action.</returns>
     public uint GetTotalPacketsSent()
     {
-      return 0;
+      return this.SendRequest<uint>("GetTotalPacketsSent");
     }
 
     /// <summary>
@@ -69,7 +72,7 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (NewTotalPacketsReceived) of the action.</returns>
     public uint GetTotalPacketsReceived()
     {
-      return 0;
+      return this.SendRequest<uint>("GetTotalPacketsReceived");
     }
 
     /// <summary>
@@ -78,6 +81,9 @@ namespace FritzControl.Soap.WANDevice
     /// <param name="newAccessType">The SOAP parameter NewAccessType.</param>
     public void X_AVM_DE_SetWANAccessType(string newAccessType)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAccessType", newAccessType);
+      this.SendRequest("X_AVM-DE_SetWANAccessType", arguments);
     }
 
     /// <summary>
@@ -87,7 +93,9 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (X_AVM_DE_GetOnlineMonitorResult) of the action.</returns>
     public X_AVM_DE_GetOnlineMonitorResult X_AVM_DE_GetOnlineMonitor(uint newSyncGroupIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewSyncGroupIndex", newSyncGroupIndex);
+      return this.SendRequest<X_AVM_DE_GetOnlineMonitorResult>("X_AVM-DE_GetOnlineMonitor", arguments);
     }
   }
 }

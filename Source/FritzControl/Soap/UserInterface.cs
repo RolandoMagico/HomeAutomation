@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class UserInterface : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:UserInterface:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_LaborVersion">The SOAP parameter NewX_AVM-DE_LaborVersion.</param>
     public void X_AVM_DE_CheckUpdate(string newX_AVM_DE_LaborVersion)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_LaborVersion", newX_AVM_DE_LaborVersion);
+      this.SendRequest("X_AVM-DE_CheckUpdate", arguments);
     }
 
     /// <summary>
@@ -50,7 +56,7 @@ namespace FritzControl.Soap
     /// <returns>The result (X_AVM_DE_DoUpdateResult) of the action.</returns>
     public X_AVM_DE_DoUpdateResult X_AVM_DE_DoUpdate()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_DoUpdateResult>("X_AVM-DE_DoUpdate");
     }
 
     /// <summary>
@@ -59,7 +65,7 @@ namespace FritzControl.Soap
     /// <returns>The result (X_AVM_DE_DoPrepareCGIResult) of the action.</returns>
     public X_AVM_DE_DoPrepareCGIResult X_AVM_DE_DoPrepareCGI()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_DoPrepareCGIResult>("X_AVM-DE_DoPrepareCGI");
     }
 
     /// <summary>
@@ -69,6 +75,10 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_DownloadURL">The SOAP parameter NewX_AVM-DE_DownloadURL.</param>
     public void X_AVM_DE_DoManualUpdate(bool newX_AVM_DE_AllowDowngrade, string newX_AVM_DE_DownloadURL)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_AllowDowngrade", newX_AVM_DE_AllowDowngrade);
+      arguments.Add("NewX_AVM-DE_DownloadURL", newX_AVM_DE_DownloadURL);
+      this.SendRequest("X_AVM-DE_DoManualUpdate", arguments);
     }
 
     /// <summary>
@@ -77,7 +87,7 @@ namespace FritzControl.Soap
     /// <returns>The result (X_AVM_DE_GetInternationalConfigResult) of the action.</returns>
     public X_AVM_DE_GetInternationalConfigResult X_AVM_DE_GetInternationalConfig()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_GetInternationalConfigResult>("X_AVM-DE_GetInternationalConfig");
     }
 
     /// <summary>
@@ -88,6 +98,11 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_Annex">The SOAP parameter NewX_AVM-DE_Annex.</param>
     public void X_AVM_DE_SetInternationalConfig(string newX_AVM_DE_Language, string newX_AVM_DE_Country, string newX_AVM_DE_Annex)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_Language", newX_AVM_DE_Language);
+      arguments.Add("NewX_AVM-DE_Country", newX_AVM_DE_Country);
+      arguments.Add("NewX_AVM-DE_Annex", newX_AVM_DE_Annex);
+      this.SendRequest("X_AVM-DE_SetInternationalConfig", arguments);
     }
 
     /// <summary>
@@ -96,7 +111,7 @@ namespace FritzControl.Soap
     /// <returns>The result (X_AVM_DE_GetInfoResult) of the action.</returns>
     public X_AVM_DE_GetInfoResult X_AVM_DE_GetInfo()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_GetInfoResult>("X_AVM-DE_GetInfo");
     }
 
     /// <summary>
@@ -105,6 +120,9 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_AutoUpdateMode">The SOAP parameter NewX_AVM-DE_AutoUpdateMode.</param>
     public void X_AVM_DE_SetConfig(string newX_AVM_DE_AutoUpdateMode)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_AutoUpdateMode", newX_AVM_DE_AutoUpdateMode);
+      this.SendRequest("X_AVM-DE_SetConfig", arguments);
     }
   }
 }

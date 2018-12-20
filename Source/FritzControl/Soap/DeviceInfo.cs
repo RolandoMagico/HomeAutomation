@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class DeviceInfo : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:DeviceInfo:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap
     /// <param name="newProvisioningCode">The SOAP parameter NewProvisioningCode.</param>
     public void SetProvisioningCode(string newProvisioningCode)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewProvisioningCode", newProvisioningCode);
+      this.SendRequest("SetProvisioningCode", arguments);
     }
 
     /// <summary>
@@ -50,7 +56,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewDeviceLog) of the action.</returns>
     public string GetDeviceLog()
     {
-      return null;
+      return this.SendRequest<string>("GetDeviceLog");
     }
 
     /// <summary>
@@ -59,7 +65,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewSecurityPort) of the action.</returns>
     public ushort GetSecurityPort()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetSecurityPort");
     }
   }
 }

@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_WebDAVClient : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_WebDAVClient:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -46,6 +49,13 @@ namespace FritzControl.Soap
     /// <param name="newMountpointName">The SOAP parameter NewMountpointName.</param>
     public void SetConfig(bool newEnable, string newHostURL, string newUsername, string newPassword, string newMountpointName)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      arguments.Add("NewHostURL", newHostURL);
+      arguments.Add("NewUsername", newUsername);
+      arguments.Add("NewPassword", newPassword);
+      arguments.Add("NewMountpointName", newMountpointName);
+      this.SendRequest("SetConfig", arguments);
     }
   }
 }

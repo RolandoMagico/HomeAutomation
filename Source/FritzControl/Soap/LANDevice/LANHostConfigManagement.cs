@@ -27,13 +27,16 @@ namespace FritzControl.Soap.LANDevice
   /// </summary>
   public class LANHostConfigManagement : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:LANHostConfigManagement:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap.LANDevice
     /// <param name="newDHCPServerEnable">The SOAP parameter NewDHCPServerEnable.</param>
     public void SetDHCPServerEnable(bool newDHCPServerEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDHCPServerEnable", newDHCPServerEnable);
+      this.SendRequest("SetDHCPServerEnable", arguments);
     }
 
     /// <summary>
@@ -53,6 +59,12 @@ namespace FritzControl.Soap.LANDevice
     /// <param name="newIPAddressingType">The SOAP parameter NewIPAddressingType.</param>
     public void SetIPInterface(bool newEnable, string newIPAddress, string newSubnetMask, string newIPAddressingType)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      arguments.Add("NewIPAddress", newIPAddress);
+      arguments.Add("NewSubnetMask", newSubnetMask);
+      arguments.Add("NewIPAddressingType", newIPAddressingType);
+      this.SendRequest("SetIPInterface", arguments);
     }
 
     /// <summary>
@@ -61,7 +73,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (GetAddressRangeResult) of the action.</returns>
     public GetAddressRangeResult GetAddressRange()
     {
-      return null;
+      return this.SendRequest<GetAddressRangeResult>("GetAddressRange");
     }
 
     /// <summary>
@@ -71,6 +83,10 @@ namespace FritzControl.Soap.LANDevice
     /// <param name="newMaxAddress">The SOAP parameter NewMaxAddress.</param>
     public void SetAddressRange(string newMinAddress, string newMaxAddress)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewMinAddress", newMinAddress);
+      arguments.Add("NewMaxAddress", newMaxAddress);
+      this.SendRequest("SetAddressRange", arguments);
     }
 
     /// <summary>
@@ -79,7 +95,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (NewIPRouters) of the action.</returns>
     public string GetIPRoutersList()
     {
-      return null;
+      return this.SendRequest<string>("GetIPRoutersList");
     }
 
     /// <summary>
@@ -88,6 +104,9 @@ namespace FritzControl.Soap.LANDevice
     /// <param name="newIPRouters">The SOAP parameter NewIPRouters.</param>
     public void SetIPRouter(string newIPRouters)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIPRouters", newIPRouters);
+      this.SendRequest("SetIPRouter", arguments);
     }
 
     /// <summary>
@@ -96,7 +115,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (NewSubnetMask) of the action.</returns>
     public string GetSubnetMask()
     {
-      return null;
+      return this.SendRequest<string>("GetSubnetMask");
     }
 
     /// <summary>
@@ -105,6 +124,9 @@ namespace FritzControl.Soap.LANDevice
     /// <param name="newSubnetMask">The SOAP parameter NewSubnetMask.</param>
     public void SetSubnetMask(string newSubnetMask)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewSubnetMask", newSubnetMask);
+      this.SendRequest("SetSubnetMask", arguments);
     }
 
     /// <summary>
@@ -113,7 +135,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (NewDNSServers) of the action.</returns>
     public string GetDNSServers()
     {
-      return null;
+      return this.SendRequest<string>("GetDNSServers");
     }
 
     /// <summary>
@@ -122,7 +144,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (NewIPInterfaceNumberOfEntries) of the action.</returns>
     public ushort GetIPInterfaceNumberOfEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetIPInterfaceNumberOfEntries");
     }
   }
 }

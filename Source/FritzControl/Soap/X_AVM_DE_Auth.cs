@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Auth : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Auth:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (NewEnabled) of the action.</returns>
     public bool GetInfo()
     {
-      return false;
+      return this.SendRequest<bool>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewState) of the action.</returns>
     public string GetState()
     {
-      return null;
+      return this.SendRequest<string>("GetState");
     }
 
     /// <summary>
@@ -52,7 +55,9 @@ namespace FritzControl.Soap
     /// <returns>The result (SetConfigResult) of the action.</returns>
     public SetConfigResult SetConfig(string newAction)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAction", newAction);
+      return this.SendRequest<SetConfigResult>("SetConfig", arguments);
     }
   }
 }

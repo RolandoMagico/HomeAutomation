@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_OnTel : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_OnTel:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetEnable", arguments);
     }
 
     /// <summary>
@@ -55,6 +61,14 @@ namespace FritzControl.Soap
     /// <param name="newName">The SOAP parameter NewName.</param>
     public void SetConfig(bool newEnable, string newUrl, string newServiceId, string newUsername, string newPassword, string newName)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      arguments.Add("NewUrl", newUrl);
+      arguments.Add("NewServiceId", newServiceId);
+      arguments.Add("NewUsername", newUsername);
+      arguments.Add("NewPassword", newPassword);
+      arguments.Add("NewName", newName);
+      this.SendRequest("SetConfig", arguments);
     }
 
     /// <summary>
@@ -64,7 +78,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetInfoByIndexResult) of the action.</returns>
     public GetInfoByIndexResult GetInfoByIndex(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetInfoByIndexResult>("GetInfoByIndex", arguments);
     }
 
     /// <summary>
@@ -74,6 +90,10 @@ namespace FritzControl.Soap
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnableByIndex(ushort newIndex, bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetEnableByIndex", arguments);
     }
 
     /// <summary>
@@ -88,6 +108,15 @@ namespace FritzControl.Soap
     /// <param name="newName">The SOAP parameter NewName.</param>
     public void SetConfigByIndex(ushort newIndex, bool newEnable, string newUrl, string newServiceId, string newUsername, string newPassword, string newName)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      arguments.Add("NewEnable", newEnable);
+      arguments.Add("NewUrl", newUrl);
+      arguments.Add("NewServiceId", newServiceId);
+      arguments.Add("NewUsername", newUsername);
+      arguments.Add("NewPassword", newPassword);
+      arguments.Add("NewName", newName);
+      this.SendRequest("SetConfigByIndex", arguments);
     }
 
     /// <summary>
@@ -96,6 +125,9 @@ namespace FritzControl.Soap
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     public void DeleteByIndex(ushort newIndex)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      this.SendRequest("DeleteByIndex", arguments);
     }
 
     /// <summary>
@@ -104,7 +136,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewOnTelNumberOfEntries) of the action.</returns>
     public ushort GetNumberOfEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetNumberOfEntries");
     }
 
     /// <summary>
@@ -113,7 +145,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewCallListURL) of the action.</returns>
     public string GetCallList()
     {
-      return null;
+      return this.SendRequest<string>("GetCallList");
     }
 
     /// <summary>
@@ -122,7 +154,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewPhonebookList) of the action.</returns>
     public string GetPhonebookList()
     {
-      return null;
+      return this.SendRequest<string>("GetPhonebookList");
     }
 
     /// <summary>
@@ -132,7 +164,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetPhonebookResult) of the action.</returns>
     public GetPhonebookResult GetPhonebook(ushort newPhonebookID)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      return this.SendRequest<GetPhonebookResult>("GetPhonebook", arguments);
     }
 
     /// <summary>
@@ -142,6 +176,10 @@ namespace FritzControl.Soap
     /// <param name="newPhonebookName">The SOAP parameter NewPhonebookName.</param>
     public void AddPhonebook(string newPhonebookExtraID, string newPhonebookName)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookExtraID", newPhonebookExtraID);
+      arguments.Add("NewPhonebookName", newPhonebookName);
+      this.SendRequest("AddPhonebook", arguments);
     }
 
     /// <summary>
@@ -151,6 +189,10 @@ namespace FritzControl.Soap
     /// <param name="newPhonebookExtraID">The SOAP parameter NewPhonebookExtraID.</param>
     public void DeletePhonebook(ushort newPhonebookID, string newPhonebookExtraID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookExtraID", newPhonebookExtraID);
+      this.SendRequest("DeletePhonebook", arguments);
     }
 
     /// <summary>
@@ -161,7 +203,10 @@ namespace FritzControl.Soap
     /// <returns>The result (NewPhonebookEntryData) of the action.</returns>
     public string GetPhonebookEntry(ushort newPhonebookID, uint newPhonebookEntryID)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookEntryID", newPhonebookEntryID);
+      return this.SendRequest<string>("GetPhonebookEntry", arguments);
     }
 
     /// <summary>
@@ -172,7 +217,10 @@ namespace FritzControl.Soap
     /// <returns>The result (NewPhonebookEntryData) of the action.</returns>
     public string GetPhonebookEntryUID(ushort newPhonebookID, uint newPhonebookEntryUniqueID)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookEntryUniqueID", newPhonebookEntryUniqueID);
+      return this.SendRequest<string>("GetPhonebookEntryUID", arguments);
     }
 
     /// <summary>
@@ -183,6 +231,11 @@ namespace FritzControl.Soap
     /// <param name="newPhonebookEntryData">The SOAP parameter NewPhonebookEntryData.</param>
     public void SetPhonebookEntry(ushort newPhonebookID, uint newPhonebookEntryID, string newPhonebookEntryData)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookEntryID", newPhonebookEntryID);
+      arguments.Add("NewPhonebookEntryData", newPhonebookEntryData);
+      this.SendRequest("SetPhonebookEntry", arguments);
     }
 
     /// <summary>
@@ -193,7 +246,10 @@ namespace FritzControl.Soap
     /// <returns>The result (NewPhonebookEntryUniqueID) of the action.</returns>
     public uint SetPhonebookEntryUID(ushort newPhonebookID, string newPhonebookEntryData)
     {
-      return 0;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookEntryData", newPhonebookEntryData);
+      return this.SendRequest<uint>("SetPhonebookEntryUID", arguments);
     }
 
     /// <summary>
@@ -203,6 +259,10 @@ namespace FritzControl.Soap
     /// <param name="newPhonebookEntryID">The SOAP parameter NewPhonebookEntryID.</param>
     public void DeletePhonebookEntry(ushort newPhonebookID, uint newPhonebookEntryID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookEntryID", newPhonebookEntryID);
+      this.SendRequest("DeletePhonebookEntry", arguments);
     }
 
     /// <summary>
@@ -212,6 +272,10 @@ namespace FritzControl.Soap
     /// <param name="newPhonebookEntryUniqueID">The SOAP parameter NewPhonebookEntryUniqueID.</param>
     public void DeletePhonebookEntryUID(ushort newPhonebookID, uint newPhonebookEntryUniqueID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      arguments.Add("NewPhonebookEntryUniqueID", newPhonebookEntryUniqueID);
+      this.SendRequest("DeletePhonebookEntryUID", arguments);
     }
 
     /// <summary>
@@ -220,7 +284,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewDectIDList) of the action.</returns>
     public string GetDECTHandsetList()
     {
-      return null;
+      return this.SendRequest<string>("GetDECTHandsetList");
     }
 
     /// <summary>
@@ -230,7 +294,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetDECTHandsetInfoResult) of the action.</returns>
     public GetDECTHandsetInfoResult GetDECTHandsetInfo(ushort newDectID)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDectID", newDectID);
+      return this.SendRequest<GetDECTHandsetInfoResult>("GetDECTHandsetInfo", arguments);
     }
 
     /// <summary>
@@ -240,6 +306,10 @@ namespace FritzControl.Soap
     /// <param name="newPhonebookID">The SOAP parameter NewPhonebookID.</param>
     public void SetDECTHandsetPhonebook(ushort newDectID, ushort newPhonebookID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDectID", newDectID);
+      arguments.Add("NewPhonebookID", newPhonebookID);
+      this.SendRequest("SetDECTHandsetPhonebook", arguments);
     }
 
     /// <summary>
@@ -248,7 +318,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewNumberOfDeflections) of the action.</returns>
     public ushort GetNumberOfDeflections()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetNumberOfDeflections");
     }
 
     /// <summary>
@@ -258,7 +328,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetDeflectionResult) of the action.</returns>
     public GetDeflectionResult GetDeflection(ushort newDeflectionId)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDeflectionId", newDeflectionId);
+      return this.SendRequest<GetDeflectionResult>("GetDeflection", arguments);
     }
 
     /// <summary>
@@ -267,7 +339,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewDeflectionList) of the action.</returns>
     public string GetDeflections()
     {
-      return null;
+      return this.SendRequest<string>("GetDeflections");
     }
 
     /// <summary>
@@ -277,6 +349,10 @@ namespace FritzControl.Soap
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetDeflectionEnable(ushort newDeflectionId, bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDeflectionId", newDeflectionId);
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetDeflectionEnable", arguments);
     }
   }
 }

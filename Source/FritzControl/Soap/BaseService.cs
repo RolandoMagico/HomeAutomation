@@ -22,10 +22,42 @@
 // </copyright>
 namespace FritzControl.Soap
 {
+  using System.Collections.Generic;
+
   /// <summary>
   /// Base class for all services.
   /// </summary>
   public abstract class BaseService
   {
+    /// <summary>
+    /// Gets or sets the <see cref="FritzBox"/> instance which is used for the communication.
+    /// </summary>
+    public FritzBox FritzBox { get; set; }
+
+    /// <summary>
+    /// Gets the service type of this class.
+    /// </summary>
+    protected abstract string ServiceType { get; }
+
+    /// <summary>
+    /// Sends a request wihtout arguments to the fritz box.
+    /// </summary>
+    /// <param name="actionName">The name of the action.</param>
+    /// <param name="arguments">The optional arguments of the action.</param>
+    protected void SendRequest(string actionName, Dictionary<string, object> arguments = null)
+    {
+    }
+
+    /// <summary>
+    /// Sends a request wihtout arguments to the fritz box.
+    /// </summary>
+    /// <param name="actionName">The name of the action.</param>
+    /// <param name="arguments">The optional arguments of the action.</param>
+    /// <typeparam name="TResult">The type of the result.</typeparam>
+    /// <returns>The received response data or <c>null</c> if no response had been received.</returns>
+    protected TResult SendRequest<TResult>(string actionName, Dictionary<string, object> arguments = null)
+    {
+      return default(TResult);
+    }
   }
 }

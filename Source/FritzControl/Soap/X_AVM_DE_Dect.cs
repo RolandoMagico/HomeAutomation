@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Dect : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Dect:1";
+
     /// <summary>
     /// Wrapper for the action GetNumberOfDectEntries.
     /// </summary>
     /// <returns>The result (NewNumberOfEntries) of the action.</returns>
     public ushort GetNumberOfDectEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetNumberOfDectEntries");
     }
 
     /// <summary>
@@ -43,7 +46,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetGenericDectEntryResult) of the action.</returns>
     public GetGenericDectEntryResult GetGenericDectEntry(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetGenericDectEntryResult>("GetGenericDectEntry", arguments);
     }
 
     /// <summary>
@@ -53,7 +58,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetSpecificDectEntryResult) of the action.</returns>
     public GetSpecificDectEntryResult GetSpecificDectEntry(string newID)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewID", newID);
+      return this.SendRequest<GetSpecificDectEntryResult>("GetSpecificDectEntry", arguments);
     }
 
     /// <summary>
@@ -62,6 +69,9 @@ namespace FritzControl.Soap
     /// <param name="newID">The SOAP parameter NewID.</param>
     public void DectDoUpdate(string newID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewID", newID);
+      this.SendRequest("DectDoUpdate", arguments);
     }
 
     /// <summary>
@@ -70,7 +80,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewDectListPath) of the action.</returns>
     public string GetDectListPath()
     {
-      return null;
+      return this.SendRequest<string>("GetDectListPath");
     }
   }
 }

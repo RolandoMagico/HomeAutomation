@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_RemoteAccess : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_RemoteAccess:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -45,6 +48,12 @@ namespace FritzControl.Soap
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetConfig(bool newEnabled, string newPort, string newUsername, string newPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnabled", newEnabled);
+      arguments.Add("NewPort", newPort);
+      arguments.Add("NewUsername", newUsername);
+      arguments.Add("NewPassword", newPassword);
+      this.SendRequest("SetConfig", arguments);
     }
 
     /// <summary>
@@ -54,7 +63,9 @@ namespace FritzControl.Soap
     /// <returns>The result (NewPort) of the action.</returns>
     public string SetEnable(bool newEnabled)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnabled", newEnabled);
+      return this.SendRequest<string>("SetEnable", arguments);
     }
 
     /// <summary>
@@ -63,7 +74,7 @@ namespace FritzControl.Soap
     /// <returns>The result (GetDDNSInfoResult) of the action.</returns>
     public GetDDNSInfoResult GetDDNSInfo()
     {
-      return null;
+      return this.SendRequest<GetDDNSInfoResult>("GetDDNSInfo");
     }
 
     /// <summary>
@@ -72,7 +83,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewProviderList) of the action.</returns>
     public string GetDDNSProviders()
     {
-      return null;
+      return this.SendRequest<string>("GetDDNSProviders");
     }
 
     /// <summary>
@@ -89,6 +100,17 @@ namespace FritzControl.Soap
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetDDNSConfig(bool newEnabled, string newProviderName, string newUpdateURL, string newDomain, string newUsername, string newMode, string newServerIPv4, string newServerIPv6, string newPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnabled", newEnabled);
+      arguments.Add("NewProviderName", newProviderName);
+      arguments.Add("NewUpdateURL", newUpdateURL);
+      arguments.Add("NewDomain", newDomain);
+      arguments.Add("NewUsername", newUsername);
+      arguments.Add("NewMode", newMode);
+      arguments.Add("NewServerIPv4", newServerIPv4);
+      arguments.Add("NewServerIPv6", newServerIPv6);
+      arguments.Add("NewPassword", newPassword);
+      this.SendRequest("SetDDNSConfig", arguments);
     }
   }
 }

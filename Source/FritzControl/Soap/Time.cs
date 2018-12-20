@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class Time : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:Time:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -43,6 +46,10 @@ namespace FritzControl.Soap
     /// <param name="newNTPServer2">The SOAP parameter NewNTPServer2.</param>
     public void SetNTPServers(string newNTPServer1, string newNTPServer2)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewNTPServer1", newNTPServer1);
+      arguments.Add("NewNTPServer2", newNTPServer2);
+      this.SendRequest("SetNTPServers", arguments);
     }
   }
 }

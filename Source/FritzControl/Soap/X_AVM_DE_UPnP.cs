@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_UPnP : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_UPnP:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -43,6 +46,10 @@ namespace FritzControl.Soap
     /// <param name="newUPnPMediaServer">The SOAP parameter NewUPnPMediaServer.</param>
     public void SetConfig(bool newEnable, bool newUPnPMediaServer)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      arguments.Add("NewUPnPMediaServer", newUPnPMediaServer);
+      this.SendRequest("SetConfig", arguments);
     }
   }
 }

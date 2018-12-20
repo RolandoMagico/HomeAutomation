@@ -27,12 +27,18 @@ namespace FritzControl.Soap
   /// </summary>
   public class Layer3Forwarding : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:Layer3Forwarding:1";
+
     /// <summary>
     /// Wrapper for the action SetDefaultConnectionService.
     /// </summary>
     /// <param name="newDefaultConnectionService">The SOAP parameter NewDefaultConnectionService.</param>
     public void SetDefaultConnectionService(string newDefaultConnectionService)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDefaultConnectionService", newDefaultConnectionService);
+      this.SendRequest("SetDefaultConnectionService", arguments);
     }
 
     /// <summary>
@@ -41,7 +47,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewDefaultConnectionService) of the action.</returns>
     public string GetDefaultConnectionService()
     {
-      return null;
+      return this.SendRequest<string>("GetDefaultConnectionService");
     }
 
     /// <summary>
@@ -50,7 +56,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewForwardNumberOfEntries) of the action.</returns>
     public ushort GetForwardNumberOfEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetForwardNumberOfEntries");
     }
 
     /// <summary>
@@ -66,6 +72,16 @@ namespace FritzControl.Soap
     /// <param name="newForwardingMetric">The SOAP parameter NewForwardingMetric.</param>
     public void AddForwardingEntry(string newType, string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask, string newGatewayIPAddress, string newInterface, int newForwardingMetric)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewType", newType);
+      arguments.Add("NewDestIPAddress", newDestIPAddress);
+      arguments.Add("NewDestSubnetMask", newDestSubnetMask);
+      arguments.Add("NewSourceIPAddress", newSourceIPAddress);
+      arguments.Add("NewSourceSubnetMask", newSourceSubnetMask);
+      arguments.Add("NewGatewayIPAddress", newGatewayIPAddress);
+      arguments.Add("NewInterface", newInterface);
+      arguments.Add("NewForwardingMetric", newForwardingMetric);
+      this.SendRequest("AddForwardingEntry", arguments);
     }
 
     /// <summary>
@@ -77,6 +93,12 @@ namespace FritzControl.Soap
     /// <param name="newSourceSubnetMask">The SOAP parameter NewSourceSubnetMask.</param>
     public void DeleteForwardingEntry(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDestIPAddress", newDestIPAddress);
+      arguments.Add("NewDestSubnetMask", newDestSubnetMask);
+      arguments.Add("NewSourceIPAddress", newSourceIPAddress);
+      arguments.Add("NewSourceSubnetMask", newSourceSubnetMask);
+      this.SendRequest("DeleteForwardingEntry", arguments);
     }
 
     /// <summary>
@@ -89,7 +111,12 @@ namespace FritzControl.Soap
     /// <returns>The result (GetSpecificForwardingEntryResult) of the action.</returns>
     public GetSpecificForwardingEntryResult GetSpecificForwardingEntry(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDestIPAddress", newDestIPAddress);
+      arguments.Add("NewDestSubnetMask", newDestSubnetMask);
+      arguments.Add("NewSourceIPAddress", newSourceIPAddress);
+      arguments.Add("NewSourceSubnetMask", newSourceSubnetMask);
+      return this.SendRequest<GetSpecificForwardingEntryResult>("GetSpecificForwardingEntry", arguments);
     }
 
     /// <summary>
@@ -99,7 +126,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetGenericForwardingEntryResult) of the action.</returns>
     public GetGenericForwardingEntryResult GetGenericForwardingEntry(ushort newForwardingIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewForwardingIndex", newForwardingIndex);
+      return this.SendRequest<GetGenericForwardingEntryResult>("GetGenericForwardingEntry", arguments);
     }
 
     /// <summary>
@@ -112,6 +141,13 @@ namespace FritzControl.Soap
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetForwardingEntryEnable(string newDestIPAddress, string newDestSubnetMask, string newSourceIPAddress, string newSourceSubnetMask, bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewDestIPAddress", newDestIPAddress);
+      arguments.Add("NewDestSubnetMask", newDestSubnetMask);
+      arguments.Add("NewSourceIPAddress", newSourceIPAddress);
+      arguments.Add("NewSourceSubnetMask", newSourceSubnetMask);
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetForwardingEntryEnable", arguments);
     }
   }
 }

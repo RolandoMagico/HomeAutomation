@@ -27,13 +27,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   /// </summary>
   public class WANPPPConnection : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:WANPPPConnection:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetConnectionTypeInfoResult) of the action.</returns>
     public GetConnectionTypeInfoResult GetConnectionTypeInfo()
     {
-      return null;
+      return this.SendRequest<GetConnectionTypeInfoResult>("GetConnectionTypeInfo");
     }
 
     /// <summary>
@@ -51,6 +54,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newConnectionType">The SOAP parameter NewConnectionType.</param>
     public void SetConnectionType(string newConnectionType)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewConnectionType", newConnectionType);
+      this.SendRequest("SetConnectionType", arguments);
     }
 
     /// <summary>
@@ -59,7 +65,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetStatusInfoResult) of the action.</returns>
     public GetStatusInfoResult GetStatusInfo()
     {
-      return null;
+      return this.SendRequest<GetStatusInfoResult>("GetStatusInfo");
     }
 
     /// <summary>
@@ -68,7 +74,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewUserName) of the action.</returns>
     public string GetUserName()
     {
-      return null;
+      return this.SendRequest<string>("GetUserName");
     }
 
     /// <summary>
@@ -77,6 +83,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newUserName">The SOAP parameter NewUserName.</param>
     public void SetUserName(string newUserName)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewUserName", newUserName);
+      this.SendRequest("SetUserName", arguments);
     }
 
     /// <summary>
@@ -85,6 +94,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetPassword(string newPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPassword", newPassword);
+      this.SendRequest("SetPassword", arguments);
     }
 
     /// <summary>
@@ -93,7 +105,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetNATRSIPStatusResult) of the action.</returns>
     public GetNATRSIPStatusResult GetNATRSIPStatus()
     {
-      return null;
+      return this.SendRequest<GetNATRSIPStatusResult>("GetNATRSIPStatus");
     }
 
     /// <summary>
@@ -102,6 +114,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newConnectionTrigger">The SOAP parameter NewConnectionTrigger.</param>
     public void SetConnectionTrigger(string newConnectionTrigger)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewConnectionTrigger", newConnectionTrigger);
+      this.SendRequest("SetConnectionTrigger", arguments);
     }
 
     /// <summary>
@@ -109,6 +124,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     public void ForceTermination()
     {
+      this.SendRequest("ForceTermination");
     }
 
     /// <summary>
@@ -116,6 +132,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// </summary>
     public void RequestConnection()
     {
+      this.SendRequest("RequestConnection");
     }
 
     /// <summary>
@@ -125,7 +142,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetGenericPortMappingEntryResult) of the action.</returns>
     public GetGenericPortMappingEntryResult GetGenericPortMappingEntry(ushort newPortMappingIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPortMappingIndex", newPortMappingIndex);
+      return this.SendRequest<GetGenericPortMappingEntryResult>("GetGenericPortMappingEntry", arguments);
     }
 
     /// <summary>
@@ -137,7 +156,11 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetSpecificPortMappingEntryResult) of the action.</returns>
     public GetSpecificPortMappingEntryResult GetSpecificPortMappingEntry(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewRemoteHost", newRemoteHost);
+      arguments.Add("NewExternalPort", newExternalPort);
+      arguments.Add("NewProtocol", newProtocol);
+      return this.SendRequest<GetSpecificPortMappingEntryResult>("GetSpecificPortMappingEntry", arguments);
     }
 
     /// <summary>
@@ -153,6 +176,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newLeaseDuration">The SOAP parameter NewLeaseDuration.</param>
     public void AddPortMapping(string newRemoteHost, ushort newExternalPort, string newProtocol, ushort newInternalPort, string newInternalClient, bool newEnabled, string newPortMappingDescription, uint newLeaseDuration)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewRemoteHost", newRemoteHost);
+      arguments.Add("NewExternalPort", newExternalPort);
+      arguments.Add("NewProtocol", newProtocol);
+      arguments.Add("NewInternalPort", newInternalPort);
+      arguments.Add("NewInternalClient", newInternalClient);
+      arguments.Add("NewEnabled", newEnabled);
+      arguments.Add("NewPortMappingDescription", newPortMappingDescription);
+      arguments.Add("NewLeaseDuration", newLeaseDuration);
+      this.SendRequest("AddPortMapping", arguments);
     }
 
     /// <summary>
@@ -163,6 +196,11 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newProtocol">The SOAP parameter NewProtocol.</param>
     public void DeletePortMapping(string newRemoteHost, ushort newExternalPort, string newProtocol)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewRemoteHost", newRemoteHost);
+      arguments.Add("NewExternalPort", newExternalPort);
+      arguments.Add("NewProtocol", newProtocol);
+      this.SendRequest("DeletePortMapping", arguments);
     }
 
     /// <summary>
@@ -171,7 +209,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewExternalIPAddress) of the action.</returns>
     public string GetExternalIPAddress()
     {
-      return null;
+      return this.SendRequest<string>("GetExternalIPAddress");
     }
 
     /// <summary>
@@ -180,7 +218,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewDNSServers) of the action.</returns>
     public string X_GetDNSServers()
     {
-      return null;
+      return this.SendRequest<string>("X_GetDNSServers");
     }
 
     /// <summary>
@@ -189,7 +227,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (GetLinkLayerMaxBitRatesResult) of the action.</returns>
     public GetLinkLayerMaxBitRatesResult GetLinkLayerMaxBitRates()
     {
-      return null;
+      return this.SendRequest<GetLinkLayerMaxBitRatesResult>("GetLinkLayerMaxBitRates");
     }
 
     /// <summary>
@@ -198,7 +236,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (NewPortMappingNumberOfEntries) of the action.</returns>
     public ushort GetPortMappingNumberOfEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetPortMappingNumberOfEntries");
     }
 
     /// <summary>
@@ -207,6 +245,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newRouteProtocolRx">The SOAP parameter NewRouteProtocolRx.</param>
     public void SetRouteProtocolRx(string newRouteProtocolRx)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewRouteProtocolRx", newRouteProtocolRx);
+      this.SendRequest("SetRouteProtocolRx", arguments);
     }
 
     /// <summary>
@@ -215,6 +256,9 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newIdleDisconnectTime">The SOAP parameter NewIdleDisconnectTime.</param>
     public void SetIdleDisconnectTime(uint newIdleDisconnectTime)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIdleDisconnectTime", newIdleDisconnectTime);
+      this.SendRequest("SetIdleDisconnectTime", arguments);
     }
 
     /// <summary>
@@ -223,7 +267,7 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <returns>The result (X_AVM_DE_GetAutoDisconnectTimeSpanResult) of the action.</returns>
     public X_AVM_DE_GetAutoDisconnectTimeSpanResult X_AVM_DE_GetAutoDisconnectTimeSpan()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_GetAutoDisconnectTimeSpanResult>("X_AVM-DE_GetAutoDisconnectTimeSpan");
     }
 
     /// <summary>
@@ -233,6 +277,10 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <param name="newX_AVM_DE_DisconnectPreventionHour">The SOAP parameter NewX_AVM-DE_DisconnectPreventionHour.</param>
     public void X_AVM_DE_SetAutoDisconnectTimeSpan(bool newX_AVM_DE_DisconnectPreventionEnable, ushort newX_AVM_DE_DisconnectPreventionHour)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_DisconnectPreventionEnable", newX_AVM_DE_DisconnectPreventionEnable);
+      arguments.Add("NewX_AVM-DE_DisconnectPreventionHour", newX_AVM_DE_DisconnectPreventionHour);
+      this.SendRequest("X_AVM-DE_SetAutoDisconnectTimeSpan", arguments);
     }
   }
 }

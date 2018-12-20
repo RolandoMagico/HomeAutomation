@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Homeplug : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Homeplug:1";
+
     /// <summary>
     /// Wrapper for the action GetNumberOfDeviceEntries.
     /// </summary>
     /// <returns>The result (NewNumberOfEntries) of the action.</returns>
     public ushort GetNumberOfDeviceEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetNumberOfDeviceEntries");
     }
 
     /// <summary>
@@ -43,7 +46,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetGenericDeviceEntryResult) of the action.</returns>
     public GetGenericDeviceEntryResult GetGenericDeviceEntry(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetGenericDeviceEntryResult>("GetGenericDeviceEntry", arguments);
     }
 
     /// <summary>
@@ -53,7 +58,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetSpecificDeviceEntryResult) of the action.</returns>
     public GetSpecificDeviceEntryResult GetSpecificDeviceEntry(string newMACAddress)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewMACAddress", newMACAddress);
+      return this.SendRequest<GetSpecificDeviceEntryResult>("GetSpecificDeviceEntry", arguments);
     }
 
     /// <summary>
@@ -62,6 +69,9 @@ namespace FritzControl.Soap
     /// <param name="newMACAddress">The SOAP parameter NewMACAddress.</param>
     public void DeviceDoUpdate(string newMACAddress)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewMACAddress", newMACAddress);
+      this.SendRequest("DeviceDoUpdate", arguments);
     }
   }
 }

@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Speedtest : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Speedtest:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -46,6 +49,13 @@ namespace FritzControl.Soap
     /// <param name="newWANEnableUdp">The SOAP parameter NewWANEnableUdp.</param>
     public void SetConfig(bool newEnableTcp, bool newEnableUdp, bool newEnableUdpBidirect, bool newWANEnableTcp, bool newWANEnableUdp)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnableTcp", newEnableTcp);
+      arguments.Add("NewEnableUdp", newEnableUdp);
+      arguments.Add("NewEnableUdpBidirect", newEnableUdpBidirect);
+      arguments.Add("NewWANEnableTcp", newWANEnableTcp);
+      arguments.Add("NewWANEnableUdp", newWANEnableUdp);
+      this.SendRequest("SetConfig", arguments);
     }
   }
 }

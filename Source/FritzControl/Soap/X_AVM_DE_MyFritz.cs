@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_MyFritz : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_MyFritz:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewNumberOfServices) of the action.</returns>
     public uint GetNumberOfServices()
     {
-      return 0;
+      return this.SendRequest<uint>("GetNumberOfServices");
     }
 
     /// <summary>
@@ -52,7 +55,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetServiceByIndexResult) of the action.</returns>
     public GetServiceByIndexResult GetServiceByIndex(uint newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetServiceByIndexResult>("GetServiceByIndex", arguments);
     }
 
     /// <summary>
@@ -72,6 +77,20 @@ namespace FritzControl.Soap
     /// <param name="newHostName">The SOAP parameter NewHostName.</param>
     public void SetServiceByIndex(uint newIndex, bool newEnabled, string newName, string newScheme, uint newPort, string newURLPath, string newType, string newIPv4Address, string newIPv6Address, string newIPv6InterfaceID, string newMACAddress, string newHostName)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      arguments.Add("NewEnabled", newEnabled);
+      arguments.Add("NewName", newName);
+      arguments.Add("NewScheme", newScheme);
+      arguments.Add("NewPort", newPort);
+      arguments.Add("NewURLPath", newURLPath);
+      arguments.Add("NewType", newType);
+      arguments.Add("NewIPv4Address", newIPv4Address);
+      arguments.Add("NewIPv6Address", newIPv6Address);
+      arguments.Add("NewIPv6InterfaceID", newIPv6InterfaceID);
+      arguments.Add("NewMACAddress", newMACAddress);
+      arguments.Add("NewHostName", newHostName);
+      this.SendRequest("SetServiceByIndex", arguments);
     }
 
     /// <summary>
@@ -80,6 +99,9 @@ namespace FritzControl.Soap
     /// <param name="newIndex">The SOAP parameter NewIndex.</param>
     public void DeleteServiceByIndex(uint newIndex)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      this.SendRequest("DeleteServiceByIndex", arguments);
     }
   }
 }

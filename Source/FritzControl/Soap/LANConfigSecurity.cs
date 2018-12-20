@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class LANConfigSecurity : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:LANConfigSecurity:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap
     /// <returns>The result (X_AVM_DE_GetCurrentUserResult) of the action.</returns>
     public X_AVM_DE_GetCurrentUserResult X_AVM_DE_GetCurrentUser()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_GetCurrentUserResult>("X_AVM-DE_GetCurrentUser");
     }
 
     /// <summary>
@@ -51,7 +54,7 @@ namespace FritzControl.Soap
     /// <returns>The result (X_AVM_DE_GetAnonymousLoginResult) of the action.</returns>
     public X_AVM_DE_GetAnonymousLoginResult X_AVM_DE_GetAnonymousLogin()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_GetAnonymousLoginResult>("X_AVM-DE_GetAnonymousLogin");
     }
 
     /// <summary>
@@ -60,6 +63,9 @@ namespace FritzControl.Soap
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetConfigPassword(string newPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPassword", newPassword);
+      this.SendRequest("SetConfigPassword", arguments);
     }
   }
 }

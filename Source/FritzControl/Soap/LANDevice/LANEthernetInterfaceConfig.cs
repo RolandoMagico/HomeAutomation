@@ -27,12 +27,18 @@ namespace FritzControl.Soap.LANDevice
   /// </summary>
   public class LANEthernetInterfaceConfig : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:LANEthernetInterfaceConfig:1";
+
     /// <summary>
     /// Wrapper for the action SetEnable.
     /// </summary>
     /// <param name="newEnable">The SOAP parameter NewEnable.</param>
     public void SetEnable(bool newEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      this.SendRequest("SetEnable", arguments);
     }
 
     /// <summary>
@@ -41,7 +47,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -50,7 +56,7 @@ namespace FritzControl.Soap.LANDevice
     /// <returns>The result (GetStatisticsResult) of the action.</returns>
     public GetStatisticsResult GetStatistics()
     {
-      return null;
+      return this.SendRequest<GetStatisticsResult>("GetStatistics");
     }
   }
 }

@@ -27,13 +27,16 @@ namespace FritzControl.Soap.WANDevice
   /// </summary>
   public class WANDSLInterfaceConfig : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:WANDSLInterfaceConfig:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (GetStatisticsTotalResult) of the action.</returns>
     public GetStatisticsTotalResult GetStatisticsTotal()
     {
-      return null;
+      return this.SendRequest<GetStatisticsTotalResult>("GetStatisticsTotal");
     }
 
     /// <summary>
@@ -51,7 +54,7 @@ namespace FritzControl.Soap.WANDevice
     /// <returns>The result (X_AVM_DE_GetDSLDiagnoseInfoResult) of the action.</returns>
     public X_AVM_DE_GetDSLDiagnoseInfoResult X_AVM_DE_GetDSLDiagnoseInfo()
     {
-      return null;
+      return this.SendRequest<X_AVM_DE_GetDSLDiagnoseInfoResult>("X_AVM-DE_GetDSLDiagnoseInfo");
     }
   }
 }

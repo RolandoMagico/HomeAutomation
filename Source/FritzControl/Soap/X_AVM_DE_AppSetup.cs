@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_AppSetup : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_AppSetup:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap
     /// <returns>The result (GetConfigResult) of the action.</returns>
     public GetConfigResult GetConfig()
     {
-      return null;
+      return this.SendRequest<GetConfigResult>("GetConfig");
     }
 
     /// <summary>
@@ -52,7 +55,9 @@ namespace FritzControl.Soap
     /// <returns>The result (NewFilterList) of the action.</returns>
     public string GetAppMessageFilter(string newAppId)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAppId", newAppId);
+      return this.SendRequest<string>("GetAppMessageFilter", arguments);
     }
 
     /// <summary>
@@ -70,6 +75,18 @@ namespace FritzControl.Soap
     /// <param name="newAppInternetRights">The SOAP parameter NewAppInternetRights.</param>
     public void RegisterApp(string newAppId, string newAppDisplayName, string newAppDeviceMAC, string newAppUsername, string newAppPassword, string newAppRight, string newNasRight, string newPhoneRight, string newHomeautoRight, bool newAppInternetRights)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAppId", newAppId);
+      arguments.Add("NewAppDisplayName", newAppDisplayName);
+      arguments.Add("NewAppDeviceMAC", newAppDeviceMAC);
+      arguments.Add("NewAppUsername", newAppUsername);
+      arguments.Add("NewAppPassword", newAppPassword);
+      arguments.Add("NewAppRight", newAppRight);
+      arguments.Add("NewNasRight", newNasRight);
+      arguments.Add("NewPhoneRight", newPhoneRight);
+      arguments.Add("NewHomeautoRight", newHomeautoRight);
+      arguments.Add("NewAppInternetRights", newAppInternetRights);
+      this.SendRequest("RegisterApp", arguments);
     }
 
     /// <summary>
@@ -82,6 +99,13 @@ namespace FritzControl.Soap
     /// <param name="newIPSecXauthPassword">The SOAP parameter NewIPSecXauthPassword.</param>
     public void SetAppVPN(string newAppId, string newIPSecIdentifier, string newIPSecPreSharedKey, string newIPSecXauthUsername, string newIPSecXauthPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAppId", newAppId);
+      arguments.Add("NewIPSecIdentifier", newIPSecIdentifier);
+      arguments.Add("NewIPSecPreSharedKey", newIPSecPreSharedKey);
+      arguments.Add("NewIPSecXauthUsername", newIPSecXauthUsername);
+      arguments.Add("NewIPSecXauthPassword", newIPSecXauthPassword);
+      this.SendRequest("SetAppVPN", arguments);
     }
 
     /// <summary>
@@ -94,6 +118,13 @@ namespace FritzControl.Soap
     /// <param name="newIPSecXauthPassword">The SOAP parameter NewIPSecXauthPassword.</param>
     public void SetAppVPNwithPFS(string newAppId, string newIPSecIdentifier, string newIPSecPreSharedKey, string newIPSecXauthUsername, string newIPSecXauthPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAppId", newAppId);
+      arguments.Add("NewIPSecIdentifier", newIPSecIdentifier);
+      arguments.Add("NewIPSecPreSharedKey", newIPSecPreSharedKey);
+      arguments.Add("NewIPSecXauthUsername", newIPSecXauthUsername);
+      arguments.Add("NewIPSecXauthPassword", newIPSecXauthPassword);
+      this.SendRequest("SetAppVPNwithPFS", arguments);
     }
 
     /// <summary>
@@ -104,6 +135,11 @@ namespace FritzControl.Soap
     /// <param name="newFilter">The SOAP parameter NewFilter.</param>
     public void SetAppMessageFilter(string newAppId, string newType, string newFilter)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAppId", newAppId);
+      arguments.Add("NewType", newType);
+      arguments.Add("NewFilter", newFilter);
+      this.SendRequest("SetAppMessageFilter", arguments);
     }
 
     /// <summary>
@@ -116,7 +152,12 @@ namespace FritzControl.Soap
     /// <returns>The result (SetAppMessageReceiverResult) of the action.</returns>
     public SetAppMessageReceiverResult SetAppMessageReceiver(string newAppId, string newCryptAlgos, string newAppAVMAddress, string newAppAVMPasswordHash)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAppId", newAppId);
+      arguments.Add("NewCryptAlgos", newCryptAlgos);
+      arguments.Add("NewAppAVMAddress", newAppAVMAddress);
+      arguments.Add("NewAppAVMPasswordHash", newAppAVMPasswordHash);
+      return this.SendRequest<SetAppMessageReceiverResult>("SetAppMessageReceiver", arguments);
     }
 
     /// <summary>
@@ -125,6 +166,9 @@ namespace FritzControl.Soap
     /// <param name="newEventId">The SOAP parameter NewEventId.</param>
     public void ResetEvent(uint newEventId)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEventId", newEventId);
+      this.SendRequest("ResetEvent", arguments);
     }
   }
 }

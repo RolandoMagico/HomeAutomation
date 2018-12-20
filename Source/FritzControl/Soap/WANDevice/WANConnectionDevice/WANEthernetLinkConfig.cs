@@ -27,13 +27,16 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
   /// </summary>
   public class WANEthernetLinkConfig : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:WANEthernetLinkConfig:1";
+
     /// <summary>
     /// Wrapper for the action GetEthernetLinkStatus.
     /// </summary>
     /// <returns>The result (NewEthernetLinkStatus) of the action.</returns>
     public string GetEthernetLinkStatus()
     {
-      return null;
+      return this.SendRequest<string>("GetEthernetLinkStatus");
     }
   }
 }

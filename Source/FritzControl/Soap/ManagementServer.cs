@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class ManagementServer : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:ManagementServer:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap
     /// <param name="newURL">The SOAP parameter NewURL.</param>
     public void SetManagementServerURL(string newURL)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewURL", newURL);
+      this.SendRequest("SetManagementServerURL", arguments);
     }
 
     /// <summary>
@@ -50,6 +56,9 @@ namespace FritzControl.Soap
     /// <param name="newUsername">The SOAP parameter NewUsername.</param>
     public void SetManagementServerUsername(string newUsername)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewUsername", newUsername);
+      this.SendRequest("SetManagementServerUsername", arguments);
     }
 
     /// <summary>
@@ -58,6 +67,9 @@ namespace FritzControl.Soap
     /// <param name="newPassword">The SOAP parameter NewPassword.</param>
     public void SetManagementServerPassword(string newPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPassword", newPassword);
+      this.SendRequest("SetManagementServerPassword", arguments);
     }
 
     /// <summary>
@@ -68,6 +80,11 @@ namespace FritzControl.Soap
     /// <param name="newPeriodicInformTime">The SOAP parameter NewPeriodicInformTime.</param>
     public void SetPeriodicInform(bool newPeriodicInformEnable, uint newPeriodicInformInterval, System.DateTime newPeriodicInformTime)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPeriodicInformEnable", newPeriodicInformEnable);
+      arguments.Add("NewPeriodicInformInterval", newPeriodicInformInterval);
+      arguments.Add("NewPeriodicInformTime", newPeriodicInformTime);
+      this.SendRequest("SetPeriodicInform", arguments);
     }
 
     /// <summary>
@@ -77,6 +94,10 @@ namespace FritzControl.Soap
     /// <param name="newConnectionRequestPassword">The SOAP parameter NewConnectionRequestPassword.</param>
     public void SetConnectionRequestAuthentication(string newConnectionRequestUsername, string newConnectionRequestPassword)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewConnectionRequestUsername", newConnectionRequestUsername);
+      arguments.Add("NewConnectionRequestPassword", newConnectionRequestPassword);
+      this.SendRequest("SetConnectionRequestAuthentication", arguments);
     }
 
     /// <summary>
@@ -85,6 +106,9 @@ namespace FritzControl.Soap
     /// <param name="newUpgradesManaged">The SOAP parameter NewUpgradesManaged.</param>
     public void SetUpgradeManagement(bool newUpgradesManaged)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewUpgradesManaged", newUpgradesManaged);
+      this.SendRequest("SetUpgradeManagement", arguments);
     }
 
     /// <summary>
@@ -93,6 +117,9 @@ namespace FritzControl.Soap
     /// <param name="newTR069Enabled">The SOAP parameter NewTR069Enabled.</param>
     public void X_SetTR069Enable(bool newTR069Enabled)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewTR069Enabled", newTR069Enabled);
+      this.SendRequest("X_SetTR069Enable", arguments);
     }
 
     /// <summary>
@@ -101,7 +128,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewTR069FirmwareDownloadEnabled) of the action.</returns>
     public bool X_AVM_DE_GetTR069FirmwareDownloadEnabled()
     {
-      return false;
+      return this.SendRequest<bool>("X_AVM-DE_GetTR069FirmwareDownloadEnabled");
     }
 
     /// <summary>
@@ -110,6 +137,9 @@ namespace FritzControl.Soap
     /// <param name="newTR069FirmwareDownloadEnabled">The SOAP parameter NewTR069FirmwareDownloadEnabled.</param>
     public void X_AVM_DE_SetTR069FirmwareDownloadEnabled(bool newTR069FirmwareDownloadEnabled)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewTR069FirmwareDownloadEnabled", newTR069FirmwareDownloadEnabled);
+      this.SendRequest("X_AVM-DE_SetTR069FirmwareDownloadEnabled", arguments);
     }
   }
 }

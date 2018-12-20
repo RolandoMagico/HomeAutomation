@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Storage : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Storage:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (GetInfoResult) of the action.</returns>
     public GetInfoResult GetInfo()
     {
-      return null;
+      return this.SendRequest<GetInfoResult>("GetInfo");
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ namespace FritzControl.Soap
     /// <returns>The result (RequestFTPServerWANResult) of the action.</returns>
     public RequestFTPServerWANResult RequestFTPServerWAN()
     {
-      return null;
+      return this.SendRequest<RequestFTPServerWANResult>("RequestFTPServerWAN");
     }
 
     /// <summary>
@@ -51,6 +54,9 @@ namespace FritzControl.Soap
     /// <param name="newFTPEnable">The SOAP parameter NewFTPEnable.</param>
     public void SetFTPServer(bool newFTPEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewFTPEnable", newFTPEnable);
+      this.SendRequest("SetFTPServer", arguments);
     }
 
     /// <summary>
@@ -60,6 +66,10 @@ namespace FritzControl.Soap
     /// <param name="newFTPWANSSLOnly">The SOAP parameter NewFTPWANSSLOnly.</param>
     public void SetFTPServerWAN(bool newFTPWANEnable, bool newFTPWANSSLOnly)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewFTPWANEnable", newFTPWANEnable);
+      arguments.Add("NewFTPWANSSLOnly", newFTPWANSSLOnly);
+      this.SendRequest("SetFTPServerWAN", arguments);
     }
 
     /// <summary>
@@ -68,6 +78,9 @@ namespace FritzControl.Soap
     /// <param name="newSMBEnable">The SOAP parameter NewSMBEnable.</param>
     public void SetSMBServer(bool newSMBEnable)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewSMBEnable", newSMBEnable);
+      this.SendRequest("SetSMBServer", arguments);
     }
 
     /// <summary>
@@ -76,7 +89,7 @@ namespace FritzControl.Soap
     /// <returns>The result (GetUserInfoResult) of the action.</returns>
     public GetUserInfoResult GetUserInfo()
     {
-      return null;
+      return this.SendRequest<GetUserInfoResult>("GetUserInfo");
     }
 
     /// <summary>
@@ -87,6 +100,11 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_NetworkAccessReadOnly">The SOAP parameter NewX_AVM-DE_NetworkAccessReadOnly.</param>
     public void SetUserConfig(bool newEnable, string newPassword, bool newX_AVM_DE_NetworkAccessReadOnly)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewEnable", newEnable);
+      arguments.Add("NewPassword", newPassword);
+      arguments.Add("NewX_AVM-DE_NetworkAccessReadOnly", newX_AVM_DE_NetworkAccessReadOnly);
+      this.SendRequest("SetUserConfig", arguments);
     }
   }
 }

@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Filelinks : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Filelinks:1";
+
     /// <summary>
     /// Wrapper for the action GetNumberOfFilelinkEntries.
     /// </summary>
     /// <returns>The result (NewNumberOfEntries) of the action.</returns>
     public ushort GetNumberOfFilelinkEntries()
     {
-      return 0;
+      return this.SendRequest<ushort>("GetNumberOfFilelinkEntries");
     }
 
     /// <summary>
@@ -43,7 +46,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetGenericFilelinkEntryResult) of the action.</returns>
     public GetGenericFilelinkEntryResult GetGenericFilelinkEntry(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetGenericFilelinkEntryResult>("GetGenericFilelinkEntry", arguments);
     }
 
     /// <summary>
@@ -53,7 +58,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetSpecificFilelinkEntryResult) of the action.</returns>
     public GetSpecificFilelinkEntryResult GetSpecificFilelinkEntry(string newID)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewID", newID);
+      return this.SendRequest<GetSpecificFilelinkEntryResult>("GetSpecificFilelinkEntry", arguments);
     }
 
     /// <summary>
@@ -65,7 +72,11 @@ namespace FritzControl.Soap
     /// <returns>The result (NewID) of the action.</returns>
     public string NewFilelinkEntry(string newPath, ushort newAccessCountLimit, ushort newExpire)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPath", newPath);
+      arguments.Add("NewAccessCountLimit", newAccessCountLimit);
+      arguments.Add("NewExpire", newExpire);
+      return this.SendRequest<string>("NewFilelinkEntry", arguments);
     }
 
     /// <summary>
@@ -76,6 +87,11 @@ namespace FritzControl.Soap
     /// <param name="newExpire">The SOAP parameter NewExpire.</param>
     public void SetFilelinkEntry(string newID, ushort newAccessCountLimit, ushort newExpire)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewID", newID);
+      arguments.Add("NewAccessCountLimit", newAccessCountLimit);
+      arguments.Add("NewExpire", newExpire);
+      this.SendRequest("SetFilelinkEntry", arguments);
     }
 
     /// <summary>
@@ -84,6 +100,9 @@ namespace FritzControl.Soap
     /// <param name="newID">The SOAP parameter NewID.</param>
     public void DeleteFilelinkEntry(string newID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewID", newID);
+      this.SendRequest("DeleteFilelinkEntry", arguments);
     }
 
     /// <summary>
@@ -92,7 +111,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewFilelinkListPath) of the action.</returns>
     public string GetFilelinkListPath()
     {
-      return null;
+      return this.SendRequest<string>("GetFilelinkListPath");
     }
   }
 }

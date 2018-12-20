@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class DeviceConfig : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:DeviceConfig:1";
+
     /// <summary>
     /// Wrapper for the action GetPersistentData.
     /// </summary>
     /// <returns>The result (NewPersistentData) of the action.</returns>
     public string GetPersistentData()
     {
-      return null;
+      return this.SendRequest<string>("GetPersistentData");
     }
 
     /// <summary>
@@ -42,6 +45,9 @@ namespace FritzControl.Soap
     /// <param name="newPersistentData">The SOAP parameter NewPersistentData.</param>
     public void SetPersistentData(string newPersistentData)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewPersistentData", newPersistentData);
+      this.SendRequest("SetPersistentData", arguments);
     }
 
     /// <summary>
@@ -50,6 +56,9 @@ namespace FritzControl.Soap
     /// <param name="newSessionID">The SOAP parameter NewSessionID.</param>
     public void ConfigurationStarted(string newSessionID)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewSessionID", newSessionID);
+      this.SendRequest("ConfigurationStarted", arguments);
     }
 
     /// <summary>
@@ -58,7 +67,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewStatus) of the action.</returns>
     public string ConfigurationFinished()
     {
-      return null;
+      return this.SendRequest<string>("ConfigurationFinished");
     }
 
     /// <summary>
@@ -66,6 +75,7 @@ namespace FritzControl.Soap
     /// </summary>
     public void FactoryReset()
     {
+      this.SendRequest("FactoryReset");
     }
 
     /// <summary>
@@ -73,6 +83,7 @@ namespace FritzControl.Soap
     /// </summary>
     public void Reboot()
     {
+      this.SendRequest("Reboot");
     }
 
     /// <summary>
@@ -81,7 +92,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewUUID) of the action.</returns>
     public System.Guid X_GenerateUUID()
     {
-      return System.Guid.Empty;
+      return this.SendRequest<System.Guid>("X_GenerateUUID");
     }
 
     /// <summary>
@@ -91,7 +102,9 @@ namespace FritzControl.Soap
     /// <returns>The result (NewX_AVM-DE_ConfigFileUrl) of the action.</returns>
     public string X_AVM_DE_GetConfigFile(string newX_AVM_DE_Password)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_Password", newX_AVM_DE_Password);
+      return this.SendRequest<string>("X_AVM-DE_GetConfigFile", arguments);
     }
 
     /// <summary>
@@ -101,6 +114,10 @@ namespace FritzControl.Soap
     /// <param name="newX_AVM_DE_ConfigFileUrl">The SOAP parameter NewX_AVM-DE_ConfigFileUrl.</param>
     public void X_AVM_DE_SetConfigFile(string newX_AVM_DE_Password, string newX_AVM_DE_ConfigFileUrl)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewX_AVM-DE_Password", newX_AVM_DE_Password);
+      arguments.Add("NewX_AVM-DE_ConfigFileUrl", newX_AVM_DE_ConfigFileUrl);
+      this.SendRequest("X_AVM-DE_SetConfigFile", arguments);
     }
 
     /// <summary>
@@ -109,7 +126,7 @@ namespace FritzControl.Soap
     /// <returns>The result (NewX_AVM-DE_UrlSID) of the action.</returns>
     public string X_AVM_DE_CreateUrlSID()
     {
-      return null;
+      return this.SendRequest<string>("X_AVM-DE_CreateUrlSID");
     }
   }
 }

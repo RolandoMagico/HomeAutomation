@@ -27,13 +27,16 @@ namespace FritzControl.Soap
   /// </summary>
   public class X_AVM_DE_Homeauto : BaseService
   {
+    /// <inheritdoc/>
+    protected override string ServiceType { get; } = "urn:dslforum-org:service:X_AVM-DE_Homeauto:1";
+
     /// <summary>
     /// Wrapper for the action GetInfo.
     /// </summary>
     /// <returns>The result (NewAllowedCharsAIN) of the action.</returns>
     public string GetInfo()
     {
-      return null;
+      return this.SendRequest<string>("GetInfo");
     }
 
     /// <summary>
@@ -43,7 +46,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetGenericDeviceInfosResult) of the action.</returns>
     public GetGenericDeviceInfosResult GetGenericDeviceInfos(ushort newIndex)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewIndex", newIndex);
+      return this.SendRequest<GetGenericDeviceInfosResult>("GetGenericDeviceInfos", arguments);
     }
 
     /// <summary>
@@ -53,7 +58,9 @@ namespace FritzControl.Soap
     /// <returns>The result (GetSpecificDeviceInfosResult) of the action.</returns>
     public GetSpecificDeviceInfosResult GetSpecificDeviceInfos(string newAIN)
     {
-      return null;
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAIN", newAIN);
+      return this.SendRequest<GetSpecificDeviceInfosResult>("GetSpecificDeviceInfos", arguments);
     }
 
     /// <summary>
@@ -63,6 +70,10 @@ namespace FritzControl.Soap
     /// <param name="newSwitchState">The SOAP parameter NewSwitchState.</param>
     public void SetSwitch(string newAIN, string newSwitchState)
     {
+      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();
+      arguments.Add("NewAIN", newAIN);
+      arguments.Add("NewSwitchState", newSwitchState);
+      this.SendRequest("SetSwitch", arguments);
     }
   }
 }
