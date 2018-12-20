@@ -30,71 +30,85 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnabled is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnabled")]
     public bool NewEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewName")]
     public string NewName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewScheme.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewScheme")]
     public string NewScheme { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPort.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPort")]
     public uint NewPort { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewURLPath.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewURLPath")]
     public string NewURLPath { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewType")]
     public string NewType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewIPv4ForwardingWarning.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIPv4ForwardingWarning")]
     public byte NewIPv4ForwardingWarning { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewIPv4Addresses.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIPv4Addresses")]
     public string NewIPv4Addresses { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewIPv6Addresses.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIPv6Addresses")]
     public string NewIPv6Addresses { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewIPv6InterfaceIDs.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIPv6InterfaceIDs")]
     public string NewIPv6InterfaceIDs { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMACAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMACAddress")]
     public string NewMACAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewHostName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewHostName")]
     public string NewHostName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDynDnsLabel.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDynDnsLabel")]
     public string NewDynDnsLabel { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewStatus")]
     public uint NewStatus { get; set; }
   }
 }

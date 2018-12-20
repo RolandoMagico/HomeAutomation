@@ -30,21 +30,25 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewBytesSent.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewBytesSent")]
     public uint NewBytesSent { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewBytesReceived.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewBytesReceived")]
     public uint NewBytesReceived { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPacketsSent.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPacketsSent")]
     public uint NewPacketsSent { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPacketsReceived.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPacketsReceived")]
     public uint NewPacketsReceived { get; set; }
   }
 }

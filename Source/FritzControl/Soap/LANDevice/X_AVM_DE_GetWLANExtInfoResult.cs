@@ -30,46 +30,55 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_APEnabled.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_APEnabled")]
     public string NewX_AVM_DE_APEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_APType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_APType")]
     public string NewX_AVM_DE_APType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_TimeoutActive.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_TimeoutActive")]
     public string NewX_AVM_DE_TimeoutActive { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Timeout.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Timeout")]
     public string NewX_AVM_DE_Timeout { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_TimeRemain.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_TimeRemain")]
     public string NewX_AVM_DE_TimeRemain { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_NoForcedOff.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_NoForcedOff")]
     public string NewX_AVM_DE_NoForcedOff { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_UserIsolation.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_UserIsolation")]
     public string NewX_AVM_DE_UserIsolation { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_EncryptionMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_EncryptionMode")]
     public string NewX_AVM_DE_EncryptionMode { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_LastChangedStamp.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_LastChangedStamp")]
     public uint NewX_AVM_DE_LastChangedStamp { get; set; }
   }
 }

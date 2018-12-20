@@ -30,46 +30,55 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewValid is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewValid")]
     public bool NewValid { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPath.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPath")]
     public string NewPath { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewIsDirectory is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIsDirectory")]
     public bool NewIsDirectory { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUrl.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUrl")]
     public string NewUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUsername")]
     public string NewUsername { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewAccessCountLimit.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAccessCountLimit")]
     public ushort NewAccessCountLimit { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewAccessCount.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAccessCount")]
     public ushort NewAccessCount { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewExpire.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewExpire")]
     public ushort NewExpire { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewExpireDate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewExpireDate")]
     public System.DateTime NewExpireDate { get; set; }
   }
 }

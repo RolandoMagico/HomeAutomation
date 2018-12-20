@@ -30,11 +30,13 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewUpstreamMaxBitRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpstreamMaxBitRate")]
     public uint NewUpstreamMaxBitRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDownstreamMaxBitRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDownstreamMaxBitRate")]
     public uint NewDownstreamMaxBitRate { get; set; }
   }
 }

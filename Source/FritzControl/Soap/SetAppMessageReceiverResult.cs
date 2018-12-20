@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument EncryptionSecret.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("EncryptionSecret")]
     public string EncryptionSecret { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument BoxSenderId.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("BoxSenderId")]
     public string BoxSenderId { get; set; }
   }
 }

@@ -30,31 +30,37 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_DSLDiagnoseState.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DSLDiagnoseState")]
     public string NewX_AVM_DE_DSLDiagnoseState { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_CableNokDistance.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_CableNokDistance")]
     public int NewX_AVM_DE_CableNokDistance { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_DSLLastDiagnoseTime.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DSLLastDiagnoseTime")]
     public uint NewX_AVM_DE_DSLLastDiagnoseTime { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_DSLSignalLossTime.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DSLSignalLossTime")]
     public uint NewX_AVM_DE_DSLSignalLossTime { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_DSLActive is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DSLActive")]
     public bool NewX_AVM_DE_DSLActive { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_DSLSync is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DSLSync")]
     public bool NewX_AVM_DE_DSLSync { get; set; }
   }
 }

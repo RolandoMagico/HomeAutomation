@@ -30,21 +30,25 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewWANAccessType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewWANAccessType")]
     public string NewWANAccessType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLayer1UpstreamMaxBitRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLayer1UpstreamMaxBitRate")]
     public uint NewLayer1UpstreamMaxBitRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLayer1DownstreamMaxBitRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLayer1DownstreamMaxBitRate")]
     public uint NewLayer1DownstreamMaxBitRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPhysicalLinkStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPhysicalLinkStatus")]
     public string NewPhysicalLinkStatus { get; set; }
   }
 }

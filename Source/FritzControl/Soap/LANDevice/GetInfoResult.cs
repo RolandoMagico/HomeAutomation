@@ -30,51 +30,61 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewDHCPServerConfigurable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDHCPServerConfigurable")]
     public bool NewDHCPServerConfigurable { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewDHCPRelay is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDHCPRelay")]
     public bool NewDHCPRelay { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMinAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMinAddress")]
     public string NewMinAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMaxAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMaxAddress")]
     public string NewMaxAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewReservedAddresses.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewReservedAddresses")]
     public string NewReservedAddresses { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewDHCPServerEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDHCPServerEnable")]
     public bool NewDHCPServerEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDNSServers.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDNSServers")]
     public string NewDNSServers { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDomainName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDomainName")]
     public string NewDomainName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewIPRouters.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIPRouters")]
     public string NewIPRouters { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSubnetMask.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSubnetMask")]
     public string NewSubnetMask { get; set; }
   }
 }

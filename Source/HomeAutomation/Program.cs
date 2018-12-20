@@ -23,13 +23,15 @@
 namespace HomeAutomation
 {
   using FritzControl;
+  using FritzControl.Soap;
+  using HomeAutomationLib;
   using NLog;
   using NLog.Common;
 
   /// <summary>
   /// Entry class of the application.
   /// </summary>
-  public class Program
+  public class Program : BaseLogger
   {
     /// <summary>
     /// Entry method of the application.
@@ -40,9 +42,21 @@ namespace HomeAutomation
 #if DEBUG
       InternalLogger.LogToConsole = true;
 #endif
+
+      // Example
+      // FritzBox fritzBox = new FritzBox { Username = "YourUsername", Password = "Yourpassword", Hostname = "fritz.box" };
       FritzBox fritzBox = new FritzBox();
       fritzBox.Connect();
-      fritzBox.LoadHomeAutomationInfo();
+      X_AVM_DE_Dect dect = new X_AVM_DE_Dect { FritzBox = fritzBox };
+      ushort numberOfDectEntries = dect.GetNumberOfDectEntries();
+      for (ushort i = 0; i < numberOfDectEntries; i++)
+      {
+        GetGenericDectEntryResult genericResult = dect.GetGenericDectEntry(i);
+        Log.Info($"DECT device index {i}");
+        Log.Info($"Model: {genericResult.NewModel}");
+        Log.Info($"Model: {genericResult.NewName}");
+      }
+
       LogManager.Shutdown();
     }
   }

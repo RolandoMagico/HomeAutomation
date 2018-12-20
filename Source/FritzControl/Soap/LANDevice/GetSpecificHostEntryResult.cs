@@ -30,31 +30,37 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewIPAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewIPAddress")]
     public string NewIPAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewAddressSource.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAddressSource")]
     public string NewAddressSource { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLeaseTimeRemaining.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLeaseTimeRemaining")]
     public int NewLeaseTimeRemaining { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewInterfaceType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInterfaceType")]
     public string NewInterfaceType { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewActive is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewActive")]
     public bool NewActive { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewHostName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewHostName")]
     public string NewHostName { get; set; }
   }
 }

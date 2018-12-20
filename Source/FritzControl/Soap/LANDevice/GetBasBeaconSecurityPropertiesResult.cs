@@ -30,11 +30,13 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewBasicEncryptionModes.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewBasicEncryptionModes")]
     public string NewBasicEncryptionModes { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewBasicAuthenticationMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewBasicAuthenticationMode")]
     public string NewBasicAuthenticationMode { get; set; }
   }
 }

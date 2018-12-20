@@ -30,31 +30,37 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewWEPKey0.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewWEPKey0")]
     public string NewWEPKey0 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewWEPKey1.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewWEPKey1")]
     public string NewWEPKey1 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewWEPKey2.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewWEPKey2")]
     public string NewWEPKey2 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewWEPKey3.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewWEPKey3")]
     public string NewWEPKey3 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPreSharedKey.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPreSharedKey")]
     public string NewPreSharedKey { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewKeyPassphrase.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewKeyPassphrase")]
     public string NewKeyPassphrase { get; set; }
   }
 }

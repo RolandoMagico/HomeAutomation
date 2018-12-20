@@ -22,7 +22,13 @@
 // </copyright>
 namespace FritzControl.Soap
 {
+  using System;
   using System.Collections.Generic;
+  using System.Linq;
+  using System.Reflection;
+  using System.Xml.Serialization;
+  using FritzControl.Tr064;
+  using FritzControl.Tr064.ServiceHandling;
 
   /// <summary>
   /// Base class for all services.
@@ -46,6 +52,18 @@ namespace FritzControl.Soap
     /// <param name="arguments">The optional arguments of the action.</param>
     protected void SendRequest(string actionName, Dictionary<string, object> arguments = null)
     {
+      if (this.FritzBox.Description.Device.GetSoapOperation(this.ServiceType, actionName) is SoapOperation operation)
+      {
+        Header initChallenge = new Header { UserId = this.FritzBox.Username, InitialChanllenge = false };
+        Body body = new Body(operation);
+        if (arguments != null)
+        {
+          body.Arguments = arguments;
+        }
+
+        Request request = new Request { Header = initChallenge, Body = body };
+        this.FritzBox.SendSoapRequest(request);
+      }
     }
 
     /// <summary>
@@ -57,6 +75,39 @@ namespace FritzControl.Soap
     /// <returns>The received response data or <c>null</c> if no response had been received.</returns>
     protected TResult SendRequest<TResult>(string actionName, Dictionary<string, object> arguments = null)
     {
+      if (this.FritzBox.Description.Device.GetSoapOperation(this.ServiceType, actionName) is SoapOperation operation)
+      {
+        Header initChallenge = new Header { UserId = this.FritzBox.Username, InitialChanllenge = false };
+        Body body = new Body(operation);
+        if (arguments != null)
+        {
+          body.Arguments = arguments;
+        }
+
+        Request request = new Request { Header = initChallenge, Body = body };
+        if (this.FritzBox.SendSoapRequest(request) is Response response)
+        {
+          if (response.Body.Arguments.Count == 1)
+          {
+            return (TResult)response.Body.Arguments.Values.First();
+          }
+          else if (response.Body.Arguments.Count > 1)
+          {
+            TResult result = (TResult)Activator.CreateInstance(typeof(TResult));
+
+            foreach (PropertyInfo propertyInfo in result.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+            {
+              if (propertyInfo.GetCustomAttribute<XmlElementAttribute>() is XmlElementAttribute attribute)
+              {
+                propertyInfo.SetValue(result, response.Body.Arguments[attribute.ElementName]);
+              }
+            }
+
+            return result;
+          }
+        }
+      }
+
       return default(TResult);
     }
   }

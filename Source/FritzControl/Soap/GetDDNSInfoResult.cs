@@ -30,51 +30,61 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnabled is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnabled")]
     public bool NewEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewProviderName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewProviderName")]
     public string NewProviderName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpdateURL.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpdateURL")]
     public string NewUpdateURL { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDomain.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDomain")]
     public string NewDomain { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewStatusIPv4.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewStatusIPv4")]
     public string NewStatusIPv4 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewStatusIPv6.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewStatusIPv6")]
     public string NewStatusIPv6 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUsername")]
     public string NewUsername { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMode")]
     public string NewMode { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewServerIPv4.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewServerIPv4")]
     public string NewServerIPv4 { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewServerIPv6.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewServerIPv6")]
     public string NewServerIPv6 { get; set; }
   }
 }

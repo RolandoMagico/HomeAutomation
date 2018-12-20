@@ -30,31 +30,37 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_AutoUpdateMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_AutoUpdateMode")]
     public string NewX_AVM_DE_AutoUpdateMode { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateTime.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_UpdateTime")]
     public System.DateTime NewX_AVM_DE_UpdateTime { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_LastFwVersion.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_LastFwVersion")]
     public string NewX_AVM_DE_LastFwVersion { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_LastInfoUrl.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_LastInfoUrl")]
     public string NewX_AVM_DE_LastInfoUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentFwVersion.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_CurrentFwVersion")]
     public string NewX_AVM_DE_CurrentFwVersion { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateSuccessful.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_UpdateSuccessful")]
     public string NewX_AVM_DE_UpdateSuccessful { get; set; }
   }
 }

@@ -30,31 +30,37 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewVoIPRegistrar.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewVoIPRegistrar")]
     public string NewVoIPRegistrar { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewVoIPNumber.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewVoIPNumber")]
     public string NewVoIPNumber { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewVoIPUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewVoIPUsername")]
     public string NewVoIPUsername { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewVoIPPassword.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewVoIPPassword")]
     public string NewVoIPPassword { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewVoIPOutboundProxy.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewVoIPOutboundProxy")]
     public string NewVoIPOutboundProxy { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewVoIPSTUNServer.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewVoIPSTUNServer")]
     public string NewVoIPSTUNServer { get; set; }
   }
 }

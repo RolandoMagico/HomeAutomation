@@ -30,31 +30,37 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Language.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Language")]
     public string NewX_AVM_DE_Language { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Country.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Country")]
     public string NewX_AVM_DE_Country { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Annex.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Annex")]
     public string NewX_AVM_DE_Annex { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_LanguageList.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_LanguageList")]
     public string NewX_AVM_DE_LanguageList { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_CountryList.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_CountryList")]
     public string NewX_AVM_DE_CountryList { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_AnnexList.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_AnnexList")]
     public string NewX_AVM_DE_AnnexList { get; set; }
   }
 }

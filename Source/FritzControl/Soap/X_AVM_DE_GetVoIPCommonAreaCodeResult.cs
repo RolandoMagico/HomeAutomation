@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_OKZ.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_OKZ")]
     public string NewX_AVM_DE_OKZ { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_OKZPrefix.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_OKZPrefix")]
     public string NewX_AVM_DE_OKZPrefix { get; set; }
   }
 }

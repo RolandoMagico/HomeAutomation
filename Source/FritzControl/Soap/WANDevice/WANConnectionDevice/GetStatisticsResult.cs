@@ -30,21 +30,25 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewATMTransmittedBlocks.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATMTransmittedBlocks")]
     public uint NewATMTransmittedBlocks { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATMReceivedBlocks.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATMReceivedBlocks")]
     public uint NewATMReceivedBlocks { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewAAL5CRCErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAAL5CRCErrors")]
     public uint NewAAL5CRCErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATMCRCErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATMCRCErrors")]
     public uint NewATMCRCErrors { get; set; }
   }
 }

@@ -30,61 +30,73 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewTotalNumberSyncGroups.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewTotalNumberSyncGroups")]
     public uint NewTotalNumberSyncGroups { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSyncGroupName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSyncGroupName")]
     public string NewSyncGroupName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSyncGroupMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSyncGroupMode")]
     public string NewSyncGroupMode { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newmax_ds.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newmax_ds")]
     public uint Newmax_ds { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newmax_us.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newmax_us")]
     public uint Newmax_us { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newds_current_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newds_current_bps")]
     public string Newds_current_bps { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newmc_current_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newmc_current_bps")]
     public string Newmc_current_bps { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newus_current_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newus_current_bps")]
     public string Newus_current_bps { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newprio_realtime_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newprio_realtime_bps")]
     public string Newprio_realtime_bps { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newprio_high_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newprio_high_bps")]
     public string Newprio_high_bps { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newprio_default_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newprio_default_bps")]
     public string Newprio_default_bps { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument Newprio_low_bps.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("Newprio_low_bps")]
     public string Newprio_low_bps { get; set; }
   }
 }

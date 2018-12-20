@@ -30,11 +30,13 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_WPSMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_WPSMode")]
     public string NewX_AVM_DE_WPSMode { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_WPSStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_WPSStatus")]
     public string NewX_AVM_DE_WPSStatus { get; set; }
   }
 }

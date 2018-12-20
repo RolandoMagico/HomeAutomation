@@ -74,9 +74,9 @@ namespace FritzControl.Tr064.ServiceHandling
     }
 
     /// <summary>
-    /// Gets the arguments for the <see cref="Action"/>.
+    /// Gets or sets the arguments for the <see cref="Action"/>.
     /// </summary>
-    public Dictionary<string, object> Arguments { get; private set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> Arguments { get; set; } = new Dictionary<string, object>();
 
     /// <summary>
     /// Gets or sets the service.

@@ -30,36 +30,43 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnable")]
     public bool NewEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewType")]
     public string NewType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewNumber.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewNumber")]
     public string NewNumber { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDeflectionToNumber.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDeflectionToNumber")]
     public string NewDeflectionToNumber { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMode")]
     public string NewMode { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewOutgoing.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewOutgoing")]
     public string NewOutgoing { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPhonebookID.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPhonebookID")]
     public ushort NewPhonebookID { get; set; }
   }
 }

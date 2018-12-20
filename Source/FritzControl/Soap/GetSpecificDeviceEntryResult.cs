@@ -30,26 +30,31 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewActive is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewActive")]
     public bool NewActive { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewName")]
     public string NewName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewModel.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewModel")]
     public string NewModel { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewUpdateAvailable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpdateAvailable")]
     public bool NewUpdateAvailable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpdateSuccessful.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpdateSuccessful")]
     public string NewUpdateSuccessful { get; set; }
   }
 }

@@ -30,11 +30,13 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewLinkType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLinkType")]
     public string NewLinkType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLinkStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLinkStatus")]
     public string NewLinkStatus { get; set; }
   }
 }

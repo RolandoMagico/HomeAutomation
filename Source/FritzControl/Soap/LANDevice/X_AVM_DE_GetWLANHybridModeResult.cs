@@ -30,46 +30,55 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnable")]
     public bool NewEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewBeaconType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewBeaconType")]
     public string NewBeaconType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewKeyPassphrase.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewKeyPassphrase")]
     public string NewKeyPassphrase { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSSID.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSSID")]
     public string NewSSID { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewBSSID.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewBSSID")]
     public string NewBSSID { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewTrafficMode.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewTrafficMode")]
     public string NewTrafficMode { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewManualSpeed is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewManualSpeed")]
     public bool NewManualSpeed { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMaxSpeedDS.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMaxSpeedDS")]
     public uint NewMaxSpeedDS { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMaxSpeedUS.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMaxSpeedUS")]
     public uint NewMaxSpeedUS { get; set; }
   }
 }

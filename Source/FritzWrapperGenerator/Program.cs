@@ -110,19 +110,23 @@ namespace FritzWrapperGenerator
         this.GenerateFileHeader(filename, targetNamespace, typeName, $"Wrapper for the service {soapService.ServiceType}.", nameof(BaseService));
         using (StreamWriter writer = new StreamWriter(filename, true))
         {
+          writer.WriteLine($@"    /// <inheritdoc/>");
+          writer.WriteLine($@"    protected override string ServiceType {{ get; }} = ""{soapService.ServiceType}"";");
+          writer.WriteLine();
+
           foreach (SoapAction action in soapService.Scpd.Actions)
           {
             writer.WriteLine($"    /// <summary>");
             writer.WriteLine($"    /// Wrapper for the action {action.Name}.");
             writer.WriteLine($"    /// </summary>");
-            List<string> arguments = new List<string>();
-            foreach (Argument argument in action.Arguments.Where(a => a.Direction == Direction.In))
+            List<string> parameters = new List<string>();
+            var inArguments = action.Arguments.Where(a => a.Direction == Direction.In);
+            foreach (Argument argument in inArguments)
             {
-              string argumentName = argument.Name.Replace("-", "_");
-              argumentName = argumentName[0].ToString().ToLower() + argumentName.Substring(1);
-              writer.WriteLine($@"    /// <param name=""{argumentName}"">The SOAP parameter {argument.Name}.</param>");
+              string parameterName = this.ConvertArgumentNameToParameterName(argument.Name);
+              writer.WriteLine($@"    /// <param name=""{parameterName}"">The SOAP parameter {argument.Name}.</param>");
               ServiceStateVariable serviceStateVariable = soapService.Scpd.StateVariables.First(sv => sv.Name == argument.RelatedStateVariable);
-              arguments.Add($"{dataTypeMapping[serviceStateVariable.DataType]} {argumentName}");
+              parameters.Add($"{dataTypeMapping[serviceStateVariable.DataType]} {parameterName}");
             }
 
             string actionName = action.Name.Replace("-", "_");
@@ -146,11 +150,26 @@ namespace FritzWrapperGenerator
               writer.WriteLine($"    /// <returns>The result ({returnType}) of the action.</returns>");
             }
 
-            writer.WriteLine($"    public {returnType} {actionName}({string.Join(", ", arguments)})");
+            writer.WriteLine($"    public {returnType} {actionName}({string.Join(", ", parameters)})");
             writer.WriteLine($"    {{");
+            string secondParameter = string.Empty;
+            if (inArguments.Any())
+            {
+              secondParameter = ", arguments";
+              writer.WriteLine($@"      System.Collections.Generic.Dictionary<string, object> arguments = new System.Collections.Generic.Dictionary<string, object>();");
+              foreach (Argument argument in inArguments)
+              {
+                writer.WriteLine($@"      arguments.Add(""{argument.Name}"", {this.ConvertArgumentNameToParameterName(argument.Name)});");
+              }
+            }
+
             if (outArguments.Any())
             {
-              writer.WriteLine($"      return {defaultReturnValue};");
+              writer.WriteLine($@"      return this.SendRequest<{returnType}>(""{action.Name}""{secondParameter});");
+            }
+            else
+            {
+              writer.WriteLine($@"      this.SendRequest(""{action.Name}""{secondParameter});");
             }
 
             writer.WriteLine($"    }}");
@@ -203,6 +222,7 @@ namespace FritzWrapperGenerator
           }
 
           writer.WriteLine($"    /// </summary>");
+          writer.WriteLine($@"    [System.Xml.Serialization.XmlElement(""{element.Name}"")]");
           writer.WriteLine($"    public {dataTypeMapping[serviceStateVariable.DataType]} {element.Name.Replace("-", "_")} {{ get; set; }}");
           if (element != elements.Last())
           {
@@ -257,6 +277,18 @@ namespace FritzWrapperGenerator
         writer.WriteLine($"  }}");
         writer.WriteLine($"}}");
       }
+    }
+
+    /// <summary>
+    /// Converts an <see cref="Argument"/> name to an C# parameter name.
+    /// </summary>
+    /// <param name="argumentName">The name of the argument</param>
+    /// <returns>The name of the C# parameter.</returns>
+    private string ConvertArgumentNameToParameterName(string argumentName)
+    {
+      string parameterName = argumentName.Replace("-", "_");
+      parameterName = parameterName[0].ToString().ToLower() + parameterName.Substring(1);
+      return parameterName;
     }
   }
 }

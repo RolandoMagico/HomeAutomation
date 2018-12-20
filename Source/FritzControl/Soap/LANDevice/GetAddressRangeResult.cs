@@ -30,11 +30,13 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewMinAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMinAddress")]
     public string NewMinAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMaxAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMaxAddress")]
     public string NewMaxAddress { get; set; }
   }
 }

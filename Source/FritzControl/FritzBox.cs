@@ -82,64 +82,47 @@ namespace FritzControl
     }
 
     /// <summary>
-    /// Loads information about home automation from the device.
+    /// Sends the SOAP request to the fritz box.
     /// </summary>
-    public void LoadHomeAutomationInfo()
+    /// <param name="request">The request data which should be sent.</param>
+    /// <returns>The received response or null if no valid response was received.</returns>
+    public Response SendSoapRequest(Request request)
     {
-      if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:X_AVM-DE_Dect:1", "GetNumberOfDectEntries") is SoapOperation operation)
+      Response result = null;
+      using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, request.Body.Service.ControlUrl))
       {
-        Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
-        Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-        Request request = new Request { Header = clientAuthentification, Body = new Body(operation) };
-        if (this.SendSoapRequest(request) is Response response)
+        if (request.Header.InitialChanllenge == false)
         {
-          if (response.Body.Arguments.ContainsKey("NewNumberOfEntries") && response.Body.Arguments["NewNumberOfEntries"] is ushort numberOfEntries)
-          {
-            if (this.Description.Device.GetSoapOperation("urn:dslforum-org:service:X_AVM-DE_Dect:1", "GetGenericDectEntry") is SoapOperation getGenericDectEntry)
-            {
-              for (int i = 0; i < numberOfEntries; i++)
-              {
-                clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-                request = new Request { Header = clientAuthentification, Body = new Body(getGenericDectEntry) };
-                request.Body.Arguments.Add("NewIndex", i);
-                if (this.SendSoapRequest(request) is Response getGenericDectEntryResponse)
-                {
-                  if ((getGenericDectEntryResponse.Body.Arguments.ContainsKey("NewName") && getGenericDectEntryResponse.Body.Arguments["NewName"] is string name) &&
-                      (getGenericDectEntryResponse.Body.Arguments.ContainsKey("NewModel") && getGenericDectEntryResponse.Body.Arguments["NewModel"] is string model))
-                  {
-                    Log.Info($"Found DECT device. Model: {model}, Name: {name}");
-                  }
-                }
-              }
-            }
-          }
+          request.Header.AuthToken = this.CalcuateAuthToken();
         }
-      }
-    }
 
-    /// <summary>
-    /// Reads all possible date from the fritz box. Only for testing!!!
-    /// </summary>
-    public void ReadAll()
-    {
-      foreach (SoapService service in this.Description.Device.Services)
-      {
-        foreach (SoapAction action in service.Scpd.Actions.Where(action => action.Name.StartsWith("Get")))
+        if (request.Body != null)
         {
-          if (action.Arguments.Any(argument => argument.Direction == Direction.In) == false)
+          httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Body.Service.ServiceType}#{request.Body.Action.Name}");
+        }
+
+        XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
+        request.WriteXml(xmlDocument);
+        httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
+
+        using (HttpResponseMessage response = this.HttpClient.SendAsync(httpRequestMessage).Result)
+        {
+          if (response.StatusCode == HttpStatusCode.OK)
           {
-            SoapOperation operation = new SoapOperation(service, action);
-            Log.Debug($"Starting read of {operation.Service.ServiceId}, {operation.Action.Name}");
-            Header clientAuthentification = new Header { UserId = this.Username, InitialChanllenge = false, AuthToken = this.CalcuateAuthToken() };
-            Request request = new Request { Header = clientAuthentification, Body = new Body(operation) };
-            if (this.SendSoapRequest(request) is Response response)
-            {
-              Log.Debug($"Result from {operation.Service.ServiceId}, {operation.Action.Name}:");
-              Log.Debug(response.XmlContainer.ToString());
-            }
+            result = new Response { Request = request };
+            xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
+            result.ReadXml(xmlDocument);
+          }
+          else
+          {
+            Log.Error($"Status code of response: {response.StatusCode}");
+            Log.Error("Response content:");
+            Log.Error(new StreamReader(response.Content.ReadAsStreamAsync().Result).ReadToEnd());
           }
         }
       }
+
+      return result;
     }
 
     /// <summary>
@@ -210,45 +193,6 @@ namespace FritzControl
           XmlSerializer serializer = new XmlSerializer(typeof(T), defaultNamespace);
           serializer.UnknownNode += (object sender, XmlNodeEventArgs e) => Log.Warn($@"Unknown XML {e.NodeType} ""{e.Name}"" in line {e.LineNumber}, position {e.LinePosition}");
           result = serializer.Deserialize(response.Content.ReadAsStreamAsync().Result) as T;
-        }
-      }
-
-      return result;
-    }
-
-    /// <summary>
-    /// Sends the SOAP request to the fritz box.
-    /// </summary>
-    /// <param name="request">The request data which should be sent.</param>
-    /// <returns>The received response or null if no valid response was received.</returns>
-    private Response SendSoapRequest(Request request)
-    {
-      Response result = null;
-      using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, request.Body.Service.ControlUrl))
-      {
-        if (request.Body != null)
-        {
-          httpRequestMessage.Headers.Add("SOAPACTION", $"{request.Body.Service.ServiceType}#{request.Body.Action.Name}");
-        }
-
-        XDocument xmlDocument = new XDocument(new XDeclaration("1.0", "utf-8", "yes"));
-        request.WriteXml(xmlDocument);
-        httpRequestMessage.Content = new StringContent(xmlDocument.ToString(), Encoding.UTF8, "text/xml");
-
-        using (HttpResponseMessage response = this.HttpClient.SendAsync(httpRequestMessage).Result)
-        {
-          if (response.StatusCode == HttpStatusCode.OK)
-          {
-            result = new Response { Request = request };
-            xmlDocument = XDocument.Load(response.Content.ReadAsStreamAsync().Result);
-            result.ReadXml(xmlDocument);
-          }
-          else
-          {
-            Log.Error($"Status code of response: {response.StatusCode}");
-            Log.Error("Response content:");
-            Log.Error(new StreamReader(response.Content.ReadAsStreamAsync().Result).ReadToEnd());
-          }
         }
       }
 

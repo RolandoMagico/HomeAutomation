@@ -30,41 +30,49 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewConfigRight.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewConfigRight")]
     public string NewConfigRight { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewAppRight.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAppRight")]
     public string NewAppRight { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewNasRight.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewNasRight")]
     public string NewNasRight { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPhoneRight.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPhoneRight")]
     public string NewPhoneRight { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDialRight.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDialRight")]
     public string NewDialRight { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewHomeautoRight.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewHomeautoRight")]
     public string NewHomeautoRight { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewInternetRights is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInternetRights")]
     public bool NewInternetRights { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewAccessFromInternet is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAccessFromInternet")]
     public bool NewAccessFromInternet { get; set; }
   }
 }

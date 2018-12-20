@@ -30,51 +30,61 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnable")]
     public bool NewEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewStatus")]
     public string NewStatus { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewType")]
     public string NewType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDestIPAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDestIPAddress")]
     public string NewDestIPAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDestSubnetMask.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDestSubnetMask")]
     public string NewDestSubnetMask { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSourceIPAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSourceIPAddress")]
     public string NewSourceIPAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSourceSubnetMask.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSourceSubnetMask")]
     public string NewSourceSubnetMask { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewGatewayIPAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewGatewayIPAddress")]
     public string NewGatewayIPAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewInterface.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInterface")]
     public string NewInterface { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewForwardingMetric.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewForwardingMetric")]
     public int NewForwardingMetric { get; set; }
   }
 }

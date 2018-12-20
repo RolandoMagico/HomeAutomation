@@ -30,11 +30,13 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_DisconnectPreventionEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DisconnectPreventionEnable")]
     public bool NewX_AVM_DE_DisconnectPreventionEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_DisconnectPreventionHour.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_DisconnectPreventionHour")]
     public ushort NewX_AVM_DE_DisconnectPreventionHour { get; set; }
   }
 }

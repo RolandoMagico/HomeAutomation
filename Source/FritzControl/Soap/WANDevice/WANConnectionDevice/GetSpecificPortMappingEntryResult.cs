@@ -30,26 +30,31 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewInternalPort.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInternalPort")]
     public ushort NewInternalPort { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewInternalClient.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInternalClient")]
     public string NewInternalClient { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnabled is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnabled")]
     public bool NewEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPortMappingDescription.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPortMappingDescription")]
     public string NewPortMappingDescription { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLeaseDuration.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLeaseDuration")]
     public uint NewLeaseDuration { get; set; }
   }
 }

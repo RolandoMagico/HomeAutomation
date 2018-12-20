@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewFTPWANPort.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewFTPWANPort")]
     public ushort NewFTPWANPort { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewFTPWANLifetime.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewFTPWANLifetime")]
     public uint NewFTPWANLifetime { get; set; }
   }
 }

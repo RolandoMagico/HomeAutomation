@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_AnonymousLoginEnabled is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_AnonymousLoginEnabled")]
     public bool NewX_AVM_DE_AnonymousLoginEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_ButtonLoginEnabled is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_ButtonLoginEnabled")]
     public bool NewX_AVM_DE_ButtonLoginEnabled { get; set; }
   }
 }

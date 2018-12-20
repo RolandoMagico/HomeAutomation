@@ -30,26 +30,31 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_ClientUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_ClientUsername")]
     public string NewX_AVM_DE_ClientUsername { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_ClientRegistrar.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_ClientRegistrar")]
     public string NewX_AVM_DE_ClientRegistrar { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_ClientRegistrarPort.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_ClientRegistrarPort")]
     public ushort NewX_AVM_DE_ClientRegistrarPort { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_PhoneName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_PhoneName")]
     public string NewX_AVM_DE_PhoneName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_OutGoingNumber.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_OutGoingNumber")]
     public string NewX_AVM_DE_OutGoingNumber { get; set; }
   }
 }

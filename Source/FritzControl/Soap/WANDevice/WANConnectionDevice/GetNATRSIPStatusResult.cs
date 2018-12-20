@@ -30,11 +30,13 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewRSIPAvailable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewRSIPAvailable")]
     public bool NewRSIPAvailable { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewNATEnabled is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewNATEnabled")]
     public bool NewNATEnabled { get; set; }
   }
 }

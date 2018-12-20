@@ -30,11 +30,13 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewTotalPacketsSent.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewTotalPacketsSent")]
     public uint NewTotalPacketsSent { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewTotalPacketsReceived.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewTotalPacketsReceived")]
     public uint NewTotalPacketsReceived { get; set; }
   }
 }

@@ -30,76 +30,91 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnable")]
     public bool NewEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewStatus")]
     public string NewStatus { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDataPath.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDataPath")]
     public string NewDataPath { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpstreamCurrRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpstreamCurrRate")]
     public int NewUpstreamCurrRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDownstreamCurrRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDownstreamCurrRate")]
     public uint NewDownstreamCurrRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpstreamMaxRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpstreamMaxRate")]
     public uint NewUpstreamMaxRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDownstreamMaxRate.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDownstreamMaxRate")]
     public uint NewDownstreamMaxRate { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpstreamNoiseMargin.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpstreamNoiseMargin")]
     public uint NewUpstreamNoiseMargin { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDownstreamNoiseMargin.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDownstreamNoiseMargin")]
     public uint NewDownstreamNoiseMargin { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpstreamAttenuation.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpstreamAttenuation")]
     public uint NewUpstreamAttenuation { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDownstreamAttenuation.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDownstreamAttenuation")]
     public uint NewDownstreamAttenuation { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATURVendor.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATURVendor")]
     public string NewATURVendor { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATURCountry.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATURCountry")]
     public string NewATURCountry { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUpstreamPower.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpstreamPower")]
     public ushort NewUpstreamPower { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewDownstreamPower.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewDownstreamPower")]
     public ushort NewDownstreamPower { get; set; }
   }
 }

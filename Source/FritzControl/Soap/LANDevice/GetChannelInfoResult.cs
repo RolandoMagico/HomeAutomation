@@ -30,11 +30,13 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewChannel.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewChannel")]
     public byte NewChannel { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPossibleChannels.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPossibleChannels")]
     public string NewPossibleChannels { get; set; }
   }
 }

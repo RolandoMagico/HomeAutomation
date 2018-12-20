@@ -30,76 +30,91 @@ namespace FritzControl.Soap.WANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewReceiveBlocks.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewReceiveBlocks")]
     public uint NewReceiveBlocks { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewTransmitBlocks.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewTransmitBlocks")]
     public uint NewTransmitBlocks { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewCellDelin.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewCellDelin")]
     public uint NewCellDelin { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLinkRetrain.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLinkRetrain")]
     public uint NewLinkRetrain { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewInitErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInitErrors")]
     public uint NewInitErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewInitTimeouts.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInitTimeouts")]
     public uint NewInitTimeouts { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLossOfFraming.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLossOfFraming")]
     public uint NewLossOfFraming { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewErroredSecs.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewErroredSecs")]
     public uint NewErroredSecs { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewSeverelyErroredSecs.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewSeverelyErroredSecs")]
     public uint NewSeverelyErroredSecs { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewFECErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewFECErrors")]
     public uint NewFECErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATUCFECErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATUCFECErrors")]
     public uint NewATUCFECErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewHECErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewHECErrors")]
     public uint NewHECErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATUCHECErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATUCHECErrors")]
     public uint NewATUCHECErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewCRCErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewCRCErrors")]
     public uint NewCRCErrors { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewATUCCRCErrors.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewATUCCRCErrors")]
     public uint NewATUCCRCErrors { get; set; }
   }
 }

@@ -30,21 +30,25 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewAssociatedDeviceIPAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAssociatedDeviceIPAddress")]
     public string NewAssociatedDeviceIPAddress { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewAssociatedDeviceAuthState is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewAssociatedDeviceAuthState")]
     public bool NewAssociatedDeviceAuthState { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Speed.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Speed")]
     public ushort NewX_AVM_DE_Speed { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_SignalStrength.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_SignalStrength")]
     public byte NewX_AVM_DE_SignalStrength { get; set; }
   }
 }

@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_CGI.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_CGI")]
     public string NewX_AVM_DE_CGI { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_SessionID.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_SessionID")]
     public string NewX_AVM_DE_SessionID { get; set; }
   }
 }

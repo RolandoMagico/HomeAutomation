@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_CurrentUsername")]
     public string NewX_AVM_DE_CurrentUsername { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_CurrentUserRights.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_CurrentUserRights")]
     public string NewX_AVM_DE_CurrentUserRights { get; set; }
   }
 }

@@ -30,16 +30,19 @@ namespace FritzControl.Soap.WANDevice.WANConnectionDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewConnectionStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewConnectionStatus")]
     public string NewConnectionStatus { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLastConnectionError.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLastConnectionError")]
     public string NewLastConnectionError { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUptime.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUptime")]
     public uint NewUptime { get; set; }
   }
 }

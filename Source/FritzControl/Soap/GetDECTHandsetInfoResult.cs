@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewHandsetName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewHandsetName")]
     public string NewHandsetName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewPhonebookID.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewPhonebookID")]
     public ushort NewPhonebookID { get; set; }
   }
 }

@@ -30,11 +30,13 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewNightControl.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewNightControl")]
     public string NewNightControl { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewNightTimeControlNoForcedOff is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewNightTimeControlNoForcedOff")]
     public bool NewNightTimeControlNoForcedOff { get; set; }
   }
 }

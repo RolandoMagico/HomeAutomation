@@ -30,16 +30,19 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnable")]
     public bool NewEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUsername")]
     public string NewUsername { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_NetworkAccessReadOnly is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_NetworkAccessReadOnly")]
     public bool NewX_AVM_DE_NetworkAccessReadOnly { get; set; }
   }
 }

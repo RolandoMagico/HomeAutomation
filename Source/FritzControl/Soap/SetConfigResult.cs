@@ -30,16 +30,19 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets the SOAP argument NewState.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewState")]
     public string NewState { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewToken.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewToken")]
     public string NewToken { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewMethods.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMethods")]
     public string NewMethods { get; set; }
   }
 }

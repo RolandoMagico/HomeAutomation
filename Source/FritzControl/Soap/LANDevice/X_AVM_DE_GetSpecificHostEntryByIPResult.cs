@@ -30,56 +30,67 @@ namespace FritzControl.Soap.LANDevice
     /// <summary>
     /// Gets or sets the SOAP argument NewMACAddress.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewMACAddress")]
     public string NewMACAddress { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewActive is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewActive")]
     public bool NewActive { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewHostName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewHostName")]
     public string NewHostName { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewInterfaceType.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewInterfaceType")]
     public string NewInterfaceType { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Port.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Port")]
     public uint NewX_AVM_DE_Port { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Speed.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Speed")]
     public uint NewX_AVM_DE_Speed { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewX_AVM-DE_UpdateAvailable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_UpdateAvailable")]
     public bool NewX_AVM_DE_UpdateAvailable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateSuccessful.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_UpdateSuccessful")]
     public string NewX_AVM_DE_UpdateSuccessful { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_InfoURL.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_InfoURL")]
     public string NewX_AVM_DE_InfoURL { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_Model.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_Model")]
     public string NewX_AVM_DE_Model { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_URL.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_URL")]
     public string NewX_AVM_DE_URL { get; set; }
   }
 }

@@ -30,11 +30,13 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewUpgradeAvailable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUpgradeAvailable")]
     public bool NewUpgradeAvailable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewX_AVM-DE_UpdateState.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewX_AVM-DE_UpdateState")]
     public string NewX_AVM_DE_UpdateState { get; set; }
   }
 }

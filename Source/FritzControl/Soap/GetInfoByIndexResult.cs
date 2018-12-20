@@ -30,36 +30,43 @@ namespace FritzControl.Soap
     /// <summary>
     /// Gets or sets a value indicating whether the SOAP argument NewEnable is set or not.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewEnable")]
     public bool NewEnable { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewStatus.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewStatus")]
     public string NewStatus { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewLastConnect.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewLastConnect")]
     public string NewLastConnect { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUrl.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUrl")]
     public string NewUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewServiceId.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewServiceId")]
     public string NewServiceId { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewUsername.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewUsername")]
     public string NewUsername { get; set; }
 
     /// <summary>
     /// Gets or sets the SOAP argument NewName.
     /// </summary>
+    [System.Xml.Serialization.XmlElement("NewName")]
     public string NewName { get; set; }
   }
 }
