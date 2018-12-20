@@ -63,7 +63,7 @@ namespace FritzControl.Tr064
     /// <summary>
     /// Gets or sets the Service Control Protocol Description (SCPD).
     /// </summary>
-    [XmlIgnore]
+    [XmlElement]
     public ServiceControlProtocolDescription Scpd { get; set; }
 
     /// <inheritdoc/>
