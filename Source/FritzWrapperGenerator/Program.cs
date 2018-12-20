@@ -62,10 +62,12 @@ namespace FritzWrapperGenerator
     {
       FritzBox fritzBox = new FritzBox();
       fritzBox.Connect();
-
       fileHeader = File.ReadAllText("FileHeader.txt");
       string targetDirectory = Path.GetFullPath(Path.Combine(Assembly.GetEntryAssembly().Location, "./../../../../../FritzControl/Soap"));
       new Program().GenerateServiceWrapper(targetDirectory, "FritzControl.Soap", fritzBox.Description.Device);
+
+      // Just for testing: Serialize current description to XML
+      // new System.Xml.Serialization.XmlSerializer(fritzBox.Description.GetType()).Serialize(new StreamWriter("Description.xml"), fritzBox.Description);
     }
 
     /// <summary>
